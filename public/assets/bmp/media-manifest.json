@@ -1,0 +1,1310 @@
+[
+ {
+  "id": "products/long-gowns/bmp-lg-2-1",
+  "product": "BMP LG 2",
+  "slug": "bmp-lg-2",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/long-gowns/bmp-lg-2-main.jpg)",
+  "orientation": "portrait",
+  "width": 1684,
+  "height": 1800,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/bmp-lg-1-1",
+  "product": "BMP LG 1",
+  "slug": "bmp-lg-1",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/long-gowns/bmp-lg-1-main.jpg)",
+  "orientation": "portrait",
+  "width": 720,
+  "height": 1280,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/bmp-lg-1-2",
+  "product": "BMP LG 1",
+  "slug": "bmp-lg-1",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/long-gowns/bmp-lg-1-alt.jpg)",
+  "orientation": "portrait",
+  "width": 800,
+  "height": 1280,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/bmp-lg-6-1",
+  "product": "BMP LG 6",
+  "slug": "bmp-lg-6",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/long-gowns/bmp-lg-6-main.jpg)",
+  "orientation": "portrait",
+  "width": 640,
+  "height": 960,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/bmp-lg-6-2",
+  "product": "BMP LG 6",
+  "slug": "bmp-lg-6",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/long-gowns/bmp-lg-6-alt.jpg)",
+  "orientation": "portrait",
+  "width": 540,
+  "height": 960,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/bmp-lg-8-1",
+  "product": "BMP LG 8",
+  "slug": "bmp-lg-8",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/long-gowns/bmp-lg-8-main.jpg)",
+  "orientation": "portrait",
+  "width": 720,
+  "height": 1280,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/bmp-lg-3-1",
+  "product": "BMP LG 3",
+  "slug": "bmp-lg-3",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/long-gowns/bmp-lg-3-main.jpg)",
+  "orientation": "portrait",
+  "width": 720,
+  "height": 1280,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/bmp-lg-5-1",
+  "product": "BMP LG 5",
+  "slug": "bmp-lg-5",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/long-gowns/bmp-lg-5-main.jpg)",
+  "orientation": "portrait",
+  "width": 540,
+  "height": 960,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/bmp-lg-7-1",
+  "product": "BMP LG 7",
+  "slug": "bmp-lg-7",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/long-gowns/bmp-lg-7-main.jpg)",
+  "orientation": "portrait",
+  "width": 720,
+  "height": 1280,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/bmp-lg-9-1",
+  "product": "BMP LG 9",
+  "slug": "bmp-lg-9",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/long-gowns/bmp-lg-9-main.jpg)",
+  "orientation": "portrait",
+  "width": 720,
+  "height": 1280,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/bmp-lg-10-1",
+  "product": "BMP LG 10",
+  "slug": "bmp-lg-10",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/long-gowns/bmp-lg-10-main.jpg)",
+  "orientation": "portrait",
+  "width": 809,
+  "height": 1280,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/bmp-lg-11-1",
+  "product": "BMP LG 11",
+  "slug": "bmp-lg-11",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/long-gowns/bmp-lg-11-main.jpg)",
+  "orientation": "portrait",
+  "width": 720,
+  "height": 1280,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/bmp-lg-4-1",
+  "product": "BMP LG 4",
+  "slug": "bmp-lg-4",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/long-gowns/bmp-lg-4-main.jpg)",
+  "orientation": "portrait",
+  "width": 1024,
+  "height": 1536,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/bmp-lg-4-2",
+  "product": "BMP LG 4",
+  "slug": "bmp-lg-4",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/long-gowns/bmp-lg-4-alt.jpg)",
+  "orientation": "portrait",
+  "width": 1013,
+  "height": 1800,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/short-gowns/bmp-sg-1-1",
+  "product": "BMP SG 1",
+  "slug": "bmp-sg-1",
+  "category": "short-gowns",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/short-gowns/bmp-sg-1-main.jpg)",
+  "orientation": "portrait",
+  "width": 720,
+  "height": 1280,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/short-gowns/bmp-sg-2-1",
+  "product": "BMP SG 2",
+  "slug": "bmp-sg-2",
+  "category": "short-gowns",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/short-gowns/bmp-sg-2-main.jpg)",
+  "orientation": "portrait",
+  "width": 1013,
+  "height": 1800,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/short-gowns/bmg-sg-2-1",
+  "product": "BMG SG 2",
+  "slug": "bmg-sg-2",
+  "category": "short-gowns",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/short-gowns/bmg-sg-2-main.jpg)",
+  "orientation": "portrait",
+  "width": 720,
+  "height": 1280,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/short-gowns/bmp-sg-3-1",
+  "product": "BMP SG 3",
+  "slug": "bmp-sg-3",
+  "category": "short-gowns",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/short-gowns/bmp-sg-3-main.jpg)",
+  "orientation": "portrait",
+  "width": 797,
+  "height": 1280,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/short-gowns/bmp-sg-4-1",
+  "product": "BMP SG 4",
+  "slug": "bmp-sg-4",
+  "category": "short-gowns",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/short-gowns/bmp-sg-4-main.jpg)",
+  "orientation": "portrait",
+  "width": 833,
+  "height": 1280,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/skirts-and-tops/bmp-st-2-1",
+  "product": "BMP ST 2",
+  "slug": "bmp-st-2",
+  "category": "skirts-and-tops",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/skirts-and-tops/bmp-st-2-main.jpg)",
+  "orientation": "portrait",
+  "width": 720,
+  "height": 960,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/skirts-and-tops/bmp-st-1-1",
+  "product": "BMP ST 1",
+  "slug": "bmp-st-1",
+  "category": "skirts-and-tops",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/skirts-and-tops/bmp-st-1-main.jpg)",
+  "orientation": "portrait",
+  "width": 718,
+  "height": 960,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/pants-and-tops/bmp-pt-2-1",
+  "product": "BMP PT 2",
+  "slug": "bmp-pt-2",
+  "category": "pants-and-tops",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/pants-and-tops/bmp-pt-2-main.jpg)",
+  "orientation": "portrait",
+  "width": 450,
+  "height": 600,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/pants-and-tops/bmp-pt-1-1",
+  "product": "BMP PT 1",
+  "slug": "bmp-pt-1",
+  "category": "pants-and-tops",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/pants-and-tops/bmp-pt-1-main.jpg)",
+  "orientation": "portrait",
+  "width": 983,
+  "height": 1800,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/tops/bmp-t-17-1",
+  "product": "BMP T 17",
+  "slug": "bmp-t-17",
+  "category": "tops",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/tops/bmp-t-17-main.jpg)",
+  "orientation": "portrait",
+  "width": 720,
+  "height": 960,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/tops/bmp-t-16-1",
+  "product": "BMP T 16",
+  "slug": "bmp-t-16",
+  "category": "tops",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/tops/bmp-t-16-main.jpg)",
+  "orientation": "portrait",
+  "width": 720,
+  "height": 960,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/tops/bmp-t-15-1",
+  "product": "BMP T 15",
+  "slug": "bmp-t-15",
+  "category": "tops",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/tops/bmp-t-15-main.jpg)",
+  "orientation": "portrait",
+  "width": 827,
+  "height": 910,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/tops/bmp-t-14-1",
+  "product": "BMP T 14",
+  "slug": "bmp-t-14",
+  "category": "tops",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/tops/bmp-t-14-main.jpg)",
+  "orientation": "portrait",
+  "width": 828,
+  "height": 1015,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/tops/bmp-t-14-2",
+  "product": "BMP T 14",
+  "slug": "bmp-t-14",
+  "category": "tops",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/tops/bmp-t-14-white.jpg)",
+  "orientation": "portrait",
+  "width": 720,
+  "height": 960,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/tops/bmp-t-13-1",
+  "product": "BMP T 13",
+  "slug": "bmp-t-13",
+  "category": "tops",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/tops/bmp-t-13-main.jpg)",
+  "orientation": "portrait",
+  "width": 720,
+  "height": 960,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/tops/bmp-t-12-1",
+  "product": "BMP T 12",
+  "slug": "bmp-t-12",
+  "category": "tops",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/tops/bmp-t-12-main.jpg)",
+  "orientation": "portrait",
+  "width": 690,
+  "height": 960,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/tops/bmp-t-11-1",
+  "product": "BMP T 11",
+  "slug": "bmp-t-11",
+  "category": "tops",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/tops/bmp-t-11-main.jpg)",
+  "orientation": "portrait",
+  "width": 1129,
+  "height": 1782,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/tops/bmp-t-10-1",
+  "product": "BMP T 10",
+  "slug": "bmp-t-10",
+  "category": "tops",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/tops/bmp-t-10-main.jpg)",
+  "orientation": "portrait",
+  "width": 720,
+  "height": 960,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/tops/bmp-t-9-1",
+  "product": "BMP T 9",
+  "slug": "bmp-t-9",
+  "category": "tops",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/tops/bmp-t-9-main.jpg)",
+  "orientation": "portrait",
+  "width": 727,
+  "height": 819,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/tops/bmp-t-8-1",
+  "product": "BMP T 8",
+  "slug": "bmp-t-8",
+  "category": "tops",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/tops/bmp-t-8-main.jpg)",
+  "orientation": "portrait",
+  "width": 718,
+  "height": 960,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/tops/bmp-t-8-2",
+  "product": "BMP T 8",
+  "slug": "bmp-t-8",
+  "category": "tops",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/tops/bmp-t-8-yellow.jpg)",
+  "orientation": "portrait",
+  "width": 718,
+  "height": 960,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/tops/bmp-t-8-3",
+  "product": "BMP T 8",
+  "slug": "bmp-t-8",
+  "category": "tops",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/tops/bmp-t-8-red.jpg)",
+  "orientation": "portrait",
+  "width": 540,
+  "height": 960,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/tops/bmp-t-8-4",
+  "product": "BMP T 8",
+  "slug": "bmp-t-8",
+  "category": "tops",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/tops/bmp-t-8-pink.jpg)",
+  "orientation": "portrait",
+  "width": 720,
+  "height": 960,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/tops/bmp-t-8-5",
+  "product": "BMP T 8",
+  "slug": "bmp-t-8",
+  "category": "tops",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/tops/bmp-t-8-brown.jpg)",
+  "orientation": "portrait",
+  "width": 720,
+  "height": 960,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/tops/bmp-t-7-1",
+  "product": "BMP T 7",
+  "slug": "bmp-t-7",
+  "category": "tops",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/tops/bmp-t-7-main.jpg)",
+  "orientation": "portrait",
+  "width": 514,
+  "height": 960,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/tops/bmp-t-6-1",
+  "product": "BMP T 6",
+  "slug": "bmp-t-6",
+  "category": "tops",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/tops/bmp-t-6-main.jpg)",
+  "orientation": "portrait",
+  "width": 718,
+  "height": 960,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/tops/bmp-t-5-1",
+  "product": "BMP T 5",
+  "slug": "bmp-t-5",
+  "category": "tops",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/tops/bmp-t-5-main.jpg)",
+  "orientation": "portrait",
+  "width": 720,
+  "height": 861,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/tops/bmp-t-4-1",
+  "product": "BMP T 4",
+  "slug": "bmp-t-4",
+  "category": "tops",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/tops/bmp-t-4-main.jpg)",
+  "orientation": "portrait",
+  "width": 718,
+  "height": 960,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/tops/bmp-t-3-1",
+  "product": "BMP T 3",
+  "slug": "bmp-t-3",
+  "category": "tops",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/tops/bmp-t-3-main.jpg)",
+  "orientation": "portrait",
+  "width": 1350,
+  "height": 1800,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/tops/bmp-t-2-1",
+  "product": "BMP T 2",
+  "slug": "bmp-t-2",
+  "category": "tops",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/tops/bmp-t-2-main.jpg)",
+  "orientation": "portrait",
+  "width": 1013,
+  "height": 1800,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/tops/bmp-t-1-1",
+  "product": "BMP T 1",
+  "slug": "bmp-t-1",
+  "category": "tops",
+  "type": "image",
+  "source": "https://bmpclothings.com (products/tops/bmp-t-1-main.jpg)",
+  "orientation": "portrait",
+  "width": 1350,
+  "height": 1800,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/velvet-gold-cut-out-gown-1",
+  "product": "Velvet & Gold Cut-Out Gown",
+  "slug": "velvet-gold-cut-out-gown",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "owner photo local/80kl.jpg#0",
+  "orientation": "portrait",
+  "width": 636,
+  "height": 1278,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/velvet-gold-cut-out-gown-2",
+  "product": "Velvet & Gold Cut-Out Gown",
+  "slug": "velvet-gold-cut-out-gown",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "owner photo local/80kl.jpg#1",
+  "orientation": "portrait",
+  "width": 636,
+  "height": 1278,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/white-halter-ruffle-gown-1",
+  "product": "White Halter Ruffle Gown",
+  "slug": "white-halter-ruffle-gown",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "owner photo local/80k.jpg",
+  "orientation": "portrait",
+  "width": 608,
+  "height": 1080,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/jumpsuits/cobalt-draped-jumpsuit-1",
+  "product": "Cobalt Draped Jumpsuit",
+  "slug": "cobalt-draped-jumpsuit",
+  "category": "jumpsuits",
+  "type": "image",
+  "source": "owner photo local/80kr.jpg#0",
+  "orientation": "portrait",
+  "width": 636,
+  "height": 1278,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/jumpsuits/cobalt-draped-jumpsuit-2",
+  "product": "Cobalt Draped Jumpsuit",
+  "slug": "cobalt-draped-jumpsuit",
+  "category": "jumpsuits",
+  "type": "image",
+  "source": "owner photo local/80kr.jpg#1",
+  "orientation": "portrait",
+  "width": 636,
+  "height": 1278,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/cobalt-mesh-sleeve-draped-gown-1",
+  "product": "Cobalt Mesh-Sleeve Draped Gown",
+  "slug": "cobalt-mesh-sleeve-draped-gown",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "owner photo local/40k.jpg",
+  "orientation": "portrait",
+  "width": 720,
+  "height": 1280,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/pants-and-tops/white-wide-leg-floral-bustier-set-1",
+  "product": "White Wide-Leg & Floral Bustier Set",
+  "slug": "white-wide-leg-floral-bustier-set",
+  "category": "pants-and-tops",
+  "type": "image",
+  "source": "owner photo local/40kt.jpg",
+  "orientation": "portrait",
+  "width": 720,
+  "height": 1280,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/bronze-draped-keyhole-gown-1",
+  "product": "Bronze Draped Keyhole Gown",
+  "slug": "bronze-draped-keyhole-gown",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "owner photo local/35kwithinner.jpg",
+  "orientation": "portrait",
+  "width": 608,
+  "height": 1080,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/ivory-cowl-mermaid-gown-1",
+  "product": "Ivory Cowl Mermaid Gown",
+  "slug": "ivory-cowl-mermaid-gown",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "owner photo local/35ke.jpg",
+  "orientation": "portrait",
+  "width": 681,
+  "height": 1280,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/midnight-cowl-mermaid-gown-1",
+  "product": "Midnight Cowl Mermaid Gown",
+  "slug": "midnight-cowl-mermaid-gown",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "owner photo local/35ki.jpg",
+  "orientation": "portrait",
+  "width": 720,
+  "height": 1280,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/white-off-shoulder-drape-gown-1",
+  "product": "White Off-Shoulder Drape Gown",
+  "slug": "white-off-shoulder-drape-gown",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "owner photo local/35kr.jpg",
+  "orientation": "portrait",
+  "width": 720,
+  "height": 1280,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/fuchsia-print-mermaid-gown-1",
+  "product": "Fuchsia & Print Mermaid Gown",
+  "slug": "fuchsia-print-mermaid-gown",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "owner photo local/35kt.jpg",
+  "orientation": "portrait",
+  "width": 720,
+  "height": 1280,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/short-gowns/cerise-rosette-mini-dress-1",
+  "product": "Cerise Rosette Mini Dress",
+  "slug": "cerise-rosette-mini-dress",
+  "category": "short-gowns",
+  "type": "image",
+  "source": "owner photo local/35op.jpg",
+  "orientation": "portrait",
+  "width": 720,
+  "height": 1280,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/ruched-cut-out-column-gown-1",
+  "product": "Ruched Cut-Out Column Gown",
+  "slug": "ruched-cut-out-column-gown",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "owner photo local/30kl.jpg",
+  "orientation": "portrait",
+  "width": 720,
+  "height": 1280,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/ruched-cut-out-column-gown-2",
+  "product": "Ruched Cut-Out Column Gown",
+  "slug": "ruched-cut-out-column-gown",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "owner photo local/30ky.jpg",
+  "orientation": "portrait",
+  "width": 720,
+  "height": 1280,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/ruched-cut-out-column-gown-3",
+  "product": "Ruched Cut-Out Column Gown",
+  "slug": "ruched-cut-out-column-gown",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "owner photo local/30kp.jpg",
+  "orientation": "portrait",
+  "width": 720,
+  "height": 1280,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/rust-ruched-wrap-maxi-1",
+  "product": "Rust Ruched Wrap Maxi",
+  "slug": "rust-ruched-wrap-maxi",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "owner photo local/30kqe.jpg#0",
+  "orientation": "portrait",
+  "width": 636,
+  "height": 1278,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/rust-ruched-wrap-maxi-2",
+  "product": "Rust Ruched Wrap Maxi",
+  "slug": "rust-ruched-wrap-maxi",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "owner photo local/30kqe.jpg#1",
+  "orientation": "portrait",
+  "width": 636,
+  "height": 1278,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/red-cut-out-twist-maxi-1",
+  "product": "Red Cut-Out Twist Maxi",
+  "slug": "red-cut-out-twist-maxi",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "owner photo local/30ke.jpg",
+  "orientation": "portrait",
+  "width": 720,
+  "height": 1280,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/red-twist-front-slit-maxi-1",
+  "product": "Red Twist-Front Slit Maxi",
+  "slug": "red-twist-front-slit-maxi",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "owner photo local/30kq.jpg",
+  "orientation": "portrait",
+  "width": 720,
+  "height": 1280,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/turquoise-off-shoulder-ruched-maxi-1",
+  "product": "Turquoise Off-Shoulder Ruched Maxi",
+  "slug": "turquoise-off-shoulder-ruched-maxi",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "owner photo local/30k.jpg",
+  "orientation": "portrait",
+  "width": 608,
+  "height": 1080,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/turquoise-cut-out-pleated-maxi-1",
+  "product": "Turquoise Cut-Out Pleated Maxi",
+  "slug": "turquoise-cut-out-pleated-maxi",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "owner photo local/30ku.jpg",
+  "orientation": "portrait",
+  "width": 720,
+  "height": 1280,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/royal-blue-plunge-maxi-1",
+  "product": "Royal Blue Plunge Maxi",
+  "slug": "royal-blue-plunge-maxi",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "owner photo local/30km.jpg#0",
+  "orientation": "portrait",
+  "width": 636,
+  "height": 1278,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/royal-blue-plunge-maxi-2",
+  "product": "Royal Blue Plunge Maxi",
+  "slug": "royal-blue-plunge-maxi",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "owner photo local/30km.jpg#1",
+  "orientation": "portrait",
+  "width": 636,
+  "height": 1278,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/white-ruffle-front-maxi-1",
+  "product": "White Ruffle-Front Ruched Maxi",
+  "slug": "white-ruffle-front-maxi",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "owner photo local/30kw.jpg",
+  "orientation": "portrait",
+  "width": 720,
+  "height": 1280,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/polka-dot-long-sleeve-maxi-1",
+  "product": "Polka Dot Long-Sleeve Maxi",
+  "slug": "polka-dot-long-sleeve-maxi",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "owner photo local/30kx.jpg#0",
+  "orientation": "portrait",
+  "width": 636,
+  "height": 1278,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/polka-dot-long-sleeve-maxi-2",
+  "product": "Polka Dot Long-Sleeve Maxi",
+  "slug": "polka-dot-long-sleeve-maxi",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "owner photo local/30kx.jpg#1",
+  "orientation": "portrait",
+  "width": 636,
+  "height": 1278,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/fuchsia-off-shoulder-drape-gown-1",
+  "product": "Fuchsia Off-Shoulder Drape Gown",
+  "slug": "fuchsia-off-shoulder-drape-gown",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "owner photo local/30kz.jpg#0",
+  "orientation": "portrait",
+  "width": 636,
+  "height": 1278,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/fuchsia-off-shoulder-drape-gown-2",
+  "product": "Fuchsia Off-Shoulder Drape Gown",
+  "slug": "fuchsia-off-shoulder-drape-gown",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "owner photo local/30kz.jpg#1",
+  "orientation": "portrait",
+  "width": 636,
+  "height": 1278,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/blue-print-one-shoulder-maxi-1",
+  "product": "Blue Print One-Shoulder Maxi",
+  "slug": "blue-print-one-shoulder-maxi",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "owner photo local/30kk.jpg",
+  "orientation": "portrait",
+  "width": 608,
+  "height": 1080,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/short-gowns/black-lace-sleeve-ruched-mini-1",
+  "product": "Black Lace-Sleeve Ruched Mini",
+  "slug": "black-lace-sleeve-ruched-mini",
+  "category": "short-gowns",
+  "type": "image",
+  "source": "owner photo local/30ka.jpg#1",
+  "orientation": "portrait",
+  "width": 419,
+  "height": 1278,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/short-gowns/black-lace-sleeve-ruched-mini-2",
+  "product": "Black Lace-Sleeve Ruched Mini",
+  "slug": "black-lace-sleeve-ruched-mini",
+  "category": "short-gowns",
+  "type": "image",
+  "source": "owner photo local/30ka.jpg#0",
+  "orientation": "portrait",
+  "width": 422,
+  "height": 1278,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/short-gowns/black-lace-sleeve-ruched-mini-3",
+  "product": "Black Lace-Sleeve Ruched Mini",
+  "slug": "black-lace-sleeve-ruched-mini",
+  "category": "short-gowns",
+  "type": "image",
+  "source": "owner photo local/30ka.jpg#2",
+  "orientation": "portrait",
+  "width": 423,
+  "height": 1278,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/short-gowns/tiered-strappy-midi-dress-1",
+  "product": "Tiered Strappy Midi Dress",
+  "slug": "tiered-strappy-midi-dress",
+  "category": "short-gowns",
+  "type": "image",
+  "source": "owner photo local/30kr.jpg",
+  "orientation": "portrait",
+  "width": 608,
+  "height": 1080,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/jumpsuits/violet-cut-out-jumpsuit-1",
+  "product": "Violet Cut-Out Jumpsuit",
+  "slug": "violet-cut-out-jumpsuit",
+  "category": "jumpsuits",
+  "type": "image",
+  "source": "owner photo local/30ik.jpg",
+  "orientation": "portrait",
+  "width": 608,
+  "height": 1080,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/jumpsuits/red-keyhole-jumpsuit-1",
+  "product": "Red Keyhole Jumpsuit",
+  "slug": "red-keyhole-jumpsuit",
+  "category": "jumpsuits",
+  "type": "image",
+  "source": "owner photo local/30ko.jpg",
+  "orientation": "portrait",
+  "width": 608,
+  "height": 1080,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/short-gowns/colour-block-tiered-mini-1",
+  "product": "Colour-Block Tiered Mini Dress",
+  "slug": "colour-block-tiered-mini",
+  "category": "short-gowns",
+  "type": "image",
+  "source": "owner photo local/25k.jpg",
+  "orientation": "portrait",
+  "width": 685,
+  "height": 1080,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/short-gowns/olive-ruched-bodycon-midi-1",
+  "product": "Olive Ruched Bodycon Midi",
+  "slug": "olive-ruched-bodycon-midi",
+  "category": "short-gowns",
+  "type": "image",
+  "source": "owner photo local/25ke.jpg",
+  "orientation": "portrait",
+  "width": 720,
+  "height": 1280,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/short-gowns/red-ruched-tie-sleeve-mini-1",
+  "product": "Red Ruched Tie-Sleeve Mini",
+  "slug": "red-ruched-tie-sleeve-mini",
+  "category": "short-gowns",
+  "type": "image",
+  "source": "owner photo local/25kj.jpg",
+  "orientation": "portrait",
+  "width": 608,
+  "height": 1080,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/short-gowns/red-sweetheart-ruched-mini-1",
+  "product": "Red Sweetheart Ruched Mini",
+  "slug": "red-sweetheart-ruched-mini",
+  "category": "short-gowns",
+  "type": "image",
+  "source": "owner photo local/25kr.jpg",
+  "orientation": "portrait",
+  "width": 720,
+  "height": 1280,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "brand/campaign-magenta-cowl",
+  "type": "image",
+  "source": "https://bmpclothings.com",
+  "note": "Campaign portrait in a magenta cowl gown",
+  "width": 750,
+  "height": 1125,
+  "usage": [
+   "editorial"
+  ]
+ },
+ {
+  "id": "customers/jane-lagos",
+  "type": "image",
+  "source": "https://bmpclothings.com",
+  "note": "Customer Jane in Lagos",
+  "width": 1163,
+  "height": 1600,
+  "usage": [
+   "editorial"
+  ]
+ },
+ {
+  "id": "video/bmp-hero.mp4",
+  "type": "video",
+  "source": "owner supplied heropage.mp4",
+  "width": 752,
+  "height": 416,
+  "usage": [
+   "hero"
+  ],
+  "notes": "audio stripped; mp4 + webm"
+ }
+]
