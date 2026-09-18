@@ -55,8 +55,10 @@ export default function Gallery({ product: p, focus }) {
               onMouseLeave={() => setZoom(null)}
               data-cursor="Zoom"
             >
+              <Img id={id} alt="" aria-hidden="true" className="gallery-fill" sizes="200px" />
               <Img
                 id={id}
+                className="gallery-img"
                 alt={altText(p, i)}
                 priority={i === 0}
                 sizes="(max-width: 900px) 100vw, 50vw"

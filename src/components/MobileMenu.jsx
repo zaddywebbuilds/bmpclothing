@@ -9,7 +9,7 @@ import { useStore } from '../lib/store'
 import { categories, productBySlug } from '../data/catalog'
 import { site, waLink } from '../data/site'
 
-const FEATURE = 'bmp-lg-11'
+const FEATURE = 'bmp-lg-5'
 
 export default function MobileMenu() {
   const { panel, closePanel } = useStore()

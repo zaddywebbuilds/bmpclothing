@@ -63,7 +63,8 @@
 /* quick view */
 .qv .ov-head { position: absolute; right: 0; top: 0; }
 .qv-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 36px; padding: 24px; }
-.qv-img { aspect-ratio: 3/4; border-radius: var(--r-lg); }
+.qv-img { aspect-ratio: 3/4; max-height: calc(100vh - 80px); border-radius: var(--r-lg); }
+.qv-img > img { object-fit: contain !important; background: radial-gradient(circle at 50% 40%, var(--pink-soft), var(--blush)); }
 .qv-info { display: flex; flex-direction: column; gap: 16px; padding: 28px 12px 12px 0; }
 .qv-price { font-size: 19px; }
 .qv .lede { font-size: 14.5px; }
@@ -135,7 +136,7 @@
 
 @media (max-width: 760px) {
   .qv-grid { grid-template-columns: 1fr; gap: 20px; padding: 16px; }
-  .qv-img { aspect-ratio: 4/5; }
+  .qv-img { aspect-ratio: 4/5; max-height: 56svh; }
   .qv-info { padding: 0 4px 8px; }
   .ov--center .ov-panel { top: auto; bottom: 0; left: 0; width: 100%; max-height: 92vh; border-radius: var(--r-xl) var(--r-xl) 0 0; transform: translateY(100%); opacity: 1; }
   .ov--center.is-open .ov-panel { transform: none; }

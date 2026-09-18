@@ -79,10 +79,8 @@
    "price": 100000,
    "title": "Butter Tulle Train Gown",
    "inStock": true,
-   "pick": true,
    "occasions": [
-    "event-ready",
-    "main-character"
+    "event-ready"
    ],
    "description": "Soft butter-yellow tulle gathered into a sculpted bodice, cut away at the waist and poured into a cathedral-length train. This is the gown for the moment the doors open and every head turns. Made for bridal showers, milestone birthdays and the portrait you will frame.",
    "details": [
@@ -106,9 +104,7 @@
    "price": 100000,
    "title": "Metallic Drape Bodysuit Gown",
    "inStock": true,
-   "pick": true,
    "occasions": [
-    "event-ready",
     "main-character"
    ],
    "description": "A sleek black square-neck bodysuit meets a liquid metallic skirt, draped low at the hips and pooling at the hem. In gold it glows under event lights; in cobalt it is pure drama. Picture the flash of cameras as you step out of the car.",
@@ -145,9 +141,7 @@
    "price": 80000,
    "title": "Midnight Bloom Ball Gown",
    "inStock": true,
-   "pick": true,
    "occasions": [
-    "event-ready",
     "sunday-best"
    ],
    "description": "Dark florals bloom across a fitted long-sleeve bodice before the skirt sweeps out into a full, flowing hem. Elegant, covered and quietly powerful, it moves beautifully as you walk. Wear it to a wedding, a dinner or Sunday service and feel composed from neck to hem.",
@@ -174,7 +168,6 @@
    "title": "Sheer Cape Maxi Gown",
    "inStock": true,
    "occasions": [
-    "event-ready",
     "main-character"
    ],
    "description": "Weightless sheer layers fall from the shoulders like a cape, floating over a fitted inner dress. Every step creates movement, every breeze turns it into a moment. Choose sunshine yellow for a day celebration, black for evening drama or white for pure grace.",
@@ -216,8 +209,7 @@
    "title": "Violet Print Wrap Palazzo",
    "inStock": true,
    "occasions": [
-    "weekend",
-    "dinner-date"
+    "weekend"
    ],
    "description": "A bold violet and white print wraps into a collared, long-sleeve top and flows into sweeping wide legs. It reads like a gown when you stand and moves like freedom when you walk. For brunch dates, travel days and anywhere you want effortless impact.",
    "details": [
@@ -242,7 +234,6 @@
    "title": "Red Ruffle Column Maxi",
    "inStock": true,
    "occasions": [
-    "dinner-date",
     "main-character"
    ],
    "description": "A fitted red column with a one-shoulder neckline and ruffles that trail down the sides. It hugs your shape and flutters as you move, turning a simple walk into a runway. Imagine it against golden-hour light at your next birthday dinner.",
@@ -267,9 +258,9 @@
    "price": 45000,
    "title": "Burgundy Ruched Long-Sleeve Maxi",
    "inStock": true,
+   "pick": true,
    "occasions": [
-    "sunday-best",
-    "dinner-date"
+    "sunday-best"
    ],
    "description": "Rich burgundy texture gathered through the body and finished with long sleeves and a floor-length hem. Refined, covered and flattering at every angle. It is the gown you reach for when you want to look expensive without trying.",
    "details": [
@@ -294,8 +285,7 @@
    "title": "Wine Halter Plunge Maxi",
    "inStock": true,
    "occasions": [
-    "dinner-date",
-    "event-ready"
+    "dinner-date"
    ],
    "description": "Deep wine red, a halter neck and a plunging V that frames the collarbones before the gown falls straight to the floor. Confident and grown, it needs nothing more than statement earrings. Dinner reservations were made for this dress.",
    "details": [
@@ -319,10 +309,8 @@
    "price": 45000,
    "title": "Red Off-Shoulder Pleat Gown",
    "inStock": true,
-   "pick": true,
    "occasions": [
-    "event-ready",
-    "main-character"
+    "event-ready"
    ],
    "description": "An off-shoulder neckline and a ruched, figure-hugging bodice give way to a soft pleated skirt that sways as you move. Red that commands attention, shaped to celebrate your curves. Your next owambe entrance, sorted.",
    "details": [
@@ -346,9 +334,9 @@
    "price": 45000,
    "title": "Sky Blue Bell-Sleeve Maxi",
    "inStock": true,
+   "pick": true,
    "occasions": [
-    "sunday-best",
-    "event-ready"
+    "sunday-best"
    ],
    "description": "Textured sky blue with dramatic bell sleeves and soft ruching through the waist. Fresh, feminine and elegant enough for any celebration. See yourself at a daytime wedding, sleeves catching the breeze.",
    "details": [
@@ -373,8 +361,7 @@
    "title": "Off-Shoulder Ruched Maxi",
    "inStock": true,
    "occasions": [
-    "event-ready",
-    "dinner-date"
+    "event-ready"
    ],
    "description": "A wide off-shoulder neckline, long sleeves and ruching that sculpts the waist and hips. Vivid, confident and endlessly photogenic. It is the dress your friends will ask about before the night is over.",
    "details": [
@@ -410,9 +397,9 @@
    "price": 35000,
    "title": "Bold Spot Shirt Dress",
    "inStock": true,
+   "pick": true,
    "occasions": [
-    "weekend",
-    "everyday-chic"
+    "weekend"
    ],
    "description": "Oversized spots on black, a shirt collar, a cinched waist and a skirt with bounce. Playful, polished and easy to love. Wear it to brunch with block heels, or to the office with a structured bag.",
    "details": [
@@ -447,9 +434,9 @@
    "price": 35000,
    "title": "One-Shoulder Ruffle Bodycon",
    "inStock": true,
+   "pick": true,
    "occasions": [
-    "dinner-date",
-    "main-character"
+    "dinner-date"
    ],
    "description": "Ruched from shoulder to hem with a single bare shoulder and a ruffled, asymmetric hemline. It shows off every curve and flutters when you dance. Made for birthday dinners and nights that end late.",
    "details": [
@@ -484,9 +471,9 @@
    "price": 30000,
    "title": "Long-Sleeve Skater Mini",
    "inStock": true,
+   "pick": true,
    "occasions": [
-    "weekend",
-    "everyday-chic"
+    "weekend"
    ],
    "description": "A fitted long-sleeve bodice and a flared skirt that swings as you walk. Simple, flattering and endlessly wearable, from lunch dates to evening hangouts. Pick your mood: red, black or rich brown.",
    "details": [
@@ -527,8 +514,7 @@
    "title": "Cape-Sleeve Mini Dress",
    "inStock": true,
    "occasions": [
-    "main-character",
-    "dinner-date"
+    "main-character"
    ],
    "description": "A fitted mini with long cape panels that stream from the shoulders to the floor. Short in front, dramatic in motion. This is how you make a birthday entrance without saying a word.",
    "details": [
@@ -568,9 +554,9 @@
    "price": 30000,
    "title": "Ruched Plunge Mini",
    "inStock": true,
+   "pick": true,
    "occasions": [
-    "dinner-date",
-    "weekend"
+    "dinner-date"
    ],
    "description": "Sleeveless, gathered and plunging just enough. This mini hugs your shape and pairs with everything from strappy heels to clean mules. A night-out essential in three bold shades.",
    "details": [
@@ -610,10 +596,8 @@
    "price": 50000,
    "title": "Pastel Tiered Skirt Set",
    "inStock": true,
-   "pick": true,
    "occasions": [
-    "weekend",
-    "sunday-best"
+    "weekend"
    ],
    "description": "A white cut-out crop top paired with a sweeping tiered maxi skirt in soft stripes of pink, lilac, yellow and blue. Sweet, bright and made to be photographed. Picture a garden party, an outdoor brunch or a sunny Sunday.",
    "details": [
@@ -637,8 +621,8 @@
    "price": 45000,
    "title": "White Eyelet Skirt Set",
    "inStock": true,
+   "pick": true,
    "occasions": [
-    "weekend",
     "sunday-best"
    ],
    "description": "Crisp white eyelet texture in a relaxed button shirt and a flared skirt. Clean, fresh and quietly luxurious. Add gold jewellery and a small bag and you are ready for a Saturday lunch in the sun.",
@@ -665,8 +649,7 @@
    "inStock": true,
    "pick": true,
    "occasions": [
-    "dinner-date",
-    "main-character"
+    "dinner-date"
    ],
    "description": "A sculpted one-shoulder top with a trailing scarf detail, paired with high-waist trousers finished with hardware accents. All black, all attitude. The set for the woman who would rather wear trousers to the party and still own it.",
    "details": [
@@ -691,8 +674,7 @@
    "title": "Chartreuse Vest & Trouser Set",
    "inStock": true,
    "occasions": [
-    "everyday-chic",
-    "weekend"
+    "everyday-chic"
    ],
    "description": "A chartreuse vest layered over a crisp white shirt, matched with wide-leg trousers in the same bright shade. Office-smart with a fashion edge. Wear it on Monday and let the compliments start early.",
    "details": [
@@ -717,8 +699,7 @@
    "title": "Red Ruched Bell-Sleeve Top",
    "inStock": true,
    "occasions": [
-    "everyday-chic",
-    "dinner-date"
+    "everyday-chic"
    ],
    "description": "A wrap-effect V-neck in bold red with a ruched drawstring front and flared bell sleeves. Tuck it into leather trousers for dinner or wear it with jeans for an easy day look.",
    "details": [
@@ -742,8 +723,7 @@
    "title": "Black Zip Cut-Out Top",
    "inStock": true,
    "occasions": [
-    "weekend",
-    "everyday-chic"
+    "weekend"
    ],
    "description": "A fitted black top with a front zip and cut-out detailing. Edgy and versatile, it travels well from city strolls to evening plans.",
    "details": [
@@ -767,8 +747,7 @@
    "title": "Pink Ruched Crop Top",
    "inStock": true,
    "occasions": [
-    "weekend",
-    "dinner-date"
+    "weekend"
    ],
    "description": "Hot pink, long sleeves and a ruched cropped fit. Pair it with a white mini skirt and a statement bag and you have a whole mood.",
    "details": [
@@ -862,8 +841,7 @@
    "title": "Pink Halter Plunge Top",
    "inStock": true,
    "occasions": [
-    "dinner-date",
-    "weekend"
+    "dinner-date"
    ],
    "description": "A halter neck, a daring plunge and long sleeves in vivid pink. Style it with high-waist jeans and heels and let the neckline lead.",
    "details": [
@@ -887,7 +865,6 @@
    "title": "Colour Burst Print Top",
    "inStock": true,
    "occasions": [
-    "weekend",
     "everyday-chic"
    ],
    "description": "A multicolour graphic print on a fitted long-sleeve top. Pair it with black leggings or jeans and let the colour do the work.",
@@ -936,8 +913,7 @@
    "title": "Fuchsia Plunge Blouse",
    "inStock": true,
    "occasions": [
-    "weekend",
-    "dinner-date"
+    "weekend"
    ],
    "description": "Fuchsia with a deep V and full long sleeves. Tuck it into jeans with a crossbody bag and walk into brunch like the main character.",
    "details": [
@@ -960,10 +936,8 @@
    "price": 25000,
    "title": "Keyhole Long-Sleeve Top",
    "inStock": true,
-   "pick": true,
    "occasions": [
-    "everyday-chic",
-    "weekend"
+    "everyday-chic"
    ],
    "description": "A fitted long-sleeve top with a keyhole neckline, in four easy-to-love colours. The kind of piece you buy once and come back for in every shade.",
    "details": [
@@ -1037,8 +1011,7 @@
    "title": "Leopard Bell-Sleeve Top",
    "inStock": true,
    "occasions": [
-    "dinner-date",
-    "everyday-chic"
+    "dinner-date"
    ],
    "description": "Leopard print with a wrap front and flared bell sleeves. Wild enough to be noticed, classic enough to wear on repeat with black flares.",
    "details": [
@@ -1062,8 +1035,7 @@
    "title": "White Lace-Up Front Top",
    "inStock": true,
    "occasions": [
-    "everyday-chic",
-    "weekend"
+    "everyday-chic"
    ],
    "description": "A fitted white long-sleeve top with a criss-cross lace-up front. Clean with a hint of edge, perfect with black denim.",
    "details": [
@@ -1111,8 +1083,7 @@
    "title": "Tangerine Ruched Shoulder Top",
    "inStock": true,
    "occasions": [
-    "weekend",
-    "everyday-chic"
+    "weekend"
    ],
    "description": "Bright tangerine with a ruched off-shoulder line. Warm, vivid and made for sunny days and easy smiles.",
    "details": [
@@ -1181,9 +1152,7 @@
    "price": 80000,
    "title": "Velvet & Gold Cut-Out Gown",
    "newIn": true,
-   "pick": true,
    "occasions": [
-    "event-ready",
     "main-character"
    ],
    "description": "A black velvet bodice cut into a sharp asymmetric line, flowing into a molten gold skirt that falls straight to the floor. Architectural and unapologetically glamorous. Add a wide-brim hat and you are the editorial.",
@@ -1207,10 +1176,8 @@
    "price": 80000,
    "title": "White Halter Ruffle Gown",
    "newIn": true,
-   "pick": true,
    "occasions": [
-    "event-ready",
-    "main-character"
+    "event-ready"
    ],
    "description": "A high halter neckline and a fitted white bodice that breaks into an asymmetric cascade of ruffles. Bridal-adjacent, pure and dramatic. Picture it at a white party, an engagement shoot or your birthday dinner.",
    "details": [
@@ -1233,8 +1200,7 @@
    "title": "Cobalt Draped Jumpsuit",
    "newIn": true,
    "occasions": [
-    "event-ready",
-    "dinner-date"
+    "event-ready"
    ],
    "description": "Cobalt blue with sheer long sleeves and a sweeping drape that wraps from the shoulder across the body. From the front it reads like a gown; underneath, the ease of trousers. Elegance you can actually move in.",
    "details": [
@@ -1258,7 +1224,6 @@
    "title": "Cobalt Mesh-Sleeve Draped Gown",
    "newIn": true,
    "occasions": [
-    "event-ready",
     "sunday-best"
    ],
    "description": "Royal cobalt with sheer mesh sleeves, a gathered bodice and a draped sash that sweeps into a flared hem. Regal, covered and full of movement. The gown for a church anniversary, a wedding or a family celebration.",
@@ -1282,8 +1247,7 @@
    "title": "White Wide-Leg & Floral Bustier Set",
    "newIn": true,
    "occasions": [
-    "weekend",
-    "main-character"
+    "weekend"
    ],
    "description": "Crisp white wide-leg trousers, a floral halter bustier and a sheer white overshirt. A fresh, fashion-forward three-part look for brunch, a boat day or a white-themed party.",
    "details": [
@@ -1305,9 +1269,7 @@
    "price": 35000,
    "title": "Bronze Draped Keyhole Gown",
    "newIn": true,
-   "pick": true,
    "occasions": [
-    "event-ready",
     "sunday-best"
    ],
    "description": "A shimmering bronze pattern, a keyhole neckline and long sleeves, with a dramatic drape gathered across the hip. It comes with its inner, so you can wear it with total confidence. Old-Hollywood glamour, Lagos style.",
@@ -1331,8 +1293,7 @@
    "title": "Ivory Cowl Mermaid Gown",
    "newIn": true,
    "occasions": [
-    "event-ready",
-    "main-character"
+    "event-ready"
    ],
    "description": "Ivory draped into a deep cowl neckline, ruched through the hips and released into a mermaid hem. Soft, sculptural and luminous. Imagine it at a traditional wedding reception or a candlelit dinner.",
    "details": [
@@ -1355,8 +1316,7 @@
    "title": "Midnight Cowl Mermaid Gown",
    "newIn": true,
    "occasions": [
-    "dinner-date",
-    "sunday-best"
+    "dinner-date"
    ],
    "description": "Deep midnight indigo with a soft cowl neckline, long sleeves and a hem that spreads into a small train. Mysterious and grown-up. The gown for evenings when you want quiet, undeniable elegance.",
    "details": [
@@ -1379,7 +1339,6 @@
    "title": "White Off-Shoulder Drape Gown",
    "newIn": true,
    "occasions": [
-    "event-ready",
     "main-character"
    ],
    "description": "A luminous white column with an off-shoulder neckline and a long draped panel that trails behind you. Clean lines, soft sheen, serious presence. For white parties, bridal events and elegant evenings.",
@@ -1403,8 +1362,7 @@
    "title": "Fuchsia & Print Mermaid Gown",
    "newIn": true,
    "occasions": [
-    "event-ready",
-    "main-character"
+    "event-ready"
    ],
    "description": "A fuchsia off-shoulder bodice set against a bold printed mermaid skirt. Joyful, colourful and proudly statement. Wear it to an owambe and watch the photographers find you.",
    "details": [
@@ -1426,10 +1384,8 @@
    "price": 35000,
    "title": "Cerise Rosette Mini Dress",
    "newIn": true,
-   "pick": true,
    "occasions": [
-    "main-character",
-    "dinner-date"
+    "main-character"
    ],
    "description": "A sweetheart neckline, short sleeves and a skirt built from layers of sculpted rosette ruffles. Flirty, romantic and made for celebration. Your birthday dress has entered the chat.",
    "details": [
@@ -1451,10 +1407,8 @@
    "price": 30000,
    "title": "Ruched Cut-Out Column Gown",
    "newIn": true,
-   "pick": true,
    "occasions": [
-    "dinner-date",
-    "event-ready"
+    "dinner-date"
    ],
    "description": "A sculpted cut-out neckline, long sleeves and all-over ruching with ruffled edges that trace your silhouette to the floor. It is the definition of body-confident. Choose cobalt to stand out, black to own the night or red to do both.",
    "details": [
@@ -1495,8 +1449,7 @@
    "title": "Rust Ruched Wrap Maxi",
    "newIn": true,
    "occasions": [
-    "event-ready",
-    "dinner-date"
+    "event-ready"
    ],
    "description": "Warm rust with a wrap V-neck, long sleeves and ruching that shapes every curve down to the ankle. Rich colour, flattering lines and easy to accessorise with gold. A festive-season favourite in the making.",
    "details": [
@@ -1520,8 +1473,7 @@
    "title": "Red Cut-Out Twist Maxi",
    "newIn": true,
    "occasions": [
-    "dinner-date",
-    "event-ready"
+    "dinner-date"
    ],
    "description": "A red maxi with a sculpted cut-out neckline, long sleeves and a twisted gather at the hip. Sleek, sensual and sure of itself. Red lipstick optional, compliments guaranteed.",
    "details": [
@@ -1544,7 +1496,6 @@
    "title": "Red Twist-Front Slit Maxi",
    "newIn": true,
    "occasions": [
-    "dinner-date",
     "sunday-best"
    ],
    "description": "A clean red maxi with long sleeves, a twisted front and a front slit that shows just enough. Elegant enough for church, bold enough for dinner.",
@@ -1568,8 +1519,7 @@
    "title": "Turquoise Off-Shoulder Ruched Maxi",
    "newIn": true,
    "occasions": [
-    "event-ready",
-    "weekend"
+    "event-ready"
    ],
    "description": "Bright turquoise with a soft off-shoulder neckline and ruching that sculpts through the hips before falling to the floor. Fresh, vibrant and holiday-ready.",
    "details": [
@@ -1592,8 +1542,7 @@
    "title": "Turquoise Cut-Out Pleated Maxi",
    "newIn": true,
    "occasions": [
-    "sunday-best",
-    "event-ready"
+    "sunday-best"
    ],
    "description": "A cut-out neckline and fitted long-sleeve bodice meet a softly pleated skirt that floats as you walk. Graceful and bright, it looks beautiful in motion.",
    "details": [
@@ -1616,8 +1565,7 @@
    "title": "Royal Blue Plunge Maxi",
    "newIn": true,
    "occasions": [
-    "event-ready",
-    "dinner-date"
+    "event-ready"
    ],
    "description": "Royal blue with a deep plunge, long sleeves, a cut-out waist and a skirt that pours to the floor. Bold neckline, fluid movement, total presence.",
    "details": [
@@ -1641,7 +1589,6 @@
    "title": "White Ruffle-Front Ruched Maxi",
    "newIn": true,
    "occasions": [
-    "event-ready",
     "main-character"
    ],
    "description": "Delicate straps, a ruched white body and a line of ruffles running down the centre. Soft and romantic with a body-hugging shape. Perfect for white-themed parties and summer evenings.",
@@ -1665,8 +1612,7 @@
    "title": "Polka Dot Long-Sleeve Maxi",
    "newIn": true,
    "occasions": [
-    "sunday-best",
-    "everyday-chic"
+    "sunday-best"
    ],
    "description": "A tiny polka dot print on a long-sleeve maxi with a gently flared skirt. Classic, modest and quietly stylish. Wear it to church, the office or a family lunch.",
    "details": [
@@ -1690,8 +1636,7 @@
    "title": "Fuchsia Off-Shoulder Drape Gown",
    "newIn": true,
    "occasions": [
-    "event-ready",
-    "main-character"
+    "event-ready"
    ],
    "description": "Vivid fuchsia with an off-shoulder neckline, long sleeves and a draped panel that falls from the hip. Photogenic from every angle. The colour of celebration.",
    "details": [
@@ -1715,8 +1660,7 @@
    "title": "Blue Print One-Shoulder Maxi",
    "newIn": true,
    "occasions": [
-    "weekend",
-    "event-ready"
+    "weekend"
    ],
    "description": "A blue and green print draped over one shoulder and wrapped close to the body. Artful, fluid and full of life. Holiday dinners and garden parties, this one is for you.",
    "details": [
@@ -1738,10 +1682,8 @@
    "price": 30000,
    "title": "Black Lace-Sleeve Ruched Mini",
    "newIn": true,
-   "pick": true,
    "occasions": [
-    "dinner-date",
-    "main-character"
+    "dinner-date"
    ],
    "description": "A ruched black mini with a cut-out neckline and sheer lace sleeves. Sensual, curve-loving and made for night. Add red heels and a small bag and the look is complete.",
    "details": [
@@ -1766,8 +1708,7 @@
    "title": "Tiered Strappy Midi Dress",
    "newIn": true,
    "occasions": [
-    "weekend",
-    "dinner-date"
+    "weekend"
    ],
    "description": "Thin straps, a gathered bodice and a tiered skirt that swings below the knee. Light, feminine and easy. In red for joy, in black for evening.",
    "details": [
@@ -1801,7 +1742,6 @@
    "title": "Violet Cut-Out Jumpsuit",
    "newIn": true,
    "occasions": [
-    "dinner-date",
     "weekend"
    ],
    "description": "Deep violet with long sleeves, circular cut-outs at the neckline and wide legs that sweep the floor. Chic, comfortable and completely striking.",
@@ -1825,7 +1765,6 @@
    "title": "Red Keyhole Jumpsuit",
    "newIn": true,
    "occasions": [
-    "dinner-date",
     "everyday-chic"
    ],
    "description": "A fitted red jumpsuit with keyhole cut-outs, long sleeves and flared legs. One zip, one look, all confidence. From the office to dinner without changing a thing.",
@@ -1849,8 +1788,7 @@
    "title": "Colour-Block Tiered Mini Dress",
    "newIn": true,
    "occasions": [
-    "weekend",
-    "everyday-chic"
+    "weekend"
    ],
    "description": "Fuchsia, orange and blush tiers with flutter sleeves. Happy, breezy and effortlessly fun. Sunglasses on, shoulder bag ready, weekend unlocked.",
    "details": [
@@ -1873,8 +1811,7 @@
    "title": "Olive Ruched Bodycon Midi",
    "newIn": true,
    "occasions": [
-    "dinner-date",
-    "everyday-chic"
+    "dinner-date"
    ],
    "description": "A rich olive midi with a V-neck and ruching from bust to hem that celebrates every curve. Unexpected colour, flawless fit.",
    "details": [
@@ -1897,7 +1834,6 @@
    "title": "Red Ruched Tie-Sleeve Mini",
    "newIn": true,
    "occasions": [
-    "dinner-date",
     "main-character"
    ],
    "description": "A red ruched mini with a V-neck and long sleeves finished with trailing ties. Flirty, fitted and fun to move in.",
@@ -1921,8 +1857,7 @@
    "title": "Red Sweetheart Ruched Mini",
    "newIn": true,
    "occasions": [
-    "dinner-date",
-    "main-character"
+    "dinner-date"
    ],
    "description": "A sweetheart neckline, long sleeves and deep ruching in bold red. Short, sculpting and made for a night out.",
    "details": [
@@ -1945,7 +1880,8 @@
    "widths": [
     480,
     960,
-    1440
+    1440,
+    1684
    ]
   },
   "products/long-gowns/bmp-lg-1-1": {

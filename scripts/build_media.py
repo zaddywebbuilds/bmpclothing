@@ -10,7 +10,7 @@ from PIL import Image, ImageOps
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ORIG = os.path.join(ROOT, "media-originals")
 OUT = os.path.join(ROOT, "public", "assets", "bmp")
-WIDTHS = (480, 960, 1440)
+WIDTHS = (480, 960, 1440, 1800)
 DUP_DIST = 10
 
 HEX = {
@@ -46,7 +46,7 @@ def load(ref):
     return im
 
 
-def save(im, mid, max_w=1440, quality=82):
+def save(im, mid, max_w=1800, quality=88):
     os.makedirs(os.path.dirname(os.path.join(OUT, mid)), exist_ok=True)
     w, h = im.size
     widths = sorted({x for x in WIDTHS if x < w} | {min(w, max_w)})

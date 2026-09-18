@@ -16,7 +16,6 @@ import { useSeo } from '../lib/seo'
 import './home.css'
 
 // Each homepage section draws from its own garments so no piece repeats down the page.
-const HERO_PIECE = 'bmp-lg-2'
 const CATEGORY_COVERS = {
   'long-gowns': 'bmp-lg-10',
   'short-gowns': 'cerise-rosette-mini-dress',
@@ -37,7 +36,7 @@ const OCCASION_COVERS = {
   'everyday-chic': 'bmp-pt-1',
 }
 const THE_EDIT = ['bmp-lg-8', 'midnight-cowl-mermaid-gown', 'polka-dot-long-sleeve-maxi']
-const PICKS = ['bmp-pt-2', 'cobalt-mesh-sleeve-draped-gown', 'red-cut-out-twist-maxi', 'turquoise-cut-out-pleated-maxi', 'bmp-sg-1', 'bmp-lg-7', 'bmg-sg-2', 'bmp-sg-4']
+const PICKS = ['bmp-pt-2', 'bmp-sg-2', 'bmp-sg-1', 'bmp-lg-7', 'bmg-sg-2', 'bmp-sg-4', 'bmp-st-1', 'bmp-lg-11']
 const QUALITY = 'bmp-lg-3'
 const SEEN_IN = ['bmp-t-17', 'bmp-t-16', 'bmp-t-12', 'bmp-t-9', 'bmp-t-6', 'bmp-t-5', 'bmp-t-4', 'bmp-t-15']
 const STORE = 'violet-cut-out-jumpsuit'
@@ -70,7 +69,6 @@ export default function Home() {
 }
 
 function Hero() {
-  const p = productBySlug[HERO_PIECE]
   return (
     <Reveal className="hero wrap" aria-label="Introduction">
       <div className="hero-copy">
@@ -94,16 +92,6 @@ function Hero() {
         <div className="panel hero-screen reveal-img">
           <HeroVideo />
         </div>
-        {p && (
-          <Link to={p.url} className="hero-float glass reveal" data-delay="4">
-            <div className="panel hero-float-img"><Img id={p.images[0]} alt={altText(p)} sizes="120px" priority /></div>
-            <div>
-              <span className="eyebrow">{p.code}</span>
-              <strong>{p.title}</strong>
-              <span className="price">{naira(p.price)}</span>
-            </div>
-          </Link>
-        )}
         <span className="hero-chip chip reveal" data-delay="5">New pieces every week</span>
       </div>
 

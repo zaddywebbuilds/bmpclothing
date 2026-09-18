@@ -13,14 +13,15 @@
 .gallery-thumb.is-on, .gallery-thumb:hover { opacity: 1; }
 .gallery-thumb.is-on { box-shadow: 0 0 0 1.5px var(--ink), var(--sh-soft); }
 .gallery-main { position: relative; }
-.gallery-track { position: relative; aspect-ratio: 3/4; }
+.gallery-track { position: relative; height: min(calc(100svh - var(--nav-h) - 72px), 980px); min-height: 420px; }
 .gallery-slide {
   position: absolute; inset: 0; border-radius: var(--r-xl); cursor: zoom-in;
   opacity: 0; transition: opacity .7s var(--ease); pointer-events: none;
 }
 .gallery-slide.is-on { opacity: 1; pointer-events: auto; }
-.gallery-slide img { transition: transform .5s var(--ease); }
-.gallery-slide.is-zoom img { transform: scale(1.9); }
+.gallery-slide .gallery-fill { position: absolute; inset: -6%; width: 112%; height: 112%; object-fit: cover; filter: blur(28px) saturate(1.1); opacity: .55; transform: none !important; }
+.gallery-slide .gallery-img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: contain; transition: transform .5s var(--ease); }
+.gallery-slide.is-zoom .gallery-img { transform: scale(1.9); }
 .gallery-dots { display: none; }
 .gallery-credit { position: absolute; left: 14px; top: 14px; z-index: 4; }
 
@@ -66,8 +67,9 @@
     gap: 10px; padding-inline: var(--gutter); scroll-padding-inline: var(--gutter);
   }
   .gallery-track::-webkit-scrollbar { display: none; }
-  .gallery-slide { position: relative; flex: 0 0 100%; aspect-ratio: 3/4; opacity: 1; pointer-events: auto; scroll-snap-align: center; border-radius: var(--r-lg); cursor: default; }
-  .gallery-slide.is-zoom img { transform: none; }
+  .gallery-track { height: auto; min-height: 0; }
+  .gallery-slide { position: relative; flex: 0 0 100%; height: min(72svh, calc((100vw - 2 * var(--gutter)) * 1.6)); opacity: 1; pointer-events: auto; scroll-snap-align: center; border-radius: var(--r-lg); cursor: default; }
+  .gallery-slide.is-zoom .gallery-img { transform: none; }
   .gallery-dots { display: flex; justify-content: center; gap: 6px; margin-top: 12px; }
   .gallery-dots span { width: 6px; height: 6px; border-radius: 999px; background: var(--line-strong); transition: width .4s var(--ease), background-color .3s; }
   .gallery-dots span.is-on { width: 22px; background: var(--ink); }
