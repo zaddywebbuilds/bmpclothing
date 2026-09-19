@@ -23,7 +23,7 @@
       "description": "Soft butter-yellow tulle gathered into a sculpted bodice, cut away at the waist and poured into a cathedral-length train. This is the gown for the moment the doors open and every head turns. Made for bridal showers, milestone birthdays and the portrait you will frame.",
       "details": ["Halter neckline with draped bodice", "Side waist cut-outs", "Sweeping floor-length train", "Butter-yellow tulle"] },
 
-    { "slug": "bmp-lg-1", "code": "BMP LG 1", "sku": "SKU-BMQTMNAP", "source": "live", "category": "long-gowns", "price": 100000,
+    { "slug": "bmp-lg-1", "code": "BMP LG 1", "sku": "SKU-BMQTMNAP", "source": "live", "category": "long-gowns", "price": 40000,
       "title": "Metallic Drape Bodysuit Gown", "images": ["products/long-gowns/bmp-lg-1-main.jpg", "products/long-gowns/bmp-lg-1-alt.jpg"],
       "colours": [{ "name": "Gold", "image": "products/long-gowns/bmp-lg-1-alt.jpg" }, { "name": "Blue", "image": "products/long-gowns/bmp-lg-1-main.jpg" }],
       "inStock": true, "occasions": ["main-character"],
