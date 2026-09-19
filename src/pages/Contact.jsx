@@ -1,8 +1,9 @@
 import { useState } from 'react'
-import { ArrowRight, ArrowUpRight, MapPin, Check } from 'lucide-react'
+import { ArrowRight, MapPin, Check } from 'lucide-react'
 import Reveal, { Lines } from '../components/Reveal'
 import WaIcon from '../components/WaIcon'
-import { site, waLink } from '../data/site'
+import { site, socials, waLink } from '../data/site'
+import SocialIcon from '../components/SocialIcon'
 import { useSeo } from '../lib/seo'
 import './pages.css'
 
@@ -46,14 +47,14 @@ export default function Contact() {
             <strong className="display">{site.whatsapp.display}</strong>
             <span className="link-line">Start a chat <ArrowRight className="arrow" size={13} /></span>
           </a>
-          {site.facebook && (
-            <a className="contact-card glass reveal" data-delay="1" href={site.facebook} target="_blank" rel="noopener noreferrer">
-              <ArrowUpRight size={22} strokeWidth={1.4} />
-              <span className="eyebrow">Facebook</span>
-              <strong className="display">BMP Clothings</strong>
+          {socials().map(([name, url], i) => (
+            <a key={name} className="contact-card glass reveal" data-delay={i + 1} href={url} target="_blank" rel="noopener noreferrer">
+              <SocialIcon name={name} size={22} />
+              <span className="eyebrow">{name}</span>
+              <strong className="display">{name === 'Facebook' ? 'BMP Clothings' : site.handle}</strong>
               <span className="link-line">Follow along <ArrowRight className="arrow" size={13} /></span>
             </a>
-          )}
+          ))}
           {site.email && (
             <a className="contact-card glass reveal" href={`mailto:${site.email}`}>
               <span className="eyebrow">Email</span>

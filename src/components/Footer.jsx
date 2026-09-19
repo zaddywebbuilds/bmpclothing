@@ -3,15 +3,12 @@ import { ArrowUpRight } from 'lucide-react'
 import Logo from './Logo'
 import WaIcon from './WaIcon'
 import { categories } from '../data/catalog'
-import { site, waLink } from '../data/site'
+import { site, socials, waLink } from '../data/site'
+import SocialIcon from './SocialIcon'
 import './footer.css'
 
 export default function Footer() {
-  const social = [
-    ['Facebook', site.facebook],
-    ['Instagram', site.instagram],
-    ['TikTok', site.tiktok],
-  ].filter(([, url]) => url)
+  const social = socials()
 
   return (
     <footer className="footer wrap">
@@ -53,7 +50,7 @@ export default function Footer() {
               <p className="eyebrow">Connect</p>
               <a href={waLink()} target="_blank" rel="noopener noreferrer">WhatsApp {site.whatsapp.display}</a>
               {social.map(([name, url]) => (
-                <a key={name} href={url} target="_blank" rel="noopener noreferrer">{name} <ArrowUpRight size={13} /></a>
+                <a key={name} href={url} target="_blank" rel="noopener noreferrer"><SocialIcon name={name} size={14} /> {name} <ArrowUpRight size={13} /></a>
               ))}
               <span className="footer-muted">{site.location}</span>
             </div>

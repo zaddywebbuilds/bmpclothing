@@ -7,7 +7,8 @@ import Logo from './Logo'
 import WaIcon from './WaIcon'
 import { useStore } from '../lib/store'
 import { categories, productBySlug } from '../data/catalog'
-import { site, waLink } from '../data/site'
+import { site, socials, waLink } from '../data/site'
+import SocialIcon from './SocialIcon'
 
 const FEATURE = 'bmp-lg-5'
 
@@ -52,6 +53,13 @@ export default function MobileMenu() {
       <a className="btn btn--glass btn--block mmenu-wa" href={waLink('Hello BMP Clothings 👋 I would like some help with an order.')} target="_blank" rel="noopener noreferrer">
         <WaIcon /> WhatsApp {site.whatsapp.display}
       </a>
+      <div className="mmenu-social">
+        {socials().map(([name, url]) => (
+          <a key={name} href={url} target="_blank" rel="noopener noreferrer" className="icon-btn icon-btn--glass" aria-label={`BMP Clothings on ${name}`}>
+            <SocialIcon name={name} size={17} />
+          </a>
+        ))}
+      </div>
     </Drawer>
   )
 }

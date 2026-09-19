@@ -132,7 +132,8 @@
 .mmenu-feature .panel { aspect-ratio: 3/4; border-radius: var(--r-md); }
 .mmenu-feature div:last-child { display: grid; gap: 6px; }
 .mmenu-feature strong { font-family: var(--serif); font-weight: 400; font-size: 21px; line-height: 1.1; }
-.mmenu-wa { margin: 22px 22px 22px; width: auto; }
+.mmenu-wa { margin: 22px 22px 12px; width: auto; }
+.mmenu-social { display: flex; justify-content: center; gap: 10px; padding: 0 22px 24px; }
 
 @media (max-width: 760px) {
   .qv-grid { grid-template-columns: 1fr; gap: 20px; padding: 16px; }

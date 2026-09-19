@@ -184,6 +184,9 @@
 .seen-item:hover .seen-cap, .seen-item:focus-visible .seen-cap { opacity: 1; transform: none; }
 @media (hover: none) { .seen-cap { opacity: 1; transform: none; } }
 
+.seen-side { display: grid; gap: 14px; justify-items: start; max-width: 460px; }
+.seen-follow { display: flex; flex-wrap: wrap; gap: 8px; }
+
 /* ---------- behind ---------- */
 .behind { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 100px); align-items: center; }
 .behind-img { aspect-ratio: 4/5; border-radius: var(--r-xl); }
@@ -332,4 +335,6 @@
   .love-copy { justify-items: center; text-align: center; }
   .love-quote { font-size: 26px; }
   .seen .lede { text-align: center; }
+  .seen-side { justify-items: center; margin-inline: auto; }
+  .seen-follow { justify-content: center; }
 }

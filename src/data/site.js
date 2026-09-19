@@ -14,8 +14,9 @@ export const site = {
   },
   facebook: 'https://www.facebook.com/share/1ExUoTYAtz/',
   // Leave null until verified; the UI hides empty channels.
-  instagram: null,
-  tiktok: null,
+  instagram: 'https://www.instagram.com/bmp_clothings/',
+  tiktok: 'https://www.tiktok.com/@bmp_clothings',
+  handle: '@bmp_clothings',
   email: null,
 
   // Base path without extension; expects .mp4 + .webm and a -poster image beside it. null shows the poster image only.
@@ -36,6 +37,9 @@ export const site = {
     original: 'Shop stylish quality, elevate your class.',
   },
 }
+
+export const socials = () =>
+  [['Instagram', site.instagram], ['TikTok', site.tiktok], ['Facebook', site.facebook]].filter(([, url]) => url)
 
 export const waLink = (text) =>
   `https://wa.me/${site.whatsapp.number}${text ? `?text=${encodeURIComponent(text)}` : ''}`

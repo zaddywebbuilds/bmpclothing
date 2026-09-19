@@ -9,7 +9,8 @@ import Newsletter from '../components/Newsletter'
 import WaIcon from '../components/WaIcon'
 import Reveal, { Lines } from '../components/Reveal'
 import { categories, categoryByKey, occasions, pick, productBySlug, products, altText } from '../data/catalog'
-import { philosophy, pillars, testimonials, site } from '../data/site'
+import { philosophy, pillars, testimonials, site, socials } from '../data/site'
+import SocialIcon from '../components/SocialIcon'
 import { naira, useScrollProgress } from '../lib/util'
 import { orderLink } from '../lib/order'
 import { useSeo } from '../lib/seo'
@@ -366,7 +367,14 @@ function SeenIn() {
           <p className="index-label reveal">Real customers, real moments</p>
           <h2 id="seen-title" className="display caps h-lg"><Lines lines={['Seen in', <em key="b">BMP</em>]} /></h2>
         </div>
-        <p className="lede reveal">Every photo here was taken by a BMP woman after her order arrived. Tap a look to shop it.</p>
+        <div className="seen-side reveal">
+          <p className="lede">Every photo here was taken by a BMP woman after her order arrived. Tap a look to shop it.</p>
+          <div className="seen-follow">
+            {socials().filter(([n]) => n !== 'Facebook').map(([name, url]) => (
+              <a key={name} href={url} target="_blank" rel="noopener noreferrer" className="chip"><SocialIcon name={name} size={14} /> {site.handle} on {name}</a>
+            ))}
+          </div>
+        </div>
       </div>
       <div className="seen-grid">
         {items.map((p, i) => (
@@ -387,8 +395,8 @@ function BehindBmp() {
       <div className="panel behind-img reveal-img"><Img id={p.images[0]} alt="Inside the BMP Clothings store in Lagos, with the BMP Clothings wall sign" sizes="(max-width: 900px) 90vw, 40vw" /></div>
       <div className="behind-copy">
         <p className="index-label reveal">Behind BMP</p>
-        <h2 id="behind-title" className="display caps h-md"><Lines lines={['Styled in Lagos.', <em key="f">Made to be felt.</em>]} /></h2>
-        <p className="lede reveal" data-delay="2">At BMP, fashion is self-expression. Every piece in our Lagos store is chosen with care, so you can move through your day with confidence, comfort and a touch of glamour.</p>
+        <h2 id="behind-title" className="display caps h-md"><Lines lines={['Made in Nigeria.', <em key="f">Made to be felt.</em>]} /></h2>
+        <p className="lede reveal" data-delay="2">At BMP, fashion is self-expression. Nigerian-made, ready-to-wear and styled in our Lagos store, every piece is chosen with care so you can move through your day with confidence, comfort and a touch of glamour.</p>
         <Link to="/about" className="link-line reveal" data-delay="3">Our story <ArrowRight className="arrow" size={14} /></Link>
       </div>
     </Reveal>
