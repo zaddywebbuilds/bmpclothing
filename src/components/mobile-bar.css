@@ -1,0 +1,26 @@
+.mbar { display: none; }
+
+@media (max-width: 900px) {
+  .mbar {
+    position: fixed; z-index: 140;
+    left: 10px; right: 10px; bottom: max(10px, env(safe-area-inset-bottom));
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px;
+    padding: 6px;
+    border-radius: 999px;
+    background: rgba(253, 244, 232, 0.82);
+    backdrop-filter: blur(20px) saturate(150%); -webkit-backdrop-filter: blur(20px) saturate(150%);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 18px 40px -16px rgba(120, 70, 50, .45), var(--sh-inset);
+  }
+  .mbar-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+    min-height: 46px; border-radius: 999px;
+    font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--ink);
+    transition: background-color .3s var(--ease), color .3s;
+  }
+  .mbar-btn:active { background: rgba(255, 255, 255, .7); }
+  .mbar-btn--wa { background: var(--ink); color: var(--cream); }
+  .mbar-btn--wa svg { color: #5fd08f; }
+  body { padding-bottom: 64px; }
+}

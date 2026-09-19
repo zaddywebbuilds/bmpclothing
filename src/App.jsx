@@ -12,6 +12,7 @@ import QuickView from './components/QuickView'
 import MobileMenu from './components/MobileMenu'
 import OrderToast from './components/OrderToast'
 import Cursor from './components/Cursor'
+import MobileBar from './components/MobileBar'
 import Home from './pages/Home'
 
 const Shop = lazy(() => import('./pages/Shop'))
@@ -84,6 +85,7 @@ export default function App() {
       <SearchOverlay />
       <CartDrawer />
       <QuickView />
+      <MobileBar />
       <OrderToast />
       <Cursor />
     </>

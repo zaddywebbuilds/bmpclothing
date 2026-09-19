@@ -1,4 +1,4 @@
-.page-hero { display: grid; gap: 20px; padding-top: clamp(28px, 5vw, 80px); padding-bottom: clamp(24px, 4vw, 56px); }
+.page-hero { display: grid; gap: 18px; padding-top: clamp(20px, 3vw, 48px); padding-bottom: clamp(16px, 2.4vw, 32px); }
 .page-hero h1 em { color: var(--coral-deep); }
 .page-hero--split { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 80px); align-items: center; }
 .page-hero--split > div:first-child { display: grid; gap: 20px; }

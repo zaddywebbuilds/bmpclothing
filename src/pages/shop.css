@@ -1,7 +1,7 @@
 
 .shop-hero {
   display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(28px, 5vw, 80px); align-items: end;
-  padding-top: clamp(28px, 5vw, 72px); padding-bottom: clamp(28px, 4vw, 56px);
+  padding-top: clamp(20px, 3vw, 44px); padding-bottom: clamp(16px, 2.4vw, 32px);
 }
 .shop-hero-copy { display: grid; gap: 18px; }
 .shop-hero h1 { font-size: clamp(52px, 9vw, 150px); }
@@ -30,7 +30,7 @@
 .filter-count { min-width: 18px; height: 18px; border-radius: 999px; display: grid; place-items: center; font-size: 10px; background: var(--ink); color: var(--cream); }
 .shop-active { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 4px; }
 
-.shop-grid-wrap { padding-top: 28px; padding-bottom: clamp(60px, 8vw, 120px); }
+.shop-grid-wrap { padding-top: 20px; padding-bottom: clamp(32px, 4vw, 60px); }
 .shop-cell { animation: cellIn .8s var(--ease) both; animation-delay: var(--d); }
 @keyframes cellIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 .shop-empty { display: grid; gap: 20px; justify-items: start; padding: 40px; border-radius: var(--r-lg); }

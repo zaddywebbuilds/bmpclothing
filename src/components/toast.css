@@ -8,7 +8,7 @@
   transition: opacity .6s var(--ease), transform .7s var(--ease);
 }
 @media (min-width: 761px) { .toast { left: auto; right: max(20px, env(safe-area-inset-right)); } }
-@media (max-width: 900px) { .toast.is-raised { bottom: calc(84px + env(safe-area-inset-bottom)); } }
+@media (max-width: 900px) { .toast { bottom: calc(76px + env(safe-area-inset-bottom)); } }
 .toast.is-visible { opacity: 1; transform: none; pointer-events: auto; }
 .toast-link { flex: 1; display: flex; gap: 12px; align-items: center; min-width: 0; }
 .toast-img { flex: 0 0 52px; width: 52px; aspect-ratio: 3/4; border-radius: 10px; }
