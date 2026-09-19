@@ -4,6 +4,7 @@ import Img from './Img'
 import WishlistButton from './WishlistButton'
 import WaIcon from './WaIcon'
 import { orderLink } from '../lib/order'
+import { loadMySize, usesChart } from '../data/sizes'
 import { useStore } from '../lib/store'
 import { altText, categoryByKey } from '../data/catalog'
 import { naira } from '../lib/util'
@@ -12,12 +13,14 @@ import './product-card.css'
 export default function ProductCard({ product: p, sizes = '(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 25vw', priority, className = '' }) {
   const { addToCart, openQuickView } = useStore()
   const second = p.images[1]
-  const needsChoice = p.colours.length > 1 || p.variants?.length > 1
+  const saved = usesChart(p) ? loadMySize()?.size : null
+  const sizeLabel = saved ? `Size ${saved}` : undefined
+  const needsChoice = p.colours.length > 1 || (usesChart(p) ? !saved : p.variants?.length > 1)
 
   const quickAdd = (e) => {
     e.preventDefault()
     if (needsChoice) openQuickView(p.slug)
-    else addToCart(p.slug)
+    else addToCart(p.slug, [p.colours[0]?.name, sizeLabel].filter(Boolean).join(' / ') || null)
   }
 
   return (
@@ -56,7 +59,7 @@ export default function ProductCard({ product: p, sizes = '(max-width: 640px) 50
           {p.salePrice && <s>{naira(p.price)}</s>}
         </p>
       </div>
-      <a className="pcard-wa" href={orderLink(p)} target="_blank" rel="noopener noreferrer" aria-label={`Order ${p.title} on WhatsApp, ${naira(p.price)}`}>
+      <a className="pcard-wa" href={orderLink(p, { variant: sizeLabel })} target="_blank" rel="noopener noreferrer" aria-label={`Order ${p.title} on WhatsApp, ${naira(p.price)}`}>
         <WaIcon size={15} /> <span>Order on WhatsApp</span>
       </a>
     </article>

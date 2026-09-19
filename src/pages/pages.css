@@ -82,6 +82,16 @@ a.contact-card:hover { transform: translateY(-3px); box-shadow: var(--sh-lift); 
 .policy-no { font-size: 44px; line-height: .9; color: var(--coral-deep); }
 .policy-item p { margin-top: 10px; color: var(--ink-soft); line-height: 1.7; }
 
+/* size guide */
+.sg-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(20px, 3vw, 40px); align-items: start; }
+.sg-finder { padding: clamp(20px, 3vw, 36px); border-radius: var(--r-xl); position: sticky; top: calc(var(--nav-h) + 32px); }
+.sg-side { display: grid; gap: 16px; }
+.sg-how { margin-top: 12px; }
+.sg-steps { display: grid; gap: 10px; }
+.sg-steps li { display: grid; grid-template-columns: 34px 1fr; gap: 12px; padding: 16px 18px; border-radius: var(--r-md); }
+.sg-steps h3 { font-family: var(--serif); font-weight: 400; font-size: 20px; margin-bottom: 4px; }
+.sg-steps p { font-size: 14px; color: var(--ink-soft); }
+
 /* bag / wishlist */
 .bag-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, .8fr); gap: 20px; align-items: start; }
 .bag-lines { padding: 24px; border-radius: var(--r-lg); }
@@ -93,7 +103,8 @@ a.contact-card:hover { transform: translateY(-3px); box-shadow: var(--sh-lift); 
 .notfound { min-height: 60vh; align-content: center; justify-items: start; }
 
 @media (max-width: 900px) {
-  .page-hero--split, .chapter, .chapter--b, .manifesto, .about-grid, .about-end, .contact-grid, .faq-grid, .bag-grid { grid-template-columns: 1fr; }
+  .page-hero--split, .chapter, .chapter--b, .manifesto, .about-grid, .about-end, .contact-grid, .faq-grid, .bag-grid, .sg-grid { grid-template-columns: 1fr; }
+  .sg-finder { position: static; }
   .chapter--b .chapter-head { order: 0; }
   .chapter-head, .faq-aside, .bag-summary { position: static; }
   .traits, .about-pillars { grid-template-columns: repeat(2, minmax(0, 1fr)); }

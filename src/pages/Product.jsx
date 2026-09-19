@@ -113,8 +113,8 @@ export default function Product() {
               </ul>
             </AccordionItem>
             <AccordionItem title="Sizing">
-              <p>{p.variants?.some((v) => v.size) ? `Available sizes are shown above. ` : ''}Tell us your usual size on WhatsApp and we will confirm the best fit for this piece before you order.</p>
-              <a className="link-line" href={enquiryLink(p, variant)} target="_blank" rel="noopener noreferrer">Confirm my size <ArrowRight className="arrow" size={13} /></a>
+              <p>{opts.chart ? 'Available in UK sizes 8 to 22. Use Find my size above with your bust, waist and hip, or check the full chart.' : 'Available sizes are shown above.'} Need help? Message us and we will confirm the best fit before you order.</p>
+              <Link className="link-line" to="/size-guide">Size chart <ArrowRight className="arrow" size={13} /></Link>
             </AccordionItem>
             <AccordionItem title="Delivery">
               <p>Delivery time and charges depend on your location and are confirmed with you before payment. When your order is dispatched we share delivery or tracking information where available.</p>

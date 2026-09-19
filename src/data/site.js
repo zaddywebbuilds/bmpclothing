@@ -102,6 +102,13 @@ export const faqs = [
     ],
   },
   {
+    group: 'Sizing',
+    items: [
+      { q: 'What sizes do BMP pieces come in?', a: 'BMP pieces come in UK sizes 8 to 22. Our size guide lists the bust, waist and hip measurements for each size in inches and centimetres.' },
+      { q: 'How do I find my size?', a: 'Open the Size Guide, or tap "Find my size" on any piece, and enter your bust, waist and hip. We recommend your BMP size instantly and remember it for your next visit. If your measurements sit across two sizes, message us and we will advise.' },
+    ],
+  },
+  {
     group: 'Delivery',
     items: [
       { q: 'How long will delivery take?', a: 'Delivery time depends on your location. You will receive an estimated delivery period after your order has been confirmed.' },

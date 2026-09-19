@@ -29,6 +29,7 @@ const routes = [
   ['/contact', 'Contact', 'Contact BMP Clothings in Lagos on WhatsApp 0901 962 4520 for orders, sizing, delivery and product questions.'],
   ['/faq', 'FAQ', 'Answers about ordering, payment, delivery and returns at BMP Clothings.'],
   ['/shipping', 'Shipping', 'BMP Clothings shipping: order processing, delivery time, charges and tracking.'],
+  ['/size-guide', 'Size Guide & Find My Size', 'BMP Clothings size guide: UK sizes 8 to 22 with bust, waist and hip in inches and cm. Enter your measurements to find your BMP size instantly.'],
   ['/returns', 'Returns & Exchanges', 'BMP Clothings returns and exchanges: eligibility, item condition and how to request a return.'],
   ['/bag', 'Your Bag', 'Your BMP Clothings shopping bag.', true],
   ['/wishlist', 'Wishlist', 'Your saved BMP Clothings pieces.', true],

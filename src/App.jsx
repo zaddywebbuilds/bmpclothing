@@ -26,6 +26,7 @@ const Policy = lazy(() => import('./pages/Policy'))
 const Bag = lazy(() => import('./pages/Bag'))
 const Wishlist = lazy(() => import('./pages/Wishlist'))
 const NotFound = lazy(() => import('./pages/NotFound'))
+const SizeGuide = lazy(() => import('./pages/SizeGuide'))
 
 let lenis = null
 export const scrollToTop = () => (lenis ? lenis.scrollTo(0, { immediate: true }) : window.scrollTo(0, 0))
@@ -74,6 +75,7 @@ export default function App() {
             <Route path="/faq" element={<Faq />} />
             <Route path="/shipping" element={<Policy kind="shipping" />} />
             <Route path="/returns" element={<Policy kind="returns" />} />
+            <Route path="/size-guide" element={<SizeGuide />} />
             <Route path="/bag" element={<Bag />} />
             <Route path="/wishlist" element={<Wishlist />} />
             <Route path="*" element={<NotFound />} />

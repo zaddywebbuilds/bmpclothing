@@ -30,7 +30,7 @@ export default function QuickView() {
             <h2 className="display h-sm">{p.title}</h2>
             <p className="price qv-price">{naira(p.price)}</p>
             <p className="lede">{p.description}</p>
-            <OptionPicker product={p} opts={opts} />
+            <OptionPicker product={p} opts={opts} finder={false} />
             <AddToBag product={p} variant={opts.label} disabled={!opts.ready} disabledLabel={opts.needColour && !opts.colour ? 'Choose colour' : 'Choose size'} onAdded={closeQuickView} />
             <a className="btn btn--glass btn--block" href={orderLink(p, { variant: opts.label })} target="_blank" rel="noopener noreferrer">
               <WaIcon /> Order on WhatsApp

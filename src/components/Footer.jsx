@@ -38,6 +38,7 @@ export default function Footer() {
               <Link to="/contact">Contact</Link>
               <Link to="/shipping">Shipping</Link>
               <Link to="/returns">Returns</Link>
+              <Link to="/size-guide">Size Guide</Link>
               <Link to="/faq">FAQ</Link>
             </div>
             <div>
