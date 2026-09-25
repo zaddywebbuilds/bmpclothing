@@ -1,5 +1,5 @@
 .page-hero { display: grid; gap: 18px; padding-top: clamp(20px, 3vw, 48px); padding-bottom: clamp(16px, 2.4vw, 32px); }
-.page-hero h1 em { color: var(--coral-deep); }
+.page-hero h1 em { color: var(--gold-hi); }
 .page-hero--split { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 80px); align-items: center; }
 .page-hero--split > div:first-child { display: grid; gap: 20px; }
 .page-hero-media { aspect-ratio: 4/5; border-radius: var(--r-xl); box-shadow: var(--sh-lift); }
@@ -38,7 +38,7 @@
 .manifesto-img { aspect-ratio: 3/4; border-radius: var(--r-lg); }
 .manifesto-copy { display: grid; gap: 22px; padding: clamp(0px, 3vw, 40px); }
 .manifesto-text { font-size: clamp(26px, 3vw, 46px); line-height: 1.15; letter-spacing: -.015em; }
-.manifesto-text em { color: var(--peach); }
+.manifesto-text em { color: var(--gold-hi); }
 .worn-strip { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px; }
 .worn-item .panel { aspect-ratio: 3/4; border-radius: var(--r-md); transition: transform .8s var(--ease); }
 .worn-item:hover .panel { transform: translateY(-4px); }
@@ -79,7 +79,7 @@ a.contact-card:hover { transform: translateY(-3px); box-shadow: var(--sh-lift); 
 .faq-group .acc-btn { font-family: var(--serif); font-size: clamp(18px, 1.6vw, 22px); font-weight: 400; letter-spacing: -.005em; text-transform: none; }
 .policy-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-bottom: 36px; }
 .policy-item { display: grid; grid-template-columns: auto 1fr; gap: 20px; padding: clamp(22px, 2.6vw, 36px); border-radius: var(--r-lg); }
-.policy-no { font-size: 44px; line-height: .9; color: var(--coral-deep); }
+.policy-no { font-size: 44px; line-height: .9; color: var(--gold-hi); }
 .policy-item p { margin-top: 10px; color: var(--ink-soft); line-height: 1.7; }
 
 /* size guide */

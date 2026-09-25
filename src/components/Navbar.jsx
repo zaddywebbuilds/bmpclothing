@@ -8,7 +8,7 @@ import { categories, occasions, productBySlug } from '../data/catalog'
 import { naira } from '../lib/util'
 import './nav.css'
 
-const MENU_FEATURE = 'bmp-lg-5'
+const MENU_FEATURE = 'velvet-gold-cut-out-gown'
 
 export default function Navbar() {
   const { count, bump, openPanel, wishlist } = useStore()
@@ -41,51 +41,52 @@ export default function Navbar() {
   return (
     <header className={`nav ${scrolled ? 'is-scrolled' : ''} ${mega ? 'is-mega' : ''}`} onKeyDown={(e) => e.key === 'Escape' && setMega(false)}>
       <div className="nav-bar">
-        <div className="nav-left">
-          <button className="icon-btn nav-burger" aria-label="Open menu" onClick={() => openPanel('menu')}>
-            <Menu size={20} strokeWidth={1.5} />
-          </button>
-          <nav className="nav-links" aria-label="Primary">
-            <NavLink to="/new-in" className="nav-link">New In</NavLink>
-            <div className="nav-shop" onMouseEnter={open} onMouseLeave={close}>
-              <NavLink
-                to="/shop"
-                className="nav-link"
-                aria-expanded={mega}
-                aria-controls="mega-menu"
-                onFocus={open}
-              >
-                Shop
-              </NavLink>
-            </div>
-            <NavLink to="/lookbook" className="nav-link">Lookbook</NavLink>
-            <NavLink to="/the-bmp-woman" className="nav-link">The BMP Woman</NavLink>
-            <NavLink to="/about" className="nav-link">About</NavLink>
-          </nav>
-        </div>
-
         <Link to="/" className="nav-logo" aria-label="BMP Clothings home">
           <Logo />
         </Link>
 
+        <button className="icon-btn nav-burger" aria-label="Open menu" onClick={() => openPanel('menu')}>
+          <Menu size={20} strokeWidth={1.5} />
+        </button>
+
+        <nav className="nav-links" aria-label="Primary">
+          <NavLink to="/new-in" className="nav-link">New In</NavLink>
+          <div className="nav-shop" onMouseEnter={open} onMouseLeave={close}>
+            <NavLink
+              to="/shop"
+              className="nav-link"
+              aria-expanded={mega}
+              aria-controls="mega-menu"
+              onFocus={open}
+            >
+              Shop
+            </NavLink>
+          </div>
+          <NavLink to="/lookbook" className="nav-link">Lookbook</NavLink>
+          <NavLink to="/the-bmp-woman" className="nav-link">The BMP Woman</NavLink>
+          <NavLink to="/about" className="nav-link">About</NavLink>
+        </nav>
+
         <div className="nav-right">
-          <button className="icon-btn" aria-label="Search" onClick={() => openPanel('search')}>
-            <Search size={19} strokeWidth={1.5} />
-          </button>
-          <Link to="/wishlist" className="icon-btn nav-wish" aria-label={`Wishlist, ${wishlist.length} items`}>
-            <Heart size={19} strokeWidth={1.5} />
-            {wishlist.length > 0 && <span className="nav-dot" />}
-          </Link>
-          <button className={`icon-btn nav-bag ${pulse ? 'is-pulse' : ''}`} aria-label={`Shopping bag, ${count} items`} onClick={() => openPanel('cart')}>
-            <ShoppingBag size={19} strokeWidth={1.5} />
-            <span className="nav-count" aria-hidden="true">{count}</span>
-          </button>
+          <div className="nav-icons">
+            <button className="nav-ico" aria-label="Search" onClick={() => openPanel('search')}>
+              <Search size={19} strokeWidth={1.5} />
+            </button>
+            <Link to="/wishlist" className="nav-ico nav-wish" aria-label={`Wishlist, ${wishlist.length} items`}>
+              <Heart size={19} strokeWidth={1.5} />
+              {wishlist.length > 0 && <span className="nav-dot" />}
+            </Link>
+            <button className={`nav-ico nav-bag ${pulse ? 'is-pulse' : ''}`} aria-label={`Shopping bag, ${count} items`} onClick={() => openPanel('cart')}>
+              <ShoppingBag size={19} strokeWidth={1.5} />
+              <span className="nav-count" aria-hidden="true">{count}</span>
+            </button>
+          </div>
         </div>
       </div>
 
       <div
         id="mega-menu"
-        className="mega glass"
+        className="mega"
         onMouseEnter={open}
         onMouseLeave={close}
         onFocus={open}

@@ -100,28 +100,18 @@ def main():
         products.append(out)
         print(f"{p['slug']:40s} {len(p['images'])} refs -> {len(kept)} unique")
 
-    # editorial / brand imagery
-    brand = [
-        ("brand/campaign-magenta-cowl", "campaign/bmp-collection-campaign.jpg", "Campaign portrait in a magenta cowl gown"),
-        ("customers/jane-lagos", "customers/jane-lagos-portrait.jpg", "Customer Jane in Lagos"),
-    ]
-    for mid, ref, note in brand:
-        im = load(ref)
-        media[mid] = save(im, mid)
-        manifest.append({"id": mid, "type": "image", "source": "https://bmpclothings.com", "note": note,
-                         "width": im.width, "height": im.height, "usage": ["editorial"]})
-
     poster = Image.open(os.path.join(ORIG, "video", "bmp-hero-poster.jpg")).convert("RGB")
     media["video/bmp-hero-poster"] = save(poster, "video/bmp-hero-poster", quality=86)
     manifest.append({"id": "video/bmp-hero.mp4", "type": "video", "source": "owner supplied heropage.mp4",
                      "width": 752, "height": 416, "usage": ["hero"], "notes": "audio stripped; mp4 + webm"})
 
     # social share image: hero gown on the warm surface colour
-    hero = load("products/long-gowns/bmp-lg-2-main.jpg")
+    hero = load("local/80k.jpg")
     og = Image.new("RGB", (1200, 630), (246, 226, 207))
     hh = 630
     hw = round(hero.width * hh / hero.height)
     og.paste(hero.resize((hw, hh), Image.LANCZOS), (1200 - hw - 60, 0))
+    os.makedirs(os.path.join(OUT, "brand"), exist_ok=True)
     og.save(os.path.join(OUT, "brand", "og-image.jpg"), "JPEG", quality=86)
 
     for c in src["categories"]:

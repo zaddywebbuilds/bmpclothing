@@ -9,7 +9,7 @@
 .ov.is-open .ov-scrim { opacity: 1; }
 .ov-panel {
   position: absolute; display: flex; flex-direction: column;
-  background: rgba(253, 244, 232, 0.94);
+  background: rgba(16, 18, 21, 0.97);
   backdrop-filter: blur(24px) saturate(150%); -webkit-backdrop-filter: blur(24px) saturate(150%);
   border: 1px solid var(--glass-border);
   box-shadow: var(--sh-lift), var(--sh-inset);
@@ -50,8 +50,8 @@
 .qty button:hover { background: rgba(255,255,255,.9); }
 .qty span { min-width: 26px; text-align: center; font-size: 13.5px; font-weight: 600; font-variant-numeric: tabular-nums; }
 .cart-remove { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-mute); text-decoration: underline; text-underline-offset: 3px; }
-.cart-remove:hover { color: var(--coral-deep); }
-.cart-foot { position: sticky; bottom: 0; display: grid; gap: 12px; padding: 20px 24px 24px; background: linear-gradient(180deg, rgba(253,244,232,0), rgba(253,244,232,.96) 22%); }
+.cart-remove:hover { color: var(--gold-hi); }
+.cart-foot { position: sticky; bottom: 0; display: grid; gap: 12px; padding: 20px 24px 24px; background: linear-gradient(180deg, rgba(16,18,21,0), rgba(16,18,21,.97) 22%); }
 .cart-total { display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
 .cart-total .price { font-size: 17px; letter-spacing: 0; }
 .cart-empty { display: grid; gap: 22px; padding: 12px 24px 28px; align-content: start; }
@@ -64,7 +64,7 @@
 .qv .ov-head { position: absolute; right: 0; top: 0; }
 .qv-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 36px; padding: 24px; }
 .qv-img { aspect-ratio: 3/4; max-height: calc(100vh - 80px); border-radius: var(--r-lg); }
-.qv-img > img { object-fit: contain !important; background: radial-gradient(circle at 50% 40%, var(--pink-soft), var(--blush)); }
+.qv-img > img { object-fit: contain !important; background: radial-gradient(circle at 50% 40%, var(--char-raise), var(--char)); }
 .qv-info { display: flex; flex-direction: column; gap: 16px; padding: 28px 12px 12px 0; }
 .qv-price { font-size: 19px; }
 .qv .lede { font-size: 14.5px; }
@@ -74,7 +74,7 @@
 .opt { border: 0; padding: 0; margin: 0; min-width: 0; }
 .opt legend { padding: 0; margin-bottom: 10px; font-size: 10.5px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-soft); }
 .opt legend span { color: var(--ink); letter-spacing: .08em; }
-.opt legend .opt-hint { color: var(--coral-deep); }
+.opt legend .opt-hint { color: var(--gold-hi); }
 .opt-row { display: flex; flex-wrap: wrap; gap: 10px; }
 .swatch {
   width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center;

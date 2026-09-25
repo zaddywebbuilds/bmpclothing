@@ -36,7 +36,7 @@ export default function SearchOverlay() {
             type="search"
             value={q}
             onChange={(e) => setQ(e.target.value)}
-            placeholder="Search gowns, colours, BMP LG 8…"
+            placeholder="Search gowns, jumpsuits, colours…"
             autoComplete="off"
           />
           <button type="button" className="link-line" onClick={closePanel}>Close</button>

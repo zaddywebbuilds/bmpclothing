@@ -9,11 +9,11 @@ import './pages.css'
 
 // Each chapter pairs looks that share a mood. Every piece appears once.
 const CHAPTERS = [
-  { no: '01', title: ['Gold', <em key="h">hour</em>], line: 'Metallics, butter tulle and bronze that glow when the lights come up.', looks: ['bmp-lg-2', 'velvet-gold-cut-out-gown', 'bronze-draped-keyhole-gown'] },
-  { no: '02', title: ['Red', <em key="r">alert</em>], line: 'Every shade of red, cut to hold the room.', looks: ['bmp-lg-10', 'red-cut-out-twist-maxi', 'bmp-lg-5', 'red-sweetheart-ruched-mini'] },
+  { no: '01', title: ['Gold', <em key="h">hour</em>], line: 'Metallics and bronze that glow when the lights come up.', looks: ['velvet-gold-cut-out-gown', 'bronze-draped-keyhole-gown', 'rust-ruched-wrap-maxi'] },
+  { no: '02', title: ['Red', <em key="r">alert</em>], line: 'Every shade of red, cut to hold the room.', looks: ['red-cut-out-twist-maxi', 'red-twist-front-slit-maxi', 'red-ruched-tie-sleeve-mini', 'red-sweetheart-ruched-mini'] },
   { no: '03', title: ['Soft', <em key="p">power</em>], line: 'Ivory, white and whisper-light layers for the gentle entrance.', looks: ['white-halter-ruffle-gown', 'ivory-cowl-mermaid-gown', 'white-off-shoulder-drape-gown'] },
   { no: '04', title: ['Blue', <em key="m">mood</em>], line: 'Cobalt, royal and midnight. Cool colour, warm confidence.', looks: ['cobalt-draped-jumpsuit', 'royal-blue-plunge-maxi', 'midnight-cowl-mermaid-gown', 'cobalt-mesh-sleeve-draped-gown'] },
-  { no: '05', title: ['Colour', <em key="c">theory</em>], line: 'Prints, fuchsia and sunshine for the days that deserve joy.', looks: ['fuchsia-print-mermaid-gown', 'blue-print-one-shoulder-maxi', 'colour-block-tiered-mini', 'bmp-st-2'] },
+  { no: '05', title: ['Colour', <em key="c">theory</em>], line: 'Prints, fuchsia and sunshine for the days that deserve joy.', looks: ['fuchsia-print-mermaid-gown', 'blue-print-one-shoulder-maxi', 'colour-block-tiered-mini', 'fuchsia-off-shoulder-drape-gown'] },
 ]
 
 export default function Lookbook() {

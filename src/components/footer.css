@@ -8,9 +8,9 @@
 .footer-cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; }
 .footer-cols > div { display: grid; gap: 11px; align-content: start; }
 .footer-cols .eyebrow { margin-bottom: 6px; }
-.footer-cols a { font-size: 14px; color: rgba(253, 244, 232, .86); display: inline-flex; gap: 4px; align-items: center; transition: color .3s, transform .4s var(--ease); width: fit-content; }
-.footer-cols a:hover { color: var(--peach); transform: translateX(3px); }
-.footer-muted { font-size: 13px; color: rgba(253, 244, 232, .5); }
+.footer-cols a { font-size: 14px; color: rgba(244, 240, 233, .86); display: inline-flex; gap: 4px; align-items: center; transition: color .3s, transform .4s var(--ease); width: fit-content; }
+.footer-cols a:hover { color: var(--gold-hi); transform: translateX(3px); }
+.footer-muted { font-size: 13px; color: rgba(244, 240, 233, .5); }
 .footer-giant {
   font-size: clamp(120px, 26vw, 420px); line-height: .78; letter-spacing: -.04em; text-align: center;
   margin: clamp(24px, 3vw, 44px) 0 6px;
@@ -20,8 +20,8 @@
 }
 .footer-base {
   display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
-  padding-top: 22px; border-top: 1px solid rgba(253, 244, 232, .12);
-  font-size: 11.5px; letter-spacing: .08em; color: rgba(253, 244, 232, .55);
+  padding-top: 22px; border-top: 1px solid rgba(244, 240, 233, .12);
+  font-size: 11.5px; letter-spacing: .08em; color: rgba(244, 240, 233, .55);
 }
 @media (max-width: 900px) {
   .footer-top { grid-template-columns: 1fr; }

@@ -50,8 +50,6 @@ export const testimonials = [
     location: 'Lagos, Nigeria',
     quote: 'Delivered quality and I felt so comfortable and beautiful on my dress.',
     tag: 'Just BMP',
-    image: 'customers/jane-lagos',
-    imageAlt: 'Jane, a BMP customer in Lagos, wearing her BMP dress',
   },
 ]
 

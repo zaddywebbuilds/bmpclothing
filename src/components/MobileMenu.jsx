@@ -10,7 +10,7 @@ import { categories, productBySlug } from '../data/catalog'
 import { site, socials, waLink } from '../data/site'
 import SocialIcon from './SocialIcon'
 
-const FEATURE = 'bmp-lg-5'
+const FEATURE = 'velvet-gold-cut-out-gown'
 
 export default function MobileMenu() {
   const { panel, closePanel } = useStore()

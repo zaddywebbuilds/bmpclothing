@@ -10,6 +10,7 @@ import './pages.css'
 
 export default function About() {
   useSeo({ title: 'About BMP', description: 'The story behind BMP Clothings, a Lagos women’s fashion house built on self-expression, quality you can see and style you can feel.', path: '/about' })
+  const hero = productBySlug['white-halter-ruffle-gown']
   const store = productBySlug['turquoise-off-shoulder-ruched-maxi']
   const detail = productBySlug['tiered-strappy-midi-dress']
   return (
@@ -20,7 +21,7 @@ export default function About() {
           <h1 className="display caps h-xl"><Lines lines={['The story', <em key="b">behind BMP</em>]} /></h1>
           <p className="lede reveal" data-delay="3">{about[0]}</p>
         </div>
-        <div className="panel page-hero-media reveal-img"><Img id="brand/campaign-magenta-cowl" alt="BMP Clothings campaign portrait" priority sizes="(max-width: 900px) 90vw, 40vw" /></div>
+        <div className="panel page-hero-media reveal-img"><Img id={hero.images[0]} alt={`BMP Clothings: ${hero.title}`} priority sizes="(max-width: 900px) 90vw, 40vw" /></div>
       </Reveal>
 
       <Reveal className="section wrap about-grid">

@@ -38,7 +38,7 @@
 .pdp-wa svg { color: #1f9e55; }
 .pdp-wa:hover svg { color: #5fd08f; }
 .pdp-ask { display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 500; color: var(--ink-soft); width: fit-content; }
-.pdp-ask:hover { color: var(--coral-deep); }
+.pdp-ask:hover { color: var(--gold-hi); }
 .pdp-assure { display: grid; gap: 10px; padding: 16px 18px; border-radius: var(--r-md); background: rgba(255,255,255,.42); border: 1px solid var(--glass-border); font-size: 13.5px; color: var(--ink-soft); }
 .pdp-assure li { display: flex; gap: 10px; align-items: center; }
 .pdp-assure a { text-decoration: underline; text-underline-offset: 3px; color: var(--ink); }

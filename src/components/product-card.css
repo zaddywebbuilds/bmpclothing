@@ -18,7 +18,7 @@
   transition: transform .4s var(--ease), background-color .3s, color .3s;
 }
 .wish:hover { transform: scale(1.06); }
-.wish.is-on { color: var(--coral-deep); }
+.wish.is-on { color: var(--gold-hi); }
 .wish.is-on svg { fill: currentColor; animation: heartPop .5s var(--ease); }
 @keyframes heartPop { 40% { transform: scale(1.35); } 100% { transform: none; } }
 

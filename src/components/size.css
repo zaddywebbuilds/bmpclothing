@@ -12,7 +12,7 @@
 .sf-fit > div { display: flex; flex-wrap: wrap; gap: 8px; }
 .sf-result { display: grid; gap: 10px; justify-items: start; padding: 20px 22px; border-radius: var(--r-lg); min-height: 110px; align-content: center; }
 .sf-empty { color: var(--ink-mute); font-size: 14px; }
-.sf-label { font-size: 10.5px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--coral-deep); }
+.sf-label { font-size: 10.5px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-hi); }
 .sf-size { font-size: 76px; line-height: .85; letter-spacing: -.03em; }
 .sf-note { font-size: 13.5px; line-height: 1.6; color: var(--ink-soft); }
 .sf-actions { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 6px; }
@@ -39,7 +39,7 @@
 .opt-size { min-width: 44px; justify-content: center; }
 .opt-finder { display: inline-flex; align-items: center; gap: 7px; margin-top: 12px; font-size: 13px; color: var(--ink-soft); }
 .opt-finder u { text-underline-offset: 3px; color: var(--ink); font-weight: 600; }
-.opt-finder:hover u { color: var(--coral-deep); }
+.opt-finder:hover u { color: var(--gold-hi); }
 .ov--center .ov-panel.sf-drawer { width: min(680px, calc(100vw - 24px)); }
 .sf-drawer .ov-head { position: absolute; right: 0; top: 0; z-index: 3; }
 .sf-drawer-body { padding: 28px 28px 24px; }
