@@ -21,7 +21,7 @@ const catName = Object.fromEntries(catalog.categories.map((c) => [c.key, c.name]
 
 // [path, title, description, noindex, ogImage, jsonLd, sitemapImages]
 const routes = [
-  ['/shop', "Shop Women's Fashion", 'Every BMP Clothings piece in one place: long gowns, short gowns, jumpsuits, tops and sets from Lagos with clear Naira prices.'],
+  ['/shop', "Shop Women's Fashion", 'Every BMP Clothings piece in one place: statement long gowns, short gowns, jumpsuits and coordinated sets from Lagos, in UK sizes 8–22 with clear Naira prices.'],
   ['/new-in', 'New In', 'The newest pieces from the BMP Clothings store in Lagos. Statement gowns, minis and jumpsuits, just arrived.'],
   ['/lookbook', 'Lookbook', 'The BMP Clothings lookbook: gold hour, red alert, soft power, blue mood and colour theory. Shop every look.'],
   ['/the-bmp-woman', 'The BMP Woman', 'If you see BMP Woman, you go know. Meet the confident, expressive Lagos woman behind every BMP piece.'],

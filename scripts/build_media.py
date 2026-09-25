@@ -107,7 +107,7 @@ def main():
 
     # social share image: hero gown on the warm surface colour
     hero = load("local/80k.jpg")
-    og = Image.new("RGB", (1200, 630), (246, 226, 207))
+    og = Image.new("RGB", (1200, 630), (129, 143, 217))
     hh = 630
     hw = round(hero.width * hh / hero.height)
     og.paste(hero.resize((hw, hh), Image.LANCZOS), (1200 - hw - 60, 0))

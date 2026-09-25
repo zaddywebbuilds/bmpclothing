@@ -20,7 +20,7 @@
     transition: background-color .3s var(--ease), color .3s;
   }
   .mbar-btn:active { background: rgba(255, 255, 255, .7); }
-  .mbar-btn--wa { background: var(--ink); color: var(--cream); }
+  .mbar-btn--wa { background: var(--bone); color: var(--navy); }
   .mbar-btn--wa svg { color: #5fd08f; }
   body { padding-bottom: 64px; }
 }

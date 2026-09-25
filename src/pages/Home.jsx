@@ -2,46 +2,40 @@ import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, ArrowDown, ArrowUpRight, Sparkles } from 'lucide-react'
 import Img from '../components/Img'
-import Coverflow from '../components/Coverflow'
+import HeroVideo from '../components/HeroVideo'
 import Rail from '../components/Rail'
-import ProductCard from '../components/ProductCard'
 import Newsletter from '../components/Newsletter'
 import WaIcon from '../components/WaIcon'
 import Reveal, { Lines } from '../components/Reveal'
-import { categories, categoryByKey, occasions, pick, picks, priceRange, productBySlug, products, altText } from '../data/catalog'
-import { philosophy, pillars, testimonials, site, socials } from '../data/site'
-import SocialIcon from '../components/SocialIcon'
+import { categories, categoryByKey, occasions, pick, productBySlug, products, altText } from '../data/catalog'
+import { philosophy, pillars, site } from '../data/site'
 import { naira, useScrollProgress } from '../lib/util'
 import { orderLink } from '../lib/order'
 import { useSeo } from '../lib/seo'
 import './home.css'
 
-// Each section draws from its own garments so no piece repeats down the page.
-const HERO_RING = [
-  'velvet-gold-cut-out-gown', 'white-halter-ruffle-gown', 'royal-blue-plunge-maxi',
-  'fuchsia-print-mermaid-gown', 'midnight-cowl-mermaid-gown', 'red-cut-out-twist-maxi',
-  'bronze-draped-keyhole-gown', 'turquoise-off-shoulder-ruched-maxi', 'cerise-rosette-mini-dress',
-]
+// Every garment below appears exactly once on this page — no piece repeats between sections.
 const CATEGORY_COVERS = {
   'long-gowns': 'ivory-cowl-mermaid-gown',
-  'short-gowns': 'red-ruched-tie-sleeve-mini',
-  jumpsuits: 'cobalt-draped-jumpsuit',
+  'short-gowns': 'cerise-rosette-mini-dress',
+  jumpsuits: 'violet-cut-out-jumpsuit',
   'pants-and-tops': 'white-wide-leg-floral-bustier-set',
 }
-const NEW_ARRIVALS = ['ruched-cut-out-column-gown', 'white-off-shoulder-drape-gown', 'rust-ruched-wrap-maxi', 'black-lace-sleeve-ruched-mini', 'polka-dot-long-sleeve-maxi', 'blue-print-one-shoulder-maxi', 'violet-cut-out-jumpsuit', 'olive-ruched-bodycon-midi']
+const NEW_ARRIVALS = [
+  'ruched-cut-out-column-gown', 'white-off-shoulder-drape-gown', 'rust-ruched-wrap-maxi',
+  'black-lace-sleeve-ruched-mini', 'polka-dot-long-sleeve-maxi', 'olive-ruched-bodycon-midi',
+]
 const STATEMENT = 'velvet-gold-cut-out-gown'
-const BMP_WOMAN = ['white-off-shoulder-drape-gown', 'fuchsia-off-shoulder-drape-gown', 'midnight-cowl-mermaid-gown']
+const BMP_WOMAN = ['white-halter-ruffle-gown', 'fuchsia-off-shoulder-drape-gown', 'midnight-cowl-mermaid-gown']
 const OCCASION_COVERS = {
-  'event-ready': 'fuchsia-off-shoulder-drape-gown',
-  'dinner-date': 'black-lace-sleeve-ruched-mini',
+  'event-ready': 'royal-blue-plunge-maxi',
+  'dinner-date': 'red-cut-out-twist-maxi',
   'main-character': 'white-ruffle-front-maxi',
   'sunday-best': 'turquoise-cut-out-pleated-maxi',
   weekend: 'colour-block-tiered-mini',
   'everyday-chic': 'red-keyhole-jumpsuit',
 }
-const THE_EDIT = ['cobalt-mesh-sleeve-draped-gown', 'red-twist-front-slit-maxi', 'tiered-strappy-midi-dress']
 const QUALITY = 'turquoise-off-shoulder-ruched-maxi'
-const STORE = 'violet-cut-out-jumpsuit'
 const NEWSLETTER = 'red-ruched-tie-sleeve-mini'
 const FINAL = 'red-sweetheart-ruched-mini'
 
@@ -58,11 +52,7 @@ export default function Home() {
       <Statement />
       <BmpWomanScene />
       <Occasions />
-      <TheEdit />
-      <Picks />
       <Quality />
-      <CustomerLove />
-      <BehindBmp />
       <Circle />
       <FinalCta />
     </>
@@ -70,63 +60,37 @@ export default function Home() {
 }
 
 /* ---------------------------------------------------------------
-   Hero — a bento rail of live figures beside a 3D garment carousel
+   Hero — the store film, with a bento rail of live figures beside it
    --------------------------------------------------------------- */
 function Hero() {
-  const ring = pick(...HERO_RING)
-  const [low, high] = priceRange()
-  const liveCats = categories.filter((c) => c.count).length
-
   return (
     <Reveal className="hero wrap" aria-label="Introduction">
       <div className="hero-grid">
-        <aside className="hero-rail" aria-label="BMP at a glance">
-          <div className="bento hero-tile bento-in" style={{ animationDelay: '.05s' }}>
-            <div className="stat">
-              <span className="stat-k">{products.length}</span>
-              <span className="stat-l">Pieces<br />in store</span>
-            </div>
+        <div className="hero-copy bento-in">
+          <p className="index-label">Lagos · Women's Fashion House</p>
+          <h1 className="display caps h-xl hero-title">
+            <Lines lines={['The', <em key="w">BMP</em>, 'Woman']} />
+          </h1>
+          <p className="hero-lede">
+            <span className="hero-proof-ico" aria-hidden="true"><Sparkles size={13} strokeWidth={2} /></span>
+            Style that speaks before you do. Statement gowns, sharp minis and sets for the woman who is comfortable being noticed.
+          </p>
+          <div className="hero-ctas">
+            <Link to="/new-in" className="btn btn--gold btn--disc">
+              <span className="disc"><ArrowRight size={16} strokeWidth={2} /></span>
+              Shop the edit
+            </Link>
+            <Link to="/the-bmp-woman" className="btn btn--glass">Explore BMP</Link>
           </div>
+          <ul className="hero-facts">
+            <li><strong>{products.length}</strong> pieces in store</li>
+            <li><strong>{categories.filter((c) => c.count).length}</strong> collections</li>
+            <li><WaIcon size={14} /> Order on WhatsApp</li>
+          </ul>
+        </div>
 
-          <div className="bento bento--frost hero-tile bento-in" style={{ animationDelay: '.14s' }}>
-            <div className="stat">
-              <span className="stat-l">Pieces from</span>
-              <span className="stat-k">{naira(low).replace(',000', 'k')}</span>
-              <span className="stat-bar" aria-hidden="true"><i style={{ width: '34%' }} /></span>
-              <span className="stat-l" style={{ marginTop: 8 }}>up to {naira(high).replace(',000', 'k')}</span>
-            </div>
-          </div>
-
-          <div className="bento bento--gold hero-tile hero-tile--wa bento-in" style={{ animationDelay: '.23s' }}>
-            <div className="stat">
-              <span className="hero-wa-ico" aria-hidden="true"><WaIcon size={18} /></span>
-              <span className="stat-k" style={{ fontSize: 'clamp(22px,2vw,30px)' }}>Order on<br />WhatsApp</span>
-              <span className="stat-l">{liveCats} collections · Lagos</span>
-            </div>
-          </div>
-        </aside>
-
-        <div className="stage hero-stage bento-in" style={{ animationDelay: '.1s' }}>
-          <div className="hero-glow" aria-hidden="true" />
-          <Coverflow items={ring} />
-
-          <div className="hero-copy">
-            <p className="index-label reveal">Lagos · Women's Fashion House</p>
-            <h1 className="display caps h-xl hero-title">
-              <Lines lines={['The', <em key="w">BMP</em>, 'Woman']} />
-            </h1>
-            <p className="hero-lede bento-in" style={{ animationDelay: '.46s' }}>
-              <span className="hero-proof-ico" aria-hidden="true"><Sparkles size={13} strokeWidth={2} /></span>
-              Style that speaks before you do. Statement gowns, sharp minis and sets for the woman who is comfortable being noticed.
-            </p>
-            <div className="hero-ctas bento-in" style={{ animationDelay: '.56s' }}>
-              <Link to="/new-in" className="btn btn--disc">
-                <span className="disc"><ArrowRight size={16} strokeWidth={2} /></span>
-                Shop the edit
-              </Link>
-              <Link to="/the-bmp-woman" className="btn btn--glass">Explore BMP</Link>
-            </div>
-          </div>
+        <div className="stage hero-stage bento-in" style={{ animationDelay: '.12s' }}>
+          <div className="hero-screen"><HeroVideo /></div>
         </div>
       </div>
 
@@ -151,7 +115,7 @@ function Categories() {
           const p = productBySlug[CATEGORY_COVERS[c.key]]
           if (!p) return null
           return (
-            <Link key={c.key} to={`/collections/${c.key}`} className={`cat reveal`} data-delay={(i % 3) + 1} data-cursor="Shop">
+            <Link key={c.key} to={`/collections/${c.key}`} className="cat reveal" data-delay={(i % 3) + 1} data-cursor="Shop">
               <div className="panel cat-img tilt">
                 <Img id={p.images[0]} alt={`${c.name} at BMP Clothings: ${p.title}`} sizes="(max-width: 760px) 50vw, 25vw" />
                 <span className="tilt-sheen" aria-hidden="true" />
@@ -218,7 +182,7 @@ function Statement() {
 function BmpWomanScene() {
   const ref = useRef(null)
   const prog = useScrollProgress(ref, { start: 'bottom', end: 'bottom' })
-  const [a, b, c] = pick(...BMP_WOMAN)
+  const cards = pick(...BMP_WOMAN)
   const step = (t) => Math.max(0, Math.min(1, (prog - t) / 0.22))
   return (
     <section ref={ref} className="wrap bmpw-wrap" aria-labelledby="bmpw-title">
@@ -234,7 +198,7 @@ function BmpWomanScene() {
           </div>
         </div>
         <div className="bmpw-stack scene">
-          {[a, b, c].filter(Boolean).map((p, i) => {
+          {cards.map((p, i) => {
             const t = [0.05, 0.2, 0.36][i]
             const rot = [-4, 3, -1.5][i]
             return (
@@ -308,56 +272,6 @@ function Occasions() {
   )
 }
 
-function TheEdit() {
-  const [a, b, c] = pick(...THE_EDIT)
-  if (!a) return null
-  return (
-    <Reveal className="section edit wrap" aria-labelledby="edit-title">
-      <Link to={a.url} className="edit-a" data-cursor="View">
-        <div className="panel reveal-img"><Img id={a.images[0]} alt={altText(a)} sizes="(max-width: 760px) 100vw, 44vw" /></div>
-      </Link>
-      <div className="edit-copy">
-        <p className="index-label reveal">The Edit / 01</p>
-        <h2 id="edit-title" className="display caps h-lg"><Lines lines={['Confidence', <em key="m">in motion</em>]} /></h2>
-        <p className="lede reveal" data-delay="2">Mesh sleeves that catch the light, twists that hold the waist, tiers that swing when you walk. Three pieces, one mood.</p>
-        <Link to="/lookbook" className="btn btn--glass reveal" data-delay="3">Explore the lookbook <ArrowRight className="arrow" size={15} /></Link>
-      </div>
-      {b && (
-        <Link to={b.url} className="edit-b" data-cursor="View">
-          <div className="panel reveal-img"><Img id={b.images[0]} alt={altText(b)} sizes="(max-width: 760px) 60vw, 24vw" /></div>
-          <span className="edit-cap">{b.title} · <span className="price">{naira(b.price)}</span></span>
-        </Link>
-      )}
-      {c && (
-        <Link to={c.url} className="edit-c" data-cursor="View">
-          <div className="panel reveal-img"><Img id={c.images[1] || c.images[0]} alt={altText(c, 1)} sizes="(max-width: 760px) 60vw, 22vw" /></div>
-          <span className="edit-cap">{c.title} · <span className="price">{naira(c.price)}</span></span>
-        </Link>
-      )}
-    </Reveal>
-  )
-}
-
-function Picks() {
-  if (!picks.length) return null
-  return (
-    <Reveal className="section section--tight picks wrap" aria-labelledby="picks-title">
-      <div className="section-head">
-        <div>
-          <p className="index-label reveal">Chosen by BMP</p>
-          <h2 id="picks-title" className="display caps h-lg"><Lines lines={['BMP', <em key="p">Picks</em>]} /></h2>
-        </div>
-        <Link to="/shop?view=picks" className="link-line reveal">See every pick <ArrowRight className="arrow" size={14} /></Link>
-      </div>
-      <div className="grid-products">
-        {picks.map((p, i) => (
-          <div key={p.slug} className="reveal" data-delay={(i % 4) + 1}><ProductCard product={p} /></div>
-        ))}
-      </div>
-    </Reveal>
-  )
-}
-
 function Quality() {
   const p = productBySlug[QUALITY]
   return (
@@ -385,52 +299,6 @@ function Quality() {
             ))}
           </ol>
         </div>
-      </div>
-    </Reveal>
-  )
-}
-
-function CustomerLove() {
-  const t = testimonials[0]
-  if (!t) return null
-  return (
-    <Reveal className="section section--tight love wrap" aria-labelledby="love-title">
-      <div className="love-card bento">
-        <div className="love-copy">
-          <p className="index-label reveal">Worn. Loved. Repeated.</p>
-          <h2 id="love-title" className="sr-only">Customer love</h2>
-          <blockquote className="display love-quote reveal" data-delay="1">“{t.quote}”</blockquote>
-          <p className="love-who reveal" data-delay="2"><strong>{t.name}</strong> · {t.location} · <em>{t.tag}</em></p>
-          <div className="love-actions reveal" data-delay="3">
-            <a className="link-line" href={`https://wa.me/${site.whatsapp.number}?text=${encodeURIComponent('Hello BMP Clothings 👋 I want to share my BMP look!')}`} target="_blank" rel="noopener noreferrer">
-              Share your BMP look <ArrowRight className="arrow" size={14} />
-            </a>
-            <div className="love-follow">
-              {socials().filter(([n]) => n !== 'Facebook').map(([name, url]) => (
-                <a key={name} href={url} target="_blank" rel="noopener noreferrer" className="chip"><SocialIcon name={name} size={14} /> {site.handle}</a>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </Reveal>
-  )
-}
-
-function BehindBmp() {
-  const p = productBySlug[STORE]
-  return (
-    <Reveal className="section behind wrap" aria-labelledby="behind-title">
-      {p && (
-        <div className="panel behind-img reveal-img">
-          <Img id={p.images[0]} alt={altText(p)} sizes="(max-width: 900px) 90vw, 40vw" />
-        </div>
-      )}
-      <div className="behind-copy">
-        <p className="index-label reveal">Behind BMP</p>
-        <h2 id="behind-title" className="display caps h-md"><Lines lines={['Made in Nigeria.', <em key="f">Made to be felt.</em>]} /></h2>
-        <p className="lede reveal" data-delay="2">At BMP, fashion is self-expression. Nigerian-made, ready-to-wear and styled in our Lagos store, every piece is chosen with care so you can move through your day with confidence, comfort and a touch of glamour.</p>
-        <Link to="/about" className="link-line reveal" data-delay="3">Our story <ArrowRight className="arrow" size={14} /></Link>
       </div>
     </Reveal>
   )
@@ -469,7 +337,7 @@ function FinalCta() {
           </Link>
         )}
         <div className="final-actions reveal" data-delay="2">
-          <Link to="/shop" className="btn">Shop BMP <ArrowRight className="arrow" size={15} /></Link>
+          <Link to="/shop" className="btn btn--gold">Shop BMP <ArrowRight className="arrow" size={15} /></Link>
           {p && (
             <a className="btn btn--glass" href={orderLink(p)} target="_blank" rel="noopener noreferrer">
               <WaIcon /> Order the {categoryByKey[p.category].name.replace(/s$/, '')}

@@ -59,16 +59,17 @@
   font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
   white-space: nowrap;
   border-radius: var(--r-pill);
-  color: var(--bone-dim);
-  background: var(--glass);
-  border: 1px solid var(--glass-line);
+  color: rgba(244, 240, 233, .82);
+  background: rgba(29, 26, 65, .8);
+  border: 1px solid rgba(255, 255, 255, .14);
   backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+  box-shadow: var(--sh-soft);
   transition: color .35s var(--ease), background-color .35s var(--ease), border-color .35s var(--ease), transform .35s var(--ease);
 }
-.nav-link:hover { color: var(--bone); background: var(--glass-hi); transform: translateY(-1px); }
+.nav-link:hover { color: var(--bone); background: var(--navy); transform: translateY(-1px); }
 /* active reads as a solid capsule, the template's filled-pill state */
 .nav-link.active, .nav-link[aria-expanded='true'] {
-  color: var(--void); font-weight: 700;
+  color: var(--navy); font-weight: 700;
   background: linear-gradient(135deg, var(--gold-hi), var(--gold));
   border-color: transparent;
   box-shadow: var(--sh-gold);
@@ -79,12 +80,13 @@
   width: 56px; height: 56px; border-radius: var(--r-pill);
   display: inline-grid; place-items: center; position: relative; flex: none;
   color: var(--bone);
-  background: var(--glass);
-  border: 1px solid var(--glass-line);
+  background: rgba(29, 26, 65, .8);
+  border: 1px solid rgba(255, 255, 255, .14);
   backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+  box-shadow: var(--sh-soft);
   transition: color .35s var(--ease), background-color .35s var(--ease), border-color .35s var(--ease), transform .35s var(--ease);
 }
-.nav-ico:hover { color: var(--gold-hi); background: var(--glass-hi); border-color: var(--gold-deep); transform: translateY(-1px); }
+.nav-ico:hover { color: var(--gold-hi); background: var(--navy); border-color: var(--gold); transform: translateY(-1px); }
 
 .nav-count {
   position: absolute; top: 8px; right: 7px;

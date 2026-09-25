@@ -34,7 +34,9 @@ export default function Product() {
     title: p ? `${p.title}${p.code ? ` (${p.code})` : ''}` : 'Piece not found',
     description: p ? `${p.description.slice(0, 150).replace(/\s\S*$/, '')}… ${naira(p.price)} at BMP Clothings, Lagos.` : undefined,
     path: p ? p.url : undefined,
-    image: p ? imagePath(p.images[0]) : undefined,
+    image: p ? imagePath(p.images[0], 1800) : undefined,
+    imageAlt: p ? `${p.title} — BMP Clothings, Lagos` : undefined,
+    type: 'product',
     jsonLd: p ? [
       {
         '@context': 'https://schema.org', '@type': 'Product',
@@ -42,10 +44,13 @@ export default function Product() {
         description: p.description, category: cat.name,
         image: p.images.map((id) => `${site.url}/${imagePath(id)}`),
         ...(p.colours.length ? { color: p.colours.map((c) => c.name).join(', ') } : {}),
+        inLanguage: 'en-NG',
         offers: {
           '@type': 'Offer', priceCurrency: 'NGN', price: p.price, url: `${site.url}${p.url}`,
+          itemCondition: 'https://schema.org/NewCondition',
           ...(p.inStock ? { availability: 'https://schema.org/InStock' } : {}),
-          seller: { '@type': 'Organization', name: 'BMP Clothings' },
+          areaServed: { '@type': 'Country', name: 'Nigeria' },
+          seller: { '@type': 'ClothingStore', name: 'BMP Clothings', '@id': `${site.url}/#store` },
         },
       },
       breadcrumbLd([['Home', '/'], ['Shop', '/shop'], [cat.name, `/collections/${cat.key}`], [p.title, p.url]]),

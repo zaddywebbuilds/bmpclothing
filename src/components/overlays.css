@@ -2,7 +2,7 @@
 .ov.is-open { pointer-events: auto; }
 .ov-scrim {
   position: absolute; inset: 0;
-  background: rgba(42, 31, 26, 0.28);
+  background: rgba(24, 22, 54, 0.44);
   backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
   opacity: 0; transition: opacity .5s var(--ease);
 }
