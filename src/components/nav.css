@@ -11,9 +11,10 @@
 }
 .announce p { overflow: hidden; text-overflow: ellipsis; }
 
-.logo { display: inline-flex; flex-direction: column; align-items: center; line-height: 1; color: var(--bone); }
+.logo { display: inline-flex; flex-direction: row; align-items: center; gap: 8px; line-height: 1; color: var(--bone); }
+.logo-img { width: 36px; height: 36px; object-fit: cover; border-radius: 50%; display: block; flex-shrink: 0; }
 .logo-mark { font-family: var(--serif); font-size: 26px; font-weight: 600; letter-spacing: .04em; }
-.logo-sub { font-size: 8px; font-weight: 700; letter-spacing: .5em; margin-top: 4px; margin-right: -.5em; text-transform: uppercase; color: var(--gold); }
+.logo-sub { font-size: 10px; font-weight: 700; letter-spacing: .38em; margin-right: -.38em; text-transform: uppercase; color: var(--gold); }
 .logo--light { color: var(--bone); }
 
 /* ---- floating pill rail: every control is its own capsule ---- */
@@ -143,7 +144,8 @@
   .nav-logo { height: 50px; padding: 0 16px; }
   .nav-burger, .nav-ico { width: 50px; height: 50px; }
   .nav-wish { display: none; }
+  .logo-img { width: 30px; height: 30px; }
   .logo-mark { font-size: 22px; }
-  .logo-sub { font-size: 7px; letter-spacing: .4em; margin-right: -.4em; }
+  .logo-sub { font-size: 8px; letter-spacing: .4em; margin-right: -.4em; }
   .announce { font-size: 9px; letter-spacing: .14em; }
 }
