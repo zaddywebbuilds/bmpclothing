@@ -52,7 +52,10 @@ export function useSeo({ title, description, path = '', image, imageAlt, type = 
 
     setLink('canonical', url)
 
-    document.head.querySelectorAll('script[data-seo]').forEach((s) => s.remove())
+    // postbuild ships the same blocks statically for crawlers that do not run JS. Googlebot
+    // does run it, so the static copies are dropped here or the page carries two Product
+    // and two BreadcrumbList entities.
+    document.head.querySelectorAll('script[data-seo], script[data-seo-static]').forEach((s) => s.remove())
     const blocks = [organizationLd(), webSiteLd(), ...(jsonLd ? [].concat(jsonLd) : [])]
     blocks.forEach((b) => {
       const s = document.createElement('script')

@@ -112,7 +112,7 @@ const render = (path, title, desc, noindex, image, ld) => {
     .replace(/(<meta property="og:url" content=")[^"]*"/, `$1${SITE}${path}"`)
   if (image) h = h.replace(/(<meta property="og:image" content=")[^"]*"/, `$1${image}"`)
   if (noindex) h = h.replace('</head>', '    <meta name="robots" content="noindex" />\n  </head>')
-  if (ld) h = h.replace('</head>', `    <script type="application/ld+json">${JSON.stringify(ld).replace(/</g, '\\u003c')}</script>\n  </head>`)
+  if (ld) h = h.replace('</head>', `    <script type="application/ld+json" data-seo-static>${JSON.stringify(ld).replace(/</g, '\\u003c')}</script>\n  </head>`)
   return h
 }
 
@@ -130,7 +130,7 @@ for (const [path, title, desc, noindex, image, ld] of routes) {
     .replace(/(<link rel="canonical" href=")[^"]*"/, `$1${SITE}/"`)
     .replace(/(<meta property="og:url" content=")[^"]*"/, `$1${SITE}/"`)
     .replace(/(<meta property="og:image" content=")[^"]*"/, `$1${SITE}/assets/bmp/brand/og-image.jpg"`)
-    .replace('</head>', `    <script type="application/ld+json">${JSON.stringify(homeLd()).replace(/</g, '\\u003c')}</script>\n  </head>`)
+    .replace('</head>', `    <script type="application/ld+json" data-seo-static>${JSON.stringify(homeLd()).replace(/</g, '\\u003c')}</script>\n  </head>`)
   writeFileSync(join(dist, 'index.html'), home)
   console.log(`postbuild: homepage canonical ${SITE}/ · "${shellTitle}"`)
 }
