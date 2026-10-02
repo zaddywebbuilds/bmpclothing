@@ -9,6 +9,9 @@
 }
 @media (min-width: 761px) { .toast { left: auto; right: max(20px, env(safe-area-inset-right)); } }
 @media (max-width: 900px) { .toast { bottom: calc(76px + env(safe-area-inset-bottom)); } }
+/* On phones the toast sits over the hero film. .glass is only 34% white, so it stays
+   readable through the blur but not without it; this keeps the copy legible either way. */
+@media (max-width: 760px) { .toast { background: rgba(255, 255, 255, .88); } }
 .toast.is-visible { opacity: 1; transform: none; pointer-events: auto; }
 .toast-link { flex: 1; display: flex; gap: 12px; align-items: center; min-width: 0; }
 .toast-img { flex: 0 0 52px; width: 52px; aspect-ratio: 3/4; border-radius: 10px; }
