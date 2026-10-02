@@ -22,6 +22,11 @@ const img = (id, max = 960) => {
 }
 const catName = Object.fromEntries(catalog.categories.map((c) => [c.key, c.name]))
 
+// Facebook and WhatsApp only render the large preview card above ~600px wide; a narrower
+// source photo shows as a cramped thumbnail, so those few fall back to the branded card.
+const shareImg = (id) =>
+  Math.max(...catalog.media[id].widths) >= 600 ? img(id) : `${SITE}/assets/bmp/brand/og-image.jpg`
+
 // [path, title, description, noindex, ogImage, jsonLd, sitemapImages]
 const routes = [
   ['/shop', "Shop Women's Fashion", 'Every BMP Clothings piece in one place: statement long gowns, short gowns, jumpsuits and coordinated sets from Lagos, in UK sizes 8–22 with clear Naira prices.'],
@@ -45,7 +50,9 @@ for (const o of catalog.occasions) {
 }
 for (const p of catalog.products) {
   const title = `${p.title}${p.code ? ` (${p.code})` : ''}`
-  const desc = `${p.description.slice(0, 150).replace(/\s\S*$/, '')}… ${naira(p.price)} at BMP Clothings, Lagos.`
+  // Kept under ~160 so Google shows the whole line: the price is in the tail and is the
+  // part worth not truncating.
+  const desc = `${p.description.slice(0, 118).replace(/\s\S*$/, '')}… ${naira(p.price)} at BMP Clothings, Lagos.`
   const url = `${SITE}/product/${p.slug}`
   const ld = [
     {
@@ -65,7 +72,7 @@ for (const p of catalog.products) {
         .map(([name, u], i) => ({ '@type': 'ListItem', position: i + 1, name, item: `${SITE}${u}` })),
     },
   ]
-  routes.push([`/product/${p.slug}`, title, desc, false, img(p.images[0]), ld, p.images.map((id) => img(id, 1800))])
+  routes.push([`/product/${p.slug}`, title, desc, false, shareImg(p.images[0]), ld, p.images.map((id) => img(id, 1800))])
 }
 
 // Mirrors organizationLd/webSiteLd in src/lib/seo.js, emitted statically so crawlers and
