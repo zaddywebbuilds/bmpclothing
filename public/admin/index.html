@@ -368,7 +368,7 @@ function renderLogin() {
     <h2 class="login-title">Welcome back</h2>
     <p class="login-sub">Sign in to manage your products and prices.</p>
     ${S.error?`<div class="alert alert-error">${S.error}</div>`:''}
-    <div class="field"><label>Email address</label><input id="l-email" type="email" value="${ADMIN_EMAIL}" autocomplete="email"></div>
+    <div class="field"><label>Email address</label><input id="l-email" type="email" placeholder="Enter email address" autocomplete="email"></div>
     <div class="field"><label>Password</label><input id="l-pass" type="password" placeholder="Enter password" autocomplete="current-password"></div>
     <button class="btn btn-primary" id="l-submit">${S.loading?'<span class="spinner"></span>':'Sign in'}</button>
   </div></div>`
@@ -694,7 +694,7 @@ function renderAddOrderForm() {
 
 // ---- SETTINGS TAB ----
 function renderSettingsTab() {
-  const tok=getToken()
+  const tok=getToken(), demo=isDemo()
   return `
   <div class="settings-card">
     <h3>Site status</h3>
@@ -703,6 +703,7 @@ function renderSettingsTab() {
       Live at <a href="https://bmpcollections.com" target="_blank" style="color:var(--peri-hi);font-weight:600">bmpcollections.com</a>. Every save triggers a rebuild (takes ~2 minutes).
     </div>
   </div>
+  ${!demo ? `
   <div class="settings-card">
     <h3>Change password</h3>
     <div class="field"><label>New password</label><input id="s-np1" type="password" placeholder="At least 8 characters"></div>
@@ -714,7 +715,7 @@ function renderSettingsTab() {
     ${tok?`<div class="token-display">${tok.slice(0,20)}…${tok.slice(-4)}</div>`:'<p style="color:var(--bone-dim);font-size:13px;margin-bottom:12px">No token saved yet.</p>'}
     <div class="field"><label>${tok?'Replace token':'Enter token'}</label><input id="s-tok" type="password" placeholder="github_pat_..."></div>
     <button class="btn btn-primary btn-sm" id="s-save-tok" style="width:auto">Save token</button>
-  </div>
+  </div>` : ''}
   <div class="settings-card">
     <h3>Sign out</h3>
     <p style="color:var(--bone-dim);font-size:13px;margin-bottom:14px">Signs you out of this device. Your password stays saved.</p>
