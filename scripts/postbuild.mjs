@@ -4,7 +4,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { site } from '../src/data/site.js'
+import { faqs, site } from '../src/data/site.js'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const dist = join(root, 'dist')
@@ -52,6 +52,34 @@ for (const c of catalog.categories.filter((c) => c.count)) {
 for (const o of catalog.occasions) {
   routes.push([`/occasion/${o.key}`, o.name, `${o.line} BMP Clothings pieces styled for ${o.name.toLowerCase()}.`])
 }
+// Every non-product route gets static structured data too. Googlebot does run JS and would
+// pick up useSeo's blocks, but the static copy is what non-JS crawlers and link unfurlers
+// read, and it is indexed without waiting on a render.
+const crumbs = (trail) => ({
+  '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+  itemListElement: trail.map(([name, u], i) => ({ '@type': 'ListItem', position: i + 1, name, item: canon(u) })),
+})
+const listingLd = (path, name, members) => [
+  {
+    '@context': 'https://schema.org', '@type': 'CollectionPage', name, url: canon(path),
+    isPartOf: { '@id': `${SITE}/#website` },
+    mainEntity: {
+      '@type': 'ItemList', numberOfItems: members.length,
+      itemListElement: members.slice(0, 30).map((p, i) => ({
+        '@type': 'ListItem', position: i + 1, name: p.title, url: canon(`/product/${p.slug}`),
+      })),
+    },
+  },
+  crumbs([['Home', '/'], ['Shop', '/shop'], ...(path === '/shop' ? [] : [[name, path]])]),
+]
+const faqLd = () => ({
+  '@context': 'https://schema.org', '@type': 'FAQPage',
+  mainEntity: faqs.flatMap((g) => g.items).map((f) => ({
+    '@type': 'Question', name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+})
+
 for (const p of catalog.products) {
   const title = `${p.title}${p.code ? ` (${p.code})` : ''}`
   // Kept under ~160 so Google shows the whole line: the price is in the tail and is the
@@ -79,6 +107,19 @@ for (const p of catalog.products) {
     },
   ]
   routes.push([`/product/${p.slug}`, title, desc, false, shareImg(p.images[0]), ld, p.images.map((id) => img(id, 1800))])
+}
+
+const inCategory = (key) => catalog.products.filter((p) => p.category === key)
+const inOccasion = (key) => catalog.products.filter((p) => (p.occasions || []).includes(key))
+for (const r of routes) {
+  const [path, title, , noindex] = r
+  if (r[5] || noindex) continue
+  if (path === '/shop') r[5] = listingLd(path, 'Shop', catalog.products)
+  else if (path === '/new-in') r[5] = listingLd(path, 'New In', catalog.products.filter((p) => p.newIn))
+  else if (path.startsWith('/collections/')) r[5] = listingLd(path, title, inCategory(path.split('/')[2]))
+  else if (path.startsWith('/occasion/')) r[5] = listingLd(path, title, inOccasion(path.split('/')[2]))
+  else if (path === '/faq') r[5] = [faqLd(), crumbs([['Home', '/'], ['FAQ', '/faq']])]
+  else r[5] = crumbs([['Home', '/'], [title, path]])
 }
 
 // Mirrors organizationLd/webSiteLd in src/lib/seo.js, emitted statically so crawlers and
