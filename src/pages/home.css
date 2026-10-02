@@ -212,6 +212,16 @@
 
 /* ---------- mobile composition ---------- */
 @media (max-width: 760px) {
+  /* The film should read as the screen, not a letterboxed card. It breaks out of the wrap
+     gutter and takes a taller ratio; object-fit: cover trims the sides of the landscape
+     source, which keeps the centre panel and its wordmark intact. */
+  .hero-stage {
+    aspect-ratio: 4 / 3;
+    margin-inline: calc(var(--gutter) * -1);
+    border-radius: 0;
+    width: auto;
+  }
+
   .section, .section--tight { padding-block: 28px; }
   .section-head { flex-direction: column; align-items: center; text-align: center; gap: 12px; margin-bottom: 20px; }
   .section-head .index-label, .cats .index-label, .arrivals .index-label { justify-content: center; }
