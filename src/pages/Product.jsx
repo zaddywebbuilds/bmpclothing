@@ -89,21 +89,34 @@ export default function Product() {
 
           <OptionPicker product={p} opts={opts} />
 
-          <div className="pdp-buy">
-            <div className="qty" role="group" aria-label="Quantity">
-              <button onClick={() => setQty((q) => Math.max(1, q - 1))} aria-label="Decrease quantity"><Minus size={13} /></button>
-              <span aria-live="polite">{qty}</span>
-              <button onClick={() => setQty((q) => Math.min(20, q + 1))} aria-label="Increase quantity"><Plus size={13} /></button>
+          {p.inStock === false ? (
+            <div className="pdp-soldout">
+              <span className="tag tag--soldout">Sold out</span>
+              <p className="pdp-soldout-msg">This piece is currently out of stock.</p>
+              <a className="btn btn--glass btn--block pdp-wa" href={enquiryLink(p, variant)} target="_blank" rel="noopener noreferrer">
+                <WaIcon /> Ask about restock
+              </a>
+              <WishlistButton slug={p.slug} className="pdp-wish" />
             </div>
-            <AddToBag product={p} variant={variant} qty={qty} disabled={!opts.ready} disabledLabel={opts.needColour && !opts.colour ? 'Choose colour' : 'Choose size'} />
-            <WishlistButton slug={p.slug} className="pdp-wish" />
-          </div>
-          <a className="btn btn--glass btn--block pdp-wa" href={orderLink(p, { variant, qty })} target="_blank" rel="noopener noreferrer">
-            <WaIcon /> Order on WhatsApp · {naira(p.price * qty)}
-          </a>
-          <a className="pdp-ask" href={enquiryLink(p, variant)} target="_blank" rel="noopener noreferrer">
-            <MessageCircle size={15} strokeWidth={1.6} /> Ask about this piece
-          </a>
+          ) : (
+            <>
+              <div className="pdp-buy">
+                <div className="qty" role="group" aria-label="Quantity">
+                  <button onClick={() => setQty((q) => Math.max(1, q - 1))} aria-label="Decrease quantity"><Minus size={13} /></button>
+                  <span aria-live="polite">{qty}</span>
+                  <button onClick={() => setQty((q) => Math.min(20, q + 1))} aria-label="Increase quantity"><Plus size={13} /></button>
+                </div>
+                <AddToBag product={p} variant={variant} qty={qty} disabled={!opts.ready} disabledLabel={opts.needColour && !opts.colour ? 'Choose colour' : 'Choose size'} />
+                <WishlistButton slug={p.slug} className="pdp-wish" />
+              </div>
+              <a className="btn btn--glass btn--block pdp-wa" href={orderLink(p, { variant, qty })} target="_blank" rel="noopener noreferrer">
+                <WaIcon /> Order on WhatsApp · {naira(p.price * qty)}
+              </a>
+              <a className="pdp-ask" href={enquiryLink(p, variant)} target="_blank" rel="noopener noreferrer">
+                <MessageCircle size={15} strokeWidth={1.6} /> Ask about this piece
+              </a>
+            </>
+          )}
 
           <ul className="pdp-assure">
             <li><Truck size={16} strokeWidth={1.5} /> Delivery confirmed for your location before you pay</li>

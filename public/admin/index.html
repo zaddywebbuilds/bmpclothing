@@ -95,12 +95,30 @@
     .badge { font-size: 10px; font-weight: 700; letter-spacing: .08em; padding: 2px 7px; border-radius: 20px; text-transform: uppercase; }
     .badge-new { background: rgba(60,185,122,.18); color: #6ee4a4; border: 1px solid rgba(60,185,122,.3); }
     .badge-cat { background: rgba(129,143,217,.18); color: var(--peri-hi); border: 1px solid rgba(129,143,217,.2); }
+    .badge-sold { background: rgba(217,64,64,.15); color: #f48c8c; border: 1px solid rgba(217,64,64,.3); }
     .toggle { width: 36px; height: 20px; border-radius: 20px; border: none; cursor: pointer; background: rgba(255,255,255,.15); position: relative; transition: background .2s; flex-shrink: 0; }
     .toggle.on { background: var(--green); }
+    .toggle.sold.on { background: var(--red); }
     .toggle::after { content: ''; position: absolute; left: 3px; top: 3px; width: 14px; height: 14px; border-radius: 50%; background: white; transition: transform .2s; }
     .toggle.on::after { transform: translateX(16px); }
     .icon-btn-sm { width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border); background: none; color: var(--bone-dim); cursor: pointer; font-size: 15px; display: flex; align-items: center; justify-content: center; transition: all .15s; }
     .icon-btn-sm:hover { border-color: #f48c8c; color: #f48c8c; }
+
+    /* orders table */
+    .orders-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .orders-table th { text-align: left; padding: 8px 12px; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--bone-dim); border-bottom: 1px solid var(--border); }
+    .orders-table td { padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,.05); vertical-align: middle; }
+    .orders-table tr:hover td { background: rgba(255,255,255,.03); }
+    .status-pill { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+    .status-pending { background: rgba(201,169,97,.18); color: var(--gold); }
+    .status-paid { background: rgba(129,143,217,.18); color: var(--peri-hi); }
+    .status-dispatched { background: rgba(60,185,122,.18); color: #6ee4a4; }
+    .status-delivered { background: rgba(60,185,122,.28); color: #3cb97a; }
+    .status-cancelled { background: rgba(217,64,64,.15); color: #f48c8c; }
+    .add-order-form { background: var(--card); border: 1px solid var(--border); border-radius: var(--r); padding: 20px; margin-bottom: 20px; }
+    .add-order-form h3 { font-size: 14px; font-weight: 700; margin-bottom: 16px; color: var(--peri-hi); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .toggle-label { font-size: 11px; color: var(--bone-dim); text-align: center; margin-top: 2px; }
 
     .add-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     .drop-zone { border: 2px dashed var(--border); border-radius: 12px; aspect-ratio: 3/4; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; transition: all .2s; text-align: center; padding: 20px; position: relative; overflow: hidden; }
@@ -166,13 +184,15 @@ const IMG_WIDTHS = [480, 960, 1440]
 let S = {
   view: 'login', tab: 'products',
   products: null, catalog: null,
-  productsSha: null, catalogSha: null,
+  orders: null,
+  productsSha: null, catalogSha: null, ordersSha: null,
   search: '', catFilter: '',
   error: null, msg: null,
   loading: false, saving: false,
   saveProgress: 0, saveStep: '',
   editingPriceSlug: null, deleteConfirm: null,
   addImg: null, addForm: {},
+  showAddOrder: false, orderForm: {},
 }
 
 // =====================================================================
@@ -228,11 +248,24 @@ function blobToBase64(blob) {
 // DATA LOADING
 // =====================================================================
 async function loadProducts() {
-  const [pd, cd] = await Promise.all([ghGet('content/products.json'), ghGet('src/data/catalog.json')])
+  const [pd, cd, od] = await Promise.all([
+    ghGet('content/products.json'),
+    ghGet('src/data/catalog.json'),
+    ghGet('content/orders.json').catch(() => null),
+  ])
   S.products = JSON.parse(atob(pd.content.replace(/\n/g,'')))
   S.catalog = JSON.parse(atob(cd.content.replace(/\n/g,'')))
   S.productsSha = pd.sha
   S.catalogSha = cd.sha
+  if (od) { S.orders = JSON.parse(atob(od.content.replace(/\n/g,''))); S.ordersSha = od.sha }
+  else { S.orders = { orders: [] }; S.ordersSha = null }
+}
+
+async function saveOrdersJson(commitMsg) {
+  const c64 = toBase64(JSON.stringify(S.orders, null, 1))
+  const res = await ghPut('content/orders.json', c64, commitMsg, S.ordersSha)
+  const fresh = await ghGet('content/orders.json')
+  S.ordersSha = fresh.sha
 }
 
 // =====================================================================
@@ -416,7 +449,7 @@ function bindTokenSetup() {
 
 // ---- DASHBOARD ----
 function renderDashboard() {
-  const tabs={products:'📦 Products',add:'➕ Add Product',settings:'⚙️ Settings'}
+  const tabs={products:'📦 Products',add:'➕ Add Product',orders:'📋 Orders',settings:'⚙️ Settings'}
   return `<div id="app">
     <header class="hdr">
       <div class="hdr-brand"><img src="/assets/bmp/brand/logo.jpg" onerror="this.style.display='none'"> BMP Admin <span class="hdr-badge">Store</span></div>
@@ -438,6 +471,7 @@ function renderDashboard() {
 function renderTab() {
   if (S.tab==='products') return renderProductsTab()
   if (S.tab==='add') return renderAddTab()
+  if (S.tab==='orders') return renderOrdersTab()
   if (S.tab==='settings') return renderSettingsTab()
   return ''
 }
@@ -487,6 +521,7 @@ function renderProdCard(p) {
       <div class="prod-meta">
         <span class="badge badge-cat">${catName(p.category)}</span>
         ${p.newIn?'<span class="badge badge-new">New In</span>':''}
+        ${p.inStock===false?'<span class="badge badge-sold">Sold out</span>':''}
       </div>
     </div>
     <div class="prod-actions">
@@ -497,7 +532,14 @@ function renderProdCard(p) {
             <button class="btn btn-sm btn-ghost cancel-price-btn" data-slug="${p.slug}">✕</button>
            </div>`
         : `<span class="price-display edit-price-btn" data-slug="${p.slug}" title="Click to edit">${fmtPrice(p.price)}</span>`}
-      <button class="toggle${p.newIn?' on':''} toggle-newin-btn" data-slug="${p.slug}" title="Toggle New In"></button>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:2px">
+        <button class="toggle${p.newIn?' on':''} toggle-newin-btn" data-slug="${p.slug}" title="New In"></button>
+        <span class="toggle-label">New In</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:2px">
+        <button class="toggle sold${p.inStock===false?' on':''} toggle-sold-btn" data-slug="${p.slug}" title="Sold out"></button>
+        <span class="toggle-label">Sold out</span>
+      </div>
       <button class="icon-btn-sm delete-btn" data-slug="${p.slug}" title="Delete">🗑</button>
     </div>
   </div>`
@@ -537,6 +579,91 @@ function renderAddTab() {
       <button class="btn btn-gold" id="add-submit-btn" ${S.saving?'disabled':''}>
         ${S.saving?'Saving…':'✓ Add product to site'}
       </button>
+    </div>
+  </div>`
+}
+
+// ---- ORDERS TAB ----
+const ORDER_STATUSES = ['Pending','Paid','Dispatched','Delivered','Cancelled']
+function fmtDate(iso) {
+  if (!iso) return ''
+  return new Date(iso).toLocaleDateString('en-NG', { day:'numeric', month:'short', year:'numeric' })
+}
+
+function renderOrdersTab() {
+  if (!S.orders) return `<div class="loading-full"><span class="spinner"></span> Loading orders…</div>`
+  const rows = S.orders.orders || []
+  const totalRevenue = rows.filter(o=>o.status==='Paid'||o.status==='Delivered').reduce((a,o)=>a+(o.amount||0),0)
+  return `
+  <div class="stats" style="grid-template-columns:repeat(4,1fr)">
+    <div class="stat-card"><div class="stat-num">${rows.length}</div><div class="stat-label">Total orders</div></div>
+    <div class="stat-card"><div class="stat-num">${rows.filter(o=>o.status==='Pending').length}</div><div class="stat-label">Pending</div></div>
+    <div class="stat-card"><div class="stat-num">${rows.filter(o=>o.status==='Delivered').length}</div><div class="stat-label">Delivered</div></div>
+    <div class="stat-card"><div class="stat-num">${fmtPrice(totalRevenue)}</div><div class="stat-label">Revenue</div></div>
+  </div>
+
+  ${S.showAddOrder ? renderAddOrderForm() : `<button class="btn btn-gold btn-sm" id="show-add-order" style="margin-bottom:20px">+ Log new order</button>`}
+
+  ${rows.length===0 ? `<div class="empty"><div class="empty-icon">📋</div>No orders logged yet.<br><small>Use the button above to add your first order.</small></div>` : `
+  <div style="overflow-x:auto">
+    <table class="orders-table">
+      <thead><tr>
+        <th>Date</th><th>Customer</th><th>WhatsApp</th><th>Product</th><th>Amount</th><th>Status</th><th>Notes</th><th></th>
+      </tr></thead>
+      <tbody>
+        ${rows.map((o,i) => `<tr>
+          <td style="white-space:nowrap">${fmtDate(o.date)}</td>
+          <td>${o.customer||'—'}</td>
+          <td>${o.phone ? `<a href="https://wa.me/${o.phone.replace(/\D/g,'')}" target="_blank" style="color:var(--peri-hi)">${o.phone}</a>` : '—'}</td>
+          <td style="max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${o.product||'—'}</td>
+          <td style="white-space:nowrap;color:var(--gold);font-weight:700">${o.amount?fmtPrice(o.amount):'—'}</td>
+          <td>
+            <select class="status-select" data-idx="${i}" style="background:transparent;border:none;color:inherit;font-family:inherit;font-size:12px;cursor:pointer;outline:none">
+              ${ORDER_STATUSES.map(s=>`<option value="${s}"${o.status===s?' selected':''}>${s}</option>`).join('')}
+            </select>
+          </td>
+          <td style="color:var(--bone-dim);font-size:12px;max-width:140px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${o.notes||''}</td>
+          <td><button class="icon-btn-sm delete-order-btn" data-idx="${i}" title="Delete">🗑</button></td>
+        </tr>`).join('')}
+      </tbody>
+    </table>
+  </div>`}
+  `
+}
+
+function renderAddOrderForm() {
+  const f=S.orderForm, prods=S.catalog?S.catalog.products:[]
+  return `<div class="add-order-form">
+    <h3>Log new order</h3>
+    <div class="form-row">
+      <div class="field"><label>Customer name</label><input id="of-name" placeholder="e.g. Chidinma" value="${f.customer||''}"></div>
+      <div class="field"><label>WhatsApp number</label><input id="of-phone" placeholder="e.g. 08012345678" value="${f.phone||''}"></div>
+    </div>
+    <div class="form-row">
+      <div class="field"><label>Product</label>
+        <select id="of-prod">
+          <option value="">-- Choose product --</option>
+          ${prods.map(p=>`<option value="${p.title}"${f.product===p.title?' selected':''}>${p.title}</option>`).join('')}
+          <option value="__custom__">Other (type below)</option>
+        </select>
+      </div>
+      <div class="field"><label>Amount paid (₦)</label><input id="of-amount" type="number" min="0" placeholder="e.g. 45000" value="${f.amount||''}"></div>
+    </div>
+    <div class="form-row">
+      <div class="field"><label>Status</label>
+        <select id="of-status">
+          ${ORDER_STATUSES.map(s=>`<option value="${s}"${f.status===s?' selected':''}>${s}</option>`).join('')}
+        </select>
+      </div>
+      <div class="field"><label>Notes</label><input id="of-notes" placeholder="e.g. size 14, Lagos delivery" value="${f.notes||''}"></div>
+    </div>
+    <div id="of-custom-wrap" style="${f.product==='__custom__'?'':'display:none'}">
+      <div class="field"><label>Custom product name</label><input id="of-custom" value="${f.customProduct||''}"></div>
+    </div>
+    ${S.error?`<div class="alert alert-error">${S.error}</div>`:''}
+    <div style="display:flex;gap:10px">
+      <button class="btn btn-gold btn-sm" id="save-order-btn">${S.saving?'<span class="spinner"></span> Saving…':'Save order'}</button>
+      <button class="btn btn-ghost btn-sm" id="cancel-add-order">Cancel</button>
     </div>
   </div>`
 }
@@ -602,6 +729,7 @@ function bindDashboard() {
   document.getElementById('logout-btn')?.addEventListener('click', () => { clearAuth(); S.products=null; S.catalog=null; S.view='login'; render() })
   if (S.tab==='products') bindProductsTab()
   if (S.tab==='add') bindAddTab()
+  if (S.tab==='orders') bindOrdersTab()
   if (S.tab==='settings') bindSettingsTab()
   if (S.deleteConfirm) bindModal()
 }
@@ -652,6 +780,27 @@ function bindProductsTab() {
     } catch(e) {
       if (pP) pP.newIn=!newVal
       if (pC) pC.newIn=!newVal
+      S.error='Save failed: '+e.message; render()
+    }
+  }))
+
+  document.querySelectorAll('.toggle-sold-btn').forEach(b => b.addEventListener('click', async () => {
+    const slug=b.dataset.slug
+    const pP=S.products.products.find(x=>x.slug===slug)
+    const pC=S.catalog.products.find(x=>x.slug===slug)
+    const wasSold=(pP||pC||{}).inStock===false
+    const newSold=!wasSold
+    const setStock=(p, sold) => { if (sold) p.inStock=false; else delete p.inStock }
+    if (pP) setStock(pP, newSold)
+    if (pC) setStock(pC, newSold)
+    b.classList.toggle('on', newSold)
+    try {
+      await saveProductsJson(`update: mark ${slug} as ${newSold?'sold out':'in stock'}`)
+      await saveCatalogJson(`update: mark ${slug} as ${newSold?'sold out':'in stock'}`)
+      S.msg=`"${(pP||pC||{}).title}" marked as ${newSold?'Sold out':'In stock'}`; render()
+    } catch(e) {
+      if (pP) setStock(pP, wasSold)
+      if (pC) setStock(pC, wasSold)
       S.error='Save failed: '+e.message; render()
     }
   }))
@@ -724,6 +873,74 @@ function bindAddTab() {
     } catch(e) {
       S.error='Failed: '+e.message; S.saving=false; render()
     }
+  })
+}
+
+// ---- ORDERS ----
+function bindOrdersTab() {
+  document.getElementById('show-add-order')?.addEventListener('click', () => { S.showAddOrder=true; S.orderForm={}; S.error=null; render() })
+  document.getElementById('cancel-add-order')?.addEventListener('click', () => { S.showAddOrder=false; S.error=null; render() })
+
+  // live-sync form fields to state
+  ;['of-name','of-phone','of-amount','of-notes','of-status','of-prod'].forEach(id => {
+    document.getElementById(id)?.addEventListener('input', e => {
+      const k={'of-name':'customer','of-phone':'phone','of-amount':'amount','of-notes':'notes','of-status':'status','of-prod':'product'}[id]
+      S.orderForm[k]=e.target.value
+      if (id==='of-prod') {
+        document.getElementById('of-custom-wrap').style.display = e.target.value==='__custom__'?'':'none'
+      }
+    })
+  })
+  document.getElementById('of-custom')?.addEventListener('input', e => { S.orderForm.customProduct=e.target.value })
+
+  document.getElementById('save-order-btn')?.addEventListener('click', async () => {
+    const f=S.orderForm
+    const product = f.product==='__custom__' ? (f.customProduct||'').trim() : (f.product||'').trim()
+    if (!f.customer?.trim()) { S.error='Customer name is required.'; render(); return }
+    if (!product) { S.error='Product is required.'; render(); return }
+    S.saving=true; S.error=null; render()
+    try {
+      const order = {
+        id: Date.now().toString(36),
+        date: new Date().toISOString(),
+        customer: f.customer.trim(),
+        phone: f.phone?.trim()||'',
+        product,
+        amount: f.amount ? Number(f.amount) : null,
+        status: f.status||'Pending',
+        notes: f.notes?.trim()||'',
+      }
+      S.orders.orders.unshift(order)
+      await saveOrdersJson(`add order: ${order.customer} — ${product}`)
+      S.showAddOrder=false; S.orderForm={}; S.msg='Order logged!'
+    } catch(e) { S.orders.orders.shift(); S.error='Save failed: '+e.message }
+    S.saving=false; render()
+  })
+
+  // status change
+  document.querySelectorAll('.status-select').forEach(sel => {
+    sel.addEventListener('change', async e => {
+      const idx=Number(sel.dataset.idx), newStatus=e.target.value
+      const old=S.orders.orders[idx].status
+      S.orders.orders[idx].status=newStatus
+      try {
+        await saveOrdersJson(`update order ${idx}: status → ${newStatus}`)
+        S.msg=`Status updated to ${newStatus}`; render()
+      } catch(err) { S.orders.orders[idx].status=old; S.error='Save failed: '+err.message; render() }
+    })
+  })
+
+  // delete order
+  document.querySelectorAll('.delete-order-btn').forEach(b => {
+    b.addEventListener('click', async () => {
+      const idx=Number(b.dataset.idx)
+      if (!confirm('Delete this order?')) return
+      const removed=S.orders.orders.splice(idx,1)[0]
+      try {
+        await saveOrdersJson(`delete order: ${removed.customer} — ${removed.product}`)
+        S.msg='Order deleted.'; render()
+      } catch(e) { S.orders.orders.splice(idx,0,removed); S.error='Delete failed: '+e.message; render() }
+    })
   })
 }
 
