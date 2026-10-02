@@ -166,6 +166,8 @@
 // CONFIG
 // =====================================================================
 const ADMIN_EMAIL = 'anthonentmichael@gmail.com'
+const DEMO_EMAIL  = 'demo@bmpclothings.com'
+const DEMO_PASS_HASH = '0ead2060b65992dca4769af601a1b3a35ef38cfad2c2c465bb160ea764157c5d' // demo1234
 const REPO = 'zaddywebbuilds/bmpclothing'
 const TEMP_PASS_HASH = 'dbd8622508d1c46c918d07fcd5db200eaedf77301bfe576f3a3d5af2143050a9'
 const CATEGORIES = [
@@ -208,7 +210,9 @@ const isPassChanged = () => localStorage.getItem('bmp_admin_changed') === 'true'
 const markPassChanged = () => localStorage.setItem('bmp_admin_changed', 'true')
 const isAuthed = () => sessionStorage.getItem('bmp_admin_ok') === 'true'
 const markAuthed = () => sessionStorage.setItem('bmp_admin_ok', 'true')
-const clearAuth = () => sessionStorage.removeItem('bmp_admin_ok')
+const markDemo   = () => sessionStorage.setItem('bmp_admin_demo', 'true')
+const isDemo     = () => sessionStorage.getItem('bmp_admin_demo') === 'true'
+const clearAuth  = () => { sessionStorage.removeItem('bmp_admin_ok'); sessionStorage.removeItem('bmp_admin_demo') }
 const getToken = () => localStorage.getItem('bmp_admin_token') || ''
 const setToken = t => localStorage.setItem('bmp_admin_token', t)
 
@@ -262,8 +266,9 @@ async function loadProducts() {
 }
 
 async function saveOrdersJson(commitMsg) {
+  demoBlock()
   const c64 = toBase64(JSON.stringify(S.orders, null, 1))
-  const res = await ghPut('content/orders.json', c64, commitMsg, S.ordersSha)
+  await ghPut('content/orders.json', c64, commitMsg, S.ordersSha)
   const fresh = await ghGet('content/orders.json')
   S.ordersSha = fresh.sha
 }
@@ -311,7 +316,10 @@ async function processAndUploadImages(slug, category, file, onStep) {
 // =====================================================================
 // SAVE HELPERS
 // =====================================================================
+function demoBlock() { if (isDemo()) throw new Error('Demo mode — sign in as the store owner to save changes.') }
+
 async function saveProductsJson(commitMsg) {
+  demoBlock()
   const c64 = toBase64(JSON.stringify(S.products, null, 1))
   await ghPut('content/products.json', c64, commitMsg, S.productsSha)
   const fresh = await ghGet('content/products.json')
@@ -319,6 +327,7 @@ async function saveProductsJson(commitMsg) {
 }
 
 async function saveCatalogJson(commitMsg) {
+  demoBlock()
   const c64 = toBase64(JSON.stringify(S.catalog, null, 1))
   await ghPut('src/data/catalog.json', c64, commitMsg, S.catalogSha)
   const fresh = await ghGet('src/data/catalog.json')
@@ -342,7 +351,7 @@ function render() {
     app.innerHTML = S.view === 'change-password' ? renderChangePassword() : renderLogin()
     return S.view === 'change-password' ? bindChangePassword() : bindLogin()
   }
-  if (!getToken()) { app.innerHTML = renderTokenSetup(); return bindTokenSetup() }
+  if (!getToken() && !isDemo()) { app.innerHTML = renderTokenSetup(); return bindTokenSetup() }
   if (S.view === 'change-password') { app.innerHTML = `<div class="login-wrap">${renderChangePwCard()}</div>`; return bindChangePassword() }
   app.innerHTML = renderDashboard()
   bindDashboard()
@@ -368,22 +377,29 @@ function bindLogin() {
   async function doLogin() {
     const email = document.getElementById('l-email').value.trim()
     const pw = passEl.value
-    if (email !== ADMIN_EMAIL) { S.error='Unknown email address.'; render(); return }
+    if (email !== ADMIN_EMAIL && email !== DEMO_EMAIL) { S.error='Unknown email address.'; render(); return }
     if (!pw) { S.error='Please enter your password.'; render(); return }
     S.loading=true; S.error=null; render()
     const h = await sha256(pw)
+
+    // demo account
+    if (email === DEMO_EMAIL) {
+      if (h !== DEMO_PASS_HASH) { S.error='Incorrect password.'; S.loading=false; render(); return }
+      S.loading=false; markAuthed(); markDemo(); S.view='dashboard'; render(); return
+    }
+
+    // owner account
     const stored = getStoredHash(), changed = isPassChanged()
-    let ok=false, needsChange=false
+    let needsChange=false
     if (!changed) {
-      if (h===TEMP_PASS_HASH) { ok=true; needsChange=true }
+      if (h===TEMP_PASS_HASH) { needsChange=true }
       else { S.error='Incorrect password.'; S.loading=false; render(); return }
     } else {
-      if (stored && h===stored) { ok=true }
-      else if (h===TEMP_PASS_HASH) { ok=true; needsChange=true }
+      if (stored && h===stored) { /* ok */ }
+      else if (h===TEMP_PASS_HASH) { needsChange=true }
       else { S.error='Incorrect password.'; S.loading=false; render(); return }
     }
-    S.loading=false
-    markAuthed()
+    S.loading=false; markAuthed()
     if (needsChange) { S.view='change-password'; render(); return }
     S.view='dashboard'; render()
   }
@@ -451,8 +467,11 @@ function bindTokenSetup() {
 function renderDashboard() {
   const tabs={products:'📦 Products',add:'➕ Add Product',orders:'📋 Orders',settings:'⚙️ Settings'}
   return `<div id="app">
+    ${isDemo() ? `<div style="background:#c9a961;color:#1d1a41;text-align:center;padding:8px 16px;font-size:12px;font-weight:700;letter-spacing:.08em">
+      DEMO MODE — you can explore everything but changes will not be saved to the live site
+    </div>` : ''}
     <header class="hdr">
-      <div class="hdr-brand"><img src="/assets/bmp/brand/logo.jpg" onerror="this.style.display='none'"> BMP Admin <span class="hdr-badge">Store</span></div>
+      <div class="hdr-brand"><img src="/assets/bmp/brand/logo.jpg" onerror="this.style.display='none'"> BMP Admin <span class="hdr-badge">${isDemo()?'Demo':'Store'}</span></div>
       <div style="display:flex;gap:8px;align-items:center">
         <a href="/" target="_blank" class="btn-ghost btn-sm" style="text-decoration:none;display:inline-flex;align-items:center;gap:5px">↗ View site</a>
         <button class="btn-ghost btn-sm" id="logout-btn">Sign out</button>
