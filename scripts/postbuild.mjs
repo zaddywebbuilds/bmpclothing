@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const dist = join(root, 'dist')
-const SITE = 'https://zaddywebbuilds.github.io/bmpclothing'
+const SITE = 'https://bmpcollections.com'
 const catalog = JSON.parse(readFileSync(join(root, 'src/data/catalog.json'), 'utf8'))
 const shell = readFileSync(join(dist, 'index.html'), 'utf8')
 

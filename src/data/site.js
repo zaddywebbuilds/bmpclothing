@@ -1,7 +1,7 @@
 // Brand facts sourced from bmpclothings.com (Sept 2026). Edit here, not in components.
 export const site = {
   name: 'BMP Clothings',
-  url: 'https://zaddywebbuilds.github.io/bmpclothing',
+  url: 'https://bmpcollections.com',
   location: 'Lagos, Nigeria',
   currency: 'NGN',
 
