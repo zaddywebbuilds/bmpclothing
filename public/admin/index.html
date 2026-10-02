@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMP Admin</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #1d1a41; --navy-2: #272350; --navy-3: #332e66;
+      --peri: #818fd9; --peri-hi: #97a3e4; --peri-lo: #6c7ac6;
+      --bone: #f4f0e9; --bone-dim: rgba(244,240,233,.7);
+      --gold: #c9a961; --gold-hi: #e0ce7a;
+      --red: #d94040; --green: #3cb97a;
+      --card: rgba(255,255,255,.05);
+      --border: rgba(255,255,255,.1);
+      --r: 10px;
+    }
+    html, body { height: 100%; }
+    body {
+      font-family: 'Manrope', system-ui, sans-serif;
+      background: var(--navy);
+      color: var(--bone);
+      min-height: 100vh;
+      font-size: 14px;
+    }
+
+    /* ---- LAYOUT ---- */
+    #app { min-height: 100vh; display: flex; flex-direction: column; }
+
+    /* ---- HEADER ---- */
+    .hdr {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 20px; height: 56px;
+      background: rgba(255,255,255,.04);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .hdr-brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15px; }
+    .hdr-brand img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; }
+    .hdr-badge {
+      background: var(--peri-lo); color: var(--bone);
+      font-size: 10px; font-weight: 700; letter-spacing: .1em;
+      padding: 2px 7px; border-radius: 20px; text-transform: uppercase;
+    }
+    .btn-ghost {
+      background: none; border: 1px solid var(--border); color: var(--bone-dim);
+      padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 13px; font-family: inherit;
+      transition: all .15s;
+    }
+    .btn-ghost:hover { border-color: var(--peri); color: var(--bone); }
+
+    /* ---- TABS ---- */
+    .tabs {
+      display: flex; gap: 4px; padding: 16px 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .tab {
+      padding: 8px 16px; border-radius: 8px 8px 0 0; font-size: 13px; font-weight: 600;
+      cursor: pointer; border: none; background: none; color: var(--bone-dim); font-family: inherit;
+      transition: all .15s;
+    }
+    .tab.active { background: rgba(129,143,217,.18); color: var(--peri-hi); }
+    .tab:hover:not(.active) { color: var(--bone); }
+
+    /* ---- MAIN CONTENT ---- */
+    .main { flex: 1; padding: 24px 20px; max-width: 1000px; width: 100%; margin: 0 auto; }
+
+    /* ---- LOGIN ---- */
+    .login-wrap {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(129,143,217,.2), transparent);
+      padding: 24px;
+    }
+    .login-card {
+      width: 100%; max-width: 380px;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 36px 32px;
+    }
+    .login-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 28px; }
+    .login-logo img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
+    .login-logo-text { font-size: 18px; font-weight: 700; }
+    .login-logo-sub { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); }
+    h2.login-title { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+    .login-sub { color: var(--bone-dim); font-size: 13px; margin-bottom: 24px; }
+
+    /* ---- FORM ELEMENTS ---- */
+    .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .field label { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--bone-dim); }
+    .field input, .field select, .field textarea {
+      background: rgba(255,255,255,.07); border: 1px solid var(--border);
+      color: var(--bone); border-radius: 8px; padding: 10px 14px;
+      font-size: 14px; font-family: inherit; outline: none; width: 100%;
+      transition: border-color .15s;
+    }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--peri); }
+    .field textarea { resize: vertical; min-height: 80px; }
+    .field select option { background: var(--navy-2); }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 11px 20px; border-radius: 8px; font-size: 14px; font-weight: 600;
+      cursor: pointer; border: none; font-family: inherit; transition: all .15s; width: 100%;
+    }
+    .btn-primary { background: var(--peri); color: white; }
+    .btn-primary:hover { background: var(--peri-hi); }
+    .btn-primary:disabled { opacity: .5; cursor: not-allowed; }
+    .btn-gold { background: var(--gold); color: var(--navy); }
+    .btn-gold:hover { background: var(--gold-hi); }
+    .btn-danger { background: rgba(217,64,64,.18); color: #f48c8c; border: 1px solid rgba(217,64,64,.3); width: auto; }
+    .btn-danger:hover { background: rgba(217,64,64,.3); }
+    .btn-sm { padding: 6px 12px; font-size: 12px; width: auto; }
+
+    /* ---- ERROR / SUCCESS ---- */
+    .alert {
+      padding: 12px 16px; border-radius: 8px; font-size: 13px; font-weight: 500;
+      margin-bottom: 16px;
+    }
+    .alert-error { background: rgba(217,64,64,.15); border: 1px solid rgba(217,64,64,.3); color: #f48c8c; }
+    .alert-success { background: rgba(60,185,122,.15); border: 1px solid rgba(60,185,122,.3); color: #6ee4a4; }
+    .alert-info { background: rgba(129,143,217,.15); border: 1px solid rgba(129,143,217,.3); color: var(--peri-hi); }
+
+    /* ---- STATS ROW ---- */
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
+    .stat-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 16px;
+    }
+    .stat-num { font-size: 28px; font-weight: 700; color: var(--peri-hi); }
+    .stat-label { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--bone-dim); margin-top: 2px; }
+
+    /* ---- PRODUCT LIST ---- */
+    .toolbar { display: flex; gap: 10px; margin-bottom: 16px; align-items: center; }
+    .search {
+      flex: 1; background: rgba(255,255,255,.07); border: 1px solid var(--border);
+      color: var(--bone); border-radius: 8px; padding: 9px 14px; font-size: 14px;
+      font-family: inherit; outline: none;
+    }
+    .search:focus { border-color: var(--peri); }
+    .search::placeholder { color: var(--bone-dim); }
+    .cat-filter {
+      background: rgba(255,255,255,.07); border: 1px solid var(--border);
+      color: var(--bone); border-radius: 8px; padding: 9px 12px; font-size: 13px;
+      font-family: inherit; outline: none; cursor: pointer;
+    }
+    .cat-filter option { background: var(--navy-2); }
+
+    .prod-list { display: flex; flex-direction: column; gap: 10px; }
+    .prod-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--r); display: flex; align-items: center; gap: 14px;
+      padding: 12px 14px; transition: border-color .15s;
+    }
+    .prod-card:hover { border-color: rgba(129,143,217,.35); }
+    .prod-thumb {
+      width: 54px; height: 70px; border-radius: 6px; object-fit: cover; flex-shrink: 0;
+      background: var(--navy-3);
+    }
+    .prod-info { flex: 1; min-width: 0; }
+    .prod-name { font-weight: 600; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .prod-meta { font-size: 12px; color: var(--bone-dim); margin-top: 2px; }
+    .prod-actions { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
+    .price-display {
+      font-size: 15px; font-weight: 700; color: var(--gold);
+      cursor: pointer; padding: 4px 8px; border-radius: 6px;
+      border: 1px solid transparent; transition: all .15s;
+    }
+    .price-display:hover { border-color: var(--border); background: rgba(255,255,255,.05); }
+    .price-input {
+      background: rgba(255,255,255,.07); border: 1px solid var(--peri);
+      color: var(--bone); border-radius: 6px; padding: 4px 8px;
+      font-size: 14px; font-family: inherit; font-weight: 700; outline: none;
+      width: 110px;
+    }
+    .badge {
+      font-size: 10px; font-weight: 700; letter-spacing: .08em; padding: 2px 7px;
+      border-radius: 20px; text-transform: uppercase;
+    }
+    .badge-new { background: rgba(60,185,122,.18); color: #6ee4a4; border: 1px solid rgba(60,185,122,.3); }
+    .badge-cat { background: rgba(129,143,217,.18); color: var(--peri-hi); border: 1px solid rgba(129,143,217,.2); }
+    .toggle {
+      width: 36px; height: 20px; border-radius: 20px; border: none; cursor: pointer;
+      background: rgba(255,255,255,.15); position: relative; transition: background .2s; flex-shrink: 0;
+    }
+    .toggle.on { background: var(--green); }
+    .toggle::after {
+      content: ''; position: absolute; left: 3px; top: 3px;
+      width: 14px; height: 14px; border-radius: 50%; background: white;
+      transition: transform .2s;
+    }
+    .toggle.on::after { transform: translateX(16px); }
+    .icon-btn-sm {
+      width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border);
+      background: none; color: var(--bone-dim); cursor: pointer; font-size: 15px;
+      display: flex; align-items: center; justify-content: center; transition: all .15s;
+    }
+    .icon-btn-sm:hover { border-color: #f48c8c; color: #f48c8c; }
+
+    /* ---- ADD PRODUCT ---- */
+    .add-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .add-col { display: flex; flex-direction: column; gap: 0; }
+    .drop-zone {
+      border: 2px dashed var(--border); border-radius: 12px; aspect-ratio: 3/4;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      cursor: pointer; transition: all .2s; text-align: center; padding: 20px; position: relative;
+      overflow: hidden;
+    }
+    .drop-zone:hover, .drop-zone.drag-over { border-color: var(--peri); background: rgba(129,143,217,.08); }
+    .drop-zone img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
+    .drop-zone-label { color: var(--bone-dim); font-size: 13px; pointer-events: none; }
+    .drop-icon { font-size: 32px; margin-bottom: 8px; }
+    #fileInput { display: none; }
+    .add-form { display: flex; flex-direction: column; gap: 0; }
+
+    /* ---- SETTINGS ---- */
+    .settings-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 20px; margin-bottom: 16px;
+    }
+    .settings-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 14px; color: var(--peri-hi); }
+    .token-display {
+      font-family: monospace; font-size: 12px; color: var(--bone-dim);
+      word-break: break-all; background: rgba(0,0,0,.2); padding: 8px 12px; border-radius: 6px;
+      margin-bottom: 12px;
+    }
+    .instructions {
+      background: rgba(129,143,217,.1); border: 1px solid rgba(129,143,217,.2);
+      border-radius: 8px; padding: 14px 16px; font-size: 13px; line-height: 1.7; color: var(--bone-dim);
+    }
+    .instructions a { color: var(--peri-hi); }
+    .instructions ol, .instructions ul { padding-left: 20px; }
+
+    /* ---- DEPLOY STATUS ---- */
+    .deploy-row {
+      display: flex; align-items: center; gap: 10px;
+      background: rgba(60,185,122,.1); border: 1px solid rgba(60,185,122,.2);
+      border-radius: 8px; padding: 10px 14px; font-size: 13px; margin-bottom: 20px;
+    }
+    .deploy-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+
+    /* ---- LOADING ---- */
+    .spinner {
+      width: 18px; height: 18px; border-radius: 50%;
+      border: 2px solid rgba(255,255,255,.2); border-top-color: white;
+      animation: spin .6s linear infinite; display: inline-block;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading-full {
+      min-height: 200px; display: flex; align-items: center; justify-content: center;
+      color: var(--bone-dim);
+    }
+
+    /* ---- MODAL (confirm delete) ---- */
+    .modal-bg {
+      position: fixed; inset: 0; background: rgba(0,0,0,.6); z-index: 500;
+      display: flex; align-items: center; justify-content: center; padding: 24px;
+    }
+    .modal-card {
+      background: var(--navy-2); border: 1px solid var(--border);
+      border-radius: 14px; padding: 28px 24px; width: 100%; max-width: 340px; text-align: center;
+    }
+    .modal-card h3 { font-size: 17px; margin-bottom: 10px; }
+    .modal-card p { color: var(--bone-dim); font-size: 13px; margin-bottom: 24px; }
+    .modal-btns { display: flex; gap: 10px; }
+
+    /* ---- EMPTY ---- */
+    .empty { text-align: center; padding: 60px 20px; color: var(--bone-dim); }
+    .empty-icon { font-size: 40px; margin-bottom: 12px; }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 640px) {
+      .add-grid { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: 1fr 1fr; }
+      .prod-card { flex-wrap: wrap; }
+      .prod-actions { width: 100%; justify-content: flex-end; }
+    }
+  </style>
+</head>
+<body>
+<div id="app"></div>
+
+<script>
+// =====================================================================
+// CONFIG
+// =====================================================================
+const ADMIN_EMAIL = 'anthonentmichael@gmail.com'
+const REPO = 'zaddywebbuilds/bmpclothing'
+const PRODUCTS_PATH = 'content/products.json'
+const TEMP_PASS_HASH = 'dbd8622508d1c46c918d07fcd5db200eaedf77301bfe576f3a3d5af2143050a9' // BMP!Boss2025
+const CATEGORIES = [
+  { key: 'long-gowns', name: 'Long Gowns' },
+  { key: 'short-gowns', name: 'Short Gowns' },
+  { key: 'jumpsuits', name: 'Jumpsuits' },
+  { key: 'tops', name: 'Tops' },
+  { key: 'pants-and-tops', name: 'Pants & Tops' },
+  { key: 'skirts-and-tops', name: 'Skirts & Tops' },
+]
+const OCCASIONS = ['main-character','date-night','wedding-guest','birthday','red-carpet','sunday-best','owambe','workwear']
+
+// =====================================================================
+// STATE
+// =====================================================================
+let S = {
+  view: 'login', // login | change-password | setup-token | dashboard
+  tab: 'products',
+  products: null,
+  productsSha: null,
+  search: '',
+  catFilter: '',
+  error: null,
+  msg: null,
+  loading: false,
+  editingPriceSlug: null,
+  deleteConfirm: null, // slug to delete
+  addImg: null, // { file, base64, preview }
+  addForm: {},
+  saving: false,
+}
+
+// =====================================================================
+// CRYPTO / AUTH
+// =====================================================================
+async function sha256(str) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str))
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('')
+}
+
+function getStoredHash() { return localStorage.getItem('bmp_admin_hash') }
+function setStoredHash(h) { localStorage.setItem('bmp_admin_hash', h) }
+function isPassChanged() { return localStorage.getItem('bmp_admin_changed') === 'true' }
+function markPassChanged() { localStorage.setItem('bmp_admin_changed', 'true') }
+function isAuthed() { return sessionStorage.getItem('bmp_admin_ok') === 'true' }
+function markAuthed() { sessionStorage.setItem('bmp_admin_ok', 'true') }
+function clearAuth() { sessionStorage.removeItem('bmp_admin_ok') }
+function getToken() { return localStorage.getItem('bmp_admin_token') || '' }
+function setToken(t) { localStorage.setItem('bmp_admin_token', t) }
+
+// =====================================================================
+// GITHUB API
+// =====================================================================
+async function ghGet(path) {
+  const r = await fetch(`https://api.github.com/repos/${REPO}/contents/${path}`, {
+    headers: { Authorization: `Bearer ${getToken()}`, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28' }
+  })
+  if (!r.ok) throw new Error(`GitHub ${r.status}: ${await r.text()}`)
+  return r.json()
+}
+
+async function ghPut(path, content64, message, sha) {
+  const body = { message, content: content64, ...(sha ? { sha } : {}) }
+  const r = await fetch(`https://api.github.com/repos/${REPO}/contents/${path}`, {
+    method: 'PUT',
+    headers: { Authorization: `Bearer ${getToken()}`, 'Content-Type': 'application/json', Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28' },
+    body: JSON.stringify(body)
+  })
+  if (!r.ok) throw new Error(`GitHub ${r.status}: ${await r.text()}`)
+  return r.json()
+}
+
+async function loadProducts() {
+  const data = await ghGet(PRODUCTS_PATH)
+  const json = JSON.parse(atob(data.content.replace(/\n/g, '')))
+  S.products = json
+  S.productsSha = data.sha
+}
+
+async function saveProducts(commitMsg) {
+  const content64 = btoa(unescape(encodeURIComponent(JSON.stringify(S.products, null, 1))))
+  await ghPut(PRODUCTS_PATH, content64, commitMsg, S.productsSha)
+  // refresh SHA
+  const fresh = await ghGet(PRODUCTS_PATH)
+  S.productsSha = fresh.sha
+}
+
+async function uploadImageFile(slug, file) {
+  const base64 = await new Promise((res, rej) => {
+    const r = new FileReader()
+    r.onload = () => res(r.result.split(',')[1])
+    r.onerror = rej
+    r.readAsDataURL(file)
+  })
+  const ext = file.name.split('.').pop().toLowerCase() || 'jpg'
+  const filename = `local/${slug}.${ext}`
+  // check if exists
+  let sha
+  try { const ex = await ghGet(filename.replace('local/', 'media-originals/local/')); sha = ex.sha } catch {}
+  await ghPut(`media-originals/${filename}`, base64, `upload: add ${slug} product image`, sha)
+  return filename
+}
+
+// =====================================================================
+// HELPERS
+// =====================================================================
+function slugify(s) {
+  return s.toLowerCase().trim().replace(/[^a-z0-9\s-]/g,'').replace(/\s+/g,'-').replace(/-+/g,'-')
+}
+function fmtPrice(n) {
+  return '₦' + Number(n).toLocaleString('en-NG')
+}
+function catName(key) {
+  return (CATEGORIES.find(c => c.key === key) || {}).name || key
+}
+
+// =====================================================================
+// RENDER
+// =====================================================================
+const app = document.getElementById('app')
+
+function render() {
+  if (!isAuthed()) {
+    if (S.view === 'change-password') { app.innerHTML = renderChangePassword(); bindChangePassword(); return }
+    app.innerHTML = renderLogin(); bindLogin(); return
+  }
+  if (!getToken()) {
+    app.innerHTML = renderTokenSetup(); bindTokenSetup(); return
+  }
+  if (S.view === 'change-password') {
+    app.innerHTML = `<div class="login-wrap">${renderChangePasswordCard()}</div>`
+    bindChangePassword(); return
+  }
+  app.innerHTML = renderDashboard()
+  bindDashboard()
+}
+
+// ---- LOGIN ----
+function renderLogin() {
+  return `
+  <div class="login-wrap">
+    <div class="login-card">
+      <div class="login-logo">
+        <img src="/assets/bmp/brand/logo.jpg" onerror="this.style.display='none'">
+        <div>
+          <div class="login-logo-text">BMP Clothings</div>
+          <div class="login-logo-sub">Admin Portal</div>
+        </div>
+      </div>
+      <h2 class="login-title">Welcome back</h2>
+      <p class="login-sub">Sign in to manage your products and prices.</p>
+      ${S.error ? `<div class="alert alert-error">${S.error}</div>` : ''}
+      <div class="field">
+        <label>Email address</label>
+        <input id="l-email" type="email" placeholder="your@email.com" autocomplete="email" value="${ADMIN_EMAIL}">
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <input id="l-pass" type="password" placeholder="Enter password" autocomplete="current-password">
+      </div>
+      <button class="btn btn-primary" id="l-submit">
+        ${S.loading ? '<span class="spinner"></span>' : 'Sign in'}
+      </button>
+    </div>
+  </div>`
+}
+
+function bindLogin() {
+  const btn = document.getElementById('l-submit')
+  const pass = document.getElementById('l-pass')
+  async function doLogin() {
+    const email = document.getElementById('l-email').value.trim()
+    const pw = pass.value
+    if (email !== ADMIN_EMAIL) { S.error = 'Unknown email address.'; render(); return }
+    if (!pw) { S.error = 'Please enter your password.'; render(); return }
+    S.loading = true; S.error = null; render()
+    const h = await sha256(pw)
+    const storedHash = getStoredHash()
+    const changed = isPassChanged()
+    let ok = false, needsChange = false
+    if (!changed) {
+      if (h === TEMP_PASS_HASH) { ok = true; needsChange = true }
+      else { S.error = 'Incorrect password.'; S.loading = false; render(); return }
+    } else {
+      if (storedHash && h === storedHash) { ok = true }
+      else if (h === TEMP_PASS_HASH) { ok = true; needsChange = true } // allow reset via temp
+      else { S.error = 'Incorrect password.'; S.loading = false; render(); return }
+    }
+    S.loading = false
+    if (needsChange) { markAuthed(); S.view = 'change-password'; render(); return }
+    markAuthed(); S.view = 'dashboard'; render()
+  }
+  btn.addEventListener('click', doLogin)
+  pass.addEventListener('keydown', e => e.key === 'Enter' && doLogin())
+}
+
+// ---- CHANGE PASSWORD ----
+function renderChangePasswordCard() {
+  return `
+  <div class="login-card">
+    <div class="login-logo">
+      <img src="/assets/bmp/brand/logo.jpg" onerror="this.style.display='none'">
+      <div><div class="login-logo-text">BMP Admin</div></div>
+    </div>
+    <h2 class="login-title">Set your password</h2>
+    <p class="login-sub">You are using the temporary password. Please set a new one to continue.</p>
+    ${S.error ? `<div class="alert alert-error">${S.error}</div>` : ''}
+    ${S.msg ? `<div class="alert alert-success">${S.msg}</div>` : ''}
+    <div class="field">
+      <label>New password</label>
+      <input id="np1" type="password" placeholder="At least 8 characters" autocomplete="new-password">
+    </div>
+    <div class="field">
+      <label>Confirm password</label>
+      <input id="np2" type="password" placeholder="Repeat your new password" autocomplete="new-password">
+    </div>
+    <button class="btn btn-gold" id="np-save">Set password &amp; continue</button>
+  </div>`
+}
+
+function renderChangePassword() {
+  return `<div class="login-wrap">${renderChangePasswordCard()}</div>`
+}
+
+function bindChangePassword() {
+  document.getElementById('np-save').addEventListener('click', async () => {
+    const p1 = document.getElementById('np1').value
+    const p2 = document.getElementById('np2').value
+    if (p1.length < 8) { S.error = 'Password must be at least 8 characters.'; render(); return }
+    if (p1 !== p2) { S.error = 'Passwords do not match.'; render(); return }
+    const h = await sha256(p1)
+    setStoredHash(h); markPassChanged()
+    S.error = null; S.msg = 'Password updated!'; S.view = 'dashboard'
+    render()
+  })
+}
+
+// ---- TOKEN SETUP ----
+function renderTokenSetup() {
+  return `
+  <div class="login-wrap">
+    <div class="login-card" style="max-width:440px">
+      <div class="login-logo">
+        <img src="/assets/bmp/brand/logo.jpg" onerror="this.style.display='none'">
+        <div><div class="login-logo-text">BMP Admin</div><div class="login-logo-sub">One-time setup</div></div>
+      </div>
+      <h2 class="login-title">Connect to GitHub</h2>
+      <p class="login-sub">To save changes to your site, enter your GitHub access token once below.</p>
+      <div class="instructions" style="margin-bottom:16px">
+        <ol>
+          <li>Go to <a href="https://github.com/settings/tokens?type=beta" target="_blank">github.com → Settings → Personal access tokens → Fine-grained tokens</a></li>
+          <li>Click <strong>Generate new token</strong></li>
+          <li>Name it <strong>BMP Admin</strong>, set expiry to <strong>1 year</strong></li>
+          <li>Under <strong>Repository access</strong> choose <strong>Only select repositories</strong> → pick <strong>bmpclothing</strong></li>
+          <li>Under <strong>Permissions → Contents</strong> choose <strong>Read and write</strong></li>
+          <li>Click <strong>Generate token</strong> and paste it below</li>
+        </ol>
+      </div>
+      ${S.error ? `<div class="alert alert-error">${S.error}</div>` : ''}
+      <div class="field">
+        <label>GitHub token</label>
+        <input id="gh-tok" type="password" placeholder="github_pat_...">
+      </div>
+      <button class="btn btn-primary" id="gh-save">
+        ${S.loading ? '<span class="spinner"></span>' : 'Save & continue'}
+      </button>
+    </div>
+  </div>`
+}
+
+function bindTokenSetup() {
+  document.getElementById('gh-save').addEventListener('click', async () => {
+    const tok = document.getElementById('gh-tok').value.trim()
+    if (!tok) { S.error = 'Please enter your token.'; render(); return }
+    S.loading = true; S.error = null; render()
+    try {
+      setToken(tok)
+      await loadProducts()
+      S.loading = false; S.view = 'dashboard'; render()
+    } catch (e) {
+      S.error = 'Could not connect. Check your token and try again.'
+      localStorage.removeItem('bmp_admin_token')
+      S.loading = false; render()
+    }
+  })
+}
+
+// ---- DASHBOARD ----
+function renderDashboard() {
+  const tabs = ['products','add','settings']
+  const tabLabels = { products: '📦 Products', add: '➕ Add Product', settings: '⚙️ Settings' }
+  return `
+    <div id="app">
+      <header class="hdr">
+        <div class="hdr-brand">
+          <img src="/assets/bmp/brand/logo.jpg" onerror="this.style.display='none'">
+          BMP Admin
+          <span class="hdr-badge">Store</span>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <a href="/" target="_blank" class="btn-ghost btn-sm" style="text-decoration:none;display:inline-flex;align-items:center;gap:5px;padding:6px 12px">↗ View site</a>
+          <button class="btn-ghost btn-sm" id="logout-btn">Sign out</button>
+        </div>
+      </header>
+      <div class="tabs">
+        ${tabs.map(t => `<button class="tab${S.tab===t?' active':''}" data-tab="${t}">${tabLabels[t]}</button>`).join('')}
+      </div>
+      <main class="main">
+        ${S.msg ? `<div class="alert alert-success" style="margin-bottom:16px">${S.msg}</div>` : ''}
+        ${S.error ? `<div class="alert alert-error" style="margin-bottom:16px">${S.error}</div>` : ''}
+        ${renderTab()}
+      </main>
+      ${S.deleteConfirm ? renderDeleteModal() : ''}
+    </div>`
+}
+
+function renderTab() {
+  if (S.tab === 'products') return renderProductsTab()
+  if (S.tab === 'add') return renderAddTab()
+  if (S.tab === 'settings') return renderSettingsTab()
+  return ''
+}
+
+// ---- PRODUCTS TAB ----
+function renderProductsTab() {
+  if (S.loading && !S.products) return `<div class="loading-full"><span class="spinner"></span></div>`
+  if (!S.products) return `<div class="loading-full">Loading products…</div>`
+  const all = S.products.products
+  const filtered = all.filter(p => {
+    const q = S.search.toLowerCase()
+    if (q && !p.title.toLowerCase().includes(q) && !p.slug.includes(q)) return false
+    if (S.catFilter && p.category !== S.catFilter) return false
+    return true
+  })
+  const newInCount = all.filter(p => p.newIn).length
+  const prices = all.map(p => p.price).filter(Boolean)
+  const avgPrice = prices.length ? Math.round(prices.reduce((a,b) => a+b, 0) / prices.length) : 0
+  return `
+    <div class="stats">
+      <div class="stat-card"><div class="stat-num">${all.length}</div><div class="stat-label">Total pieces</div></div>
+      <div class="stat-card"><div class="stat-num">${newInCount}</div><div class="stat-label">New in</div></div>
+      <div class="stat-card"><div class="stat-num">${fmtPrice(avgPrice)}</div><div class="stat-label">Avg price</div></div>
+    </div>
+    <div class="toolbar">
+      <input class="search" id="prod-search" placeholder="Search products…" value="${S.search}">
+      <select class="cat-filter" id="cat-filter">
+        <option value="">All categories</option>
+        ${CATEGORIES.map(c => `<option value="${c.key}"${S.catFilter===c.key?' selected':''}>${c.name}</option>`).join('')}
+      </select>
+    </div>
+    <div class="prod-list">
+      ${filtered.length === 0 ? '<div class="empty"><div class="empty-icon">🔍</div>No products match your search.</div>' : filtered.map(renderProdCard).join('')}
+    </div>`
+}
+
+function renderProdCard(p) {
+  const imgRef = (p.images||[])[0] || ''
+  // Try to show image from GitHub raw URL using first image ref from products.json
+  // Images are stored as local/filename.jpg in media-originals
+  const rawImg = imgRef ? `https://raw.githubusercontent.com/${REPO}/main/media-originals/${imgRef.split('#')[0]}` : ''
+  const isEditing = S.editingPriceSlug === p.slug
+  return `
+  <div class="prod-card" data-slug="${p.slug}">
+    <img class="prod-thumb" src="${rawImg}" onerror="this.src='/assets/bmp/brand/og-image.jpg'" loading="lazy">
+    <div class="prod-info">
+      <div class="prod-name">${p.title}</div>
+      <div class="prod-meta" style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px">
+        <span class="badge badge-cat">${catName(p.category)}</span>
+        ${p.newIn ? '<span class="badge badge-new">New In</span>' : ''}
+      </div>
+    </div>
+    <div class="prod-actions">
+      ${isEditing
+        ? `<div style="display:flex;gap:6px;align-items:center">
+            <input class="price-input" id="price-inp-${p.slug}" value="${p.price}" type="number" min="0">
+            <button class="btn btn-sm btn-primary save-price-btn" data-slug="${p.slug}">Save</button>
+            <button class="btn btn-sm btn-ghost cancel-price-btn" data-slug="${p.slug}">✕</button>
+           </div>`
+        : `<span class="price-display edit-price-btn" data-slug="${p.slug}" title="Click to edit price">${fmtPrice(p.price)}</span>`
+      }
+      <button class="toggle${p.newIn?' on':''} toggle-newin-btn" data-slug="${p.slug}" title="Toggle New In"></button>
+      <button class="icon-btn-sm delete-btn" data-slug="${p.slug}" title="Delete product">🗑</button>
+    </div>
+  </div>`
+}
+
+// ---- ADD PRODUCT TAB ----
+function renderAddTab() {
+  const f = S.addForm
+  return `
+  <div class="add-grid">
+    <div class="add-col">
+      <div class="drop-zone" id="drop-zone">
+        ${S.addImg ? `<img src="${S.addImg.preview}">` : `
+          <div class="drop-icon">📸</div>
+          <div class="drop-zone-label"><strong>Click to upload</strong><br>or drag &amp; drop<br><small style="opacity:.6">JPG or PNG, max 15 MB</small></div>
+        `}
+      </div>
+      <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp">
+      <button class="btn btn-ghost" style="margin-top:10px;width:100%" id="pick-img-btn">
+        ${S.addImg ? '📷 Change photo' : '📷 Choose photo'}
+      </button>
+    </div>
+    <div class="add-form">
+      <div class="field">
+        <label>Product name *</label>
+        <input id="af-title" placeholder="e.g. Emerald Satin Maxi Gown" value="${f.title||''}">
+      </div>
+      <div class="field">
+        <label>Category *</label>
+        <select id="af-cat">
+          <option value="">-- Pick category --</option>
+          ${CATEGORIES.map(c => `<option value="${c.key}"${f.category===c.key?' selected':''}>${c.name}</option>`).join('')}
+        </select>
+      </div>
+      <div class="field">
+        <label>Price (₦) *</label>
+        <input id="af-price" type="number" min="0" placeholder="e.g. 45000" value="${f.price||''}">
+      </div>
+      <div class="field">
+        <label>Description</label>
+        <textarea id="af-desc" placeholder="Describe the piece — fabric, style, occasion…">${f.description||''}</textarea>
+      </div>
+      <div style="display:flex;gap:16px;align-items:center;margin-bottom:16px">
+        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px">
+          <input type="checkbox" id="af-newin"${f.newIn?' checked':''}> New In
+        </label>
+        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px">
+          <input type="checkbox" id="af-pick"${f.pick?' checked':''}> Featured pick
+        </label>
+      </div>
+      ${S.error ? `<div class="alert alert-error">${S.error}</div>` : ''}
+      ${S.saving ? `<div class="alert alert-info"><span class="spinner" style="border-color:rgba(129,143,217,.3);border-top-color:var(--peri-hi)"></span> Uploading image and saving product…</div>` : ''}
+      <button class="btn btn-gold" id="add-submit-btn" ${S.saving ? 'disabled' : ''}>
+        ${S.saving ? 'Saving…' : '✓ Add product to site'}
+      </button>
+    </div>
+  </div>`
+}
+
+// ---- SETTINGS TAB ----
+function renderSettingsTab() {
+  const tok = getToken()
+  return `
+  <div class="settings-card">
+    <h3>Site status</h3>
+    <div class="deploy-row">
+      <div class="deploy-dot"></div>
+      <div>Your site is live at <strong><a href="https://bmpcollections.com" target="_blank" style="color:var(--peri-hi)">bmpcollections.com</a></strong>. Every save you make triggers an automatic rebuild (takes ~2 minutes).</div>
+    </div>
+  </div>
+  <div class="settings-card">
+    <h3>Change password</h3>
+    <div class="field">
+      <label>New password</label>
+      <input id="s-np1" type="password" placeholder="At least 8 characters">
+    </div>
+    <div class="field">
+      <label>Confirm password</label>
+      <input id="s-np2" type="password" placeholder="Repeat new password">
+    </div>
+    ${S.msg && S.tab==='settings' ? `<div class="alert alert-success">${S.msg}</div>` : ''}
+    <button class="btn btn-primary btn-sm" id="s-change-pass" style="width:auto">Update password</button>
+  </div>
+  <div class="settings-card">
+    <h3>GitHub token</h3>
+    ${tok ? `<div class="token-display">${tok.slice(0,20)}…${tok.slice(-4)} (stored)</div>` : ''}
+    <div class="field">
+      <label>${tok ? 'Replace token' : 'Enter token'}</label>
+      <input id="s-tok" type="password" placeholder="github_pat_...">
+    </div>
+    <button class="btn btn-primary btn-sm" id="s-save-tok" style="width:auto">Save token</button>
+  </div>
+  <div class="settings-card">
+    <h3>Sign out</h3>
+    <p style="color:var(--bone-dim);font-size:13px;margin-bottom:14px">Sign out of this device. Your password is saved.</p>
+    <button class="btn btn-danger btn-sm" id="s-logout">Sign out</button>
+  </div>`
+}
+
+// ---- DELETE MODAL ----
+function renderDeleteModal() {
+  const p = S.products.products.find(x => x.slug === S.deleteConfirm)
+  return `
+  <div class="modal-bg" id="modal-bg">
+    <div class="modal-card">
+      <h3>Delete product?</h3>
+      <p>This will remove <strong>${p ? p.title : S.deleteConfirm}</strong> from your store permanently. The change goes live in ~2 minutes.</p>
+      <div class="modal-btns">
+        <button class="btn btn-ghost" style="flex:1" id="modal-cancel">Cancel</button>
+        <button class="btn btn-danger" style="flex:1;width:auto" id="modal-confirm">Delete</button>
+      </div>
+    </div>
+  </div>`
+}
+
+// =====================================================================
+// BIND DASHBOARD
+// =====================================================================
+function bindDashboard() {
+  // tab switching
+  document.querySelectorAll('.tab').forEach(t => {
+    t.addEventListener('click', async () => {
+      S.tab = t.dataset.tab; S.error = null; S.msg = null
+      if (S.tab === 'products' && !S.products) {
+        S.loading = true; render()
+        try { await loadProducts() } catch(e) { S.error = 'Could not load products: ' + e.message }
+        S.loading = false
+      }
+      render()
+    })
+  })
+
+  // logout
+  document.getElementById('logout-btn')?.addEventListener('click', () => {
+    clearAuth(); S.view = 'login'; S.products = null; render()
+  })
+
+  if (S.tab === 'products') bindProductsTab()
+  if (S.tab === 'add') bindAddTab()
+  if (S.tab === 'settings') bindSettingsTab()
+  if (S.deleteConfirm) bindModal()
+
+  // auto-load products on first visit
+  if (S.tab === 'products' && !S.products) {
+    S.loading = true; render()
+    loadProducts().then(() => { S.loading = false; render() }).catch(e => { S.error = e.message; S.loading = false; render() })
+  }
+}
+
+// ---- PRODUCTS TAB BINDING ----
+function bindProductsTab() {
+  document.getElementById('prod-search')?.addEventListener('input', e => { S.search = e.target.value; render() })
+  document.getElementById('cat-filter')?.addEventListener('change', e => { S.catFilter = e.target.value; render() })
+
+  // edit price
+  document.querySelectorAll('.edit-price-btn').forEach(btn => {
+    btn.addEventListener('click', () => { S.editingPriceSlug = btn.dataset.slug; render() })
+  })
+  document.querySelectorAll('.cancel-price-btn').forEach(btn => {
+    btn.addEventListener('click', () => { S.editingPriceSlug = null; render() })
+  })
+  document.querySelectorAll('.save-price-btn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const slug = btn.dataset.slug
+      const val = Number(document.getElementById(`price-inp-${slug}`).value)
+      if (!val || val <= 0) { S.error = 'Enter a valid price.'; render(); return }
+      S.saving = true; S.error = null; render()
+      try {
+        const p = S.products.products.find(x => x.slug === slug)
+        p.price = val
+        await saveProducts(`update: set price for ${slug} to ₦${val.toLocaleString('en-NG')}`)
+        S.editingPriceSlug = null; S.msg = `Price updated to ₦${val.toLocaleString('en-NG')}!`
+      } catch(e) { S.error = 'Save failed: ' + e.message }
+      S.saving = false; render()
+    })
+  })
+  // allow Enter in price input
+  document.querySelectorAll('.price-input').forEach(inp => {
+    inp.addEventListener('keydown', e => {
+      if (e.key === 'Enter') document.querySelector(`.save-price-btn[data-slug="${inp.closest('.prod-card').dataset.slug}"]`)?.click()
+      if (e.key === 'Escape') document.querySelector(`.cancel-price-btn[data-slug="${inp.closest('.prod-card').dataset.slug}"]`)?.click()
+    })
+  })
+
+  // toggle new in
+  document.querySelectorAll('.toggle-newin-btn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const slug = btn.dataset.slug
+      const p = S.products.products.find(x => x.slug === slug)
+      p.newIn = !p.newIn
+      btn.classList.toggle('on', p.newIn)
+      try {
+        await saveProducts(`update: ${p.newIn ? 'mark' : 'unmark'} ${slug} as new in`)
+        S.msg = `${p.title} ${p.newIn ? 'marked as New In' : 'removed from New In'}`
+        render()
+      } catch(e) { p.newIn = !p.newIn; S.error = 'Save failed: ' + e.message; render() }
+    })
+  })
+
+  // delete
+  document.querySelectorAll('.delete-btn').forEach(btn => {
+    btn.addEventListener('click', () => { S.deleteConfirm = btn.dataset.slug; render() })
+  })
+}
+
+// ---- ADD TAB BINDING ----
+function bindAddTab() {
+  const dropZone = document.getElementById('drop-zone')
+  const fileInput = document.getElementById('fileInput')
+  const pickBtn = document.getElementById('pick-img-btn')
+
+  function handleFile(file) {
+    if (!file || !file.type.startsWith('image/')) { S.error = 'Please select an image file.'; render(); return }
+    if (file.size > 15 * 1024 * 1024) { S.error = 'Image too large. Max 15 MB.'; render(); return }
+    const url = URL.createObjectURL(file)
+    S.addImg = { file, preview: url }; S.error = null; render()
+  }
+
+  pickBtn?.addEventListener('click', () => fileInput.click())
+  dropZone?.addEventListener('click', () => fileInput.click())
+  fileInput?.addEventListener('change', e => handleFile(e.target.files[0]))
+  dropZone?.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag-over') })
+  dropZone?.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'))
+  dropZone?.addEventListener('drop', e => { e.preventDefault(); dropZone.classList.remove('drag-over'); handleFile(e.dataTransfer.files[0]) })
+
+  // keep form values in state
+  ;['af-title','af-cat','af-price','af-desc'].forEach(id => {
+    document.getElementById(id)?.addEventListener('input', e => {
+      const key = { 'af-title':'title','af-cat':'category','af-price':'price','af-desc':'description' }[id]
+      S.addForm[key] = e.target.value
+    })
+  })
+  ;['af-newin','af-pick'].forEach(id => {
+    document.getElementById(id)?.addEventListener('change', e => {
+      S.addForm[id === 'af-newin' ? 'newIn' : 'pick'] = e.target.checked
+    })
+  })
+
+  document.getElementById('add-submit-btn')?.addEventListener('click', async () => {
+    const title = (document.getElementById('af-title').value || '').trim()
+    const category = document.getElementById('af-cat').value
+    const price = Number(document.getElementById('af-price').value)
+    const description = (document.getElementById('af-desc').value || '').trim()
+    const newIn = document.getElementById('af-newin').checked
+    const pick = document.getElementById('af-pick').checked
+
+    if (!title) { S.error = 'Product name is required.'; render(); return }
+    if (!category) { S.error = 'Please select a category.'; render(); return }
+    if (!price || price <= 0) { S.error = 'Please enter a valid price.'; render(); return }
+    if (!S.addImg) { S.error = 'Please upload a product photo.'; render(); return }
+
+    S.saving = true; S.error = null; render()
+    try {
+      const slug = slugify(title)
+      // 1. upload image
+      const imageRef = await uploadImageFile(slug, S.addImg.file)
+      // 2. add to products.json
+      const newProduct = {
+        slug, source: 'instore', category, price, title,
+        images: [imageRef],
+        newIn, pick,
+        occasions: [],
+        description,
+        details: [],
+        colours: [],
+      }
+      S.products.products.push(newProduct)
+      await saveProducts(`add product: ${title}`)
+      S.msg = `"${title}" added! Your site will rebuild in ~2 minutes.`
+      S.addImg = null; S.addForm = {}; S.tab = 'products'; S.saving = false
+      render()
+    } catch(e) {
+      S.error = 'Failed to save: ' + e.message; S.saving = false; render()
+    }
+  })
+}
+
+// ---- SETTINGS TAB BINDING ----
+function bindSettingsTab() {
+  document.getElementById('s-change-pass')?.addEventListener('click', async () => {
+    const p1 = document.getElementById('s-np1').value
+    const p2 = document.getElementById('s-np2').value
+    if (p1.length < 8) { S.error = 'Password must be at least 8 characters.'; render(); return }
+    if (p1 !== p2) { S.error = 'Passwords do not match.'; render(); return }
+    const h = await sha256(p1); setStoredHash(h); markPassChanged()
+    S.error = null; S.msg = 'Password updated!'; render()
+  })
+  document.getElementById('s-save-tok')?.addEventListener('click', () => {
+    const tok = document.getElementById('s-tok').value.trim()
+    if (!tok) { S.error = 'Please enter a token.'; render(); return }
+    setToken(tok); S.msg = 'GitHub token saved!'; S.error = null; render()
+  })
+  document.getElementById('s-logout')?.addEventListener('click', () => {
+    clearAuth(); S.products = null; S.view = 'login'; render()
+  })
+}
+
+// ---- MODAL BINDING ----
+function bindModal() {
+  document.getElementById('modal-cancel')?.addEventListener('click', () => { S.deleteConfirm = null; render() })
+  document.getElementById('modal-bg')?.addEventListener('click', e => { if (e.target.id === 'modal-bg') { S.deleteConfirm = null; render() } })
+  document.getElementById('modal-confirm')?.addEventListener('click', async () => {
+    const slug = S.deleteConfirm; S.deleteConfirm = null
+    S.products.products = S.products.products.filter(p => p.slug !== slug)
+    try {
+      await saveProducts(`delete product: ${slug}`)
+      S.msg = 'Product deleted. Site will rebuild in ~2 minutes.'; render()
+    } catch(e) { S.error = 'Delete failed: ' + e.message; render() }
+  })
+}
+
+// =====================================================================
+// INIT
+// =====================================================================
+async function init() {
+  if (isAuthed() && getToken()) {
+    S.view = 'dashboard'
+    // load products in background
+    loadProducts().catch(() => {})
+  }
+  render()
+}
+
+init()
+</script>
+</body>
+</html>
