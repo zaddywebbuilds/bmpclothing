@@ -121,11 +121,16 @@
     .toggle-label { font-size: 11px; color: var(--bone-dim); text-align: center; margin-top: 2px; }
 
     .add-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .drop-zone { border: 2px dashed var(--border); border-radius: 12px; aspect-ratio: 3/4; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; transition: all .2s; text-align: center; padding: 20px; position: relative; overflow: hidden; }
-    .drop-zone:hover, .drop-zone.drag-over { border-color: var(--peri); background: rgba(129,143,217,.08); }
-    .drop-zone img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
-    .drop-zone-label { color: var(--bone-dim); font-size: 13px; pointer-events: none; }
-    .drop-icon { font-size: 32px; margin-bottom: 8px; }
+    .media-upload-panel { display: flex; flex-direction: column; gap: 10px; }
+    .media-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .media-cell { position: relative; aspect-ratio: 3/4; border-radius: 10px; overflow: hidden; background: rgba(255,255,255,.05); }
+    .media-cell img, .media-cell video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .media-cell-remove { position: absolute; top: 5px; right: 5px; width: 22px; height: 22px; border-radius: 50%; background: rgba(0,0,0,.75); border: none; color: white; cursor: pointer; font-size: 13px; line-height: 1; display: flex; align-items: center; justify-content: center; transition: background .15s; }
+    .media-cell-remove:hover { background: #d94040; }
+    .media-badge { position: absolute; bottom: 5px; left: 5px; background: rgba(0,0,0,.7); color: #fff; font-size: 9px; padding: 2px 6px; border-radius: 4px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
+    .media-cell-add { border: 2px dashed var(--border); cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: var(--bone-dim); font-size: 11px; text-align: center; transition: all .2s; }
+    .media-cell-add:hover, .media-cell-add.drag-over { border-color: var(--peri); background: rgba(129,143,217,.08); color: var(--peri-hi); }
+    .media-cell-add span { font-size: 22px; }
     #fileInput { display: none; }
 
     .settings-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--r); padding: 20px; margin-bottom: 16px; }
@@ -193,7 +198,7 @@ let S = {
   loading: false, saving: false,
   saveProgress: 0, saveStep: '',
   editingPriceSlug: null, deleteConfirm: null,
-  addImg: null, addForm: {},
+  addMedia: [], addForm: {},
   showAddOrder: false, orderForm: {},
 }
 
@@ -299,21 +304,31 @@ async function resizeToBlob(imgEl, tw, th) {
   return new Promise(res => canvas.toBlob(b => res({ blob: b, ext: 'jpg' }), 'image/jpeg', 0.88))
 }
 
-async function processAndUploadImages(slug, category, file, onStep) {
+async function processAndUploadImages(slug, category, file, imgIndex, onStep) {
   const imgEl = await loadImgElement(file)
   const W = imgEl.naturalWidth, H = imgEl.naturalHeight
   const widths = [...new Set(IMG_WIDTHS.filter(w => w < W).concat([Math.min(W, 1800)]))].sort((a,b)=>a-b)
-  const mediaId = `products/${category}/${slug}-1`
+  const mediaId = `products/${category}/${slug}-${imgIndex}`
 
   for (let i = 0; i < widths.length; i++) {
     const tw = widths[i]
     const th = Math.round(H * tw / W)
-    onStep(`Uploading ${tw}px image… (${i+1}/${widths.length})`, (i / widths.length) * 0.8)
+    onStep(`Photo ${imgIndex}: uploading ${tw}px… (${i+1}/${widths.length})`, (i / widths.length) * 0.8)
     const { blob, ext } = await resizeToBlob(imgEl, tw, th)
     const b64 = await blobToBase64(blob)
-    await ghPut(`public/assets/bmp/${mediaId}-${tw}.${ext}`, b64, `upload: ${slug} image ${tw}px`)
+    await ghPut(`public/assets/bmp/${mediaId}-${tw}.${ext}`, b64, `upload: ${slug} photo ${imgIndex} ${tw}px`)
   }
   return { mediaId, w: W, h: H, widths }
+}
+
+async function uploadVideo(slug, category, file, vidIndex, onStep) {
+  const ext = (file.name.split('.').pop() || 'mp4').toLowerCase()
+  const mediaId = `products/${category}/${slug}-v${vidIndex}`
+  const mbSize = (file.size / 1024 / 1024).toFixed(1)
+  onStep(`Uploading video ${vidIndex} (${mbSize} MB)…`, 0.5)
+  const b64 = await blobToBase64(file)
+  await ghPut(`public/assets/bmp/${mediaId}.${ext}`, b64, `upload: ${slug} video ${vidIndex}`)
+  return { mediaId: `${mediaId}.${ext}` }
 }
 
 // =====================================================================
@@ -571,14 +586,20 @@ function renderProdCard(p) {
 
 // ---- ADD PRODUCT TAB ----
 function renderAddTab() {
-  const f=S.addForm
+  const f=S.addForm, media=S.addMedia, canAdd=media.length<8
+  const cells = media.map((m,i) => `
+    <div class="media-cell">
+      ${m.type==='video'
+        ? `<video src="${m.preview}" muted playsinline></video><div class="media-badge">VIDEO</div>`
+        : `<img src="${m.preview}" alt="">`}
+      <button class="media-cell-remove" data-idx="${i}" title="Remove">✕</button>
+    </div>`).join('')
+  const addCell = canAdd ? `<div class="media-cell media-cell-add" id="drop-zone"><span>＋</span>${media.length===0?'Photos / Video':'Add more'}</div>` : ''
   return `<div class="add-grid">
-    <div>
-      <div class="drop-zone" id="drop-zone">
-        ${S.addImg?`<img src="${S.addImg.preview}">`:`<div class="drop-icon">📸</div><div class="drop-zone-label"><strong>Click to upload</strong><br>or drag &amp; drop<br><small style="opacity:.6">JPG or PNG, max 15 MB</small></div>`}
-      </div>
-      <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp">
-      <button class="btn btn-ghost" style="margin-top:10px" id="pick-img-btn">${S.addImg?'📷 Change photo':'📷 Choose photo'}</button>
+    <div class="media-upload-panel">
+      <div class="media-grid">${cells}${addCell}</div>
+      <input type="file" id="fileInput" accept="image/*,video/*" multiple>
+      <p style="font-size:11px;color:var(--bone-dim);margin:0">Images are auto-resized. Videos up to 50 MB. Up to 8 files.</p>
     </div>
     <div style="display:flex;flex-direction:column;gap:0">
       <div class="field"><label>Product name *</label><input id="af-title" placeholder="e.g. Emerald Satin Maxi Gown" value="${f.title||''}"></div>
@@ -835,18 +856,39 @@ function bindProductsTab() {
 
 // ---- ADD ----
 function bindAddTab() {
-  const dz=document.getElementById('drop-zone'), fi=document.getElementById('fileInput')
-  function handleFile(file) {
-    if (!file||!file.type.startsWith('image/')) { S.error='Please select an image file.'; render(); return }
-    if (file.size>15*1024*1024) { S.error='Image too large. Max 15 MB.'; render(); return }
-    S.addImg={file, preview:URL.createObjectURL(file)}; S.error=null; render()
+  const fi=document.getElementById('fileInput')
+
+  function handleFiles(files) {
+    const remaining = 8 - S.addMedia.length
+    if (remaining <= 0) return
+    let added=0, errors=[]
+    for (const file of Array.from(files).slice(0, remaining)) {
+      const isImg = file.type.startsWith('image/')
+      const isVid = file.type.startsWith('video/')
+      if (!isImg && !isVid) { errors.push(`${file.name}: not an image or video`); continue }
+      if (isVid && file.size > 50*1024*1024) { errors.push(`${file.name}: video too large (max 50 MB)`); continue }
+      S.addMedia.push({ file, preview: URL.createObjectURL(file), type: isImg ? 'image' : 'video' })
+      added++
+    }
+    if (errors.length) S.error = errors.join('; ')
+    else S.error = null
+    render()
   }
-  document.getElementById('pick-img-btn')?.addEventListener('click', ()=>fi.click())
-  dz?.addEventListener('click', ()=>fi.click())
-  fi?.addEventListener('change', e=>handleFile(e.target.files[0]))
-  dz?.addEventListener('dragover', e=>{e.preventDefault();dz.classList.add('drag-over')})
-  dz?.addEventListener('dragleave', ()=>dz.classList.remove('drag-over'))
-  dz?.addEventListener('drop', e=>{e.preventDefault();dz.classList.remove('drag-over');handleFile(e.dataTransfer.files[0])})
+
+  const dz = document.getElementById('drop-zone')
+  dz?.addEventListener('click', () => fi.click())
+  dz?.addEventListener('dragover', e => { e.preventDefault(); dz.classList.add('drag-over') })
+  dz?.addEventListener('dragleave', () => dz.classList.remove('drag-over'))
+  dz?.addEventListener('drop', e => { e.preventDefault(); dz.classList.remove('drag-over'); handleFiles(e.dataTransfer.files) })
+  fi?.addEventListener('change', e => { handleFiles(e.target.files); fi.value='' })
+
+  document.querySelectorAll('.media-cell-remove').forEach(btn => btn.addEventListener('click', e => {
+    e.stopPropagation()
+    const idx = Number(btn.dataset.idx)
+    URL.revokeObjectURL(S.addMedia[idx]?.preview)
+    S.addMedia.splice(idx, 1)
+    S.error = null; render()
+  }))
 
   ;['af-title','af-cat','af-price','af-desc'].forEach(id=>document.getElementById(id)?.addEventListener('input',e=>{
     const k={'af-title':'title','af-cat':'category','af-price':'price','af-desc':'description'}[id]
@@ -867,33 +909,52 @@ function bindAddTab() {
     if (!title) { S.error='Product name is required.'; render(); return }
     if (!category) { S.error='Please select a category.'; render(); return }
     if (!price||price<=0) { S.error='Please enter a valid price.'; render(); return }
-    if (!S.addImg) { S.error='Please upload a product photo.'; render(); return }
+    if (!S.addMedia.length) { S.error='Please upload at least one photo.'; render(); return }
 
     S.saving=true; S.error=null; S.saveProgress=0; S.saveStep='Starting…'; render()
 
     try {
       const slug=slugify(title)
-      // 1. process + upload images
-      const { mediaId, w, h, widths } = await processAndUploadImages(slug, category, S.addImg.file, (step, prog) => {
-        S.saveStep=step; S.saveProgress=prog; render()
-      })
+      const images=S.addMedia.filter(m=>m.type==='image')
+      const videos=S.addMedia.filter(m=>m.type==='video')
+      const totalSteps = images.length + videos.length + 2
+      let step=0
 
-      // 2. update products.json
-      S.saveStep='Saving product data…'; S.saveProgress=0.85; render()
+      // 1. upload each image
+      const imgResults = []
+      for (let i=0; i<images.length; i++) {
+        const res = await processAndUploadImages(slug, category, images[i].file, i+1, (s,p) => {
+          S.saveStep=s; S.saveProgress=(step/totalSteps)+(p/totalSteps); render()
+        })
+        imgResults.push(res); step++
+      }
+
+      // 2. upload each video
+      const vidResults = []
+      for (let i=0; i<videos.length; i++) {
+        const res = await uploadVideo(slug, category, videos[i].file, i+1, (s,p) => {
+          S.saveStep=s; S.saveProgress=step/totalSteps; render()
+        })
+        vidResults.push(res); step++
+      }
+
+      // 3. update products.json
+      S.saveStep='Saving product data…'; S.saveProgress=step/totalSteps; render(); step++
       S.products.products.push({ slug, source:'instore', category, price, title, images:[`local/${slug}.jpg`], newIn, pick, occasions:[], description, details:[], colours:[] })
       await saveProductsJson(`add product: ${title}`)
 
-      // 3. update catalog.json
-      S.saveStep='Updating catalogue…'; S.saveProgress=0.93; render()
-      S.catalog.products.push({ slug, source:'instore', category, price, title, images:[mediaId], newIn, pick, occasions:[], description, details:[], colours:[], worn:false })
-      S.catalog.media[mediaId] = { w, h, widths }
-      // update category count
+      // 4. update catalog.json
+      S.saveStep='Updating catalogue…'; S.saveProgress=step/totalSteps; render()
+      const imageIds = imgResults.map(r=>r.mediaId)
+      const videoIds = vidResults.map(r=>r.mediaId)
+      S.catalog.products.push({ slug, source:'instore', category, price, title, images:imageIds, ...(videoIds.length?{videos:videoIds}:{}), newIn, pick, occasions:[], description, details:[], colours:[], worn:false })
+      for (const {mediaId,w,h,widths} of imgResults) S.catalog.media[mediaId]={w,h,widths}
       const catEntry=S.catalog.categories.find(c=>c.key===category)
       if (catEntry) catEntry.count=(catEntry.count||0)+1
       await saveCatalogJson(`add product: ${title}`)
 
       S.msg=`"${title}" added! Your site will rebuild in ~2 minutes.`
-      S.addImg=null; S.addForm={}; S.tab='products'; S.saving=false; S.saveProgress=1
+      S.addMedia=[]; S.addForm={}; S.tab='products'; S.saving=false; S.saveProgress=1
       render()
     } catch(e) {
       S.error='Failed: '+e.message; S.saving=false; render()
