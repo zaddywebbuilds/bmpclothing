@@ -6,6 +6,7 @@ import Drawer from '../components/Drawer'
 import Reveal, { Lines } from '../components/Reveal'
 import NotFound from './NotFound'
 import { categories, categoryByKey, occasionByKey, occasions, products } from '../data/catalog'
+import { site } from '../data/site'
 import { useSeo, breadcrumbLd } from '../lib/seo'
 import './shop.css'
 
@@ -81,7 +82,7 @@ export default function Shop({ mode = 'all' }) {
     path: ctx?.path,
     jsonLd: ctx ? [breadcrumbLd(crumbs), {
       '@context': 'https://schema.org', '@type': 'CollectionPage', name: ctx.title,
-      mainEntity: { '@type': 'ItemList', numberOfItems: ctx.base.length, itemListElement: ctx.base.slice(0, 30).map((p, i) => ({ '@type': 'ListItem', position: i + 1, url: `https://zaddywebbuilds.github.io/bmpclothing${p.url}`, name: p.title })) },
+      mainEntity: { '@type': 'ItemList', numberOfItems: ctx.base.length, itemListElement: ctx.base.slice(0, 30).map((p, i) => ({ '@type': 'ListItem', position: i + 1, url: `${site.url}${p.url}`, name: p.title })) },
     }] : undefined,
   })
 

@@ -4,10 +4,13 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { site } from '../src/data/site.js'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const dist = join(root, 'dist')
-const SITE = 'https://bmpcollections.com'
+// Single source of truth for the domain: change site.js and every canonical, og:url,
+// sitemap entry and JSON-LD id here follows.
+const SITE = site.url
 const catalog = JSON.parse(readFileSync(join(root, 'src/data/catalog.json'), 'utf8'))
 const shell = readFileSync(join(dist, 'index.html'), 'utf8')
 
@@ -65,6 +68,31 @@ for (const p of catalog.products) {
   routes.push([`/product/${p.slug}`, title, desc, false, img(p.images[0]), ld, p.images.map((id) => img(id, 1800))])
 }
 
+// Mirrors organizationLd/webSiteLd in src/lib/seo.js, emitted statically so crawlers and
+// rich-result parsers see the brand entity on the homepage without running JS.
+const homeLd = () => {
+  const prices = catalog.products.map((p) => p.price).filter(Boolean)
+  return [
+    {
+      '@context': 'https://schema.org', '@type': 'ClothingStore', '@id': `${SITE}/#store`,
+      name: site.name, url: SITE,
+      logo: `${SITE}/assets/bmp/brand/og-image.jpg`,
+      image: `${SITE}/assets/bmp/brand/og-image.jpg`,
+      description: 'BMP Clothings is a Lagos women’s fashion house selling statement long gowns, short gowns, jumpsuits and coordinated sets, with clear Naira prices and ordering on WhatsApp.',
+      address: { '@type': 'PostalAddress', addressLocality: 'Lagos', addressRegion: 'Lagos', addressCountry: 'NG' },
+      areaServed: { '@type': 'Country', name: 'Nigeria' },
+      telephone: `+${site.whatsapp.number}`,
+      priceRange: `${naira(Math.min(...prices))} - ${naira(Math.max(...prices))}`,
+      currenciesAccepted: 'NGN', paymentAccepted: 'Bank transfer, Cash', knowsLanguage: 'en',
+      sameAs: [site.facebook, site.instagram, site.tiktok].filter(Boolean),
+    },
+    {
+      '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${SITE}/#website`,
+      url: SITE, name: site.name, inLanguage: 'en-NG', publisher: { '@id': `${SITE}/#store` },
+    },
+  ]
+}
+
 const render = (path, title, desc, noindex, image, ld) => {
   const full = `${esc(title)} | BMP Clothings`
   let h = shell
@@ -85,6 +113,19 @@ for (const [path, title, desc, noindex, image, ld] of routes) {
   const file = join(dist, path, 'index.html')
   mkdirSync(dirname(file), { recursive: true })
   writeFileSync(file, render(path, title, desc, noindex, image, ld))
+}
+
+// The homepage keeps the shell's own title/description but still needs its canonical,
+// og:url and og:image rewritten to SITE, or a domain change leaves the most-shared page stale.
+{
+  const shellTitle = shell.match(/<title>(.*?)<\/title>/)[1]
+  const home = shell
+    .replace(/(<link rel="canonical" href=")[^"]*"/, `$1${SITE}/"`)
+    .replace(/(<meta property="og:url" content=")[^"]*"/, `$1${SITE}/"`)
+    .replace(/(<meta property="og:image" content=")[^"]*"/, `$1${SITE}/assets/bmp/brand/og-image.jpg"`)
+    .replace('</head>', `    <script type="application/ld+json">${JSON.stringify(homeLd()).replace(/</g, '\\u003c')}</script>\n  </head>`)
+  writeFileSync(join(dist, 'index.html'), home)
+  console.log(`postbuild: homepage canonical ${SITE}/ · "${shellTitle}"`)
 }
 writeFileSync(join(dist, '404.html'), render('/404', 'Page not found', 'This page could not be found.', true))
 
