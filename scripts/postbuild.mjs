@@ -22,6 +22,10 @@ const img = (id, max = 960) => {
 }
 const catName = Object.fromEntries(catalog.categories.map((c) => [c.key, c.name]))
 
+// GitHub Pages serves these routes as directories and 301s /shop to /shop/, so every
+// canonical, og:url and sitemap entry uses the slashed form the server actually returns.
+const canon = (p) => `${SITE}${p === '/' ? '/' : `${p}/`}`
+
 // Facebook and WhatsApp only render the large preview card above ~600px wide; a narrower
 // source photo shows as a cramped thumbnail, so those few fall back to the branded card.
 const shareImg = (id) =>
@@ -53,7 +57,7 @@ for (const p of catalog.products) {
   // Kept under ~160 so Google shows the whole line: the price is in the tail and is the
   // part worth not truncating.
   const desc = `${p.description.slice(0, 118).replace(/\s\S*$/, '')}… ${naira(p.price)} at BMP Clothings, Lagos.`
-  const url = `${SITE}/product/${p.slug}`
+  const url = canon(`/product/${p.slug}`)
   const ld = [
     {
       '@context': 'https://schema.org', '@type': 'Product', name: p.title, sku: p.sku || p.slug,
@@ -62,14 +66,16 @@ for (const p of catalog.products) {
       ...(p.colours.length ? { color: p.colours.map((c) => c.name).join(', ') } : {}),
       offers: {
         '@type': 'Offer', priceCurrency: 'NGN', price: p.price, url,
-        ...(p.inStock ? { availability: 'https://schema.org/InStock' } : {}),
+        // Always stated: Google needs availability to show the price rich result, and an
+        // omitted field loses it entirely. Everything listed is for sale unless marked.
+        availability: `https://schema.org/${p.inStock === false ? 'OutOfStock' : 'InStock'}`,
         seller: { '@type': 'Organization', name: 'BMP Clothings' },
       },
     },
     {
       '@context': 'https://schema.org', '@type': 'BreadcrumbList',
       itemListElement: [['Home', '/'], ['Shop', '/shop'], [catName[p.category], `/collections/${p.category}`], [p.title, `/product/${p.slug}`]]
-        .map(([name, u], i) => ({ '@type': 'ListItem', position: i + 1, name, item: `${SITE}${u}` })),
+        .map(([name, u], i) => ({ '@type': 'ListItem', position: i + 1, name, item: canon(u) })),
     },
   ]
   routes.push([`/product/${p.slug}`, title, desc, false, shareImg(p.images[0]), ld, p.images.map((id) => img(id, 1800))])
@@ -106,10 +112,10 @@ const render = (path, title, desc, noindex, image, ld) => {
     .replace(/\s*<link rel="preload" as="image"[^>]*>/, '')
     .replace(/<title>.*?<\/title>/, `<title>${full}</title>`)
     .replace(/(<meta name="description" content=")[^"]*"/, `$1${esc(desc)}"`)
-    .replace(/(<link rel="canonical" href=")[^"]*"/, `$1${SITE}${path}"`)
+    .replace(/(<link rel="canonical" href=")[^"]*"/, `$1${canon(path)}"`)
     .replace(/(<meta property="og:title" content=")[^"]*"/, `$1${full}"`)
     .replace(/(<meta property="og:description" content=")[^"]*"/, `$1${esc(desc)}"`)
-    .replace(/(<meta property="og:url" content=")[^"]*"/, `$1${SITE}${path}"`)
+    .replace(/(<meta property="og:url" content=")[^"]*"/, `$1${canon(path)}"`)
   if (image) h = h.replace(/(<meta property="og:image" content=")[^"]*"/, `$1${image}"`)
   if (noindex) h = h.replace('</head>', '    <meta name="robots" content="noindex" />\n  </head>')
   if (ld) h = h.replace('</head>', `    <script type="application/ld+json" data-seo-static>${JSON.stringify(ld).replace(/</g, '\\u003c')}</script>\n  </head>`)
@@ -138,7 +144,7 @@ writeFileSync(join(dist, '404.html'), render('/404', 'Page not found', 'This pag
 
 const indexed = [['/'], ...routes.filter((r) => !r[3])]
 const entry = (r) =>
-  `  <url><loc>${SITE}${r[0]}</loc>${(r[6] || []).map((i) => `<image:image><image:loc>${i}</image:loc></image:image>`).join('')}</url>`
+  `  <url><loc>${canon(r[0])}</loc>${(r[6] || []).map((i) => `<image:image><image:loc>${i}</image:loc></image:image>`).join('')}</url>`
 writeFileSync(join(dist, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${indexed.map(entry).join('\n')}\n</urlset>\n`)
 writeFileSync(join(dist, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`)
