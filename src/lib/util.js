@@ -7,6 +7,13 @@ export const asset = (p) => `${import.meta.env.BASE_URL}${p.replace(/^\//, '')}`
 export const prefersReducedMotion = () =>
   typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
+// Only data saver or a genuinely unusable 2G link. 3G is deliberately left out: it is the
+// common effectiveType on Nigerian mobile and the hero video is meant to autoplay there.
+export const prefersLessData = () => {
+  const c = typeof navigator !== 'undefined' && navigator.connection
+  return Boolean(c && (c.saveData || /(^|-)2g$/.test(c.effectiveType || '')))
+}
+
 // Adds .is-in to the element (and any [data-reveal] children) once it scrolls into view.
 export function useReveal(options = {}) {
   const ref = useRef(null)

@@ -2,12 +2,12 @@ import { useEffect, useRef, useState } from 'react'
 import { Pause, Play } from 'lucide-react'
 import Img from './Img'
 import { site } from '../data/site'
-import { asset, prefersReducedMotion } from '../lib/util'
+import { asset, prefersLessData, prefersReducedMotion } from '../lib/util'
 
 export default function HeroVideo() {
   const ref = useRef(null)
   const [playing, setPlaying] = useState(false)
-  const [allowed] = useState(() => Boolean(site.heroVideo) && !prefersReducedMotion())
+  const [allowed] = useState(() => Boolean(site.heroVideo) && !prefersReducedMotion() && !prefersLessData())
 
   useEffect(() => {
     const v = ref.current
