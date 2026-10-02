@@ -388,7 +388,9 @@ function bindLogin() {
     // demo account
     if (email === DEMO_EMAIL) {
       if (h !== DEMO_PASS_HASH) { S.error='Incorrect password.'; S.loading=false; render(); return }
-      S.loading=false; markAuthed(); markDemo(); S.view='dashboard'; render(); return
+      markAuthed(); markDemo(); S.view='dashboard'; render()
+      try { await loadProducts() } catch(e) { S.error='Could not load data: '+e.message }
+      S.loading=false; render(); return
     }
 
     // owner account
@@ -1009,7 +1011,7 @@ function bindModal() {
 // INIT
 // =====================================================================
 async function init() {
-  if (isAuthed() && getToken()) {
+  if (isAuthed() && (getToken() || isDemo())) {
     S.view='dashboard'; S.loading=true; render()
     try { await loadProducts() } catch(e) { S.error='Could not load products: '+e.message }
     S.loading=false; render()
