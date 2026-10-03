@@ -600,6 +600,411 @@
   ]
  },
  {
+  "id": "products/long-gowns/yellow-strapless-tulle-trail-gown-1",
+  "product": "Yellow Strapless Tulle Trail Gown",
+  "slug": "yellow-strapless-tulle-trail-gown",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "owner photo local/100k.jpg",
+  "orientation": "portrait",
+  "width": 1198,
+  "height": 1280,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/black-velvet-gold-structured-gown-1",
+  "product": "Black Velvet Gold Structured Gown",
+  "slug": "black-velvet-gold-structured-gown",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "owner photo local/40ko.jpg",
+  "orientation": "portrait",
+  "width": 720,
+  "height": 1280,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/jumpsuits/red-cut-out-circle-jumpsuit-1",
+  "product": "Red Cut-Out Circle Wide-Leg Jumpsuit",
+  "slug": "red-cut-out-circle-jumpsuit",
+  "category": "jumpsuits",
+  "type": "image",
+  "source": "owner photo local/30kre.jpg",
+  "orientation": "portrait",
+  "width": 608,
+  "height": 1080,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/off-shoulder-bishop-tiered-maxi-1",
+  "product": "Off-Shoulder Bishop-Sleeve Tiered Maxi",
+  "slug": "off-shoulder-bishop-tiered-maxi",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "owner photo local/50k.jpg",
+  "orientation": "portrait",
+  "width": 607,
+  "height": 1080,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/skirts-and-tops/tropical-floral-wrap-set-1",
+  "product": "Tropical Floral Wrap Set",
+  "slug": "tropical-floral-wrap-set",
+  "category": "skirts-and-tops",
+  "type": "image",
+  "source": "owner photo local/30kset.jpg",
+  "orientation": "portrait",
+  "width": 607,
+  "height": 1080,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/fuchsia-paisley-bodycon-maxi-1",
+  "product": "Fuchsia & Paisley Bodycon Maxi",
+  "slug": "fuchsia-paisley-bodycon-maxi",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "owner photo local/30kos.jpg",
+  "orientation": "portrait",
+  "width": 607,
+  "height": 1080,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/pink-colourblock-tiered-bow-maxi-1",
+  "product": "Pink Colour-Block Tiered Bow Maxi",
+  "slug": "pink-colourblock-tiered-bow-maxi",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "owner photo local/30koss.jpg",
+  "orientation": "landscape",
+  "width": 1080,
+  "height": 1078,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/jumpsuits/purple-wrap-collar-wide-leg-jumpsuit-1",
+  "product": "Purple Wrap Collar Wide-Leg Jumpsuit",
+  "slug": "purple-wrap-collar-wide-leg-jumpsuit",
+  "category": "jumpsuits",
+  "type": "image",
+  "source": "owner photo local/30kosss.jpg",
+  "orientation": "portrait",
+  "width": 607,
+  "height": 1080,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/sky-blue-one-shoulder-pleated-maxi-1",
+  "product": "Sky Blue One-Shoulder Pleated Maxi",
+  "slug": "sky-blue-one-shoulder-pleated-maxi",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "owner photo local/30kosw.jpg",
+  "orientation": "portrait",
+  "width": 607,
+  "height": 1080,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/jumpsuits/red-draped-shoulder-wide-leg-jumpsuit-1",
+  "product": "Red Draped-Shoulder Wide-Leg Jumpsuit",
+  "slug": "red-draped-shoulder-wide-leg-jumpsuit",
+  "category": "jumpsuits",
+  "type": "image",
+  "source": "owner photo local/30kosx.jpg",
+  "orientation": "portrait",
+  "width": 607,
+  "height": 1080,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/short-gowns/white-polka-dot-ruffle-off-shoulder-mini-1",
+  "product": "White Polka Dot Ruffle Off-Shoulder Mini",
+  "slug": "white-polka-dot-ruffle-off-shoulder-mini",
+  "category": "short-gowns",
+  "type": "image",
+  "source": "owner photo local/30kosy.jpg",
+  "orientation": "portrait",
+  "width": 607,
+  "height": 1080,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/flame-print-halter-maxi-1",
+  "product": "Flame Print Halter Maxi",
+  "slug": "flame-print-halter-maxi",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "owner photo local/28k.jpg",
+  "orientation": "portrait",
+  "width": 607,
+  "height": 1080,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/short-gowns/off-shoulder-ruffle-tier-mini-1",
+  "product": "Off-Shoulder Ruffle-Tier Mini",
+  "slug": "off-shoulder-ruffle-tier-mini",
+  "category": "short-gowns",
+  "type": "image",
+  "source": "owner photo local/27k.jpg",
+  "orientation": "portrait",
+  "width": 607,
+  "height": 1080,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/red-cold-shoulder-floral-print-maxi-1",
+  "product": "Red Cold-Shoulder Floral Print Maxi",
+  "slug": "red-cold-shoulder-floral-print-maxi",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "owner photo local/27kk.jpg",
+  "orientation": "portrait",
+  "width": 607,
+  "height": 1080,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/blue-abstract-one-shoulder-cape-maxi-1",
+  "product": "Blue Abstract One-Shoulder Cape Maxi",
+  "slug": "blue-abstract-one-shoulder-cape-maxi",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "owner photo local/26k.jpg",
+  "orientation": "portrait",
+  "width": 607,
+  "height": 1080,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/skirts-and-tops/royal-blue-ruffle-crop-skirt-set-1",
+  "product": "Royal Blue Ruffle Crop & Skirt Set",
+  "slug": "royal-blue-ruffle-crop-skirt-set",
+  "category": "skirts-and-tops",
+  "type": "image",
+  "source": "owner photo local/26kos.jpg",
+  "orientation": "landscape",
+  "width": 1080,
+  "height": 1078,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/short-gowns/red-ruffle-tier-longsleeve-mini-1",
+  "product": "Red Ruffle-Tier Long-Sleeve Mini",
+  "slug": "red-ruffle-tier-longsleeve-mini",
+  "category": "short-gowns",
+  "type": "image",
+  "source": "owner photo local/25kos.jpg",
+  "orientation": "portrait",
+  "width": 607,
+  "height": 1080,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/long-gowns/geometric-colourblock-twist-maxi-1",
+  "product": "Geometric Colour-Block Twist Maxi",
+  "slug": "geometric-colourblock-twist-maxi",
+  "category": "long-gowns",
+  "type": "image",
+  "source": "owner photo local/25kose.jpg",
+  "orientation": "portrait",
+  "width": 607,
+  "height": 1080,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/short-gowns/fuchsia-colourblock-ruffle-cap-mini-1",
+  "product": "Fuchsia Colour-Block Ruffle Cap-Sleeve Mini",
+  "slug": "fuchsia-colourblock-ruffle-cap-mini",
+  "category": "short-gowns",
+  "type": "image",
+  "source": "owner photo local/23k.jpg",
+  "orientation": "portrait",
+  "width": 607,
+  "height": 1080,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/short-gowns/royal-blue-cape-sleeve-mini-1",
+  "product": "Royal Blue Cape-Sleeve Mini",
+  "slug": "royal-blue-cape-sleeve-mini",
+  "category": "short-gowns",
+  "type": "image",
+  "source": "owner photo local/22k.jpg",
+  "orientation": "portrait",
+  "width": 607,
+  "height": 1080,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/short-gowns/purple-bell-sleeve-mini-1",
+  "product": "Purple Asymmetric Bell-Sleeve Mini",
+  "slug": "purple-bell-sleeve-mini",
+  "category": "short-gowns",
+  "type": "image",
+  "source": "owner photo local/20kos.jpg",
+  "orientation": "portrait",
+  "width": 607,
+  "height": 1080,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/short-gowns/dark-floral-mesh-sleeve-mini-1",
+  "product": "Dark Floral Mesh-Sleeve Cut-Out Mini",
+  "slug": "dark-floral-mesh-sleeve-mini",
+  "category": "short-gowns",
+  "type": "image",
+  "source": "owner photo local/20kosq.jpg",
+  "orientation": "portrait",
+  "width": 607,
+  "height": 1080,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/short-gowns/navy-polka-dot-collar-mini-1",
+  "product": "Navy Polka Dot Collar Mini",
+  "slug": "navy-polka-dot-collar-mini",
+  "category": "short-gowns",
+  "type": "image",
+  "source": "owner photo local/20kost.jpg",
+  "orientation": "portrait",
+  "width": 607,
+  "height": 1080,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/short-gowns/gold-leopard-ruffle-mini-1",
+  "product": "Gold Leopard Ruffle-Hem Mini",
+  "slug": "gold-leopard-ruffle-mini",
+  "category": "short-gowns",
+  "type": "image",
+  "source": "owner photo local/20kosw.jpg",
+  "orientation": "portrait",
+  "width": 607,
+  "height": 1080,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/short-gowns/lime-green-cut-out-mini-1",
+  "product": "Lime Green Cut-Out Long-Sleeve Mini",
+  "slug": "lime-green-cut-out-mini",
+  "category": "short-gowns",
+  "type": "image",
+  "source": "owner photo local/17k.jpg",
+  "orientation": "portrait",
+  "width": 607,
+  "height": 1080,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/short-gowns/red-black-abstract-bodycon-mini-1",
+  "product": "Red & Black Abstract Bodycon Mini",
+  "slug": "red-black-abstract-bodycon-mini",
+  "category": "short-gowns",
+  "type": "image",
+  "source": "owner photo local/15ksales.jpg",
+  "orientation": "portrait",
+  "width": 607,
+  "height": 1080,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/short-gowns/pink-paisley-cut-out-ruched-mini-1",
+  "product": "Pink Paisley Cut-Out Ruched Mini",
+  "slug": "pink-paisley-cut-out-ruched-mini",
+  "category": "short-gowns",
+  "type": "image",
+  "source": "owner photo local/15k.jpg",
+  "orientation": "portrait",
+  "width": 607,
+  "height": 1080,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
   "id": "video/bmp-hero.mp4",
   "type": "video",
   "source": "owner supplied heropage.mp4",
