@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { ArrowRight, MapPin, Check } from 'lucide-react'
 import Reveal, { Lines } from '../components/Reveal'
 import WaIcon from '../components/WaIcon'
-import { site, socials, waLink } from '../data/site'
+import { mapsLink, site, socials, waLink } from '../data/site'
 import SocialIcon from '../components/SocialIcon'
 import { useSeo } from '../lib/seo'
 import './pages.css'
@@ -13,7 +13,6 @@ export default function Contact() {
   const [err, setErr] = useState({})
   const [sent, setSent] = useState(false)
   const set = (k) => (e) => setF({ ...f, [k]: e.target.value })
-  const fullAddress = `${site.address.street}, ${site.address.area}, ${site.address.city}, Nigeria`
 
   const submit = async (e) => {
     e.preventDefault()
@@ -65,7 +64,7 @@ export default function Contact() {
           <a
             className="contact-card glass reveal"
             data-delay="2"
-            href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(fullAddress)}`}
+            href={mapsLink}
             target="_blank"
             rel="noopener noreferrer"
           >

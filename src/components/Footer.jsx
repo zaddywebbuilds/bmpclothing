@@ -3,7 +3,7 @@ import { ArrowUpRight } from 'lucide-react'
 import Logo from './Logo'
 import WaIcon from './WaIcon'
 import { listedCategories } from '../data/catalog'
-import { site, socials, waLink } from '../data/site'
+import { fullAddress, mapsEmbed, mapsLink, site, socials, waLink } from '../data/site'
 import SocialIcon from './SocialIcon'
 import './footer.css'
 
@@ -58,7 +58,25 @@ export default function Footer() {
           </nav>
         </div>
 
-        <div className="footer-giant display" aria-hidden="true">BMP</div>
+        <div className="footer-feature">
+          <div className="footer-giant display" aria-hidden="true">BMP</div>
+
+          <div className="footer-map">
+            <p className="eyebrow">Visit the store</p>
+            <div className="footer-map-frame">
+              <iframe
+                src={mapsEmbed}
+                title={`Map showing BMP Clothings at ${fullAddress}`}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+            </div>
+            <a className="footer-map-link" href={mapsLink} target="_blank" rel="noopener noreferrer">
+              {site.address.street}, {site.address.area} <ArrowUpRight size={13} />
+            </a>
+          </div>
+        </div>
 
         <div className="footer-base">
           <span>© {new Date().getFullYear()} BMP Clothings. All rights reserved.</span>

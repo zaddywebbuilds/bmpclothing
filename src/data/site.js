@@ -8,6 +8,10 @@ export const site = {
     area: 'Oworoshoki',
     city: 'Lagos',
     country: 'NG',
+    // Right-click the shop in Google Maps, click the lat/lng to copy it, and paste
+    // it here as 'lat,lng'. Google pins coordinates exactly, whereas a street
+    // address in Oworoshoki often only resolves to the neighbourhood.
+    coords: null,
   },
   currency: 'NGN',
 
@@ -54,6 +58,13 @@ export const site = {
     original: 'Shop stylish quality, elevate your class.',
   },
 }
+
+// One source for the shop address, so the footer map, the contact card and the
+// directions link can never drift apart.
+export const fullAddress = `${site.address.street}, ${site.address.area}, ${site.address.city}, Nigeria`
+const mapQuery = site.address.coords || fullAddress
+export const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery)}`
+export const mapsEmbed = `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&z=17&output=embed`
 
 export const socials = () =>
   [['Instagram', site.instagram], ['TikTok', site.tiktok], ['Facebook', site.facebook]].filter(([, url]) => url)
