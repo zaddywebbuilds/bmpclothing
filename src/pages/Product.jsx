@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ArrowRight, MessageCircle, Minus, Plus, Truck, RefreshCw } from 'lucide-react'
 import Gallery from '../components/Gallery'
@@ -14,6 +14,7 @@ import { productBySlug, products, categoryByKey, occasionByKey, imagePath } from
 import { site } from '../data/site'
 import { naira, asset } from '../lib/util'
 import { orderLink, enquiryLink } from '../lib/order'
+import { asItem, track } from '../lib/analytics'
 import { useSeo, breadcrumbLd } from '../lib/seo'
 import './product.css'
 
@@ -28,6 +29,10 @@ export default function Product() {
   const p = productBySlug[slug]
   const opts = useOptions(p)
   const [qty, setQty] = useState(1)
+
+  useEffect(() => {
+    if (p) track('view_item', { value: p.price, items: [asItem(p)] })
+  }, [p])
 
   const cat = p && categoryByKey[p.category]
   useSeo({
@@ -74,7 +79,7 @@ export default function Product() {
           </nav>
           <div className="pdp-head">
             {p.code && <span className="eyebrow">{p.code}</span>}
-            {p.newIn && <span className="tag tag--ink">New in</span>}
+            {p.newIn && p.inStock !== false && <span className="tag tag--ink">New in</span>}
           </div>
           <h1 className="display pdp-title">{p.title}</h1>
           <p className="price pdp-price">{naira(p.price)}</p>

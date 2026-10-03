@@ -40,7 +40,7 @@ export function CartLines({ compact }) {
 }
 
 export default function CartDrawer() {
-  const { panel, closePanel, lines, subtotal, count } = useStore()
+  const { panel, closePanel, lines, subtotal, count, recordOrder, checkoutRef } = useStore()
   const open = panel === 'cart'
   const suggestion = newIn[0]
 
@@ -69,7 +69,7 @@ export default function CartDrawer() {
           <div className="cart-foot">
             <div className="cart-total"><span>Subtotal</span><span className="price">{naira(subtotal)}</span></div>
             <p className="form-note">Delivery is calculated for your location and confirmed with you before payment.</p>
-            <a className="btn btn--block" href={checkoutLink(lines, subtotal)} target="_blank" rel="noopener noreferrer">
+            <a className="btn btn--block" href={checkoutLink(lines, subtotal, checkoutRef)} target="_blank" rel="noopener noreferrer" onClick={() => recordOrder(lines, subtotal, checkoutRef)}>
               Checkout on WhatsApp <ArrowRight className="arrow" size={15} />
             </a>
             <Link to="/bag" className="btn btn--glass btn--block" onClick={closePanel}>View bag</Link>

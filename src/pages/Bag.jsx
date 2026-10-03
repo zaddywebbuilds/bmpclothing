@@ -13,7 +13,7 @@ import '../components/overlays.css'
 import './pages.css'
 
 export default function Bag() {
-  const { lines, subtotal, count, clearCart } = useStore()
+  const { lines, subtotal, count, clearCart, recordOrder, checkoutRef } = useStore()
   useSeo({ title: 'Your Bag', path: '/bag' })
   return (
     <div>
@@ -28,7 +28,8 @@ export default function Bag() {
             <h2 className="eyebrow">Order summary</h2>
             <div className="cart-total"><span>Subtotal</span><span className="price">{naira(subtotal)}</span></div>
             <p className="form-note">Delivery is calculated for your location. We confirm delivery and payment details with you on WhatsApp before you pay.</p>
-            <a className="btn btn--block" href={checkoutLink(lines, subtotal)} target="_blank" rel="noopener noreferrer"><WaIcon /> Checkout on WhatsApp</a>
+            <a className="btn btn--block" href={checkoutLink(lines, subtotal, checkoutRef)} target="_blank" rel="noopener noreferrer" onClick={() => recordOrder(lines, subtotal, checkoutRef)}><WaIcon /> Checkout on WhatsApp</a>
+            <p className="form-note bag-ref">Order reference <strong>{checkoutRef}</strong></p>
             <Link to="/shop" className="btn btn--glass btn--block">Continue shopping</Link>
             <button className="cart-remove" onClick={clearCart}>Empty bag</button>
           </aside>

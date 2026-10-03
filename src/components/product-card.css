@@ -77,3 +77,8 @@
   .pcard-action { flex: 0 0 40px; width: 40px; height: 40px; }
   .pcard-action span { display: none; }
 }
+
+/* ---------- sold out ---------- */
+.pcard--soldout .pcard-img { opacity: .55; filter: saturate(.6); }
+.pcard--soldout .pcard-title a, .pcard--soldout .price { color: var(--ink-mute); }
+.pcard--soldout .price { text-decoration: line-through; }

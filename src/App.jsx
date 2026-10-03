@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import Lenis from 'lenis'
 import { useStore } from './lib/store'
+import { initAnalytics, pageView } from './lib/analytics'
 import { prefersReducedMotion } from './lib/util'
 import AnnouncementBar from './components/AnnouncementBar'
 import Navbar from './components/Navbar'
@@ -51,6 +52,14 @@ export default function App() {
   }, [locked])
 
   useEffect(() => { scrollToTop() }, [pathname])
+
+  useEffect(() => { initAnalytics() }, [])
+
+  // Fires after the route's document title has been set.
+  useEffect(() => {
+    const t = setTimeout(() => pageView(pathname), 0)
+    return () => clearTimeout(t)
+  }, [pathname])
 
   return (
     <>

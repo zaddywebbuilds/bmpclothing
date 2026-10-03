@@ -9,7 +9,7 @@ import WaIcon from './WaIcon'
 import { useStore } from '../lib/store'
 import { productBySlug, altText } from '../data/catalog'
 import { naira } from '../lib/util'
-import { orderLink } from '../lib/order'
+import { orderLink, restockLink } from '../lib/order'
 
 export default function QuickView() {
   const { quickView, closeQuickView } = useStore()
@@ -30,11 +30,22 @@ export default function QuickView() {
             <h2 className="display h-sm">{p.title}</h2>
             <p className="price qv-price">{naira(p.price)}</p>
             <p className="lede">{p.description}</p>
-            <OptionPicker product={p} opts={opts} finder={false} />
-            <AddToBag product={p} variant={opts.label} disabled={!opts.ready} disabledLabel={opts.needColour && !opts.colour ? 'Choose colour' : 'Choose size'} onAdded={closeQuickView} />
-            <a className="btn btn--glass btn--block" href={orderLink(p, { variant: opts.label })} target="_blank" rel="noopener noreferrer">
-              <WaIcon /> Order on WhatsApp
-            </a>
+            {p.inStock === false ? (
+              <>
+                <span className="tag tag--soldout">Sold out</span>
+                <a className="btn btn--glass btn--block" href={restockLink(p)} target="_blank" rel="noopener noreferrer">
+                  <WaIcon /> Ask about restock
+                </a>
+              </>
+            ) : (
+              <>
+                <OptionPicker product={p} opts={opts} finder={false} />
+                <AddToBag product={p} variant={opts.label} disabled={!opts.ready} disabledLabel={opts.needColour && !opts.colour ? 'Choose colour' : 'Choose size'} onAdded={closeQuickView} />
+                <a className="btn btn--glass btn--block" href={orderLink(p, { variant: opts.label })} target="_blank" rel="noopener noreferrer">
+                  <WaIcon /> Order on WhatsApp
+                </a>
+              </>
+            )}
             <Link to={p.url} className="link-line" onClick={closeQuickView}>View full details <ArrowRight className="arrow" size={14} /></Link>
           </div>
         </div>

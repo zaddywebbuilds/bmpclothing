@@ -3,7 +3,7 @@ import { Eye, Plus } from 'lucide-react'
 import Img from './Img'
 import WishlistButton from './WishlistButton'
 import WaIcon from './WaIcon'
-import { orderLink } from '../lib/order'
+import { orderLink, restockLink } from '../lib/order'
 import { loadMySize, usesChart } from '../data/sizes'
 import { useStore } from '../lib/store'
 import { altText, categoryByKey } from '../data/catalog'
@@ -16,6 +16,7 @@ export default function ProductCard({ product: p, sizes = '(max-width: 640px) 50
   const saved = usesChart(p) ? loadMySize()?.size : null
   const sizeLabel = saved ? `Size ${saved}` : undefined
   const needsChoice = p.colours.length > 1 || (usesChart(p) ? !saved : p.variants?.length > 1)
+  const soldOut = p.inStock === false
 
   const quickAdd = (e) => {
     e.preventDefault()
@@ -24,21 +25,24 @@ export default function ProductCard({ product: p, sizes = '(max-width: 640px) 50
   }
 
   return (
-    <article className={`pcard ${className}`}>
+    <article className={`pcard ${soldOut ? 'pcard--soldout' : ''} ${className}`}>
       <div className="pcard-frame">
       <Link to={p.url} className="pcard-media panel" data-cursor="View" aria-label={`${p.title}, ${naira(p.price)}`}>
         <Img id={p.images[0]} alt={altText(p)} sizes={sizes} priority={priority} className="pcard-img" />
         {second && <Img id={second} alt="" sizes={sizes} className="pcard-img pcard-img--alt" aria-hidden="true" />}
         <span className="pcard-tags">
-          {p.newIn && <span className="tag">New in</span>}
+          {soldOut && <span className="tag tag--soldout">Sold out</span>}
+          {!soldOut && p.newIn && <span className="tag">New in</span>}
           {p.worn && <span className="tag">Worn by a customer</span>}
         </span>
       </Link>
       <WishlistButton slug={p.slug} className="pcard-wish" />
       <div className="pcard-actions">
-        <button className="pcard-action" onClick={quickAdd} aria-label={needsChoice ? `Choose options for ${p.title}` : `Add ${p.title} to bag`}>
-          <Plus size={15} strokeWidth={1.8} /> <span>{needsChoice ? 'Choose' : 'Quick add'}</span>
-        </button>
+        {!soldOut && (
+          <button className="pcard-action" onClick={quickAdd} aria-label={needsChoice ? `Choose options for ${p.title}` : `Add ${p.title} to bag`}>
+            <Plus size={15} strokeWidth={1.8} /> <span>{needsChoice ? 'Choose' : 'Quick add'}</span>
+          </button>
+        )}
         <button className="pcard-action pcard-action--icon" onClick={(e) => { e.preventDefault(); openQuickView(p.slug) }} aria-label={`Quick view ${p.title}`}>
           <Eye size={15} strokeWidth={1.8} />
         </button>
@@ -59,9 +63,15 @@ export default function ProductCard({ product: p, sizes = '(max-width: 640px) 50
           {p.salePrice && <s>{naira(p.price)}</s>}
         </p>
       </div>
-      <a className="pcard-wa" href={orderLink(p, { variant: sizeLabel })} target="_blank" rel="noopener noreferrer" aria-label={`Order ${p.title} on WhatsApp, ${naira(p.price)}`}>
-        <WaIcon size={15} /> <span>Order on WhatsApp</span>
-      </a>
+      {soldOut ? (
+        <a className="pcard-wa" href={restockLink(p)} target="_blank" rel="noopener noreferrer" aria-label={`Ask about a restock of ${p.title}`}>
+          <WaIcon size={15} /> <span>Ask about restock</span>
+        </a>
+      ) : (
+        <a className="pcard-wa" href={orderLink(p, { variant: sizeLabel })} target="_blank" rel="noopener noreferrer" aria-label={`Order ${p.title} on WhatsApp, ${naira(p.price)}`}>
+          <WaIcon size={15} /> <span>Order on WhatsApp</span>
+        </a>
+      )}
     </article>
   )
 }

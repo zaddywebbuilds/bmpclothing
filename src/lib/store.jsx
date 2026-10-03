@@ -1,5 +1,8 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import { productBySlug } from '../data/catalog'
+import { newOrderRef } from './order'
+import { asItem, track } from './analytics'
+import { site } from '../data/site'
 
 const StoreCtx = createContext(null)
 
@@ -20,12 +23,14 @@ const lineId = (slug, variant) => `${slug}::${variant || ''}`
 export function StoreProvider({ children }) {
   const [cart, setCart] = useState(() => read('bmp.cart', []).filter((l) => productBySlug[l.slug]))
   const [wishlist, setWishlist] = useState(() => read('bmp.wishlist', []).filter((s) => productBySlug[s]))
+  const [orders, setOrders] = useState(() => read('bmp.orders', []))
   const [panel, setPanel] = useState(null) // 'cart' | 'search' | 'menu' | null
   const [quickView, setQuickView] = useState(null)
   const [bump, setBump] = useState(0)
 
   useEffect(() => write('bmp.cart', cart), [cart])
   useEffect(() => write('bmp.wishlist', wishlist), [wishlist])
+  useEffect(() => write('bmp.orders', orders), [orders])
 
   const addToCart = useCallback((slug, variant = null, qty = 1) => {
     setCart((c) => {
@@ -35,6 +40,8 @@ export function StoreProvider({ children }) {
       return [...c, { id, slug, variant, qty }]
     })
     setBump((b) => b + 1)
+    const p = productBySlug[slug]
+    if (p) track('add_to_cart', { value: p.price * qty, items: [asItem(p, { variant, qty })] })
   }, [])
 
   const setQty = useCallback((id, qty) => {
@@ -55,9 +62,46 @@ export function StoreProvider({ children }) {
   const count = lines.reduce((n, l) => n + l.qty, 0)
   const subtotal = lines.reduce((n, l) => n + l.qty * l.product.price, 0)
 
+  // Regenerates whenever the bag changes, so the reference in the WhatsApp link
+  // always matches what is being checked out.
+  const checkoutRef = useMemo(() => newOrderRef(), [cart])
+
+  // Called as the shopper hands off to WhatsApp. Keeps a copy on their device and,
+  // when a webhook is configured, sends one to the shop.
+  const recordOrder = useCallback((orderLines, total, ref) => {
+    const order = {
+      ref,
+      at: new Date().toISOString(),
+      subtotal: total,
+      items: orderLines.map((l) => ({
+        slug: l.slug,
+        title: l.product.title,
+        code: l.product.code || null,
+        variant: l.variant || null,
+        qty: l.qty,
+        price: l.product.price,
+      })),
+    }
+    setOrders((o) => [order, ...o].slice(0, 50))
+    track('begin_checkout', {
+      value: total,
+      items: orderLines.map((l) => asItem(l.product, { variant: l.variant, qty: l.qty })),
+    })
+    if (site.orderWebhook) {
+      fetch(site.orderWebhook, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(order),
+        keepalive: true,
+      }).catch(() => { /* the WhatsApp handoff still goes through */ })
+    }
+    return order
+  }, [])
+
   const value = {
     lines, count, subtotal, bump,
     addToCart, setQty, removeLine, clearCart,
+    orders, recordOrder, checkoutRef,
     wishlist, toggleWish, isWished: (s) => wishlist.includes(s),
     panel, openPanel: setPanel, closePanel: () => setPanel(null),
     quickView, openQuickView: setQuickView, closeQuickView: () => setQuickView(null),

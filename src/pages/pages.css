@@ -98,6 +98,8 @@ a.contact-card:hover { transform: translateY(-3px); box-shadow: var(--sh-lift); 
 .bag-lines .cart-lines { padding-bottom: 0; }
 .bag-summary { position: sticky; top: calc(var(--nav-h) + 40px); display: grid; gap: 14px; padding: 26px; border-radius: var(--r-lg); }
 .bag-summary .cart-remove { justify-self: start; }
+.bag-ref { text-align: center; letter-spacing: .04em; }
+.bag-ref strong { color: var(--gold); font-weight: 700; letter-spacing: .1em; }
 .bag-empty { display: grid; gap: 22px; justify-items: start; padding: clamp(24px, 4vw, 48px); border-radius: var(--r-xl); }
 .bag-suggest { margin-top: 40px; }
 .notfound { min-height: 60vh; align-content: center; justify-items: start; }

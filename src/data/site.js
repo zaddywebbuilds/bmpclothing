@@ -26,6 +26,17 @@ export const site = {
   newsletterEndpoint: null,
   contactEndpoint: null,
 
+  // Paste your own IDs to switch tracking on. While both are null nothing loads and no cookies are set.
+  analytics: {
+    ga4: null, // Google Analytics 4, looks like 'G-XXXXXXXXXX'
+    metaPixel: null, // Meta (Facebook) Pixel, a long number
+  },
+
+  // Optional URL that receives a JSON copy of every checkout, so orders arrive without
+  // pasting. While null, each order is kept on the shopper's own device and the owner
+  // imports it in the admin portal from the WhatsApp message.
+  orderWebhook: null,
+
   // Real recent orders only (from WhatsApp/checkout). Shown as the "recent order" popup.
   // Example: { name: 'Chidinma', city: 'Lekki, Lagos', slug: 'bmp-lg-10', when: '2026-09-18T14:00:00' }
   // While empty, the popup rotates genuine new-arrival notices instead.

@@ -36,10 +36,9 @@
 .pdp-buy .qty { height: 52px; }
 .pdp-wish { width: 52px; height: 52px; }
 .pdp-wa svg { color: #1f9e55; }
-.tag--soldout { background: rgba(180,60,60,.15); color: #f48c8c; border: 1px solid rgba(180,60,60,.3); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 0 11px; min-height: 26px; display: inline-flex; align-items: center; border-radius: var(--r-pill); }
 .pdp-soldout { display: flex; flex-direction: column; gap: 12px; margin-top: 4px; }
 .pdp-soldout-msg { font-size: 13px; color: var(--ink-mute); }
-.pdp-soldout .pdp-wish { align-self: flex-start; }
+.pdp-soldout .pdp-wish, .pdp-soldout .tag--soldout { align-self: flex-start; }
 .pdp-wa:hover svg { color: #5fd08f; }
 .pdp-ask { display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 500; color: var(--ink-soft); width: fit-content; }
 .pdp-ask:hover { color: var(--gold-hi); }

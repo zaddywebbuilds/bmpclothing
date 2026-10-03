@@ -66,6 +66,7 @@
 .qv-img { aspect-ratio: 3/4; max-height: calc(100vh - 80px); border-radius: var(--r-lg); }
 .qv-img > img { object-fit: contain !important; background: radial-gradient(circle at 50% 40%, var(--char-raise), var(--char)); }
 .qv-info { display: flex; flex-direction: column; gap: 16px; padding: 28px 12px 12px 0; }
+.qv-info .tag--soldout { align-self: flex-start; }
 .qv-price { font-size: 19px; }
 .qv .lede { font-size: 14.5px; }
 
