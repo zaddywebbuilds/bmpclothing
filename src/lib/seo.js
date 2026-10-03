@@ -81,7 +81,13 @@ const organizationLd = () => {
     image: `${site.url}/assets/bmp/brand/og-image.jpg`,
     description:
       'BMP Clothings is a Lagos women’s fashion house selling statement long gowns, short gowns, jumpsuits and coordinated sets, with clear Naira prices and ordering on WhatsApp.',
-    address: { '@type': 'PostalAddress', addressLocality: 'Lagos', addressRegion: 'Lagos', addressCountry: 'NG' },
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: `${site.address.street}, ${site.address.area}`,
+      addressLocality: site.address.city,
+      addressRegion: 'Lagos',
+      addressCountry: site.address.country,
+    },
     areaServed: { '@type': 'Country', name: 'Nigeria' },
     telephone: `+${site.whatsapp.number}`,
     priceRange: `${naira(low)} - ${naira(high)}`,

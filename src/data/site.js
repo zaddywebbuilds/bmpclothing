@@ -3,6 +3,12 @@ export const site = {
   name: 'BMP Clothings',
   url: 'https://bmpcollections.com',
   location: 'Lagos, Nigeria',
+  address: {
+    street: 'No 2 Onabanjo Street',
+    area: 'Oworoshoki',
+    city: 'Lagos',
+    country: 'NG',
+  },
   currency: 'NGN',
 
   // Set to a message you can verify (e.g. a delivery promise) or null to hide the bar.

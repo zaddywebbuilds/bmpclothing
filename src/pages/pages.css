@@ -119,3 +119,5 @@ a.contact-card:hover { transform: translateY(-3px); box-shadow: var(--sh-lift); 
   .look:nth-child(3) { margin-top: 30px !important; }
   .traits, .about-pillars, .policy-list, .contact-cards, .form-row { grid-template-columns: 1fr; }
 }
+
+.contact-addr { font-size: 14px; color: var(--ink-soft); line-height: 1.5; margin-top: -2px; }

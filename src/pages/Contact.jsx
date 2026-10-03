@@ -8,11 +8,12 @@ import { useSeo } from '../lib/seo'
 import './pages.css'
 
 export default function Contact() {
-  useSeo({ title: 'Contact', description: 'Contact BMP Clothings in Lagos. Chat on WhatsApp 0901 962 4520 for orders, sizing, delivery and product questions.', path: '/contact' })
+  useSeo({ title: 'Contact', description: 'Contact BMP Clothings at No 2 Onabanjo Street, Oworoshoki, Lagos. Chat on WhatsApp 0901 962 4520 for orders, sizing and delivery.', path: '/contact' })
   const [f, setF] = useState({ name: '', email: '', phone: '', subject: 'Order enquiry', message: '' })
   const [err, setErr] = useState({})
   const [sent, setSent] = useState(false)
   const set = (k) => (e) => setF({ ...f, [k]: e.target.value })
+  const fullAddress = `${site.address.street}, ${site.address.area}, ${site.address.city}, Nigeria`
 
   const submit = async (e) => {
     e.preventDefault()
@@ -61,11 +62,19 @@ export default function Contact() {
               <strong className="display">{site.email}</strong>
             </a>
           )}
-          <div className="contact-card glass reveal" data-delay="2">
+          <a
+            className="contact-card glass reveal"
+            data-delay="2"
+            href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(fullAddress)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <MapPin size={22} strokeWidth={1.4} />
-            <span className="eyebrow">Based in</span>
-            <strong className="display">{site.location}</strong>
-          </div>
+            <span className="eyebrow">Visit the store</span>
+            <strong className="display">{site.address.street}</strong>
+            <span className="contact-addr">{site.address.area}, {site.address.city}</span>
+            <span className="link-line">Open in Maps <ArrowRight className="arrow" size={13} /></span>
+          </a>
         </div>
 
         <div className="contact-form glass reveal" data-delay="1">
