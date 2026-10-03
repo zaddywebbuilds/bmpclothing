@@ -1,7 +1,7 @@
 // Emits one index.html per route (route-specific title/description/canonical/og:image, and static
 // Product JSON-LD on product pages) so GitHub Pages serves deep links directly and crawlers see
 // real metadata without running JS. Also writes 404.html, an image sitemap and robots.txt.
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { faqs, site } from '../src/data/site.js'
@@ -26,15 +26,16 @@ const catName = Object.fromEntries(catalog.categories.map((c) => [c.key, c.name]
 // canonical, og:url and sitemap entry uses the slashed form the server actually returns.
 const canon = (p) => `${SITE}${p === '/' ? '/' : `${p}/`}`
 
-// Facebook and WhatsApp only render the large preview card above ~600px wide; a narrower
-// source photo shows as a cramped thumbnail, so those few fall back to the branded card.
 const BRAND_CARD = { url: `${SITE}/assets/bmp/brand/og-image.jpg`, w: 1200, h: 630 }
-const shareImg = (id) => {
-  const m = catalog.media[id]
-  if (Math.max(...m.widths) < 600) return BRAND_CARD
-  const url = img(id)
-  const w = Number(url.match(/-(\d+)\.webp$/)[1])
-  return { url, w, h: Math.round((m.h * w) / m.w) }
+
+// Each product has a designed 1200x630 card from scripts/build_share_cards.py. A raw product
+// crop read as an accident inside a landscape unfurl, narrow sources fell back to a cramped
+// thumbnail, and WhatsApp renders WebP previews unreliably. The card is always JPEG at the
+// declared size, so type/width/height can never drift from the file again.
+const shareCard = (slug) => {
+  const rel = `assets/bmp/share/${slug}.jpg`
+  if (!existsSync(join(dist, rel))) return BRAND_CARD
+  return { url: `${SITE}/${rel}`, w: 1200, h: 630 }
 }
 
 const MIME = { webp: 'image/webp', jpg: 'image/jpeg', jpeg: 'image/jpeg', png: 'image/png' }
@@ -118,7 +119,7 @@ for (const p of catalog.products) {
         .map(([name, u], i) => ({ '@type': 'ListItem', position: i + 1, name, item: canon(u) })),
     },
   ]
-  routes.push([`/product/${p.slug}`, title, desc, false, shareImg(p.images[0]), ld, p.images.map((id) => img(id, 1800))])
+  routes.push([`/product/${p.slug}`, title, desc, false, shareCard(p.slug), ld, p.images.map((id) => img(id, 1800))])
 }
 
 const inCategory = (key) => catalog.products.filter((p) => p.category === key)

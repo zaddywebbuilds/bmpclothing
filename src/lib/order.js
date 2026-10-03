@@ -4,6 +4,11 @@ import { naira } from './util'
 const RULE = '──────────────────'
 const FOOTER = `${RULE}\nMy name:\n📍 Delivery address:\n💳 Payment method:\n${RULE}\n\nPlease confirm availability. Thank you!`
 
+// The order line opens with an icon matching the piece, so a wig or bag does not arrive
+// in the owner's WhatsApp labelled with a dress.
+const CATEGORY_ICON = { hair: '💇🏽‍♀️', bags: '👜' }
+const icon = (p) => CATEGORY_ICON[p.category] || '👗'
+
 const shortDescription = (p) => p.description.split(/(?<=\.)\s/)[0]
 const pageUrl = (p) => `${site.url}/product/${p.slug}`
 
@@ -22,7 +27,7 @@ const refLine = (ref) => (ref ? `🧾 Ref: ${ref}\n` : '')
 export const productMessage = (p, { variant, qty = 1, ref } = {}) =>
   `Hello BMP Clothings 👋\n\n` +
   `I would like to order:\n\n` +
-  `👗 *${p.title}*${p.code ? ` (${p.code})` : ''}\n` +
+  `${icon(p)} *${p.title}*${p.code ? ` (${p.code})` : ''}\n` +
   `💰 Price: ${naira(p.price)}\n` +
   (variant ? `🎨 Option: ${variant}\n` : '') +
   `📦 Qty: ${qty}\n` +
@@ -35,7 +40,7 @@ export const orderLink = (p, opts) => waLink(productMessage(p, opts))
 
 export const checkoutMessage = (lines, subtotal, ref) => {
   const items = lines
-    .map((l) => `👗 *${l.product.title}*${l.product.code ? ` (${l.product.code})` : ''}${l.variant ? ` · ${l.variant}` : ''} × ${l.qty}  ${naira(l.product.price * l.qty)}`)
+    .map((l) => `${icon(l.product)} *${l.product.title}*${l.product.code ? ` (${l.product.code})` : ''}${l.variant ? ` · ${l.variant}` : ''} × ${l.qty}  ${naira(l.product.price * l.qty)}`)
     .join('\n')
   return `Hello BMP Clothings 👋\n\nI would like to order:\n\n${items}\n\n💰 Subtotal: ${naira(subtotal)}\n${refLine(ref)}\n${FOOTER}`
 }
