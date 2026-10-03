@@ -8,10 +8,17 @@ export const site = {
     area: 'Oworoshoki',
     city: 'Lagos',
     country: 'NG',
-    // Right-click the shop in Google Maps, click the lat/lng to copy it, and paste
-    // it here as 'lat,lng'. Google pins coordinates exactly, whereas a street
-    // address in Oworoshoki often only resolves to the neighbourhood.
-    coords: null,
+  },
+
+  // Straight from the verified Google Business Profile, via Maps > Share.
+  google: {
+    // The "Share" tab link. Opens the listing itself rather than a street search.
+    share: 'https://share.google/JEjrpL1ZBBaa5kJOF',
+    // The src of the iframe under Share > Embed a map. It pins the listing exactly
+    // and needs no API key. While null the map falls back to searching the street
+    // address, which only centres the area and shows no marker. Do not substitute
+    // the business name: Google fuzzy-matches it to a different nearby shop.
+    embed: null,
   },
   currency: 'NGN',
 
@@ -62,9 +69,10 @@ export const site = {
 // One source for the shop address, so the footer map, the contact card and the
 // directions link can never drift apart.
 export const fullAddress = `${site.address.street}, ${site.address.area}, ${site.address.city}, Nigeria`
-const mapQuery = site.address.coords || fullAddress
-export const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery)}`
-export const mapsEmbed = `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&z=17&output=embed`
+export const mapsLink = site.google.share
+  || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(fullAddress)}`
+export const mapsEmbed = site.google.embed
+  || `https://www.google.com/maps?q=${encodeURIComponent(fullAddress)}&z=17&output=embed`
 
 export const socials = () =>
   [['Instagram', site.instagram], ['TikTok', site.tiktok], ['Facebook', site.facebook]].filter(([, url]) => url)
