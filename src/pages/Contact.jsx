@@ -39,6 +39,11 @@ export default function Contact() {
         <p className="lede reveal" data-delay="2">Help with an order, product information, sizing, delivery or anything else. We usually respond quickly.</p>
       </Reveal>
 
+      <Reveal className="contact-storefront reveal-img">
+        <img src="/assets/bmp/brand/storefront.jpg" alt="BMP Collections store at No 2 Onabanjo Street, Oworoshoki, Lagos" />
+        <span className="contact-storefront-label">No 2 Onabanjo Street, Oworoshoki, Lagos</span>
+      </Reveal>
+
       <Reveal className="section section--tight wrap contact-grid">
         <div className="contact-cards">
           <a className="contact-card glass reveal" href={waLink('Hello BMP Collections 👋')} target="_blank" rel="noopener noreferrer">

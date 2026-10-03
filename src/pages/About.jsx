@@ -11,7 +11,6 @@ import './pages.css'
 export default function About() {
   useSeo({ title: 'About BMP', description: 'The story behind BMP Collections, a Lagos women’s fashion house built on self-expression, quality you can see and style you can feel.', path: '/about' })
   const hero = productBySlug['white-halter-ruffle-gown']
-  const store = productBySlug['turquoise-off-shoulder-ruched-maxi']
   const detail = productBySlug['tiered-strappy-midi-dress']
   return (
     <div>
@@ -25,7 +24,7 @@ export default function About() {
       </Reveal>
 
       <Reveal className="section wrap about-grid">
-        <div className="panel about-img reveal-img"><Img id={store.images[0]} alt="Inside the BMP Collections store in Lagos" sizes="(max-width: 900px) 80vw, 30vw" /></div>
+        <div className="panel about-img reveal-img"><img src="/assets/bmp/brand/storefront.jpg" alt="BMP Collections store at No 2 Onabanjo Street, Oworoshoki, Lagos" style={{width:'100%',height:'100%',objectFit:'cover'}} /></div>
         <div className="about-copy">
           <p className="display about-big reveal">{philosophy}</p>
           {about.slice(1).map((t, i) => <p key={i} className="lede reveal" data-delay={i + 1}>{t}</p>)}
