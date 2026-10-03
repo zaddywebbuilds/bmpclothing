@@ -28,8 +28,16 @@ const canon = (p) => `${SITE}${p === '/' ? '/' : `${p}/`}`
 
 // Facebook and WhatsApp only render the large preview card above ~600px wide; a narrower
 // source photo shows as a cramped thumbnail, so those few fall back to the branded card.
-const shareImg = (id) =>
-  Math.max(...catalog.media[id].widths) >= 600 ? img(id) : `${SITE}/assets/bmp/brand/og-image.jpg`
+const BRAND_CARD = { url: `${SITE}/assets/bmp/brand/og-image.jpg`, w: 1200, h: 630 }
+const shareImg = (id) => {
+  const m = catalog.media[id]
+  if (Math.max(...m.widths) < 600) return BRAND_CARD
+  const url = img(id)
+  const w = Number(url.match(/-(\d+)\.webp$/)[1])
+  return { url, w, h: Math.round((m.h * w) / m.w) }
+}
+
+const MIME = { webp: 'image/webp', jpg: 'image/jpeg', jpeg: 'image/jpeg', png: 'image/png' }
 
 // [path, title, description, noindex, ogImage, jsonLd, sitemapImages]
 const routes = [
@@ -157,8 +165,15 @@ const render = (path, title, desc, noindex, image, ld) => {
     .replace(/(<meta property="og:title" content=")[^"]*"/, `$1${full}"`)
     .replace(/(<meta property="og:description" content=")[^"]*"/, `$1${esc(desc)}"`)
     .replace(/(<meta property="og:url" content=")[^"]*"/, `$1${canon(path)}"`)
-  // secure_url has to track og:image or a scraper that prefers it shows the wrong picture.
-  if (image) h = h.replace(/(<meta property="og:image(?::secure_url)?" content=")[^"]*"/g, `$1${image}"`)
+  // secure_url has to track og:image or a scraper that prefers it shows the wrong picture,
+  // and type/width/height must describe that same file rather than the shell's brand card.
+  if (image) {
+    h = h
+      .replace(/(<meta property="og:image(?::secure_url)?" content=")[^"]*"/g, `$1${image.url}"`)
+      .replace(/(<meta property="og:image:type" content=")[^"]*"/, `$1${MIME[image.url.split('.').pop()]}"`)
+      .replace(/(<meta property="og:image:width" content=")[^"]*"/, `$1${image.w}"`)
+      .replace(/(<meta property="og:image:height" content=")[^"]*"/, `$1${image.h}"`)
+  }
   if (noindex) h = h.replace('</head>', '    <meta name="robots" content="noindex" />\n  </head>')
   if (ld) h = h.replace('</head>', `    <script type="application/ld+json" data-seo-static>${JSON.stringify(ld).replace(/</g, '\\u003c')}</script>\n  </head>`)
   return h
