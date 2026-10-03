@@ -119,8 +119,24 @@ export const faqs = [
   {
     group: 'Sizing',
     items: [
-      { q: 'What sizes do BMP pieces come in?', a: 'BMP pieces come in UK sizes 8 to 22. Our size guide lists the bust, waist and hip measurements for each size in inches and centimetres.' },
+      { q: 'What sizes do BMP clothing come in?', a: 'BMP clothing comes in UK sizes 8 to 22. Our size guide lists the bust, waist and hip measurements for each size in inches and centimetres. Wigs and bags are not sized this way, so ask us on WhatsApp about those.' },
       { q: 'How do I find my size?', a: 'Open the Size Guide, or tap "Find my size" on any piece, and enter your bust, waist and hip. We recommend your BMP size instantly and remember it for your next visit. If your measurements sit across two sizes, message us and we will advise.' },
+    ],
+  },
+  {
+    group: 'Hair',
+    items: [
+      { q: 'What kind of wigs does BMP sell?', a: 'BMP Hairs wigs are full frontals, so the hairline sits flat and you can part the hair anywhere. They arrive pre-styled and ready to wear. Message us for the length, colour and cap details of any piece before you order.' },
+      { q: 'Will the wig fit me?', a: 'Wigs are not sold in the UK 8 to 22 clothing sizes. Tell us on WhatsApp what you need and we will confirm the cap and length that suits you before you pay.' },
+      { q: 'How do I care for my wig?', a: 'Wash gently in cool water with a mild shampoo, air dry on a stand rather than rubbing it dry, and keep it on a stand or in its net between wears so the curl holds.' },
+      { q: 'Can I have a wig restyled or recoloured?', a: 'Message us before you order and we will tell you what is possible for that piece.' },
+    ],
+  },
+  {
+    group: 'Bags',
+    items: [
+      { q: 'Do you sell bags?', a: 'Bags are on the way. The collection is not photographed yet, so message us on WhatsApp and we will send you what is in store today.' },
+      { q: 'How do I know a bag will fit what I carry?', a: 'Ask us for the measurements and strap drop before you order and we will send them with more photos.' },
     ],
   },
   {

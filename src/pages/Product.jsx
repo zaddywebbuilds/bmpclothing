@@ -135,10 +135,24 @@ export default function Product() {
                 {p.sku && <li className="pdp-sku">SKU: {p.sku}</li>}
               </ul>
             </AccordionItem>
-            <AccordionItem title="Sizing">
-              <p>{opts.chart ? 'Available in UK sizes 8 to 22. Use Find my size above with your bust, waist and hip, or check the full chart.' : 'Available sizes are shown above.'} Need help? Message us and we will confirm the best fit before you order.</p>
-              <Link className="link-line" to="/size-guide">Size chart <ArrowRight className="arrow" size={13} /></Link>
-            </AccordionItem>
+            {p.category === 'hair' ? (
+              <AccordionItem title="Cap & care">
+                <p>A full frontal, so the hairline sits flat and you can part it anywhere. It arrives pre-styled and ready to wear. Message us to confirm cap size and length before you order.</p>
+                <p>Wash gently in cool water with a mild shampoo, air dry on a stand, and keep it on a stand or in its net between wears to hold the curl.</p>
+                <a className="link-line" href={enquiryLink(p, opts.label)} target="_blank" rel="noopener noreferrer">Ask about length or colour <ArrowRight className="arrow" size={13} /></a>
+              </AccordionItem>
+            ) : p.category === 'bags' ? (
+              <AccordionItem title="Size & care">
+                <p>Message us for exact measurements, strap drop and what fits inside before you order, and we will send them with more photos.</p>
+                <p>Keep it stuffed and dust-bagged when it is not in use, and wipe gently with a soft dry cloth.</p>
+                <a className="link-line" href={enquiryLink(p, opts.label)} target="_blank" rel="noopener noreferrer">Ask for measurements <ArrowRight className="arrow" size={13} /></a>
+              </AccordionItem>
+            ) : (
+              <AccordionItem title="Sizing">
+                <p>{opts.chart ? 'Available in UK sizes 8 to 22. Use Find my size above with your bust, waist and hip, or check the full chart.' : 'Available sizes are shown above.'} Need help? Message us and we will confirm the best fit before you order.</p>
+                <Link className="link-line" to="/size-guide">Size chart <ArrowRight className="arrow" size={13} /></Link>
+              </AccordionItem>
+            )}
             <AccordionItem title="Delivery">
               <p>Delivery time and charges depend on your location and are confirmed with you before payment. When your order is dispatched we share delivery or tracking information where available.</p>
               <Link className="link-line" to="/shipping">Shipping information <ArrowRight className="arrow" size={13} /></Link>
