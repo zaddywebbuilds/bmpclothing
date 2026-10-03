@@ -35,6 +35,21 @@
    "name": "Skirts & Tops",
    "blurb": "Two pieces, one mood. Skirt sets styled for brunch, church and beyond.",
    "count": 2
+  },
+  {
+   "key": "hair",
+   "name": "Hair",
+   "blurb": "BMP Hairs: bouncy full-frontal wigs, styled and ready to wear straight out of the box.",
+   "unit": "wigs",
+   "count": 3
+  },
+  {
+   "key": "bags",
+   "name": "Bags",
+   "blurb": "The bag that finishes the look. Styles arriving soon, ask us on WhatsApp for what is in store.",
+   "comingSoon": true,
+   "unit": "bags",
+   "count": 0
   }
  ],
  "occasions": [
@@ -1499,6 +1514,78 @@
    ],
    "colours": [],
    "worn": false
+  },
+  {
+   "slug": "royal-bounce-frontal-wig",
+   "source": "instore",
+   "category": "hair",
+   "price": 100000,
+   "title": "SDD Royal Bounce Frontal Wig",
+   "newIn": true,
+   "pick": true,
+   "occasions": [
+    "event-ready"
+   ],
+   "description": "Jet-black bounce curls set in deep, glossy waves that fall just past the jaw. A full frontal, so the hairline sits flat and you can part it anywhere. Styled and ready to wear straight out of the box.",
+   "details": [
+    "Full frontal",
+    "Jet black",
+    "Bounce curl, chin to shoulder length",
+    "Pre-styled, ready to wear"
+   ],
+   "images": [
+    "products/hair/royal-bounce-frontal-wig-1"
+   ],
+   "colours": [],
+   "worn": false
+  },
+  {
+   "slug": "layered-bounce-frontal-wig",
+   "source": "instore",
+   "category": "hair",
+   "price": 150000,
+   "title": "Layered Bounce Frontal Wig",
+   "newIn": true,
+   "pick": true,
+   "occasions": [
+    "main-character"
+   ],
+   "description": "Warm copper-brown with darker roots, cut into soft layers that bounce from the cheekbone down. A full frontal with a middle part, shoulder length, and body that moves when you do.",
+   "details": [
+    "Full frontal",
+    "Copper brown with darker roots",
+    "Layered bounce curl",
+    "Shoulder length"
+   ],
+   "images": [
+    "products/hair/layered-bounce-frontal-wig-1"
+   ],
+   "colours": [],
+   "worn": false
+  },
+  {
+   "slug": "blend-bounce-frontal-wig",
+   "source": "instore",
+   "category": "hair",
+   "price": 35000,
+   "title": "Blend Bounce Frontal Wig",
+   "newIn": true,
+   "pick": false,
+   "occasions": [
+    "everyday-chic"
+   ],
+   "description": "A short black bounce bob with soft, rounded curls that sit neat around the face. The easiest way into a BMP wig: light, low fuss and ready to wear every day.",
+   "details": [
+    "Full frontal",
+    "Jet black",
+    "Short bounce curl bob",
+    "Light, everyday wear"
+   ],
+   "images": [
+    "products/hair/blend-bounce-frontal-wig-1"
+   ],
+   "colours": [],
+   "worn": false
   }
  ],
  "media": {
@@ -2036,6 +2123,30 @@
    "widths": [
     480,
     607
+   ]
+  },
+  "products/hair/royal-bounce-frontal-wig-1": {
+   "w": 608,
+   "h": 1080,
+   "widths": [
+    480,
+    608
+   ]
+  },
+  "products/hair/layered-bounce-frontal-wig-1": {
+   "w": 608,
+   "h": 1080,
+   "widths": [
+    480,
+    608
+   ]
+  },
+  "products/hair/blend-bounce-frontal-wig-1": {
+   "w": 608,
+   "h": 1080,
+   "widths": [
+    480,
+    608
    ]
   },
   "video/bmp-hero-poster": {

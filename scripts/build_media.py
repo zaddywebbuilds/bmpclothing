@@ -5,7 +5,7 @@ Run: python scripts/build_media.py
 import json
 import os
 import shutil
-from PIL import Image, ImageOps
+from PIL import Image, ImageFilter, ImageOps
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ORIG = os.path.join(ROOT, "media-originals")
@@ -57,7 +57,9 @@ def save(im, mid, max_w=1800, quality=88):
 
 
 def main():
-    for d in ("products", "brand", "customers"):
+    # brand/ is not wiped: logo.jpg is a hand-placed asset this script does not regenerate,
+    # and clearing the folder silently broke the site header.
+    for d in ("products", "customers"):
         shutil.rmtree(os.path.join(OUT, d), ignore_errors=True)
     src = json.load(open(os.path.join(ROOT, "content", "products.json"), encoding="utf-8"))
     media, manifest, products = {}, [], []
@@ -105,14 +107,17 @@ def main():
     manifest.append({"id": "video/bmp-hero.mp4", "type": "video", "source": "owner supplied heropage.mp4",
                      "width": 752, "height": 416, "usage": ["hero"], "notes": "audio stripped; mp4 + webm"})
 
-    # social share image: hero gown on the warm surface colour
-    hero = load("local/80k.jpg")
-    og = Image.new("RGB", (1200, 630), (129, 143, 217))
-    hh = 630
-    hw = round(hero.width * hh / hero.height)
-    og.paste(hero.resize((hw, hh), Image.LANCZOS), (1200 - hw - 60, 0))
+    # Social share card. Cover-fit the hero still so it fills the whole 1200x630 frame: a
+    # portrait photo pasted onto flat colour left two thirds of every WhatsApp and Facebook
+    # preview empty. Source is only 752x416, hence the upscale and unsharp pass.
+    hero = ImageOps.exif_transpose(Image.open(os.path.join(ROOT, "media-originals", "video", "bmp-hero-poster.jpg"))).convert("RGB")
+    ow, oh = 1200, 630
+    scale = max(ow / hero.width, oh / hero.height)
+    nw, nh = round(hero.width * scale), round(hero.height * scale)
+    og = hero.resize((nw, nh), Image.LANCZOS).crop(((nw - ow) // 2, (nh - oh) // 2, (nw - ow) // 2 + ow, (nh - oh) // 2 + oh))
+    og = og.filter(ImageFilter.UnsharpMask(radius=1.6, percent=120, threshold=3))
     os.makedirs(os.path.join(OUT, "brand"), exist_ok=True)
-    og.save(os.path.join(OUT, "brand", "og-image.jpg"), "JPEG", quality=86)
+    og.save(os.path.join(OUT, "brand", "og-image.jpg"), "JPEG", quality=86, optimize=True, progressive=True)
 
     for c in src["categories"]:
         c["count"] = sum(1 for p in products if p["category"] == c["key"])

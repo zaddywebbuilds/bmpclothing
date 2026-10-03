@@ -52,5 +52,9 @@ export const saveMySize = (v) => {
   window.dispatchEvent(new Event('bmp:size'))
 }
 
+// Wigs and bags are one-size: the body chart would be nonsense on them.
+const SIZELESS = new Set(['hair', 'bags'])
+
 // Clothing uses the chart; pieces with their own size variants (e.g. BMP T 14) keep those.
-export const usesChart = (p) => !(p.variants || []).some((v) => v.size)
+export const usesChart = (p) =>
+  !SIZELESS.has(p.category) && !(p.variants || []).some((v) => v.size)

@@ -4,7 +4,7 @@ import { Search } from 'lucide-react'
 import Drawer from './Drawer'
 import Img from './Img'
 import { useStore } from '../lib/store'
-import { products, categories, categoryByKey } from '../data/catalog'
+import { products, listedCategories, categoryByKey } from '../data/catalog'
 import { naira } from '../lib/util'
 
 const norm = (s) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
@@ -49,7 +49,7 @@ export default function SearchOverlay() {
               {['Red', 'Long gown', 'Mini', 'Jumpsuit', 'Black', 'Off-shoulder'].map((s) => (
                 <button key={s} className="chip" onClick={() => setQ(s)}>{s}</button>
               ))}
-              {categories.filter((c) => c.count).map((c) => (
+              {listedCategories.map((c) => (
                 <Link key={c.key} to={`/collections/${c.key}`} className="chip" onClick={closePanel}>{c.name}</Link>
               ))}
             </div>

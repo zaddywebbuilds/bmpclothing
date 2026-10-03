@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowUpRight } from 'lucide-react'
 import Logo from './Logo'
 import WaIcon from './WaIcon'
-import { categories } from '../data/catalog'
+import { listedCategories } from '../data/catalog'
 import { site, socials, waLink } from '../data/site'
 import SocialIcon from './SocialIcon'
 import './footer.css'
@@ -29,7 +29,7 @@ export default function Footer() {
               <p className="eyebrow">Shop</p>
               <Link to="/new-in">New Arrivals</Link>
               <Link to="/shop">Shop All</Link>
-              {categories.filter((c) => c.count).map((c) => (
+              {listedCategories.map((c) => (
                 <Link key={c.key} to={`/collections/${c.key}`}>{c.name}</Link>
               ))}
             </div>

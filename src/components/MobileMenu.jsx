@@ -6,7 +6,7 @@ import Img from './Img'
 import Logo from './Logo'
 import WaIcon from './WaIcon'
 import { useStore } from '../lib/store'
-import { categories, productBySlug } from '../data/catalog'
+import { listedCategories, productBySlug } from '../data/catalog'
 import { site, socials, waLink } from '../data/site'
 import SocialIcon from './SocialIcon'
 
@@ -32,7 +32,7 @@ export default function MobileMenu() {
         <div className={`mmenu-sub ${shop ? 'is-open' : ''}`}>
           <div>
             <Link to="/shop">Shop All</Link>
-            {categories.filter((c) => c.count).map((c) => (
+            {listedCategories.map((c) => (
               <Link key={c.key} to={`/collections/${c.key}`}>{c.name} <sup>{c.count}</sup></Link>
             ))}
           </div>

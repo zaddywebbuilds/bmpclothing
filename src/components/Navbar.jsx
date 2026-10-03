@@ -4,7 +4,7 @@ import { Heart, Menu, Search, ShoppingBag, ArrowRight } from 'lucide-react'
 import Logo from './Logo'
 import Img from './Img'
 import { useStore } from '../lib/store'
-import { categories, occasions, productBySlug } from '../data/catalog'
+import { listedCategories, occasions, productBySlug } from '../data/catalog'
 import { naira } from '../lib/util'
 import './nav.css'
 
@@ -106,7 +106,7 @@ export default function Navbar() {
           <div>
             <p className="eyebrow">Clothing</p>
             <ul>
-              {categories.filter((c) => c.count).map((c) => (
+              {listedCategories.map((c) => (
                 <li key={c.key}>
                   <Link to={`/collections/${c.key}`}>{c.name}<sup>{c.count}</sup></Link>
                 </li>

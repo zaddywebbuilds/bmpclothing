@@ -5,8 +5,9 @@ import ProductCard from '../components/ProductCard'
 import Drawer from '../components/Drawer'
 import Reveal, { Lines } from '../components/Reveal'
 import NotFound from './NotFound'
-import { categories, categoryByKey, occasionByKey, occasions, products } from '../data/catalog'
-import { site } from '../data/site'
+import { categories, listedCategories, categoryByKey, occasionByKey, occasions, products } from '../data/catalog'
+import { site, waLink } from '../data/site'
+import WaIcon from '../components/WaIcon'
 import { useSeo, breadcrumbLd } from '../lib/seo'
 import './shop.css'
 
@@ -147,7 +148,7 @@ export default function Shop({ mode = 'all' }) {
       {(mode === 'all' || mode === 'category') && !picksView && (
         <nav className="wrap shop-cats" aria-label="Collections">
           <Link to="/shop" className={`chip ${mode === 'all' ? 'is-active' : ''}`}>All</Link>
-          {categories.filter((c) => c.count).map((c) => (
+          {listedCategories.map((c) => (
             <Link key={c.key} to={`/collections/${c.key}`} className={`chip ${category === c.key ? 'is-active' : ''}`}>{c.name}</Link>
           ))}
         </nav>
@@ -195,8 +196,22 @@ export default function Shop({ mode = 'all' }) {
           </div>
         ) : (
           <div className="shop-empty glass">
-            <p className="display h-sm">No pieces match those filters.</p>
-            <button className="btn" onClick={clear}>Clear filters</button>
+            {ctx.base.length === 0 ? (
+              <>
+                <p className="display h-sm">Arriving soon.</p>
+                <p className="shop-empty-note">We are still shooting this collection. Message us on WhatsApp and we will send you what is in store today.</p>
+                <a className="btn" href={waLink(`Hello BMP Clothings 👋
+
+Please what do you have in ${ctx.title.toLowerCase()}?`)} target="_blank" rel="noopener noreferrer">
+                  <WaIcon /> Ask what is in store
+                </a>
+              </>
+            ) : (
+              <>
+                <p className="display h-sm">No pieces match those filters.</p>
+                <button className="btn" onClick={clear}>Clear filters</button>
+              </>
+            )}
           </div>
         )}
       </section>

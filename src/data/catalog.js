@@ -11,6 +11,10 @@ export const imagePath = (id, max = 960) => {
 export const categories = data.categories
 export const occasions = data.occasions
 
+// Shown in nav, footer and filters. A category with no stock stays hidden unless it is
+// flagged comingSoon, which is how a new line (bags) gets a page before its photos land.
+export const listedCategories = categories.filter((c) => c.count || c.comingSoon)
+
 export const products = data.products.map((p, i) => ({
   ...p,
   order: i,

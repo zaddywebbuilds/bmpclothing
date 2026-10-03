@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react'
 import Img from '../components/Img'
 import Reveal, { Lines } from '../components/Reveal'
 import WaIcon from '../components/WaIcon'
-import { productBySlug, products, categories } from '../data/catalog'
+import { productBySlug, products, listedCategories } from '../data/catalog'
 import { about, philosophy, pillars, site, waLink } from '../data/site'
 import { useSeo } from '../lib/seo'
 import './pages.css'
@@ -31,7 +31,7 @@ export default function About() {
           {about.slice(1).map((t, i) => <p key={i} className="lede reveal" data-delay={i + 1}>{t}</p>)}
           <ul className="about-stats reveal" data-delay="3">
             <li><strong>{products.length}</strong><span>pieces in store</span></li>
-            <li><strong>{categories.filter((c) => c.count).length}</strong><span>collections</span></li>
+            <li><strong>{listedCategories.length}</strong><span>collections</span></li>
             <li><strong>Lagos</strong><span>home of BMP</span></li>
           </ul>
         </div>

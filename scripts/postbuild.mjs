@@ -54,8 +54,12 @@ const routes = [
   ['/bag', 'Your Bag', 'Your BMP Clothings shopping bag.', true],
   ['/wishlist', 'Wishlist', 'Your saved BMP Clothings pieces.', true],
 ]
-for (const c of catalog.categories.filter((c) => c.count)) {
-  routes.push([`/collections/${c.key}`, c.name, `${c.blurb} Shop ${c.count} ${c.name.toLowerCase()} from BMP Clothings, Lagos.`])
+// comingSoon categories get a page before their photos land, so the URL in the nav resolves.
+for (const c of catalog.categories.filter((c) => c.count || c.comingSoon)) {
+  const desc = c.count
+    ? `${c.blurb} Shop ${c.count} ${c.unit || c.name.toLowerCase()} from BMP Clothings, Lagos.`
+    : `${c.blurb} Message BMP Clothings in Lagos on WhatsApp for what is in store today.`
+  routes.push([`/collections/${c.key}`, c.name, desc])
 }
 for (const o of catalog.occasions) {
   routes.push([`/occasion/${o.key}`, o.name, `${o.line} BMP Clothings pieces styled for ${o.name.toLowerCase()}.`])

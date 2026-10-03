@@ -1005,6 +1005,51 @@
   ]
  },
  {
+  "id": "products/hair/royal-bounce-frontal-wig-1",
+  "product": "SDD Royal Bounce Frontal Wig",
+  "slug": "royal-bounce-frontal-wig",
+  "category": "hair",
+  "type": "image",
+  "source": "owner photo hair/100k-royal-bounce.jpg",
+  "orientation": "portrait",
+  "width": 608,
+  "height": 1080,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/hair/layered-bounce-frontal-wig-1",
+  "product": "Layered Bounce Frontal Wig",
+  "slug": "layered-bounce-frontal-wig",
+  "category": "hair",
+  "type": "image",
+  "source": "owner photo hair/150k-layered-bounce.jpg",
+  "orientation": "portrait",
+  "width": 608,
+  "height": 1080,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
+  "id": "products/hair/blend-bounce-frontal-wig-1",
+  "product": "Blend Bounce Frontal Wig",
+  "slug": "blend-bounce-frontal-wig",
+  "category": "hair",
+  "type": "image",
+  "source": "owner photo hair/35k-blend-bounce.jpg",
+  "orientation": "portrait",
+  "width": 608,
+  "height": 1080,
+  "usage": [
+   "product",
+   "collection"
+  ]
+ },
+ {
   "id": "video/bmp-hero.mp4",
   "type": "video",
   "source": "owner supplied heropage.mp4",

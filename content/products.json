@@ -1,368 +1,1451 @@
 {
   "_note": "Source of truth for the catalogue. Items come from the owner's photos; price is read from the filename (30k = ₦30,000). Titles/descriptions describe only what is visible.",
   "categories": [
-    { "key": "long-gowns", "name": "Long Gowns", "blurb": "Floor-grazing silhouettes made for the entrance, the aisle and every photo after." },
-    { "key": "short-gowns", "name": "Short Gowns", "blurb": "Short, sharp and unforgettable. Minis and midis that do the talking." },
-    { "key": "jumpsuits", "name": "Jumpsuits", "blurb": "One piece, zero effort, full presence. Long lines for women who move." },
-    { "key": "tops", "name": "Tops", "blurb": "The easiest way into BMP. Statement tops that turn denim into a look." },
-    { "key": "pants-and-tops", "name": "Pants & Tops", "blurb": "Coordinated sets, sharp trousers and tops built to be worn together." },
-    { "key": "skirts-and-tops", "name": "Skirts & Tops", "blurb": "Two pieces, one mood. Skirt sets styled for brunch, church and beyond." }
+    {
+      "key": "long-gowns",
+      "name": "Long Gowns",
+      "blurb": "Floor-grazing silhouettes made for the entrance, the aisle and every photo after."
+    },
+    {
+      "key": "short-gowns",
+      "name": "Short Gowns",
+      "blurb": "Short, sharp and unforgettable. Minis and midis that do the talking."
+    },
+    {
+      "key": "jumpsuits",
+      "name": "Jumpsuits",
+      "blurb": "One piece, zero effort, full presence. Long lines for women who move."
+    },
+    {
+      "key": "tops",
+      "name": "Tops",
+      "blurb": "The easiest way into BMP. Statement tops that turn denim into a look."
+    },
+    {
+      "key": "pants-and-tops",
+      "name": "Pants & Tops",
+      "blurb": "Coordinated sets, sharp trousers and tops built to be worn together."
+    },
+    {
+      "key": "skirts-and-tops",
+      "name": "Skirts & Tops",
+      "blurb": "Two pieces, one mood. Skirt sets styled for brunch, church and beyond."
+    },
+    {
+      "key": "hair",
+      "name": "Hair",
+      "blurb": "BMP Hairs: bouncy full-frontal wigs, styled and ready to wear straight out of the box.",
+      "unit": "wigs"
+    },
+    {
+      "key": "bags",
+      "name": "Bags",
+      "blurb": "The bag that finishes the look. Styles arriving soon, ask us on WhatsApp for what is in store.",
+      "comingSoon": true,
+      "unit": "bags"
+    }
   ],
   "occasions": [
-    { "key": "event-ready", "name": "Event Ready", "line": "Weddings, owambe, galas. Arrive like you were expected." },
-    { "key": "dinner-date", "name": "Dinner & Date Night", "line": "Candlelight, a table for two and a dress that holds the room." },
-    { "key": "main-character", "name": "Main Character", "line": "Photoshoots, birthdays, the night that is about you." },
-    { "key": "sunday-best", "name": "Sunday Best", "line": "Graceful, covered and still very much noticed." },
-    { "key": "weekend", "name": "Weekend Energy", "line": "Brunch, outings and everything in between." },
-    { "key": "everyday-chic", "name": "Everyday Chic", "line": "Pieces that make a regular Tuesday feel styled." }
+    {
+      "key": "event-ready",
+      "name": "Event Ready",
+      "line": "Weddings, owambe, galas. Arrive like you were expected."
+    },
+    {
+      "key": "dinner-date",
+      "name": "Dinner & Date Night",
+      "line": "Candlelight, a table for two and a dress that holds the room."
+    },
+    {
+      "key": "main-character",
+      "name": "Main Character",
+      "line": "Photoshoots, birthdays, the night that is about you."
+    },
+    {
+      "key": "sunday-best",
+      "name": "Sunday Best",
+      "line": "Graceful, covered and still very much noticed."
+    },
+    {
+      "key": "weekend",
+      "name": "Weekend Energy",
+      "line": "Brunch, outings and everything in between."
+    },
+    {
+      "key": "everyday-chic",
+      "name": "Everyday Chic",
+      "line": "Pieces that make a regular Tuesday feel styled."
+    }
   ],
   "products": [
-    { "slug": "velvet-gold-cut-out-gown", "source": "instore", "category": "long-gowns", "price": 80000,
-      "title": "Velvet & Gold Cut-Out Gown", "images": ["local/80kl.jpg#0", "local/80kl.jpg#1"],
-      "newIn": true, "pick": true, "occasions": ["main-character"],
+    {
+      "slug": "velvet-gold-cut-out-gown",
+      "source": "instore",
+      "category": "long-gowns",
+      "price": 80000,
+      "title": "Velvet & Gold Cut-Out Gown",
+      "images": [
+        "local/80kl.jpg#0",
+        "local/80kl.jpg#1"
+      ],
+      "newIn": true,
+      "pick": true,
+      "occasions": [
+        "main-character"
+      ],
       "description": "A black velvet bodice cut into a sharp asymmetric line, flowing into a molten gold skirt that falls straight to the floor. Architectural and unapologetically glamorous. Add a wide-brim hat and you are the editorial.",
-      "details": ["Black velvet long-sleeve bodice", "Asymmetric side cut-out", "Gold metallic column skirt", "Floor length"] },
-
-    { "slug": "white-halter-ruffle-gown", "source": "instore", "category": "long-gowns", "price": 80000,
-      "title": "White Halter Ruffle Gown", "images": ["local/80k.jpg"],
-      "newIn": true, "pick": true, "occasions": ["event-ready"],
+      "details": [
+        "Black velvet long-sleeve bodice",
+        "Asymmetric side cut-out",
+        "Gold metallic column skirt",
+        "Floor length"
+      ]
+    },
+    {
+      "slug": "white-halter-ruffle-gown",
+      "source": "instore",
+      "category": "long-gowns",
+      "price": 80000,
+      "title": "White Halter Ruffle Gown",
+      "images": [
+        "local/80k.jpg"
+      ],
+      "newIn": true,
+      "pick": true,
+      "occasions": [
+        "event-ready"
+      ],
       "description": "A high halter neckline and a fitted white bodice that breaks into an asymmetric cascade of ruffles. Bridal-adjacent, pure and dramatic. Picture it at a white party, an engagement shoot or your birthday dinner.",
-      "details": ["High halter neckline", "Fitted bodice", "Asymmetric tiered ruffle skirt", "White"] },
-
-    { "slug": "cobalt-draped-jumpsuit", "source": "instore", "category": "jumpsuits", "price": 80000,
-      "title": "Cobalt Draped Jumpsuit", "images": ["local/80kr.jpg#0", "local/80kr.jpg#1"],
-      "newIn": true, "pick": true, "occasions": ["event-ready"],
+      "details": [
+        "High halter neckline",
+        "Fitted bodice",
+        "Asymmetric tiered ruffle skirt",
+        "White"
+      ]
+    },
+    {
+      "slug": "cobalt-draped-jumpsuit",
+      "source": "instore",
+      "category": "jumpsuits",
+      "price": 80000,
+      "title": "Cobalt Draped Jumpsuit",
+      "images": [
+        "local/80kr.jpg#0",
+        "local/80kr.jpg#1"
+      ],
+      "newIn": true,
+      "pick": true,
+      "occasions": [
+        "event-ready"
+      ],
       "description": "Cobalt blue with sheer long sleeves and a sweeping drape that wraps from the shoulder across the body. From the front it reads like a gown; underneath, the ease of trousers. Elegance you can actually move in.",
-      "details": ["Sheer long sleeves", "Wrapped shoulder drape", "Full-length trouser legs", "Cobalt blue"] },
-
-    { "slug": "cobalt-mesh-sleeve-draped-gown", "source": "instore", "category": "long-gowns", "price": 40000,
-      "title": "Cobalt Mesh-Sleeve Draped Gown", "images": ["local/40k.jpg"],
-      "newIn": true, "occasions": ["sunday-best"],
+      "details": [
+        "Sheer long sleeves",
+        "Wrapped shoulder drape",
+        "Full-length trouser legs",
+        "Cobalt blue"
+      ]
+    },
+    {
+      "slug": "cobalt-mesh-sleeve-draped-gown",
+      "source": "instore",
+      "category": "long-gowns",
+      "price": 40000,
+      "title": "Cobalt Mesh-Sleeve Draped Gown",
+      "images": [
+        "local/40k.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "sunday-best"
+      ],
       "description": "Royal cobalt with sheer mesh sleeves, a gathered bodice and a draped sash that sweeps into a flared hem. Regal, covered and full of movement. The gown for a church anniversary, a wedding or a family celebration.",
-      "details": ["Sheer mesh long sleeves", "Gathered bodice", "Draped hip sash", "Flared floor-length hem"] },
-
-    { "slug": "white-wide-leg-floral-bustier-set", "source": "instore", "category": "pants-and-tops", "price": 40000,
-      "title": "White Wide-Leg & Floral Bustier Set", "images": ["local/40kt.jpg"],
-      "newIn": true, "occasions": ["weekend"],
+      "details": [
+        "Sheer mesh long sleeves",
+        "Gathered bodice",
+        "Draped hip sash",
+        "Flared floor-length hem"
+      ]
+    },
+    {
+      "slug": "white-wide-leg-floral-bustier-set",
+      "source": "instore",
+      "category": "pants-and-tops",
+      "price": 40000,
+      "title": "White Wide-Leg & Floral Bustier Set",
+      "images": [
+        "local/40kt.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "weekend"
+      ],
       "description": "Crisp white wide-leg trousers, a floral halter bustier and a sheer white overshirt. A fresh, fashion-forward three-part look for brunch, a boat day or a white-themed party.",
-      "details": ["Floral halter bustier", "Sheer long-sleeve overshirt", "High-waist wide-leg trousers", "Coordinated set"] },
-
-    { "slug": "bronze-draped-keyhole-gown", "source": "instore", "category": "long-gowns", "price": 35000,
-      "title": "Bronze Draped Keyhole Gown", "images": ["local/35kwithinner.jpg"],
-      "newIn": true, "occasions": ["sunday-best"],
+      "details": [
+        "Floral halter bustier",
+        "Sheer long-sleeve overshirt",
+        "High-waist wide-leg trousers",
+        "Coordinated set"
+      ]
+    },
+    {
+      "slug": "bronze-draped-keyhole-gown",
+      "source": "instore",
+      "category": "long-gowns",
+      "price": 35000,
+      "title": "Bronze Draped Keyhole Gown",
+      "images": [
+        "local/35kwithinner.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "sunday-best"
+      ],
       "description": "A shimmering bronze pattern, a keyhole neckline and long sleeves, with a dramatic drape gathered across the hip. It comes with its inner, so you can wear it with total confidence. Old-Hollywood glamour, Lagos style.",
-      "details": ["Keyhole neckline", "Long sleeves", "Draped hip detail", "Comes with inner lining piece"] },
-
-    { "slug": "ivory-cowl-mermaid-gown", "source": "instore", "category": "long-gowns", "price": 35000,
-      "title": "Ivory Cowl Mermaid Gown", "images": ["local/35ke.jpg"],
-      "newIn": true, "pick": true, "occasions": ["event-ready"],
+      "details": [
+        "Keyhole neckline",
+        "Long sleeves",
+        "Draped hip detail",
+        "Comes with inner lining piece"
+      ]
+    },
+    {
+      "slug": "ivory-cowl-mermaid-gown",
+      "source": "instore",
+      "category": "long-gowns",
+      "price": 35000,
+      "title": "Ivory Cowl Mermaid Gown",
+      "images": [
+        "local/35ke.jpg"
+      ],
+      "newIn": true,
+      "pick": true,
+      "occasions": [
+        "event-ready"
+      ],
       "description": "Ivory draped into a deep cowl neckline, ruched through the hips and released into a mermaid hem. Soft, sculptural and luminous. Imagine it at a traditional wedding reception or a candlelit dinner.",
-      "details": ["Draped cowl neckline", "Long sleeves", "Ruched hip", "Mermaid hem"] },
-
-    { "slug": "midnight-cowl-mermaid-gown", "source": "instore", "category": "long-gowns", "price": 35000,
-      "title": "Midnight Cowl Mermaid Gown", "images": ["local/35ki.jpg"],
-      "newIn": true, "occasions": ["dinner-date"],
+      "details": [
+        "Draped cowl neckline",
+        "Long sleeves",
+        "Ruched hip",
+        "Mermaid hem"
+      ]
+    },
+    {
+      "slug": "midnight-cowl-mermaid-gown",
+      "source": "instore",
+      "category": "long-gowns",
+      "price": 35000,
+      "title": "Midnight Cowl Mermaid Gown",
+      "images": [
+        "local/35ki.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "dinner-date"
+      ],
       "description": "Deep midnight indigo with a soft cowl neckline, long sleeves and a hem that spreads into a small train. Mysterious and grown-up. The gown for evenings when you want quiet, undeniable elegance.",
-      "details": ["Cowl neckline", "Long sleeves", "Fitted through the body", "Mermaid hem with short train"] },
-
-    { "slug": "white-off-shoulder-drape-gown", "source": "instore", "category": "long-gowns", "price": 35000,
-      "title": "White Off-Shoulder Drape Gown", "images": ["local/35kr.jpg"],
-      "newIn": true, "occasions": ["main-character"],
+      "details": [
+        "Cowl neckline",
+        "Long sleeves",
+        "Fitted through the body",
+        "Mermaid hem with short train"
+      ]
+    },
+    {
+      "slug": "white-off-shoulder-drape-gown",
+      "source": "instore",
+      "category": "long-gowns",
+      "price": 35000,
+      "title": "White Off-Shoulder Drape Gown",
+      "images": [
+        "local/35kr.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "main-character"
+      ],
       "description": "A luminous white column with an off-shoulder neckline and a long draped panel that trails behind you. Clean lines, soft sheen, serious presence. For white parties, bridal events and elegant evenings.",
-      "details": ["Off-shoulder neckline", "Fitted column silhouette", "Trailing side drape", "White"] },
-
-    { "slug": "fuchsia-print-mermaid-gown", "source": "instore", "category": "long-gowns", "price": 35000,
-      "title": "Fuchsia & Print Mermaid Gown", "images": ["local/35kt.jpg"],
-      "newIn": true, "occasions": ["event-ready"],
+      "details": [
+        "Off-shoulder neckline",
+        "Fitted column silhouette",
+        "Trailing side drape",
+        "White"
+      ]
+    },
+    {
+      "slug": "fuchsia-print-mermaid-gown",
+      "source": "instore",
+      "category": "long-gowns",
+      "price": 35000,
+      "title": "Fuchsia & Print Mermaid Gown",
+      "images": [
+        "local/35kt.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "event-ready"
+      ],
       "description": "A fuchsia off-shoulder bodice set against a bold printed mermaid skirt. Joyful, colourful and proudly statement. Wear it to an owambe and watch the photographers find you.",
-      "details": ["Off-shoulder fuchsia bodice", "Printed mermaid skirt", "Fitted silhouette", "Floor length"] },
-
-    { "slug": "cerise-rosette-mini-dress", "source": "instore", "category": "short-gowns", "price": 35000,
-      "title": "Cerise Rosette Mini Dress", "images": ["local/35op.jpg"],
-      "newIn": true, "pick": true, "occasions": ["main-character"],
+      "details": [
+        "Off-shoulder fuchsia bodice",
+        "Printed mermaid skirt",
+        "Fitted silhouette",
+        "Floor length"
+      ]
+    },
+    {
+      "slug": "cerise-rosette-mini-dress",
+      "source": "instore",
+      "category": "short-gowns",
+      "price": 35000,
+      "title": "Cerise Rosette Mini Dress",
+      "images": [
+        "local/35op.jpg"
+      ],
+      "newIn": true,
+      "pick": true,
+      "occasions": [
+        "main-character"
+      ],
       "description": "A sweetheart neckline, short sleeves and a skirt built from layers of sculpted rosette ruffles. Flirty, romantic and made for celebration. Your birthday dress has entered the chat.",
-      "details": ["Sweetheart neckline", "Short sleeves", "Rosette ruffle skirt", "Mini length"] },
-
-    { "slug": "ruched-cut-out-column-gown", "source": "instore", "category": "long-gowns", "price": 30000,
-      "title": "Ruched Cut-Out Column Gown", "images": ["local/30kl.jpg", "local/30ky.jpg", "local/30kp.jpg"],
-      "colours": [{ "name": "Cobalt", "image": "local/30kl.jpg" }, { "name": "Black", "image": "local/30ky.jpg" }, { "name": "Red", "image": "local/30kp.jpg" }],
-      "newIn": true, "pick": true, "occasions": ["dinner-date"],
+      "details": [
+        "Sweetheart neckline",
+        "Short sleeves",
+        "Rosette ruffle skirt",
+        "Mini length"
+      ]
+    },
+    {
+      "slug": "ruched-cut-out-column-gown",
+      "source": "instore",
+      "category": "long-gowns",
+      "price": 30000,
+      "title": "Ruched Cut-Out Column Gown",
+      "images": [
+        "local/30kl.jpg",
+        "local/30ky.jpg",
+        "local/30kp.jpg"
+      ],
+      "colours": [
+        {
+          "name": "Cobalt",
+          "image": "local/30kl.jpg"
+        },
+        {
+          "name": "Black",
+          "image": "local/30ky.jpg"
+        },
+        {
+          "name": "Red",
+          "image": "local/30kp.jpg"
+        }
+      ],
+      "newIn": true,
+      "pick": true,
+      "occasions": [
+        "dinner-date"
+      ],
       "description": "A sculpted cut-out neckline, long sleeves and all-over ruching with ruffled edges that trace your silhouette to the floor. It is the definition of body-confident. Choose cobalt to stand out, black to own the night or red to do both.",
-      "details": ["Cut-out neckline", "Long sleeves", "All-over ruching with ruffle edges", "Cobalt, Black or Red"] },
-
-    { "slug": "rust-ruched-wrap-maxi", "source": "instore", "category": "long-gowns", "price": 30000,
-      "title": "Rust Ruched Wrap Maxi", "images": ["local/30kqe.jpg#0", "local/30kqe.jpg#1"],
-      "newIn": true, "occasions": ["event-ready"],
+      "details": [
+        "Cut-out neckline",
+        "Long sleeves",
+        "All-over ruching with ruffle edges",
+        "Cobalt, Black or Red"
+      ]
+    },
+    {
+      "slug": "rust-ruched-wrap-maxi",
+      "source": "instore",
+      "category": "long-gowns",
+      "price": 30000,
+      "title": "Rust Ruched Wrap Maxi",
+      "images": [
+        "local/30kqe.jpg#0",
+        "local/30kqe.jpg#1"
+      ],
+      "newIn": true,
+      "occasions": [
+        "event-ready"
+      ],
       "description": "Warm rust with a wrap V-neck, long sleeves and ruching that shapes every curve down to the ankle. Rich colour, flattering lines and easy to accessorise with gold. A festive-season favourite in the making.",
-      "details": ["Wrap V-neckline", "Long sleeves", "All-over ruching", "Ankle length"] },
-
-    { "slug": "red-cut-out-twist-maxi", "source": "instore", "category": "long-gowns", "price": 30000,
-      "title": "Red Cut-Out Twist Maxi", "images": ["local/30ke.jpg"],
-      "newIn": true, "occasions": ["dinner-date"],
+      "details": [
+        "Wrap V-neckline",
+        "Long sleeves",
+        "All-over ruching",
+        "Ankle length"
+      ]
+    },
+    {
+      "slug": "red-cut-out-twist-maxi",
+      "source": "instore",
+      "category": "long-gowns",
+      "price": 30000,
+      "title": "Red Cut-Out Twist Maxi",
+      "images": [
+        "local/30ke.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "dinner-date"
+      ],
       "description": "A red maxi with a sculpted cut-out neckline, long sleeves and a twisted gather at the hip. Sleek, sensual and sure of itself. Red lipstick optional, compliments guaranteed.",
-      "details": ["Cut-out neckline", "Long sleeves", "Twisted hip gather", "Floor length"] },
-
-    { "slug": "red-twist-front-slit-maxi", "source": "instore", "category": "long-gowns", "price": 30000,
-      "title": "Red Twist-Front Slit Maxi", "images": ["local/30kq.jpg"],
-      "newIn": true, "occasions": ["sunday-best"],
+      "details": [
+        "Cut-out neckline",
+        "Long sleeves",
+        "Twisted hip gather",
+        "Floor length"
+      ]
+    },
+    {
+      "slug": "red-twist-front-slit-maxi",
+      "source": "instore",
+      "category": "long-gowns",
+      "price": 30000,
+      "title": "Red Twist-Front Slit Maxi",
+      "images": [
+        "local/30kq.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "sunday-best"
+      ],
       "description": "A clean red maxi with long sleeves, a twisted front and a front slit that shows just enough. Elegant enough for church, bold enough for dinner.",
-      "details": ["Round neckline", "Long sleeves", "Twist-front detail", "Front slit"] },
-
-    { "slug": "turquoise-off-shoulder-ruched-maxi", "source": "instore", "category": "long-gowns", "price": 30000,
-      "title": "Turquoise Off-Shoulder Ruched Maxi", "images": ["local/30k.jpg"],
-      "newIn": true, "occasions": ["event-ready"],
+      "details": [
+        "Round neckline",
+        "Long sleeves",
+        "Twist-front detail",
+        "Front slit"
+      ]
+    },
+    {
+      "slug": "turquoise-off-shoulder-ruched-maxi",
+      "source": "instore",
+      "category": "long-gowns",
+      "price": 30000,
+      "title": "Turquoise Off-Shoulder Ruched Maxi",
+      "images": [
+        "local/30k.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "event-ready"
+      ],
       "description": "Bright turquoise with a soft off-shoulder neckline and ruching that sculpts through the hips before falling to the floor. Fresh, vibrant and holiday-ready.",
-      "details": ["Off-shoulder neckline", "Ruched bodice and hips", "Floor length", "Turquoise"] },
-
-    { "slug": "turquoise-cut-out-pleated-maxi", "source": "instore", "category": "long-gowns", "price": 30000,
-      "title": "Turquoise Cut-Out Pleated Maxi", "images": ["local/30ku.jpg"],
-      "newIn": true, "occasions": ["sunday-best"],
+      "details": [
+        "Off-shoulder neckline",
+        "Ruched bodice and hips",
+        "Floor length",
+        "Turquoise"
+      ]
+    },
+    {
+      "slug": "turquoise-cut-out-pleated-maxi",
+      "source": "instore",
+      "category": "long-gowns",
+      "price": 30000,
+      "title": "Turquoise Cut-Out Pleated Maxi",
+      "images": [
+        "local/30ku.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "sunday-best"
+      ],
       "description": "A cut-out neckline and fitted long-sleeve bodice meet a softly pleated skirt that floats as you walk. Graceful and bright, it looks beautiful in motion.",
-      "details": ["Cut-out neckline", "Long sleeves", "Fitted bodice", "Pleated flowing skirt"] },
-
-    { "slug": "royal-blue-plunge-maxi", "source": "instore", "category": "long-gowns", "price": 30000,
-      "title": "Royal Blue Plunge Maxi", "images": ["local/30km.jpg#0", "local/30km.jpg#1"],
-      "newIn": true, "pick": true, "occasions": ["event-ready"],
+      "details": [
+        "Cut-out neckline",
+        "Long sleeves",
+        "Fitted bodice",
+        "Pleated flowing skirt"
+      ]
+    },
+    {
+      "slug": "royal-blue-plunge-maxi",
+      "source": "instore",
+      "category": "long-gowns",
+      "price": 30000,
+      "title": "Royal Blue Plunge Maxi",
+      "images": [
+        "local/30km.jpg#0",
+        "local/30km.jpg#1"
+      ],
+      "newIn": true,
+      "pick": true,
+      "occasions": [
+        "event-ready"
+      ],
       "description": "Royal blue with a deep plunge, long sleeves, a cut-out waist and a skirt that pours to the floor. Bold neckline, fluid movement, total presence.",
-      "details": ["Deep plunge neckline", "Long sleeves", "Cut-out waist", "Flowing maxi skirt"] },
-
-    { "slug": "white-ruffle-front-maxi", "source": "instore", "category": "long-gowns", "price": 30000,
-      "title": "White Ruffle-Front Ruched Maxi", "images": ["local/30kw.jpg"],
-      "newIn": true, "occasions": ["main-character"],
+      "details": [
+        "Deep plunge neckline",
+        "Long sleeves",
+        "Cut-out waist",
+        "Flowing maxi skirt"
+      ]
+    },
+    {
+      "slug": "white-ruffle-front-maxi",
+      "source": "instore",
+      "category": "long-gowns",
+      "price": 30000,
+      "title": "White Ruffle-Front Ruched Maxi",
+      "images": [
+        "local/30kw.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "main-character"
+      ],
       "description": "Delicate straps, a ruched white body and a line of ruffles running down the centre. Soft and romantic with a body-hugging shape. Perfect for white-themed parties and summer evenings.",
-      "details": ["Thin shoulder straps", "Ruched body", "Centre ruffle detail", "Floor length"] },
-
-    { "slug": "polka-dot-long-sleeve-maxi", "source": "instore", "category": "long-gowns", "price": 30000,
-      "title": "Polka Dot Long-Sleeve Maxi", "images": ["local/30kx.jpg#0", "local/30kx.jpg#1"],
-      "newIn": true, "occasions": ["sunday-best"],
+      "details": [
+        "Thin shoulder straps",
+        "Ruched body",
+        "Centre ruffle detail",
+        "Floor length"
+      ]
+    },
+    {
+      "slug": "polka-dot-long-sleeve-maxi",
+      "source": "instore",
+      "category": "long-gowns",
+      "price": 30000,
+      "title": "Polka Dot Long-Sleeve Maxi",
+      "images": [
+        "local/30kx.jpg#0",
+        "local/30kx.jpg#1"
+      ],
+      "newIn": true,
+      "occasions": [
+        "sunday-best"
+      ],
       "description": "A tiny polka dot print on a long-sleeve maxi with a gently flared skirt. Classic, modest and quietly stylish. Wear it to church, the office or a family lunch.",
-      "details": ["Round neckline", "Long sleeves", "Flared maxi skirt", "Polka dot print"] },
-
-    { "slug": "fuchsia-off-shoulder-drape-gown", "source": "instore", "category": "long-gowns", "price": 30000,
-      "title": "Fuchsia Off-Shoulder Drape Gown", "images": ["local/30kz.jpg#0", "local/30kz.jpg#1"],
-      "newIn": true, "occasions": ["event-ready"],
+      "details": [
+        "Round neckline",
+        "Long sleeves",
+        "Flared maxi skirt",
+        "Polka dot print"
+      ]
+    },
+    {
+      "slug": "fuchsia-off-shoulder-drape-gown",
+      "source": "instore",
+      "category": "long-gowns",
+      "price": 30000,
+      "title": "Fuchsia Off-Shoulder Drape Gown",
+      "images": [
+        "local/30kz.jpg#0",
+        "local/30kz.jpg#1"
+      ],
+      "newIn": true,
+      "occasions": [
+        "event-ready"
+      ],
       "description": "Vivid fuchsia with an off-shoulder neckline, long sleeves and a draped panel that falls from the hip. Photogenic from every angle. The colour of celebration.",
-      "details": ["Off-shoulder neckline", "Long sleeves", "Draped hip panel", "Floor length"] },
-
-    { "slug": "blue-print-one-shoulder-maxi", "source": "instore", "category": "long-gowns", "price": 30000,
-      "title": "Blue Print One-Shoulder Maxi", "images": ["local/30kk.jpg"],
-      "newIn": true, "occasions": ["weekend"],
+      "details": [
+        "Off-shoulder neckline",
+        "Long sleeves",
+        "Draped hip panel",
+        "Floor length"
+      ]
+    },
+    {
+      "slug": "blue-print-one-shoulder-maxi",
+      "source": "instore",
+      "category": "long-gowns",
+      "price": 30000,
+      "title": "Blue Print One-Shoulder Maxi",
+      "images": [
+        "local/30kk.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "weekend"
+      ],
       "description": "A blue and green print draped over one shoulder and wrapped close to the body. Artful, fluid and full of life. Holiday dinners and garden parties, this one is for you.",
-      "details": ["One-shoulder drape", "Body-skimming fit", "Blue and green print", "Floor length"] },
-
-    { "slug": "black-lace-sleeve-ruched-mini", "source": "instore", "category": "short-gowns", "price": 30000,
-      "title": "Black Lace-Sleeve Ruched Mini", "images": ["local/30ka.jpg#1", "local/30ka.jpg#0", "local/30ka.jpg#2"],
-      "newIn": true, "occasions": ["dinner-date"],
+      "details": [
+        "One-shoulder drape",
+        "Body-skimming fit",
+        "Blue and green print",
+        "Floor length"
+      ]
+    },
+    {
+      "slug": "black-lace-sleeve-ruched-mini",
+      "source": "instore",
+      "category": "short-gowns",
+      "price": 30000,
+      "title": "Black Lace-Sleeve Ruched Mini",
+      "images": [
+        "local/30ka.jpg#1",
+        "local/30ka.jpg#0",
+        "local/30ka.jpg#2"
+      ],
+      "newIn": true,
+      "occasions": [
+        "dinner-date"
+      ],
       "description": "A ruched black mini with a cut-out neckline and sheer lace sleeves. Sensual, curve-loving and made for night. Add red heels and a small bag and the look is complete.",
-      "details": ["Cut-out neckline", "Sheer lace long sleeves", "Ruched body", "Mini length"] },
-
-    { "slug": "tiered-strappy-midi-dress", "source": "instore", "category": "short-gowns", "price": 30000,
-      "title": "Tiered Strappy Midi Dress", "images": ["local/30kr.jpg"],
-      "colours": [{ "name": "Red" }, { "name": "Black" }],
-      "newIn": true, "occasions": ["weekend"],
+      "details": [
+        "Cut-out neckline",
+        "Sheer lace long sleeves",
+        "Ruched body",
+        "Mini length"
+      ]
+    },
+    {
+      "slug": "tiered-strappy-midi-dress",
+      "source": "instore",
+      "category": "short-gowns",
+      "price": 30000,
+      "title": "Tiered Strappy Midi Dress",
+      "images": [
+        "local/30kr.jpg"
+      ],
+      "colours": [
+        {
+          "name": "Red"
+        },
+        {
+          "name": "Black"
+        }
+      ],
+      "newIn": true,
+      "occasions": [
+        "weekend"
+      ],
       "description": "Thin straps, a gathered bodice and a tiered skirt that swings below the knee. Light, feminine and easy. In red for joy, in black for evening.",
-      "details": ["Thin shoulder straps", "Gathered bodice", "Tiered midi skirt", "Red or Black"] },
-
-    { "slug": "violet-cut-out-jumpsuit", "source": "instore", "category": "jumpsuits", "price": 30000,
-      "title": "Violet Cut-Out Jumpsuit", "images": ["local/30ik.jpg"],
-      "newIn": true, "occasions": ["weekend"],
+      "details": [
+        "Thin shoulder straps",
+        "Gathered bodice",
+        "Tiered midi skirt",
+        "Red or Black"
+      ]
+    },
+    {
+      "slug": "violet-cut-out-jumpsuit",
+      "source": "instore",
+      "category": "jumpsuits",
+      "price": 30000,
+      "title": "Violet Cut-Out Jumpsuit",
+      "images": [
+        "local/30ik.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "weekend"
+      ],
       "description": "Deep violet with long sleeves, circular cut-outs at the neckline and wide legs that sweep the floor. Chic, comfortable and completely striking.",
-      "details": ["Circular neckline cut-outs", "Long sleeves", "Wide-leg trousers", "Violet"] },
-
-    { "slug": "red-keyhole-jumpsuit", "source": "instore", "category": "jumpsuits", "price": 30000,
-      "title": "Red Keyhole Jumpsuit", "images": ["local/30ko.jpg"],
-      "newIn": true, "occasions": ["everyday-chic"],
+      "details": [
+        "Circular neckline cut-outs",
+        "Long sleeves",
+        "Wide-leg trousers",
+        "Violet"
+      ]
+    },
+    {
+      "slug": "red-keyhole-jumpsuit",
+      "source": "instore",
+      "category": "jumpsuits",
+      "price": 30000,
+      "title": "Red Keyhole Jumpsuit",
+      "images": [
+        "local/30ko.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "everyday-chic"
+      ],
       "description": "A fitted red jumpsuit with keyhole cut-outs, long sleeves and flared legs. One zip, one look, all confidence. From the office to dinner without changing a thing.",
-      "details": ["Keyhole cut-outs", "Long sleeves", "Fitted bodice", "Flared legs"] },
-
-    { "slug": "colour-block-tiered-mini", "source": "instore", "category": "short-gowns", "price": 25000,
-      "title": "Colour-Block Tiered Mini Dress", "images": ["local/25k.jpg"],
-      "newIn": true, "occasions": ["weekend"],
+      "details": [
+        "Keyhole cut-outs",
+        "Long sleeves",
+        "Fitted bodice",
+        "Flared legs"
+      ]
+    },
+    {
+      "slug": "colour-block-tiered-mini",
+      "source": "instore",
+      "category": "short-gowns",
+      "price": 25000,
+      "title": "Colour-Block Tiered Mini Dress",
+      "images": [
+        "local/25k.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "weekend"
+      ],
       "description": "Fuchsia, orange and blush tiers with flutter sleeves. Happy, breezy and effortlessly fun. Sunglasses on, shoulder bag ready, weekend unlocked.",
-      "details": ["Flutter sleeves", "Tiered skirt", "Fuchsia, orange and blush colour block", "Mini length"] },
-
-    { "slug": "olive-ruched-bodycon-midi", "source": "instore", "category": "short-gowns", "price": 25000,
-      "title": "Olive Ruched Bodycon Midi", "images": ["local/25ke.jpg"],
-      "newIn": true, "occasions": ["dinner-date"],
+      "details": [
+        "Flutter sleeves",
+        "Tiered skirt",
+        "Fuchsia, orange and blush colour block",
+        "Mini length"
+      ]
+    },
+    {
+      "slug": "olive-ruched-bodycon-midi",
+      "source": "instore",
+      "category": "short-gowns",
+      "price": 25000,
+      "title": "Olive Ruched Bodycon Midi",
+      "images": [
+        "local/25ke.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "dinner-date"
+      ],
       "description": "A rich olive midi with a V-neck and ruching from bust to hem that celebrates every curve. Unexpected colour, flawless fit.",
-      "details": ["V-neckline", "Short sleeves", "All-over ruching", "Knee length"] },
-
-    { "slug": "red-ruched-tie-sleeve-mini", "source": "instore", "category": "short-gowns", "price": 25000,
-      "title": "Red Ruched Tie-Sleeve Mini", "images": ["local/25kj.jpg"],
-      "newIn": true, "occasions": ["main-character"],
+      "details": [
+        "V-neckline",
+        "Short sleeves",
+        "All-over ruching",
+        "Knee length"
+      ]
+    },
+    {
+      "slug": "red-ruched-tie-sleeve-mini",
+      "source": "instore",
+      "category": "short-gowns",
+      "price": 25000,
+      "title": "Red Ruched Tie-Sleeve Mini",
+      "images": [
+        "local/25kj.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "main-character"
+      ],
       "description": "A red ruched mini with a V-neck and long sleeves finished with trailing ties. Flirty, fitted and fun to move in.",
-      "details": ["V-neckline", "Long sleeves with trailing ties", "Ruched body", "Mini length"] },
-
-    { "slug": "red-sweetheart-ruched-mini", "source": "instore", "category": "short-gowns", "price": 25000,
-      "title": "Red Sweetheart Ruched Mini", "images": ["local/25kr.jpg"],
-      "newIn": true, "pick": true, "occasions": ["dinner-date"],
+      "details": [
+        "V-neckline",
+        "Long sleeves with trailing ties",
+        "Ruched body",
+        "Mini length"
+      ]
+    },
+    {
+      "slug": "red-sweetheart-ruched-mini",
+      "source": "instore",
+      "category": "short-gowns",
+      "price": 25000,
+      "title": "Red Sweetheart Ruched Mini",
+      "images": [
+        "local/25kr.jpg"
+      ],
+      "newIn": true,
+      "pick": true,
+      "occasions": [
+        "dinner-date"
+      ],
       "description": "A sweetheart neckline, long sleeves and deep ruching in bold red. Short, sculpting and made for a night out.",
-      "details": ["Sweetheart neckline", "Long sleeves", "Deep ruching", "Mini length"] },
-
-    { "slug": "yellow-strapless-tulle-trail-gown", "source": "instore", "category": "long-gowns", "price": 100000,
-      "title": "Yellow Strapless Tulle Trail Gown", "images": ["local/100k.jpg"],
-      "newIn": true, "pick": true, "occasions": ["main-character"],
+      "details": [
+        "Sweetheart neckline",
+        "Long sleeves",
+        "Deep ruching",
+        "Mini length"
+      ]
+    },
+    {
+      "slug": "yellow-strapless-tulle-trail-gown",
+      "source": "instore",
+      "category": "long-gowns",
+      "price": 100000,
+      "title": "Yellow Strapless Tulle Trail Gown",
+      "images": [
+        "local/100k.jpg"
+      ],
+      "newIn": true,
+      "pick": true,
+      "occasions": [
+        "main-character"
+      ],
       "description": "Butter-yellow strapless bodice with ruched detail and a side cut-out, flowing into a cathedral-length trail of soft tulle. Ethereal, editorial and impossible to ignore. Built for the camera and every eye in the room.",
-      "details": ["Strapless ruched bodice", "Side cut-out detail", "Voluminous trailing tulle skirt", "Butter yellow"] },
-
-    { "slug": "black-velvet-gold-structured-gown", "source": "instore", "category": "long-gowns", "price": 40000,
-      "title": "Black Velvet Gold Structured Gown", "images": ["local/40ko.jpg"],
-      "newIn": true, "pick": true, "occasions": ["main-character"],
+      "details": [
+        "Strapless ruched bodice",
+        "Side cut-out detail",
+        "Voluminous trailing tulle skirt",
+        "Butter yellow"
+      ]
+    },
+    {
+      "slug": "black-velvet-gold-structured-gown",
+      "source": "instore",
+      "category": "long-gowns",
+      "price": 40000,
+      "title": "Black Velvet Gold Structured Gown",
+      "images": [
+        "local/40ko.jpg"
+      ],
+      "newIn": true,
+      "pick": true,
+      "occasions": [
+        "main-character"
+      ],
       "description": "A fitted black long-sleeve bodice meets a sculptural gold metallic skirt with ruched hip detail and a sweeping train. Dramatic, architectural and made for the entrance everyone notices. The gown that photographs itself.",
-      "details": ["Fitted long-sleeve black bodice", "Sculptural gold metallic skirt", "Ruched hip detail", "Sweeping train"] },
-
-    { "slug": "red-cut-out-circle-jumpsuit", "source": "instore", "category": "jumpsuits", "price": 30000,
-      "title": "Red Cut-Out Circle Wide-Leg Jumpsuit", "images": ["local/30kre.jpg"],
-      "newIn": true, "occasions": ["everyday-chic"],
+      "details": [
+        "Fitted long-sleeve black bodice",
+        "Sculptural gold metallic skirt",
+        "Ruched hip detail",
+        "Sweeping train"
+      ]
+    },
+    {
+      "slug": "red-cut-out-circle-jumpsuit",
+      "source": "instore",
+      "category": "jumpsuits",
+      "price": 30000,
+      "title": "Red Cut-Out Circle Wide-Leg Jumpsuit",
+      "images": [
+        "local/30kre.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "everyday-chic"
+      ],
       "description": "Round-neck, long sleeves and circular cut-outs across the chest, finishing in wide flared legs. Clean, bold and completely self-assured. The kind of jumpsuit that needs no accessories to make a statement.",
-      "details": ["Round neckline", "Long sleeves", "Circular chest cut-outs", "Wide flared legs", "Red"] },
-
-    { "slug": "off-shoulder-bishop-tiered-maxi", "source": "instore", "category": "long-gowns", "price": 50000,
+      "details": [
+        "Round neckline",
+        "Long sleeves",
+        "Circular chest cut-outs",
+        "Wide flared legs",
+        "Red"
+      ]
+    },
+    {
+      "slug": "off-shoulder-bishop-tiered-maxi",
+      "source": "instore",
+      "category": "long-gowns",
+      "price": 50000,
       "title": "Off-Shoulder Bishop-Sleeve Tiered Maxi",
-      "images": ["local/50k.jpg"],
-      "colours": [{ "name": "Lilac" }, { "name": "Purple" }, { "name": "Hot Pink" }],
-      "newIn": true, "pick": true, "occasions": ["event-ready", "sunday-best"],
+      "images": [
+        "local/50k.jpg"
+      ],
+      "colours": [
+        {
+          "name": "Lilac"
+        },
+        {
+          "name": "Purple"
+        },
+        {
+          "name": "Hot Pink"
+        }
+      ],
+      "newIn": true,
+      "pick": true,
+      "occasions": [
+        "event-ready",
+        "sunday-best"
+      ],
       "description": "A gathered off-shoulder neckline, voluminous bishop sleeves and a softly pleated tiered skirt that pools to the floor. Graceful, full-of-movement and available in lilac, deep purple or hot pink. The definition of effortless glamour.",
-      "details": ["Off-shoulder gathered neckline", "Voluminous bishop sleeves", "Tiered pleated skirt", "Floor length", "Lilac, Purple or Hot Pink"] },
-
-    { "slug": "tropical-floral-wrap-set", "source": "instore", "category": "skirts-and-tops", "price": 30000,
-      "title": "Tropical Floral Wrap Set", "images": ["local/30kset.jpg"],
-      "newIn": true, "occasions": ["event-ready", "weekend"],
+      "details": [
+        "Off-shoulder gathered neckline",
+        "Voluminous bishop sleeves",
+        "Tiered pleated skirt",
+        "Floor length",
+        "Lilac, Purple or Hot Pink"
+      ]
+    },
+    {
+      "slug": "tropical-floral-wrap-set",
+      "source": "instore",
+      "category": "skirts-and-tops",
+      "price": 30000,
+      "title": "Tropical Floral Wrap Set",
+      "images": [
+        "local/30kset.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "event-ready",
+        "weekend"
+      ],
       "description": "A rich tropical floral print in orange, green and white on a wrap-style piece that works as a full-length maxi wrap or tied as a skirt. Comes as a dress-and-skirt set. Vibrant, versatile and styled entirely by you.",
-      "details": ["Tropical floral print", "V-neck wrap style", "Wearable as maxi dress or skirt", "Comes as a set"] },
-
-    { "slug": "fuchsia-paisley-bodycon-maxi", "source": "instore", "category": "long-gowns", "price": 30000,
-      "title": "Fuchsia & Paisley Bodycon Maxi", "images": ["local/30kos.jpg"],
-      "newIn": true, "occasions": ["event-ready", "sunday-best"],
+      "details": [
+        "Tropical floral print",
+        "V-neck wrap style",
+        "Wearable as maxi dress or skirt",
+        "Comes as a set"
+      ]
+    },
+    {
+      "slug": "fuchsia-paisley-bodycon-maxi",
+      "source": "instore",
+      "category": "long-gowns",
+      "price": 30000,
+      "title": "Fuchsia & Paisley Bodycon Maxi",
+      "images": [
+        "local/30kos.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "event-ready",
+        "sunday-best"
+      ],
       "description": "A bold fuchsia off-shoulder top fused into a vibrant paisley-print bodycon skirt. The contrast between the solid colour and the print makes every angle interesting. Wear it to a wedding, an owambe or anywhere you want to be seen.",
-      "details": ["Off-shoulder neckline", "Cap sleeves", "Bodycon fit", "Paisley print skirt", "Floor length"] },
-
-    { "slug": "pink-colourblock-tiered-bow-maxi", "source": "instore", "category": "long-gowns", "price": 30000,
-      "title": "Pink Colour-Block Tiered Bow Maxi", "images": ["local/30koss.jpg"],
-      "newIn": true, "occasions": ["event-ready", "weekend"],
+      "details": [
+        "Off-shoulder neckline",
+        "Cap sleeves",
+        "Bodycon fit",
+        "Paisley print skirt",
+        "Floor length"
+      ]
+    },
+    {
+      "slug": "pink-colourblock-tiered-bow-maxi",
+      "source": "instore",
+      "category": "long-gowns",
+      "price": 30000,
+      "title": "Pink Colour-Block Tiered Bow Maxi",
+      "images": [
+        "local/30koss.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "event-ready",
+        "weekend"
+      ],
       "description": "Tie-shoulder bows, a square bodice and a floor-length tiered skirt that moves from pale blush to fuchsia to deep red. Festive, voluminous and full of colour. The gown that turns a party into a celebration.",
-      "details": ["Tie-shoulder bow straps", "Square bodice", "Tiered colour-block skirt", "Blush, fuchsia and red tiers"] },
-
-    { "slug": "purple-wrap-collar-wide-leg-jumpsuit", "source": "instore", "category": "jumpsuits", "price": 30000,
-      "title": "Purple Wrap Collar Wide-Leg Jumpsuit", "images": ["local/30kosss.jpg"],
-      "newIn": true, "pick": true, "occasions": ["event-ready", "everyday-chic"],
+      "details": [
+        "Tie-shoulder bow straps",
+        "Square bodice",
+        "Tiered colour-block skirt",
+        "Blush, fuchsia and red tiers"
+      ]
+    },
+    {
+      "slug": "purple-wrap-collar-wide-leg-jumpsuit",
+      "source": "instore",
+      "category": "jumpsuits",
+      "price": 30000,
+      "title": "Purple Wrap Collar Wide-Leg Jumpsuit",
+      "images": [
+        "local/30kosss.jpg"
+      ],
+      "newIn": true,
+      "pick": true,
+      "occasions": [
+        "event-ready",
+        "everyday-chic"
+      ],
       "description": "A deep V-neck with a collar, long sleeves, a self-tie waist belt and wide-leg trousers in rich purple. Polished and comfortable in equal measure. The jumpsuit that does the work of a gown without sacrificing ease.",
-      "details": ["Deep V-neck with collar", "Long sleeves", "Self-tie waist belt", "Wide-leg trousers", "Rich purple"] },
-
-    { "slug": "sky-blue-one-shoulder-pleated-maxi", "source": "instore", "category": "long-gowns", "price": 30000,
-      "title": "Sky Blue One-Shoulder Pleated Maxi", "images": ["local/30kosw.jpg"],
-      "newIn": true, "occasions": ["event-ready", "sunday-best"],
+      "details": [
+        "Deep V-neck with collar",
+        "Long sleeves",
+        "Self-tie waist belt",
+        "Wide-leg trousers",
+        "Rich purple"
+      ]
+    },
+    {
+      "slug": "sky-blue-one-shoulder-pleated-maxi",
+      "source": "instore",
+      "category": "long-gowns",
+      "price": 30000,
+      "title": "Sky Blue One-Shoulder Pleated Maxi",
+      "images": [
+        "local/30kosw.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "event-ready",
+        "sunday-best"
+      ],
       "description": "A gathered one-shoulder neckline over a fitted bodice, releasing into a softly pleated chiffon skirt that fans into a subtle train in sky blue. Airy, elegant and beautiful in motion.",
-      "details": ["Gathered one-shoulder neckline", "Fitted bodice", "Pleated chiffon skirt", "Subtle train", "Sky blue"] },
-
-    { "slug": "red-draped-shoulder-wide-leg-jumpsuit", "source": "instore", "category": "jumpsuits", "price": 30000,
-      "title": "Red Draped-Shoulder Wide-Leg Jumpsuit", "images": ["local/30kosx.jpg"],
-      "newIn": true, "pick": true, "occasions": ["event-ready", "dinner-date"],
+      "details": [
+        "Gathered one-shoulder neckline",
+        "Fitted bodice",
+        "Pleated chiffon skirt",
+        "Subtle train",
+        "Sky blue"
+      ]
+    },
+    {
+      "slug": "red-draped-shoulder-wide-leg-jumpsuit",
+      "source": "instore",
+      "category": "jumpsuits",
+      "price": 30000,
+      "title": "Red Draped-Shoulder Wide-Leg Jumpsuit",
+      "images": [
+        "local/30kosx.jpg"
+      ],
+      "newIn": true,
+      "pick": true,
+      "occasions": [
+        "event-ready",
+        "dinner-date"
+      ],
       "description": "A dramatic drape that sweeps from the shoulder across the chest and trails to the side, worn over wide-leg trousers. Sleek, sculptural and completely commanding. Bold red from head to toe.",
-      "details": ["Dramatic shoulder drape", "Deep V front", "Wide-leg trousers", "Trailing drape detail", "Red"] },
-
-    { "slug": "white-polka-dot-ruffle-off-shoulder-mini", "source": "instore", "category": "short-gowns", "price": 30000,
-      "title": "White Polka Dot Ruffle Off-Shoulder Mini", "images": ["local/30kosy.jpg"],
-      "newIn": true, "occasions": ["weekend", "main-character"],
+      "details": [
+        "Dramatic shoulder drape",
+        "Deep V front",
+        "Wide-leg trousers",
+        "Trailing drape detail",
+        "Red"
+      ]
+    },
+    {
+      "slug": "white-polka-dot-ruffle-off-shoulder-mini",
+      "source": "instore",
+      "category": "short-gowns",
+      "price": 30000,
+      "title": "White Polka Dot Ruffle Off-Shoulder Mini",
+      "images": [
+        "local/30kosy.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "weekend",
+        "main-character"
+      ],
       "description": "Classic black polka dots on white with an off-shoulder neckline, voluminous ruffled long sleeves and a tiered frill hem. Playful, vintage-inspired and completely fun to wear. Styled with red heels it becomes its own occasion.",
-      "details": ["Off-shoulder neckline", "Voluminous ruffled long sleeves", "Tiered ruffle hem", "Black polka dot print", "Mini length"] },
-
-    { "slug": "flame-print-halter-maxi", "source": "instore", "category": "long-gowns", "price": 28000,
-      "title": "Flame Print Halter Maxi", "images": ["local/28k.jpg"],
-      "newIn": true, "occasions": ["event-ready", "main-character"],
+      "details": [
+        "Off-shoulder neckline",
+        "Voluminous ruffled long sleeves",
+        "Tiered ruffle hem",
+        "Black polka dot print",
+        "Mini length"
+      ]
+    },
+    {
+      "slug": "flame-print-halter-maxi",
+      "source": "instore",
+      "category": "long-gowns",
+      "price": 28000,
+      "title": "Flame Print Halter Maxi",
+      "images": [
+        "local/28k.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "event-ready",
+        "main-character"
+      ],
       "description": "A swirling flame and tiger print in burnt orange, black and tan on a sleeveless halter-neck maxi that falls straight to the floor. Bold, arresting and impossible to ignore. The print is the statement.",
-      "details": ["Halter neckline", "Sleeveless", "Fitted silhouette", "Flame print in orange and black", "Floor length"] },
-
-    { "slug": "off-shoulder-ruffle-tier-mini", "source": "instore", "category": "short-gowns", "price": 27000,
+      "details": [
+        "Halter neckline",
+        "Sleeveless",
+        "Fitted silhouette",
+        "Flame print in orange and black",
+        "Floor length"
+      ]
+    },
+    {
+      "slug": "off-shoulder-ruffle-tier-mini",
+      "source": "instore",
+      "category": "short-gowns",
+      "price": 27000,
       "title": "Off-Shoulder Ruffle-Tier Mini",
-      "images": ["local/27k.jpg"],
-      "colours": [{ "name": "Royal Blue" }, { "name": "Red" }],
-      "newIn": true, "occasions": ["weekend", "main-character"],
+      "images": [
+        "local/27k.jpg"
+      ],
+      "colours": [
+        {
+          "name": "Royal Blue"
+        },
+        {
+          "name": "Red"
+        }
+      ],
+      "newIn": true,
+      "occasions": [
+        "weekend",
+        "main-character"
+      ],
       "description": "A gathered off-shoulder neckline in royal blue or a criss-cross halter in red, both with a fitted bodice and a full tiered ruffle skirt. Flirty, festive and made for dancing. Pick your colour, pack your heels.",
-      "details": ["Off-shoulder or criss-cross halter neckline", "Fitted bodice", "Tiered ruffle skirt", "Royal Blue or Red"] },
-
-    { "slug": "red-cold-shoulder-floral-print-maxi", "source": "instore", "category": "long-gowns", "price": 27000,
-      "title": "Red Cold-Shoulder Floral Print Maxi", "images": ["local/27kk.jpg"],
-      "newIn": true, "occasions": ["event-ready", "sunday-best"],
+      "details": [
+        "Off-shoulder or criss-cross halter neckline",
+        "Fitted bodice",
+        "Tiered ruffle skirt",
+        "Royal Blue or Red"
+      ]
+    },
+    {
+      "slug": "red-cold-shoulder-floral-print-maxi",
+      "source": "instore",
+      "category": "long-gowns",
+      "price": 27000,
+      "title": "Red Cold-Shoulder Floral Print Maxi",
+      "images": [
+        "local/27kk.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "event-ready",
+        "sunday-best"
+      ],
       "description": "Long sleeves with a cold-shoulder cut-out in a vivid orange-red and black abstract floral print. The silhouette falls straight to the floor while the print takes centre stage. Vibrant, elegant and made for celebrations.",
-      "details": ["Cold-shoulder long sleeves", "Abstract floral print", "Fitted silhouette", "Floor length"] },
-
-    { "slug": "blue-abstract-one-shoulder-cape-maxi", "source": "instore", "category": "long-gowns", "price": 26000,
-      "title": "Blue Abstract One-Shoulder Cape Maxi", "images": ["local/26k.jpg"],
-      "newIn": true, "occasions": ["event-ready", "weekend"],
+      "details": [
+        "Cold-shoulder long sleeves",
+        "Abstract floral print",
+        "Fitted silhouette",
+        "Floor length"
+      ]
+    },
+    {
+      "slug": "blue-abstract-one-shoulder-cape-maxi",
+      "source": "instore",
+      "category": "long-gowns",
+      "price": 26000,
+      "title": "Blue Abstract One-Shoulder Cape Maxi",
+      "images": [
+        "local/26k.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "event-ready",
+        "weekend"
+      ],
       "description": "A cerulean blue splashed with yellow-green abstract brushstrokes on a one-shoulder fitted column with a cape detail. Artistic, vivid and modern. The kind of gown that starts conversations.",
-      "details": ["One-shoulder cape detail", "Fitted column silhouette", "Blue and yellow-green abstract print", "Floor length"] },
-
-    { "slug": "royal-blue-ruffle-crop-skirt-set", "source": "instore", "category": "skirts-and-tops", "price": 26000,
-      "title": "Royal Blue Ruffle Crop & Skirt Set", "images": ["local/26kos.jpg"],
-      "newIn": true, "occasions": ["weekend", "main-character"],
+      "details": [
+        "One-shoulder cape detail",
+        "Fitted column silhouette",
+        "Blue and yellow-green abstract print",
+        "Floor length"
+      ]
+    },
+    {
+      "slug": "royal-blue-ruffle-crop-skirt-set",
+      "source": "instore",
+      "category": "skirts-and-tops",
+      "price": 26000,
+      "title": "Royal Blue Ruffle Crop & Skirt Set",
+      "images": [
+        "local/26kos.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "weekend",
+        "main-character"
+      ],
       "description": "A gathered crop top with dramatic bishop sleeves, paired with a tiered ruffle mini skirt in rich royal blue. The layered ruffles move with you and look stunning from every angle. A co-ord that does not need extra accessories.",
-      "details": ["Gathered crop top", "Bishop sleeves", "Tiered ruffle mini skirt", "Coordinated set", "Royal blue"] },
-
-    { "slug": "red-ruffle-tier-longsleeve-mini", "source": "instore", "category": "short-gowns", "price": 25000,
-      "title": "Red Ruffle-Tier Long-Sleeve Mini", "images": ["local/25kos.jpg"],
-      "newIn": true, "occasions": ["dinner-date", "main-character"],
+      "details": [
+        "Gathered crop top",
+        "Bishop sleeves",
+        "Tiered ruffle mini skirt",
+        "Coordinated set",
+        "Royal blue"
+      ]
+    },
+    {
+      "slug": "red-ruffle-tier-longsleeve-mini",
+      "source": "instore",
+      "category": "short-gowns",
+      "price": 25000,
+      "title": "Red Ruffle-Tier Long-Sleeve Mini",
+      "images": [
+        "local/25kos.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "dinner-date",
+        "main-character"
+      ],
       "description": "Long sleeves, a V-neckline and a cascading multi-tier ruffle skirt in bold red. Short, feminine and unmistakably festive. A birthday dinner dress, a night out dress and a love-at-first-sight dress all in one.",
-      "details": ["V-neckline", "Long sleeves", "Multi-tier ruffle skirt", "Mini length", "Red"] },
-
-    { "slug": "geometric-colourblock-twist-maxi", "source": "instore", "category": "long-gowns", "price": 25000,
-      "title": "Geometric Colour-Block Twist Maxi", "images": ["local/25kose.jpg"],
-      "newIn": true, "occasions": ["event-ready", "sunday-best"],
+      "details": [
+        "V-neckline",
+        "Long sleeves",
+        "Multi-tier ruffle skirt",
+        "Mini length",
+        "Red"
+      ]
+    },
+    {
+      "slug": "geometric-colourblock-twist-maxi",
+      "source": "instore",
+      "category": "long-gowns",
+      "price": 25000,
+      "title": "Geometric Colour-Block Twist Maxi",
+      "images": [
+        "local/25kose.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "event-ready",
+        "sunday-best"
+      ],
       "description": "Bold geometric blocks of royal blue, red, purple and white with a gathered twist at the hip. Short sleeves, a round neckline and a floor-length silhouette that wears as joyfully or seriously as you choose.",
-      "details": ["Round neckline", "Short sleeves", "Geometric colour-block print", "Gathered hip twist", "Floor length"] },
-
-    { "slug": "fuchsia-colourblock-ruffle-cap-mini", "source": "instore", "category": "short-gowns", "price": 23000,
-      "title": "Fuchsia Colour-Block Ruffle Cap-Sleeve Mini", "images": ["local/23k.jpg"],
-      "newIn": true, "occasions": ["weekend", "main-character"],
+      "details": [
+        "Round neckline",
+        "Short sleeves",
+        "Geometric colour-block print",
+        "Gathered hip twist",
+        "Floor length"
+      ]
+    },
+    {
+      "slug": "fuchsia-colourblock-ruffle-cap-mini",
+      "source": "instore",
+      "category": "short-gowns",
+      "price": 23000,
+      "title": "Fuchsia Colour-Block Ruffle Cap-Sleeve Mini",
+      "images": [
+        "local/23k.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "weekend",
+        "main-character"
+      ],
       "description": "Three tiers of fuchsia, orange and pale pink with ruffled cap sleeves. Colour-popping and playful in the best way. Made for birthday celebrations, brunch with the girls and every other moment that deserves a great photo.",
-      "details": ["Ruffled cap sleeves", "Three-colour block tiers", "Fuchsia, orange and pink", "Mini length"] },
-
-    { "slug": "royal-blue-cape-sleeve-mini", "source": "instore", "category": "short-gowns", "price": 22000,
-      "title": "Royal Blue Cape-Sleeve Mini", "images": ["local/22k.jpg"],
-      "newIn": true, "pick": true, "occasions": ["dinner-date", "main-character"],
+      "details": [
+        "Ruffled cap sleeves",
+        "Three-colour block tiers",
+        "Fuchsia, orange and pink",
+        "Mini length"
+      ]
+    },
+    {
+      "slug": "royal-blue-cape-sleeve-mini",
+      "source": "instore",
+      "category": "short-gowns",
+      "price": 22000,
+      "title": "Royal Blue Cape-Sleeve Mini",
+      "images": [
+        "local/22k.jpg"
+      ],
+      "newIn": true,
+      "pick": true,
+      "occasions": [
+        "dinner-date",
+        "main-character"
+      ],
       "description": "A deep V-neckline and a sculptural cape that drapes into dramatic batwing sleeves over a fitted mini skirt. In royal blue that catches every light. Bold, architectural and completely effortless to wear.",
-      "details": ["Deep V-neckline", "Sculptural cape sleeves", "Fitted mini skirt", "Royal blue"] },
-
-    { "slug": "purple-bell-sleeve-mini", "source": "instore", "category": "short-gowns", "price": 20000,
-      "title": "Purple Asymmetric Bell-Sleeve Mini", "images": ["local/20kos.jpg"],
-      "newIn": true, "occasions": ["dinner-date", "main-character"],
+      "details": [
+        "Deep V-neckline",
+        "Sculptural cape sleeves",
+        "Fitted mini skirt",
+        "Royal blue"
+      ]
+    },
+    {
+      "slug": "purple-bell-sleeve-mini",
+      "source": "instore",
+      "category": "short-gowns",
+      "price": 20000,
+      "title": "Purple Asymmetric Bell-Sleeve Mini",
+      "images": [
+        "local/20kos.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "dinner-date",
+        "main-character"
+      ],
       "description": "A striking purple mini with an asymmetric V-neckline and flared bell sleeves that widen dramatically at the wrist. Short, sharp and fully electric. Add heels and a small bag for a night you will remember.",
-      "details": ["Asymmetric V-neckline", "Flared bell sleeves", "Mini length", "Purple"] },
-
-    { "slug": "dark-floral-mesh-sleeve-mini", "source": "instore", "category": "short-gowns", "price": 20000,
-      "title": "Dark Floral Mesh-Sleeve Cut-Out Mini", "images": ["local/20kosq.jpg"],
-      "newIn": true, "occasions": ["dinner-date", "main-character"],
+      "details": [
+        "Asymmetric V-neckline",
+        "Flared bell sleeves",
+        "Mini length",
+        "Purple"
+      ]
+    },
+    {
+      "slug": "dark-floral-mesh-sleeve-mini",
+      "source": "instore",
+      "category": "short-gowns",
+      "price": 20000,
+      "title": "Dark Floral Mesh-Sleeve Cut-Out Mini",
+      "images": [
+        "local/20kosq.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "dinner-date",
+        "main-character"
+      ],
       "description": "A dark base bursting with bold fuchsia and orange florals, sheer mesh long sleeves and a cut-out neckline detail. Ruched through the body for a curve-hugging fit. Sultry, feminine and completely eye-catching.",
-      "details": ["Cut-out neckline", "Sheer mesh long sleeves", "Ruched body", "Dark floral print", "Mini length"] },
-
-    { "slug": "navy-polka-dot-collar-mini", "source": "instore", "category": "short-gowns", "price": 20000,
-      "title": "Navy Polka Dot Collar Mini", "images": ["local/20kost.jpg"],
-      "newIn": true, "occasions": ["everyday-chic", "weekend"],
+      "details": [
+        "Cut-out neckline",
+        "Sheer mesh long sleeves",
+        "Ruched body",
+        "Dark floral print",
+        "Mini length"
+      ]
+    },
+    {
+      "slug": "navy-polka-dot-collar-mini",
+      "source": "instore",
+      "category": "short-gowns",
+      "price": 20000,
+      "title": "Navy Polka Dot Collar Mini",
+      "images": [
+        "local/20kost.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "everyday-chic",
+        "weekend"
+      ],
       "description": "A collared V-neckline, short sleeves and a pleated mini skirt in a classic navy polka dot print. Vintage-inspired, crisp and completely versatile. Wear it with sneakers for the day or heels for the evening.",
-      "details": ["Collar V-neckline", "Short sleeves", "Pleated mini skirt", "Navy polka dot print"] },
-
-    { "slug": "gold-leopard-ruffle-mini", "source": "instore", "category": "short-gowns", "price": 20000,
-      "title": "Gold Leopard Ruffle-Hem Mini", "images": ["local/20kosw.jpg"],
-      "newIn": true, "occasions": ["weekend", "dinner-date"],
+      "details": [
+        "Collar V-neckline",
+        "Short sleeves",
+        "Pleated mini skirt",
+        "Navy polka dot print"
+      ]
+    },
+    {
+      "slug": "gold-leopard-ruffle-mini",
+      "source": "instore",
+      "category": "short-gowns",
+      "price": 20000,
+      "title": "Gold Leopard Ruffle-Hem Mini",
+      "images": [
+        "local/20kosw.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "weekend",
+        "dinner-date"
+      ],
       "description": "Gold and brown leopard print with short sleeves and a ruffled hem that swings as you move. Fierce, fun and always in season. Accessorise with nude heels and gold jewellery for an instant editorial.",
-      "details": ["Short sleeves", "Leopard print", "Ruffled hem", "Mini length", "Gold and brown"] },
-
-    { "slug": "lime-green-cut-out-mini", "source": "instore", "category": "short-gowns", "price": 17000,
-      "title": "Lime Green Cut-Out Long-Sleeve Mini", "images": ["local/17k.jpg"],
-      "newIn": true, "occasions": ["weekend", "main-character"],
+      "details": [
+        "Short sleeves",
+        "Leopard print",
+        "Ruffled hem",
+        "Mini length",
+        "Gold and brown"
+      ]
+    },
+    {
+      "slug": "lime-green-cut-out-mini",
+      "source": "instore",
+      "category": "short-gowns",
+      "price": 17000,
+      "title": "Lime Green Cut-Out Long-Sleeve Mini",
+      "images": [
+        "local/17k.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "weekend",
+        "main-character"
+      ],
       "description": "Electric lime green with double cut-outs at the neckline, long sleeves and a flared skater skirt. High-energy, high-impact and impossible to ignore. When you want to walk in and be the mood.",
-      "details": ["Double neckline cut-outs", "Long sleeves", "Flared skater skirt", "Mini length", "Lime green"] },
-
-    { "slug": "red-black-abstract-bodycon-mini", "source": "instore", "category": "short-gowns", "price": 15000,
-      "title": "Red & Black Abstract Bodycon Mini", "images": ["local/15ksales.jpg"],
-      "newIn": true, "occasions": ["dinner-date", "main-character"],
+      "details": [
+        "Double neckline cut-outs",
+        "Long sleeves",
+        "Flared skater skirt",
+        "Mini length",
+        "Lime green"
+      ]
+    },
+    {
+      "slug": "red-black-abstract-bodycon-mini",
+      "source": "instore",
+      "category": "short-gowns",
+      "price": 15000,
+      "title": "Red & Black Abstract Bodycon Mini",
+      "images": [
+        "local/15ksales.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "dinner-date",
+        "main-character"
+      ],
       "description": "A long-sleeve square-neck bodycon mini in a vivid red and black abstract print. Fitted, bold and ready for the night. Pair it with black heels and a small bag to let the pattern do all the talking.",
-      "details": ["Square neckline", "Long sleeves", "Bodycon fit", "Red and black abstract print", "Mini length"] },
-
-    { "slug": "pink-paisley-cut-out-ruched-mini", "source": "instore", "category": "short-gowns", "price": 15000,
-      "title": "Pink Paisley Cut-Out Ruched Mini", "images": ["local/15k.jpg"],
-      "newIn": true, "occasions": ["weekend", "main-character"],
+      "details": [
+        "Square neckline",
+        "Long sleeves",
+        "Bodycon fit",
+        "Red and black abstract print",
+        "Mini length"
+      ]
+    },
+    {
+      "slug": "pink-paisley-cut-out-ruched-mini",
+      "source": "instore",
+      "category": "short-gowns",
+      "price": 15000,
+      "title": "Pink Paisley Cut-Out Ruched Mini",
+      "images": [
+        "local/15k.jpg"
+      ],
+      "newIn": true,
+      "occasions": [
+        "weekend",
+        "main-character"
+      ],
       "description": "A vibrant pink and blue paisley print on a long-sleeve mini with a cut-out neckline and ruching that gathers along the sides. Fun, curve-loving and impossible to pass up at this price.",
-      "details": ["Cut-out neckline", "Long sleeves", "Side ruching", "Pink and blue paisley print", "Mini length", "Ruffle hem"] }
+      "details": [
+        "Cut-out neckline",
+        "Long sleeves",
+        "Side ruching",
+        "Pink and blue paisley print",
+        "Mini length",
+        "Ruffle hem"
+      ]
+    },
+    {
+      "slug": "royal-bounce-frontal-wig",
+      "source": "instore",
+      "category": "hair",
+      "price": 100000,
+      "title": "SDD Royal Bounce Frontal Wig",
+      "images": [
+        "hair/100k-royal-bounce.jpg"
+      ],
+      "newIn": true,
+      "pick": true,
+      "occasions": [
+        "event-ready"
+      ],
+      "description": "Jet-black bounce curls set in deep, glossy waves that fall just past the jaw. A full frontal, so the hairline sits flat and you can part it anywhere. Styled and ready to wear straight out of the box.",
+      "details": [
+        "Full frontal",
+        "Jet black",
+        "Bounce curl, chin to shoulder length",
+        "Pre-styled, ready to wear"
+      ]
+    },
+    {
+      "slug": "layered-bounce-frontal-wig",
+      "source": "instore",
+      "category": "hair",
+      "price": 150000,
+      "title": "Layered Bounce Frontal Wig",
+      "images": [
+        "hair/150k-layered-bounce.jpg"
+      ],
+      "newIn": true,
+      "pick": true,
+      "occasions": [
+        "main-character"
+      ],
+      "description": "Warm copper-brown with darker roots, cut into soft layers that bounce from the cheekbone down. A full frontal with a middle part, shoulder length, and body that moves when you do.",
+      "details": [
+        "Full frontal",
+        "Copper brown with darker roots",
+        "Layered bounce curl",
+        "Shoulder length"
+      ]
+    },
+    {
+      "slug": "blend-bounce-frontal-wig",
+      "source": "instore",
+      "category": "hair",
+      "price": 35000,
+      "title": "Blend Bounce Frontal Wig",
+      "images": [
+        "hair/35k-blend-bounce.jpg"
+      ],
+      "newIn": true,
+      "pick": false,
+      "occasions": [
+        "everyday-chic"
+      ],
+      "description": "A short black bounce bob with soft, rounded curls that sit neat around the face. The easiest way into a BMP wig: light, low fuss and ready to wear every day.",
+      "details": [
+        "Full frontal",
+        "Jet black",
+        "Short bounce curl bob",
+        "Light, everyday wear"
+      ]
+    }
   ]
 }

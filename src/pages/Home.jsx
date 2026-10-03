@@ -7,7 +7,7 @@ import Rail from '../components/Rail'
 import Newsletter from '../components/Newsletter'
 import WaIcon from '../components/WaIcon'
 import Reveal, { Lines } from '../components/Reveal'
-import { categories, categoryByKey, occasions, pick, productBySlug, products, altText } from '../data/catalog'
+import { categories, listedCategories, categoryByKey, occasions, pick, productBySlug, products, altText } from '../data/catalog'
 import { philosophy, pillars, site } from '../data/site'
 import { naira, useScrollProgress } from '../lib/util'
 import { orderLink } from '../lib/order'
@@ -84,7 +84,7 @@ function Hero() {
           </div>
           <ul className="hero-facts">
             <li><strong>{products.length}</strong> pieces in store</li>
-            <li><strong>{categories.filter((c) => c.count).length}</strong> collections</li>
+            <li><strong>{listedCategories.length}</strong> collections</li>
             <li><WaIcon size={14} /> Order on WhatsApp</li>
           </ul>
         </div>
