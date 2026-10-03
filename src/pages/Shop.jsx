@@ -22,7 +22,10 @@ const SORTS = [
   ['price-asc', 'Price: Low to High'],
   ['price-desc', 'Price: High to Low'],
 ]
-const ACCENT = ['I', 'II', 'III', 'IV', 'V', 'VI']
+// Collection numeral. Generated rather than a fixed list, which ran out when hair and bags
+// were added and rendered "Collection undefined".
+const ROMAN = [[10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I']]
+const roman = (n) => ROMAN.reduce((out, [v, sym]) => { while (n >= v) { out += sym; n -= v } return out }, '')
 
 export default function Shop({ mode = 'all' }) {
   const { category, occasion } = useParams()
@@ -34,7 +37,7 @@ export default function Shop({ mode = 'all' }) {
       const c = categoryByKey[category]
       if (!c) return null
       const i = categories.indexOf(c)
-      return { title: c.name, blurb: c.blurb, base: products.filter((p) => p.category === c.key), label: `Collection ${ACCENT[i]}`, path: `/collections/${c.key}` }
+      return { title: c.name, blurb: c.blurb, base: products.filter((p) => p.category === c.key), label: `Collection ${roman(i + 1)}`, path: `/collections/${c.key}` }
     }
     if (mode === 'occasion') {
       const o = occasionByKey[occasion]
