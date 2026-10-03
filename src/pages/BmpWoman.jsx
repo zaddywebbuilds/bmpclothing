@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import Img from '../components/Img'
 import HeroVideo from '../components/HeroVideo'
@@ -19,7 +19,7 @@ const HER_PIECES = ['ruched-cut-out-column-gown', 'cerise-rosette-mini-dress', '
 const MANIFESTO = 'fuchsia-off-shoulder-drape-gown'
 
 export default function BmpWoman() {
-  useSeo({ title: 'The BMP Woman', description: 'If you see BMP Woman, you go know. Meet the confident, expressive Lagos woman behind every BMP Clothings piece.', path: '/the-bmp-woman' })
+  useSeo({ title: 'The BMP Woman', description: 'If you see BMP Woman, you go know. Meet the confident, expressive Lagos woman behind every BMP Collections piece.', path: '/the-bmp-woman' })
   const pieces = pick(...HER_PIECES)
   const manifesto = productBySlug[MANIFESTO]
   return (

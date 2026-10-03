@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+﻿import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { ChevronDown } from 'lucide-react'
 import Drawer from './Drawer'
@@ -50,12 +50,12 @@ export default function MobileMenu() {
           </div>
         </Link>
       )}
-      <a className="btn btn--glass btn--block mmenu-wa" href={waLink('Hello BMP Clothings 👋 I would like some help with an order.')} target="_blank" rel="noopener noreferrer">
+      <a className="btn btn--glass btn--block mmenu-wa" href={waLink('Hello BMP Collections 👋 I would like some help with an order.')} target="_blank" rel="noopener noreferrer">
         <WaIcon /> WhatsApp {site.whatsapp.display}
       </a>
       <div className="mmenu-social">
         {socials().map(([name, url]) => (
-          <a key={name} href={url} target="_blank" rel="noopener noreferrer" className="icon-btn icon-btn--glass" aria-label={`BMP Clothings on ${name}`}>
+          <a key={name} href={url} target="_blank" rel="noopener noreferrer" className="icon-btn icon-btn--glass" aria-label={`BMP Collections on ${name}`}>
             <SocialIcon name={name} size={17} />
           </a>
         ))}

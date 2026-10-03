@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+﻿import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { Heart, Menu, Search, ShoppingBag, ArrowRight } from 'lucide-react'
 import Logo from './Logo'
@@ -41,7 +41,7 @@ export default function Navbar() {
   return (
     <header className={`nav ${scrolled ? 'is-scrolled' : ''} ${mega ? 'is-mega' : ''}`} onKeyDown={(e) => e.key === 'Escape' && setMega(false)}>
       <div className="nav-bar">
-        <Link to="/" className="nav-logo" aria-label="BMP Clothings home">
+        <Link to="/" className="nav-logo" aria-label="BMP Collections home">
           <Logo />
         </Link>
 

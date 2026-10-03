@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { ArrowRight, MapPin, Check } from 'lucide-react'
 import Reveal, { Lines } from '../components/Reveal'
 import WaIcon from '../components/WaIcon'
@@ -8,7 +8,7 @@ import { useSeo } from '../lib/seo'
 import './pages.css'
 
 export default function Contact() {
-  useSeo({ title: 'Contact', description: 'Contact BMP Clothings at No 2 Onabanjo Street, Oworoshoki, Lagos. Chat on WhatsApp 0901 962 4520 for orders, sizing and delivery.', path: '/contact' })
+  useSeo({ title: 'Contact', description: 'Contact BMP Collections at No 2 Onabanjo Street, Oworoshoki, Lagos. Chat on WhatsApp 0901 962 4520 for orders, sizing and delivery.', path: '/contact' })
   const [f, setF] = useState({ name: '', email: '', phone: '', subject: 'Order enquiry', message: '' })
   const [err, setErr] = useState({})
   const [sent, setSent] = useState(false)
@@ -26,7 +26,7 @@ export default function Contact() {
       const r = await fetch(site.contactEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(f) }).catch(() => null)
       if (r?.ok) { setSent(true); return }
     }
-    const text = `Hello BMP Clothings 👋\n\n*${f.subject}*\n\n${f.message}\n\n──────────────────\nName: ${f.name}${f.email ? `\nEmail: ${f.email}` : ''}${f.phone ? `\nPhone: ${f.phone}` : ''}`
+    const text = `Hello BMP Collections 👋\n\n*${f.subject}*\n\n${f.message}\n\n──────────────────\nName: ${f.name}${f.email ? `\nEmail: ${f.email}` : ''}${f.phone ? `\nPhone: ${f.phone}` : ''}`
     window.open(waLink(text), '_blank', 'noopener')
     setSent(true)
   }
@@ -41,7 +41,7 @@ export default function Contact() {
 
       <Reveal className="section section--tight wrap contact-grid">
         <div className="contact-cards">
-          <a className="contact-card glass reveal" href={waLink('Hello BMP Clothings 👋')} target="_blank" rel="noopener noreferrer">
+          <a className="contact-card glass reveal" href={waLink('Hello BMP Collections 👋')} target="_blank" rel="noopener noreferrer">
             <WaIcon size={22} />
             <span className="eyebrow">WhatsApp · fastest</span>
             <strong className="display">{site.whatsapp.display}</strong>
@@ -51,7 +51,7 @@ export default function Contact() {
             <a key={name} className="contact-card glass reveal" data-delay={i + 1} href={url} target="_blank" rel="noopener noreferrer">
               <SocialIcon name={name} size={22} />
               <span className="eyebrow">{name}</span>
-              <strong className="display">{name === 'Facebook' ? 'BMP Clothings' : site.handle}</strong>
+              <strong className="display">{name === 'Facebook' ? 'BMP Collections' : site.handle}</strong>
               <span className="link-line">Follow along <ArrowRight className="arrow" size={13} /></span>
             </a>
           ))}

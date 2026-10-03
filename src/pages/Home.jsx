@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+﻿import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, ArrowDown, ArrowUpRight, Sparkles } from 'lucide-react'
 import Img from '../components/Img'
@@ -41,7 +41,7 @@ const FINAL = 'red-sweetheart-ruched-mini'
 
 export default function Home() {
   useSeo({
-    description: 'BMP Clothings is a Lagos women’s fashion house. Shop statement long gowns, minis, jumpsuits and sets for confident women. Clear Naira prices and easy WhatsApp ordering.',
+    description: 'BMP Collections is a Lagos women’s fashion house. Shop statement long gowns, minis, jumpsuits and sets for confident women. Clear Naira prices and easy WhatsApp ordering.',
     path: '/',
   })
   return (
@@ -117,7 +117,7 @@ function Categories() {
           return (
             <Link key={c.key} to={`/collections/${c.key}`} className="cat reveal" data-delay={(i % 3) + 1} data-cursor="Shop">
               <div className="panel cat-img tilt">
-                <Img id={p.images[0]} alt={`${c.name} at BMP Clothings: ${p.title}`} sizes="(max-width: 760px) 50vw, 25vw" />
+                <Img id={p.images[0]} alt={`${c.name} at BMP Collections: ${p.title}`} sizes="(max-width: 760px) 50vw, 25vw" />
                 <span className="tilt-sheen" aria-hidden="true" />
               </div>
               <div className="cat-label">

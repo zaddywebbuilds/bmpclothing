@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+﻿import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ArrowRight, MessageCircle, Minus, Plus, Truck, RefreshCw } from 'lucide-react'
 import Gallery from '../components/Gallery'
@@ -37,15 +37,15 @@ export default function Product() {
   const cat = p && categoryByKey[p.category]
   useSeo({
     title: p ? `${p.title}${p.code ? ` (${p.code})` : ''}` : 'Piece not found',
-    description: p ? `${p.description.slice(0, 150).replace(/\s\S*$/, '')}… ${naira(p.price)} at BMP Clothings, Lagos.` : undefined,
+    description: p ? `${p.description.slice(0, 150).replace(/\s\S*$/, '')}… ${naira(p.price)} at BMP Collections, Lagos.` : undefined,
     path: p ? p.url : undefined,
     image: p ? imagePath(p.images[0], 1800) : undefined,
-    imageAlt: p ? `${p.title} — BMP Clothings, Lagos` : undefined,
+    imageAlt: p ? `${p.title} — BMP Collections, Lagos` : undefined,
     type: 'product',
     jsonLd: p ? [
       {
         '@context': 'https://schema.org', '@type': 'Product',
-        name: p.title, sku: p.sku || p.slug, brand: { '@type': 'Brand', name: 'BMP Clothings' },
+        name: p.title, sku: p.sku || p.slug, brand: { '@type': 'Brand', name: 'BMP Collections' },
         description: p.description, category: cat.name,
         image: p.images.map((id) => `${site.url}/${imagePath(id)}`),
         ...(p.colours.length ? { color: p.colours.map((c) => c.name).join(', ') } : {}),
@@ -55,7 +55,7 @@ export default function Product() {
           itemCondition: 'https://schema.org/NewCondition',
           ...(p.inStock ? { availability: 'https://schema.org/InStock' } : {}),
           areaServed: { '@type': 'Country', name: 'Nigeria' },
-          seller: { '@type': 'ClothingStore', name: 'BMP Clothings', '@id': `${site.url}/#store` },
+          seller: { '@type': 'ClothingStore', name: 'BMP Collections', '@id': `${site.url}/#store` },
         },
       },
       breadcrumbLd([['Home', '/'], ['Shop', '/shop'], [cat.name, `/collections/${cat.key}`], [p.title, p.url]]),

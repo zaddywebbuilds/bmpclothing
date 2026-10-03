@@ -1,9 +1,9 @@
-export default function Logo({ className = '', light = false }) {
+﻿export default function Logo({ className = '', light = false }) {
   return (
-    <span className={`logo ${light ? 'logo--light' : ''} ${className}`} aria-label="BMP Clothings">
+    <span className={`logo ${light ? 'logo--light' : ''} ${className}`} aria-label="BMP Collections">
       <img
         src="/assets/bmp/brand/logo.jpg"
-        alt="BMP Clothings"
+        alt="BMP Collections"
         className="logo-img"
         width="40"
         height="40"

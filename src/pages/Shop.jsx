@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+﻿import { useMemo, useState } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
 import { SlidersHorizontal, X } from 'lucide-react'
 import ProductCard from '../components/ProductCard'
@@ -82,7 +82,7 @@ export default function Shop({ mode = 'all' }) {
   if (ctx && ctx.path !== '/shop') crumbs.push([ctx.title, ctx.path])
   useSeo({
     title: ctx ? (mode === 'category' ? ctx.title : ctx.title === 'Shop All' ? "Shop Women's Fashion" : ctx.title) : 'Not found',
-    description: ctx ? `${ctx.blurb} Shop ${ctx.base.length} ${ctx.title.toLowerCase()} pieces from BMP Clothings, Lagos. Clear Naira prices and easy WhatsApp ordering.` : undefined,
+    description: ctx ? `${ctx.blurb} Shop ${ctx.base.length} ${ctx.title.toLowerCase()} pieces from BMP Collections, Lagos. Clear Naira prices and easy WhatsApp ordering.` : undefined,
     path: ctx?.path,
     jsonLd: ctx ? [breadcrumbLd(crumbs), {
       '@context': 'https://schema.org', '@type': 'CollectionPage', name: ctx.title,
@@ -203,7 +203,7 @@ export default function Shop({ mode = 'all' }) {
               <>
                 <p className="display h-sm">Arriving soon.</p>
                 <p className="shop-empty-note">We are still shooting this collection. Message us on WhatsApp and we will send you what is in store today.</p>
-                <a className="btn" href={waLink(`Hello BMP Clothings 👋
+                <a className="btn" href={waLink(`Hello BMP Collections 👋
 
 Please what do you have in ${ctx.title.toLowerCase()}?`)} target="_blank" rel="noopener noreferrer">
                   <WaIcon /> Ask what is in store

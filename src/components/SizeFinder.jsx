@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+﻿import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Check, Ruler } from 'lucide-react'
 import WaIcon from './WaIcon'
@@ -41,7 +41,7 @@ export default function SizeFinder({ product, onUse, compact = false }) {
     onUse?.(String(res.size))
   }
 
-  const helpText = `Hello BMP Clothings 👋\n\nPlease help me with my size${product ? ` for *${product.title}*` : ''}.\n📏 Bust: ${vals.bust || '?'} ${unit}\n📏 Waist: ${vals.waist || '?'} ${unit}\n📏 Hip: ${vals.hip || '?'} ${unit}`
+  const helpText = `Hello BMP Collections 👋\n\nPlease help me with my size${product ? ` for *${product.title}*` : ''}.\n📏 Bust: ${vals.bust || '?'} ${unit}\n📏 Waist: ${vals.waist || '?'} ${unit}\n📏 Hip: ${vals.hip || '?'} ${unit}`
 
   return (
     <div className={`sf ${compact ? 'sf--compact' : ''}`}>
@@ -134,7 +134,7 @@ export function SizeTable() {
       </div>
       <div className="st-wrap glass">
         <table>
-          <caption className="sr-only">BMP Clothings size chart in {unit === 'in' ? 'inches' : 'centimetres'}</caption>
+          <caption className="sr-only">BMP Collections size chart in {unit === 'in' ? 'inches' : 'centimetres'}</caption>
           <thead><tr><th scope="col">Size</th><th scope="col">Bust</th><th scope="col">Waist</th><th scope="col">Hip</th></tr></thead>
           <tbody>
             {SIZE_CHART.map((r) => (

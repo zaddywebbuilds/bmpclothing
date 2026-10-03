@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import Reveal, { Lines } from '../components/Reveal'
 import SizeFinder, { SizeTable } from '../components/SizeFinder'
@@ -18,7 +18,7 @@ const STEPS = [
 export default function SizeGuide() {
   useSeo({
     title: 'Size Guide & Find My Size',
-    description: `BMP Clothings size guide: UK sizes ${SIZE_CHART[0].size} to ${SIZE_CHART[SIZE_CHART.length - 1].size} with bust, waist and hip measurements in inches and cm. Enter your measurements to find your BMP size instantly.`,
+    description: `BMP Collections size guide: UK sizes ${SIZE_CHART[0].size} to ${SIZE_CHART[SIZE_CHART.length - 1].size} with bust, waist and hip measurements in inches and cm. Enter your measurements to find your BMP size instantly.`,
     path: '/size-guide',
   })
   return (
@@ -44,7 +44,7 @@ export default function SizeGuide() {
             ))}
           </ol>
           <div className="page-actions reveal">
-            <a className="btn btn--glass" href={waLink('Hello BMP Clothings 👋 Please help me find my size.')} target="_blank" rel="noopener noreferrer"><WaIcon /> Ask us on WhatsApp</a>
+            <a className="btn btn--glass" href={waLink('Hello BMP Collections 👋 Please help me find my size.')} target="_blank" rel="noopener noreferrer"><WaIcon /> Ask us on WhatsApp</a>
             <Link to="/shop" className="link-line">Shop in your size <ArrowRight className="arrow" size={13} /></Link>
           </div>
         </div>

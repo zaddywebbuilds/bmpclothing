@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import Img from '../components/Img'
 import Reveal, { Lines } from '../components/Reveal'
@@ -17,7 +17,7 @@ const CHAPTERS = [
 ]
 
 export default function Lookbook() {
-  useSeo({ title: 'Lookbook', description: 'The BMP Clothings lookbook: gold hour, red alert, soft power, blue mood and colour theory. Shop every look from our Lagos fashion house.', path: '/lookbook' })
+  useSeo({ title: 'Lookbook', description: 'The BMP Collections lookbook: gold hour, red alert, soft power, blue mood and colour theory. Shop every look from our Lagos fashion house.', path: '/lookbook' })
   return (
     <div className="lookbook">
       <Reveal className="page-hero wrap">

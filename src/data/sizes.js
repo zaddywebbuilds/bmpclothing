@@ -1,4 +1,4 @@
-// BMP Clothings size guide (supplied by the owner, Sept 2026). Body measurements in inches.
+﻿// BMP Collections size guide (supplied by the owner, Sept 2026). Body measurements in inches.
 export const SIZE_CHART = [
   { size: 8, bust: 37, waist: 28, hip: 38 },
   { size: 10, bust: 38, waist: 31, hip: 41 },

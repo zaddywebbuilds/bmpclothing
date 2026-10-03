@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import Img from '../components/Img'
 import Reveal, { Lines } from '../components/Reveal'
@@ -9,7 +9,7 @@ import { useSeo } from '../lib/seo'
 import './pages.css'
 
 export default function About() {
-  useSeo({ title: 'About BMP', description: 'The story behind BMP Clothings, a Lagos women’s fashion house built on self-expression, quality you can see and style you can feel.', path: '/about' })
+  useSeo({ title: 'About BMP', description: 'The story behind BMP Collections, a Lagos women’s fashion house built on self-expression, quality you can see and style you can feel.', path: '/about' })
   const hero = productBySlug['white-halter-ruffle-gown']
   const store = productBySlug['turquoise-off-shoulder-ruched-maxi']
   const detail = productBySlug['tiered-strappy-midi-dress']
@@ -21,11 +21,11 @@ export default function About() {
           <h1 className="display caps h-xl"><Lines lines={['The story', <em key="b">behind BMP</em>]} /></h1>
           <p className="lede reveal" data-delay="3">{about[0]}</p>
         </div>
-        <div className="panel page-hero-media reveal-img"><Img id={hero.images[0]} alt={`BMP Clothings: ${hero.title}`} priority sizes="(max-width: 900px) 90vw, 40vw" /></div>
+        <div className="panel page-hero-media reveal-img"><Img id={hero.images[0]} alt={`BMP Collections: ${hero.title}`} priority sizes="(max-width: 900px) 90vw, 40vw" /></div>
       </Reveal>
 
       <Reveal className="section wrap about-grid">
-        <div className="panel about-img reveal-img"><Img id={store.images[0]} alt="Inside the BMP Clothings store in Lagos" sizes="(max-width: 900px) 80vw, 30vw" /></div>
+        <div className="panel about-img reveal-img"><Img id={store.images[0]} alt="Inside the BMP Collections store in Lagos" sizes="(max-width: 900px) 80vw, 30vw" /></div>
         <div className="about-copy">
           <p className="display about-big reveal">{philosophy}</p>
           {about.slice(1).map((t, i) => <p key={i} className="lede reveal" data-delay={i + 1}>{t}</p>)}
@@ -50,13 +50,13 @@ export default function About() {
       </Reveal>
 
       <Reveal className="section wrap about-end">
-        <div className="panel about-end-img reveal-img"><Img id={detail.images[0]} alt="BMP Clothings dresses in store" sizes="(max-width: 900px) 70vw, 26vw" /></div>
+        <div className="panel about-end-img reveal-img"><Img id={detail.images[0]} alt="BMP Collections dresses in store" sizes="(max-width: 900px) 70vw, 26vw" /></div>
         <div className="about-end-copy">
           <h2 className="display caps h-md"><Lines lines={['Thank you for', <em key="c">choosing BMP.</em>]} /></h2>
           <p className="lede reveal">We appreciate your support and look forward to dressing you for your next moment.</p>
           <div className="page-actions reveal">
             <Link to="/shop" className="btn">Shop BMP <ArrowRight className="arrow" size={15} /></Link>
-            <a className="btn btn--glass" href={waLink('Hello BMP Clothings 👋')} target="_blank" rel="noopener noreferrer"><WaIcon /> {site.whatsapp.display}</a>
+            <a className="btn btn--glass" href={waLink('Hello BMP Collections 👋')} target="_blank" rel="noopener noreferrer"><WaIcon /> {site.whatsapp.display}</a>
           </div>
         </div>
       </Reveal>

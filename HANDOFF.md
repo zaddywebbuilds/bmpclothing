@@ -1,4 +1,4 @@
-# BMP Clothings — Developer Handoff
+﻿# BMP Collections — Developer Handoff
 
 **Repo:** `zaddywebbuilds/bmpclothing`  
 **Live site:** https://zaddywebbuilds.github.io/bmpclothing/  
@@ -99,7 +99,7 @@ Auto-generated. DO NOT hand-edit. Run `build_media.py` to regenerate.
 
 Every product page has a sticky "Order on WhatsApp" bar. The message format is:
 ```
-Hello BMP Clothings 👋
+Hello BMP Collections 👋
 
 I want to order:
 *BMP LG 7 – Cobalt Gown*

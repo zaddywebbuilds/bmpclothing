@@ -1,4 +1,4 @@
-// Emits one index.html per route (route-specific title/description/canonical/og:image, and static
+﻿// Emits one index.html per route (route-specific title/description/canonical/og:image, and static
 // Product JSON-LD on product pages) so GitHub Pages serves deep links directly and crawlers see
 // real metadata without running JS. Also writes 404.html, an image sitemap and robots.txt.
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs'
@@ -42,28 +42,28 @@ const MIME = { webp: 'image/webp', jpg: 'image/jpeg', jpeg: 'image/jpeg', png: '
 
 // [path, title, description, noindex, ogImage, jsonLd, sitemapImages]
 const routes = [
-  ['/shop', "Shop Women's Fashion", 'Every BMP Clothings piece in one place: statement long gowns, short gowns, jumpsuits and coordinated sets from Lagos, in UK sizes 8–22 with clear Naira prices.'],
-  ['/new-in', 'New In', 'The newest pieces from the BMP Clothings store in Lagos. Statement gowns, minis and jumpsuits, just arrived.'],
-  ['/lookbook', 'Lookbook', 'The BMP Clothings lookbook: gold hour, red alert, soft power, blue mood and colour theory. Shop every look.'],
+  ['/shop', "Shop Women's Fashion", 'Every BMP Collections piece in one place: statement long gowns, short gowns, jumpsuits and coordinated sets from Lagos, in UK sizes 8–22 with clear Naira prices.'],
+  ['/new-in', 'New In', 'The newest pieces from the BMP Collections store in Lagos. Statement gowns, minis and jumpsuits, just arrived.'],
+  ['/lookbook', 'Lookbook', 'The BMP Collections lookbook: gold hour, red alert, soft power, blue mood and colour theory. Shop every look.'],
   ['/the-bmp-woman', 'The BMP Woman', 'If you see BMP Woman, you go know. Meet the confident, expressive Lagos woman behind every BMP piece.'],
-  ['/about', 'About BMP', 'The story behind BMP Clothings, a Lagos women’s fashion house built on quality you can see and style you can feel.'],
-  ['/contact', 'Contact', 'Contact BMP Clothings at No 2 Onabanjo Street, Oworoshoki, Lagos. WhatsApp 0901 962 4520 for orders, sizing, delivery and product questions.'],
-  ['/faq', 'FAQ', 'Answers about ordering, payment, delivery and returns at BMP Clothings.'],
-  ['/shipping', 'Shipping', 'BMP Clothings shipping: order processing, delivery time, charges and tracking.'],
-  ['/size-guide', 'Size Guide & Find My Size', 'BMP Clothings size guide: UK sizes 8 to 22 with bust, waist and hip in inches and cm. Enter your measurements to find your BMP size instantly.'],
-  ['/returns', 'Returns & Exchanges', 'BMP Clothings returns and exchanges: eligibility, item condition and how to request a return.'],
-  ['/bag', 'Your Bag', 'Your BMP Clothings shopping bag.', true],
-  ['/wishlist', 'Wishlist', 'Your saved BMP Clothings pieces.', true],
+  ['/about', 'About BMP', 'The story behind BMP Collections, a Lagos women’s fashion house built on quality you can see and style you can feel.'],
+  ['/contact', 'Contact', 'Contact BMP Collections at No 2 Onabanjo Street, Oworoshoki, Lagos. WhatsApp 0901 962 4520 for orders, sizing, delivery and product questions.'],
+  ['/faq', 'FAQ', 'Answers about ordering, payment, delivery and returns at BMP Collections.'],
+  ['/shipping', 'Shipping', 'BMP Collections shipping: order processing, delivery time, charges and tracking.'],
+  ['/size-guide', 'Size Guide & Find My Size', 'BMP Collections size guide: UK sizes 8 to 22 with bust, waist and hip in inches and cm. Enter your measurements to find your BMP size instantly.'],
+  ['/returns', 'Returns & Exchanges', 'BMP Collections returns and exchanges: eligibility, item condition and how to request a return.'],
+  ['/bag', 'Your Bag', 'Your BMP Collections shopping bag.', true],
+  ['/wishlist', 'Wishlist', 'Your saved BMP Collections pieces.', true],
 ]
 // comingSoon categories get a page before their photos land, so the URL in the nav resolves.
 for (const c of catalog.categories.filter((c) => c.count || c.comingSoon)) {
   const desc = c.count
-    ? `${c.blurb} Shop ${c.count} ${c.unit || c.name.toLowerCase()} from BMP Clothings, Lagos.`
-    : `${c.blurb} Message BMP Clothings in Lagos on WhatsApp for what is in store today.`
+    ? `${c.blurb} Shop ${c.count} ${c.unit || c.name.toLowerCase()} from BMP Collections, Lagos.`
+    : `${c.blurb} Message BMP Collections in Lagos on WhatsApp for what is in store today.`
   routes.push([`/collections/${c.key}`, c.name, desc])
 }
 for (const o of catalog.occasions) {
-  routes.push([`/occasion/${o.key}`, o.name, `${o.line} BMP Clothings pieces styled for ${o.name.toLowerCase()}.`])
+  routes.push([`/occasion/${o.key}`, o.name, `${o.line} BMP Collections pieces styled for ${o.name.toLowerCase()}.`])
 }
 // Every non-product route gets static structured data too. Googlebot does run JS and would
 // pick up useSeo's blocks, but the static copy is what non-JS crawlers and link unfurlers
@@ -97,12 +97,12 @@ for (const p of catalog.products) {
   const title = `${p.title}${p.code ? ` (${p.code})` : ''}`
   // Kept under ~160 so Google shows the whole line: the price is in the tail and is the
   // part worth not truncating.
-  const desc = `${p.description.slice(0, 118).replace(/\s\S*$/, '')}… ${naira(p.price)} at BMP Clothings, Lagos.`
+  const desc = `${p.description.slice(0, 118).replace(/\s\S*$/, '')}… ${naira(p.price)} at BMP Collections, Lagos.`
   const url = canon(`/product/${p.slug}`)
   const ld = [
     {
       '@context': 'https://schema.org', '@type': 'Product', name: p.title, sku: p.sku || p.slug,
-      brand: { '@type': 'Brand', name: 'BMP Clothings' }, description: p.description, category: catName[p.category],
+      brand: { '@type': 'Brand', name: 'BMP Collections' }, description: p.description, category: catName[p.category],
       image: p.images.map((id) => img(id)),
       ...(p.colours.length ? { color: p.colours.map((c) => c.name).join(', ') } : {}),
       offers: {
@@ -110,7 +110,7 @@ for (const p of catalog.products) {
         // Always stated: Google needs availability to show the price rich result, and an
         // omitted field loses it entirely. Everything listed is for sale unless marked.
         availability: `https://schema.org/${p.inStock === false ? 'OutOfStock' : 'InStock'}`,
-        seller: { '@type': 'Organization', name: 'BMP Clothings' },
+        seller: { '@type': 'Organization', name: 'BMP Collections' },
       },
     },
     {
@@ -145,7 +145,7 @@ const homeLd = () => {
       name: site.name, url: SITE,
       logo: `${SITE}/assets/bmp/brand/og-image.jpg`,
       image: `${SITE}/assets/bmp/brand/og-image.jpg`,
-      description: 'BMP Clothings is a Lagos women’s fashion house selling statement long gowns, short gowns, jumpsuits and coordinated sets, with clear Naira prices and ordering on WhatsApp.',
+      description: 'BMP Collections is a Lagos women’s fashion house selling statement long gowns, short gowns, jumpsuits and coordinated sets, with clear Naira prices and ordering on WhatsApp.',
       address: {
         '@type': 'PostalAddress',
         streetAddress: `${site.address.street}, ${site.address.area}`,
@@ -167,7 +167,7 @@ const homeLd = () => {
 }
 
 const render = (path, title, desc, noindex, image, ld) => {
-  const full = `${esc(title)} | BMP Clothings`
+  const full = `${esc(title)} | BMP Collections`
   let h = shell
     .replace(/\s*<link rel="preload" as="image"[^>]*>/, '')
     .replace(/<title>.*?<\/title>/, `<title>${full}</title>`)

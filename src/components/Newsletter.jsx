@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { ArrowRight, Check } from 'lucide-react'
 import { site, waLink } from '../data/site'
 
@@ -19,7 +19,7 @@ export default function Newsletter({ compact = false }) {
       } catch { setState('error') }
       return
     }
-    window.open(waLink(`Hello BMP Clothings 👋\n\nPlease add me to the BMP Circle for new drops and edits.\nEmail: ${email}`), '_blank', 'noopener')
+    window.open(waLink(`Hello BMP Collections 👋\n\nPlease add me to the BMP Circle for new drops and edits.\nEmail: ${email}`), '_blank', 'noopener')
     setState('done')
   }
 

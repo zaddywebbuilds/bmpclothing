@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import { ArrowUpRight } from 'lucide-react'
 import Logo from './Logo'
 import WaIcon from './WaIcon'
@@ -19,7 +19,7 @@ export default function Footer() {
             <p className="footer-line display">
               If you see BMP Woman, <em>you go know.</em>
             </p>
-            <a className="btn btn--light" href={waLink('Hello BMP Clothings 👋')} target="_blank" rel="noopener noreferrer">
+            <a className="btn btn--light" href={waLink('Hello BMP Collections 👋')} target="_blank" rel="noopener noreferrer">
               <WaIcon /> Chat on WhatsApp
             </a>
           </div>
@@ -66,7 +66,7 @@ export default function Footer() {
             <div className="footer-map-frame">
               <iframe
                 src={mapsEmbed}
-                title={`Map showing BMP Clothings at ${fullAddress}`}
+                title={`Map showing BMP Collections at ${fullAddress}`}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen
@@ -79,7 +79,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-base">
-          <span>© {new Date().getFullYear()} BMP Clothings. All rights reserved.</span>
+          <span>© {new Date().getFullYear()} BMP Collections. All rights reserved.</span>
           <span>Quality you can see. Style you can feel.</span>
         </div>
       </div>

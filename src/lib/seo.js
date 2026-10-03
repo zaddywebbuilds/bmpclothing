@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+﻿import { useEffect } from 'react'
 import { site } from '../data/site'
 import { priceRange } from '../data/catalog'
 
@@ -24,7 +24,7 @@ const setLink = (rel, href) => {
 
 export function useSeo({ title, description, path = '', image, imageAlt, type = 'website', jsonLd }) {
   useEffect(() => {
-    const full = title ? `${title} | BMP Clothings` : "BMP Clothings | Women's Fashion, Dresses & Statement Styles"
+    const full = title ? `${title} | BMP Collections` : "BMP Collections | Women's Fashion, Dresses & Statement Styles"
     document.title = full
     const url = `${site.url}${path}`
     const img = image ? `${site.url}/${image}` : `${site.url}/assets/bmp/brand/og-image.jpg`
@@ -38,13 +38,13 @@ export function useSeo({ title, description, path = '', image, imageAlt, type = 
     setMeta('name', 'twitter:title', full)
     setMeta('property', 'og:url', url)
     setMeta('property', 'og:image', img)
-    setMeta('property', 'og:image:alt', imageAlt || `${title || site.name} — BMP Clothings, Lagos`)
+    setMeta('property', 'og:image:alt', imageAlt || `${title || site.name} — BMP Collections, Lagos`)
     setMeta('property', 'og:type', type)
     setMeta('property', 'og:site_name', site.name)
     setMeta('property', 'og:locale', 'en_NG')
     setMeta('name', 'twitter:card', 'summary_large_image')
     setMeta('name', 'twitter:image', img)
-    setMeta('name', 'twitter:image:alt', imageAlt || `${title || site.name} — BMP Clothings, Lagos`)
+    setMeta('name', 'twitter:image:alt', imageAlt || `${title || site.name} — BMP Collections, Lagos`)
     // let search engines use full-size imagery and longer snippets for the catalogue
     setMeta('name', 'robots', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1')
     setMeta('name', 'geo.region', 'NG-LA')
@@ -80,7 +80,7 @@ const organizationLd = () => {
     logo: `${site.url}/assets/bmp/brand/og-image.jpg`,
     image: `${site.url}/assets/bmp/brand/og-image.jpg`,
     description:
-      'BMP Clothings is a Lagos women’s fashion house selling statement long gowns, short gowns, jumpsuits and coordinated sets, with clear Naira prices and ordering on WhatsApp.',
+      'BMP Collections is a Lagos women’s fashion house selling statement long gowns, short gowns, jumpsuits and coordinated sets, with clear Naira prices and ordering on WhatsApp.',
     address: {
       '@type': 'PostalAddress',
       streetAddress: `${site.address.street}, ${site.address.area}`,

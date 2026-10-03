@@ -1,6 +1,6 @@
-// Brand facts sourced from bmpclothings.com (Sept 2026). Edit here, not in components.
+﻿// Brand facts for bmpcollections.com. Edit here, not in components.
 export const site = {
-  name: 'BMP Clothings',
+  name: 'BMP Collections',
   url: 'https://bmpcollections.com',
   location: 'Lagos, Nigeria',
   address: {
@@ -90,7 +90,7 @@ export const testimonials = [
 ]
 
 export const about = [
-  'Welcome to BMP Clothings, your destination for carefully selected fashion pieces designed to complement your style.',
+  'Welcome to BMP Collections, your destination for carefully selected fashion pieces designed to complement your style.',
   'We believe fashion should be beautiful, practical and accessible. Our collections are selected with attention to quality, detail and the needs of our customers.',
   'Whether you are shopping for an everyday piece, a special occasion or a thoughtful gift, our goal is to give you a pleasant and reliable shopping experience.',
 ]

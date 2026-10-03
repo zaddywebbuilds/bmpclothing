@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom'
+﻿import { Link, useLocation } from 'react-router-dom'
 import { ShoppingBag, Search } from 'lucide-react'
 import WaIcon from './WaIcon'
 import { useStore } from '../lib/store'
@@ -17,7 +17,7 @@ export default function MobileBar() {
         <Search size={17} strokeWidth={1.6} />
         <span>Shop</span>
       </Link>
-      <a className="mbar-btn mbar-btn--wa" href={waLink('Hello BMP Clothings 👋')} target="_blank" rel="noopener noreferrer">
+      <a className="mbar-btn mbar-btn--wa" href={waLink('Hello BMP Collections 👋')} target="_blank" rel="noopener noreferrer">
         <WaIcon size={17} />
         <span>WhatsApp</span>
       </a>

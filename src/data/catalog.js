@@ -1,4 +1,4 @@
-import data from './catalog.json'
+﻿import data from './catalog.json'
 
 export const media = data.media
 
@@ -38,7 +38,7 @@ export const pick = (...slugs) => slugs.map((s) => productBySlug[s]).filter(Bool
 export const altText = (p, i = 0) =>
   p.worn
     ? `BMP customer wearing the ${p.title}${p.code ? ` (${p.code})` : ''}`
-    : `${p.title}${p.code ? ` (${p.code})` : ''} by BMP Clothings${i ? `, view ${i + 1}` : ''}`
+    : `${p.title}${p.code ? ` (${p.code})` : ''} by BMP Collections${i ? `, view ${i + 1}` : ''}`
 
 export const priceRange = () => {
   const ps = products.map((p) => p.price)
