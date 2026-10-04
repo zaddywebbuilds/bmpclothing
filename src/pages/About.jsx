@@ -1,10 +1,10 @@
 ﻿import { Link } from 'react-router-dom'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Quote } from 'lucide-react'
 import Img from '../components/Img'
 import Reveal, { Lines } from '../components/Reveal'
 import WaIcon from '../components/WaIcon'
 import { productBySlug, products, listedCategories } from '../data/catalog'
-import { about, philosophy, pillars, site, waLink } from '../data/site'
+import { about, philosophy, pillars, site, testimonials, waLink } from '../data/site'
 import { useSeo } from '../lib/seo'
 import './pages.css'
 
@@ -47,6 +47,21 @@ export default function About() {
           ))}
         </ol>
       </Reveal>
+
+      {testimonials.length > 0 && (
+        <Reveal className="section section--tight wrap about-quotes" aria-label="What customers say">
+          {testimonials.map((t) => (
+            <figure key={t.name} className="quote-card glass reveal">
+              <Quote size={22} strokeWidth={1.4} aria-hidden="true" />
+              <blockquote className="display quote-body">{t.quote}</blockquote>
+              <figcaption>
+                <strong>{t.name}</strong>
+                <span>{t.location}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </Reveal>
+      )}
 
       <Reveal className="section wrap about-end">
         <div className="panel about-end-img reveal-img"><Img id={detail.images[0]} alt="BMP Collections dresses in store" sizes="(max-width: 900px) 70vw, 26vw" /></div>

@@ -15,6 +15,7 @@ import OrderToast from './components/OrderToast'
 import Cursor from './components/Cursor'
 import MobileBar from './components/MobileBar'
 import FloatingWa from './components/FloatingWa'
+import ErrorBoundary from './components/ErrorBoundary'
 import Home from './pages/Home'
 
 const Shop = lazy(() => import('./pages/Shop'))
@@ -70,6 +71,7 @@ export default function App() {
       <AnnouncementBar />
       <Navbar />
       <main id="main" key={pathname} className="page-enter">
+        <ErrorBoundary>
         <Suspense fallback={<div style={{ minHeight: '100vh' }} />}>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -91,6 +93,7 @@ export default function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
+        </ErrorBoundary>
       </main>
       <Footer />
       <MobileMenu />

@@ -7,6 +7,7 @@ import AddToBag from '../components/AddToBag'
 import WishlistButton from '../components/WishlistButton'
 import WaIcon from '../components/WaIcon'
 import RestockNotify from '../components/RestockNotify'
+import ShareButton from '../components/ShareButton'
 import ProductCard from '../components/ProductCard'
 import Accordion, { AccordionItem } from '../components/Accordion'
 import Reveal, { Lines } from '../components/Reveal'
@@ -101,6 +102,7 @@ export default function Product() {
               <p className="pdp-soldout-msg">This piece is currently out of stock.</p>
               <RestockNotify product={p} className="btn btn--glass btn--block pdp-wa" />
               <WishlistButton slug={p.slug} className="pdp-wish" />
+              <ShareButton product={p} />
             </div>
           ) : (
             <>
@@ -116,9 +118,12 @@ export default function Product() {
               <a className="btn btn--glass btn--block pdp-wa" href={orderLink(p, { variant, qty })} target="_blank" rel="noopener noreferrer">
                 <WaIcon /> Order on WhatsApp · {naira(p.price * qty)}
               </a>
-              <a className="pdp-ask" href={enquiryLink(p, variant)} target="_blank" rel="noopener noreferrer">
-                <MessageCircle size={15} strokeWidth={1.6} /> Ask about this piece
-              </a>
+              <div className="pdp-secondary">
+                <a className="pdp-ask" href={enquiryLink(p, variant)} target="_blank" rel="noopener noreferrer">
+                  <MessageCircle size={15} strokeWidth={1.6} /> Ask about this piece
+                </a>
+                <ShareButton product={p} />
+              </div>
             </>
           )}
 

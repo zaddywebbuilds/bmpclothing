@@ -1,0 +1,14 @@
+.errb {
+  display: grid; gap: 16px; justify-items: start;
+  padding: clamp(80px, 14vh, 160px) 0 clamp(60px, 10vh, 120px);
+  max-width: 720px;
+}
+.errb-note { max-width: 52ch; }
+.errb-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; }
+.errb-wa {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 4px;
+  font-size: 13px; color: var(--ink-soft);
+  border-bottom: 1px solid var(--line-strong); padding-bottom: 2px;
+}
+.errb-wa:hover { color: var(--ink); }
+.errb-wa svg { color: #1f9e55; }

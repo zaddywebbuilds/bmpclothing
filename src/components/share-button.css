@@ -1,0 +1,7 @@
+.sharebtn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; color: var(--ink-soft);
+  transition: color .3s;
+}
+.sharebtn:hover { color: var(--ink); }
+.sharebtn svg { flex: none; }

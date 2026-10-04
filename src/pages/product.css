@@ -49,6 +49,7 @@
 .pdp-details li { position: relative; padding-left: 18px; }
 .pdp-details li::before { content: ''; position: absolute; left: 0; top: .72em; width: 8px; height: 1px; background: var(--ink-soft); }
 .pdp-sku { color: var(--ink-mute); font-size: 12.5px; }
+.pdp-secondary { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; }
 
 
 .pdp-sticky {
