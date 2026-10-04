@@ -6,10 +6,11 @@ import Img from './Img'
 import OptionPicker, { useOptions } from './OptionPicker'
 import AddToBag from './AddToBag'
 import WaIcon from './WaIcon'
+import RestockNotify from './RestockNotify'
 import { useStore } from '../lib/store'
 import { productBySlug, altText } from '../data/catalog'
 import { naira } from '../lib/util'
-import { orderLink, restockLink } from '../lib/order'
+import { orderLink } from '../lib/order'
 
 export default function QuickView() {
   const { quickView, closeQuickView } = useStore()
@@ -33,9 +34,7 @@ export default function QuickView() {
             {p.inStock === false ? (
               <>
                 <span className="tag tag--soldout">Sold out</span>
-                <a className="btn btn--glass btn--block" href={restockLink(p)} target="_blank" rel="noopener noreferrer">
-                  <WaIcon /> Ask about restock
-                </a>
+                <RestockNotify product={p} className="btn btn--glass btn--block" />
               </>
             ) : (
               <>

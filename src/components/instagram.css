@@ -1,0 +1,11 @@
+.ig-section behold-widget { display: block; margin-top: 8px; }
+
+.ig-follow {
+  display: grid; gap: 10px; justify-items: center; text-align: center;
+  padding: clamp(28px, 5vw, 52px) 24px;
+  border-radius: var(--r-xl);
+  transition: transform .5s var(--ease), box-shadow .5s var(--ease);
+}
+.ig-follow:hover { transform: translateY(-3px); box-shadow: var(--sh-lift); }
+.ig-follow strong { font-weight: 400; font-size: clamp(24px, 2.4vw, 34px); line-height: 1.05; }
+.ig-follow-note { max-width: 46ch; font-size: 14px; color: var(--ink-soft); line-height: 1.6; }

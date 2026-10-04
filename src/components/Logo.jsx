@@ -8,7 +8,7 @@
         width="40"
         height="40"
       />
-      <span className="logo-sub" aria-hidden="true">Clothings</span>
+      <span className="logo-sub" aria-hidden="true">Collections</span>
     </span>
   )
 }

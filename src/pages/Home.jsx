@@ -5,6 +5,7 @@ import Img from '../components/Img'
 import HeroVideo from '../components/HeroVideo'
 import Rail from '../components/Rail'
 import Newsletter from '../components/Newsletter'
+import InstagramFeed from '../components/InstagramFeed'
 import WaIcon from '../components/WaIcon'
 import Reveal, { Lines } from '../components/Reveal'
 import { categories, listedCategories, categoryByKey, occasions, pick, productBySlug, products, altText } from '../data/catalog'
@@ -53,6 +54,7 @@ export default function Home() {
       <BmpWomanScene />
       <Occasions />
       <Quality />
+      <InstagramFeed />
       <Circle />
       <FinalCta />
     </>

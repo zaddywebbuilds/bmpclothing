@@ -273,6 +273,8 @@ async function loadProducts() {
   S.catalogSha = cd.sha
   if (od) { S.orders = JSON.parse(atob(od.content.replace(/\n/g,''))); S.ordersSha = od.sha }
   else { S.orders = { orders: [] }; S.ordersSha = null }
+  // Restock requests share orders.json so there is one file to load, commit and back up.
+  if (!S.orders.restocks) S.orders.restocks = []
 }
 
 async function saveOrdersJson(commitMsg) {
@@ -489,7 +491,7 @@ function bindTokenSetup() {
 
 // ---- DASHBOARD ----
 function renderDashboard() {
-  const tabs={products:'📦 Products',add:'➕ Add Product',orders:'📋 Orders',settings:'⚙️ Settings'}
+  const tabs={products:'📦 Products',add:'➕ Add Product',orders:'📋 Orders',restock:'🔔 Restock',settings:'⚙️ Settings'}
   return `<div id="app">
     ${isDemo() ? `<div style="background:#c9a961;color:#1d1a41;text-align:center;padding:8px 16px;font-size:12px;font-weight:700;letter-spacing:.08em">
       DEMO MODE — you can explore everything but changes will not be saved to the live site
@@ -515,6 +517,7 @@ function renderTab() {
   if (S.tab==='products') return renderProductsTab()
   if (S.tab==='add') return renderAddTab()
   if (S.tab==='orders') return renderOrdersTab()
+  if (S.tab==='restock') return renderRestockTab()
   if (S.tab==='settings') return renderSettingsTab()
   return ''
 }
@@ -690,6 +693,78 @@ function parseWhatsAppOrder(text) {
   }
 }
 
+// ---- RESTOCK TAB ----
+// Pulls the ref, piece and name out of a pasted "tell me when it is back" message.
+function parseRestockMessage(text) {
+  const t = (text||'').replace(/\r/g,'')
+  const out = { name:'', product:'', code:'', ref:'', slug:'' }
+  const title = t.match(/\*(.+?)\*/)
+  if (title) {
+    const raw = title[1].trim()
+    const code = raw.match(/\s*\(([^)]+)\)\s*$/)
+    out.product = code ? raw.slice(0, code.index).trim() : raw
+    out.code = code ? code[1].trim() : ''
+  }
+  const ref = t.match(/Restock ref:\s*(BMP-[A-Z0-9]+)/i)
+  if (ref) out.ref = ref[1].toUpperCase()
+  const slug = t.match(/\/product\/([a-z0-9-]+)/i)
+  if (slug) out.slug = slug[1]
+  // Stop at the end of the line: a shopper who leaves the name blank would otherwise
+  // capture the divider rule that follows it.
+  const name = t.match(/My name:[ \t]*(.*)/)
+  if (name) {
+    const v = name[1].trim()
+    if (v && !/^[─—-]+$/.test(v)) out.name = v
+  }
+  return out
+}
+
+function renderRestockTab() {
+  if (!S.orders) return `<div class="loading-full"><span class="spinner"></span> Loading…</div>`
+  const rows = S.orders.restocks || []
+  // Grouped so the owner sees which sold-out piece is most in demand.
+  const byProduct = {}
+  rows.forEach(r => {
+    const k = r.product || '—'
+    byProduct[k] = byProduct[k] || { count:0, code:r.code||'' }
+    byProduct[k].count++
+  })
+  const ranked = Object.entries(byProduct).sort((a,b)=>b[1].count-a[1].count)
+  return `
+  <div class="stats" style="grid-template-columns:repeat(3,1fr)">
+    <div class="stat-card"><div class="stat-num">${rows.length}</div><div class="stat-label">Requests</div></div>
+    <div class="stat-card"><div class="stat-num">${ranked.length}</div><div class="stat-label">Pieces wanted</div></div>
+    <div class="stat-card"><div class="stat-num">${ranked.length?esc(ranked[0][0]).slice(0,18):'—'}</div><div class="stat-label">Most wanted</div></div>
+  </div>
+
+  <div class="field paste-order" style="margin-bottom:20px">
+    <label>Paste the WhatsApp restock message</label>
+    <textarea id="restock-paste" rows="4" placeholder="Copy the customer's “tell me when it is back” message and paste it here…"></textarea>
+    <div style="display:flex;gap:10px;margin-top:10px;align-items:center;flex-wrap:wrap">
+      <button class="btn btn-gold btn-sm" id="restock-fill" type="button">Log this request</button>
+      <small style="color:var(--bone-dim)">Their number is in the chat you pasted from, so reply there when stock lands.</small>
+    </div>
+  </div>
+
+  ${rows.length===0 ? `<div class="empty"><div class="empty-icon">🔔</div>No restock requests yet.<br><small>When a shopper taps “Tell me when it is back” on a sold-out piece, paste their message above.</small></div>` : `
+  <div style="overflow-x:auto">
+    <table class="orders-table">
+      <thead><tr><th>Date</th><th>Ref</th><th>Customer</th><th>Piece</th><th>Code</th><th></th></tr></thead>
+      <tbody>
+        ${rows.map((r,i) => `<tr>
+          <td style="white-space:nowrap">${fmtDate(r.date)}</td>
+          <td style="white-space:nowrap;color:var(--gold);font-weight:700">${esc(r.ref)||'—'}</td>
+          <td>${esc(r.name)||'—'}</td>
+          <td style="max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(r.product)||'—'}</td>
+          <td style="color:var(--bone-dim);font-size:12px">${esc(r.code)||'—'}</td>
+          <td><button class="icon-btn-sm delete-restock-btn" data-idx="${i}" title="Delete">🗑</button></td>
+        </tr>`).join('')}
+      </tbody>
+    </table>
+  </div>`}
+  `
+}
+
 function renderOrdersTab() {
   if (!S.orders) return `<div class="loading-full"><span class="spinner"></span> Loading orders…</div>`
   const rows = S.orders.orders || []
@@ -838,6 +913,7 @@ function bindDashboard() {
   if (S.tab==='products') bindProductsTab()
   if (S.tab==='add') bindAddTab()
   if (S.tab==='orders') bindOrdersTab()
+  if (S.tab==='restock') bindRestockTab()
   if (S.tab==='settings') bindSettingsTab()
   if (S.deleteConfirm) bindModal()
 }
@@ -1116,6 +1192,34 @@ function bindOrdersTab() {
         await saveOrdersJson(`delete order: ${removed.customer} — ${removed.product}`)
         S.msg='Order deleted.'; render()
       } catch(e) { S.orders.orders.splice(idx,0,removed); S.error='Delete failed: '+e.message; render() }
+    })
+  })
+}
+
+// ---- RESTOCK ----
+function bindRestockTab() {
+  document.getElementById('restock-fill')?.addEventListener('click', async () => {
+    const text = document.getElementById('restock-paste')?.value || ''
+    if (!text.trim()) { S.error='Paste the message first.'; render(); return }
+    const r = parseRestockMessage(text)
+    if (!r.product) { S.error='Could not find a piece in that message. Check you pasted the whole thing.'; render(); return }
+    const entry = { date:new Date().toISOString(), ...r }
+    S.orders.restocks.unshift(entry)
+    try {
+      await saveOrdersJson(`add restock request: ${entry.product}`)
+      S.msg=`Logged restock request for ${entry.product}.`; render()
+    } catch(e) { S.orders.restocks.shift(); S.error='Save failed: '+e.message; render() }
+  })
+
+  document.querySelectorAll('.delete-restock-btn').forEach(b => {
+    b.addEventListener('click', async () => {
+      const idx=Number(b.dataset.idx)
+      if (!confirm('Delete this restock request?')) return
+      const removed=S.orders.restocks.splice(idx,1)[0]
+      try {
+        await saveOrdersJson(`delete restock request: ${removed.product}`)
+        S.msg='Request deleted.'; render()
+      } catch(e) { S.orders.restocks.splice(idx,0,removed); S.error='Delete failed: '+e.message; render() }
     })
   })
 }

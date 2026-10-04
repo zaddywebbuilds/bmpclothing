@@ -43,6 +43,12 @@ export const site = {
   newsletterEndpoint: null,
   contactEndpoint: null,
 
+  // Live Instagram grid. Meta retired the free Basic Display API in 2024, so a static site
+  // needs a feed host to read the account. Create a free feed at behold.so, connect
+  // @bmp_clothings and paste the feed id here. While null the section shows a Follow card
+  // instead, so the page is never broken by an unset value.
+  instagramFeed: null,
+
   // Paste your own IDs to switch tracking on. While both are null nothing loads and no cookies are set.
   analytics: {
     ga4: null, // Google Analytics 4, looks like 'G-XXXXXXXXXX'

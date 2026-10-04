@@ -3,7 +3,8 @@ import { Eye, Plus } from 'lucide-react'
 import Img from './Img'
 import WishlistButton from './WishlistButton'
 import WaIcon from './WaIcon'
-import { orderLink, restockLink } from '../lib/order'
+import RestockNotify from './RestockNotify'
+import { orderLink } from '../lib/order'
 import { loadMySize, usesChart } from '../data/sizes'
 import { useStore } from '../lib/store'
 import { altText, categoryByKey } from '../data/catalog'
@@ -64,9 +65,7 @@ export default function ProductCard({ product: p, sizes = '(max-width: 640px) 50
         </p>
       </div>
       {soldOut ? (
-        <a className="pcard-wa" href={restockLink(p)} target="_blank" rel="noopener noreferrer" aria-label={`Ask about a restock of ${p.title}`}>
-          <WaIcon size={15} /> <span>Ask about restock</span>
-        </a>
+        <RestockNotify product={p} className="pcard-wa" />
       ) : (
         <a className="pcard-wa" href={orderLink(p, { variant: sizeLabel })} target="_blank" rel="noopener noreferrer" aria-label={`Order ${p.title} on WhatsApp, ${naira(p.price)}`}>
           <WaIcon size={15} /> <span>Order on WhatsApp</span>

@@ -24,6 +24,7 @@ export function StoreProvider({ children }) {
   const [cart, setCart] = useState(() => read('bmp.cart', []).filter((l) => productBySlug[l.slug]))
   const [wishlist, setWishlist] = useState(() => read('bmp.wishlist', []).filter((s) => productBySlug[s]))
   const [orders, setOrders] = useState(() => read('bmp.orders', []))
+  const [restocks, setRestocks] = useState(() => read('bmp.restocks', []))
   const [panel, setPanel] = useState(null) // 'cart' | 'search' | 'menu' | null
   const [quickView, setQuickView] = useState(null)
   const [bump, setBump] = useState(0)
@@ -31,6 +32,7 @@ export function StoreProvider({ children }) {
   useEffect(() => write('bmp.cart', cart), [cart])
   useEffect(() => write('bmp.wishlist', wishlist), [wishlist])
   useEffect(() => write('bmp.orders', orders), [orders])
+  useEffect(() => write('bmp.restocks', restocks), [restocks])
 
   const addToCart = useCallback((slug, variant = null, qty = 1) => {
     setCart((c) => {
@@ -98,10 +100,37 @@ export function StoreProvider({ children }) {
     return order
   }, [])
 
+  // Marks the piece as asked-about on this device so the card can show it, and posts to
+  // the webhook when one is set. The WhatsApp handoff is what actually reaches the shop.
+  const recordRestock = useCallback((slug, ref) => {
+    const p = productBySlug[slug]
+    if (!p) return null
+    const request = {
+      ref,
+      at: new Date().toISOString(),
+      slug,
+      title: p.title,
+      code: p.code || null,
+      price: p.price,
+    }
+    setRestocks((r) => [request, ...r.filter((x) => x.slug !== slug)].slice(0, 50))
+    track('restock_request', { value: p.price, items: [asItem(p)] })
+    if (site.orderWebhook) {
+      fetch(site.orderWebhook, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type: 'restock', ...request }),
+        keepalive: true,
+      }).catch(() => { /* the WhatsApp handoff still goes through */ })
+    }
+    return request
+  }, [])
+
   const value = {
     lines, count, subtotal, bump,
     addToCart, setQty, removeLine, clearCart,
     orders, recordOrder, checkoutRef,
+    restocks, recordRestock, hasAskedRestock: (s) => restocks.some((r) => r.slug === s),
     wishlist, toggleWish, isWished: (s) => wishlist.includes(s),
     panel, openPanel: setPanel, closePanel: () => setPanel(null),
     quickView, openQuickView: setQuickView, closeQuickView: () => setQuickView(null),

@@ -9,6 +9,9 @@
 }
 @media (min-width: 761px) { .toast { left: auto; right: max(20px, env(safe-area-inset-right)); } }
 @media (max-width: 900px) { .toast { bottom: calc(76px + env(safe-area-inset-bottom)); } }
+/* Above 900px the floating WhatsApp button owns the bottom-right corner, so the toast
+   stacks above it rather than landing on top of it. */
+@media (min-width: 901px) { .toast { bottom: calc(88px + env(safe-area-inset-bottom)); } }
 /* On phones the toast sits over the hero film. .glass is only 34% white, so it stays
    readable through the blur but not without it; this keeps the copy legible either way. */
 @media (max-width: 760px) { .toast { background: rgba(255, 255, 255, .88); } }

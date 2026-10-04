@@ -50,5 +50,16 @@ export const checkoutLink = (lines, subtotal, ref) => waLink(checkoutMessage(lin
 export const enquiryLink = (p, variant) =>
   waLink(`Hi BMP Collections 👋\n\nI would like to know more about *${p.title}*${p.code ? ` (${p.code})` : ''}${variant ? ` in ${variant}` : ''} (${naira(p.price)}).\n\n${pageUrl(p)}`)
 
-export const restockLink = (p) =>
-  waLink(`Hi BMP Collections 👋\n\nIs *${p.title}*${p.code ? ` (${p.code})` : ''} coming back in stock? Please let me know.\n\n${pageUrl(p)}`)
+// Structured like the order message so the admin portal can parse a pasted restock
+// request and build a waiting list per piece. The shopper's number comes with the
+// WhatsApp message itself, so the form never asks for it.
+export const restockMessage = (p, ref) =>
+  `Hi BMP Collections 👋\n\n` +
+  `Please let me know when this is back in stock:\n\n` +
+  `${icon(p)} *${p.title}*${p.code ? ` (${p.code})` : ''}\n` +
+  `💰 Price: ${naira(p.price)}\n` +
+  `🔗 ${pageUrl(p)}\n\n` +
+  (ref ? `🧾 Restock ref: ${ref}\n\n` : '') +
+  `${RULE}\nMy name:\n${RULE}\n\nThank you!`
+
+export const restockLink = (p, ref) => waLink(restockMessage(p, ref))
